@@ -1,0 +1,306 @@
+/* design-system / css / animations.css */
+
+/* --- ENTRY ANIMATIONS (SURGIMENTO) --- */
+
+/* Blur In */
+@keyframes blurIn {
+  from {
+    filter: blur(12px);
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-blur-in {
+  animation: blurIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Text Stagger Blur In */
+@keyframes blurInLetter {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.animate-text-stagger .char {
+  display: inline-block;
+  opacity: 0;
+  animation: blurInLetter 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Grid Item Stagger Fade Up */
+@keyframes staggerFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-stagger-group .stagger-item {
+  opacity: 0;
+  animation: staggerFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide Up In */
+@keyframes slideUpIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide Down In */
+@keyframes slideDownIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slideDownIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide Right In */
+@keyframes slideRightIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-right {
+  animation: slideRightIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide Left In */
+@keyframes slideLeftIn {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeftIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+/* --- CLIP-PATH REVEAL ANIMATIONS --- */
+
+@keyframes revealFromLeft {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+.animate-reveal-left {
+  animation: revealFromLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealFromRight {
+  0% { clip-path: inset(0 0 0 100%); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+.animate-reveal-right {
+  animation: revealFromRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealFromTop {
+  0% { clip-path: inset(0 0 100% 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+.animate-reveal-top {
+  animation: revealFromTop 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealFromBottom {
+  0% { clip-path: inset(100% 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+.animate-reveal-bottom {
+  animation: revealFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- HOVER EFFECTS (INTERATIVIDADE) --- */
+
+/* 1. Scale Up */
+.hover-scale-up {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-scale-up:hover {
+  transform: scale(1.04);
+}
+
+/* 2. Shadow Float */
+.hover-shadow-float {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.hover-shadow-float:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(27, 38, 79, 0.12);
+}
+
+/* 3. Icon Shift */
+.hover-icon-shift {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-icon-shift .icon-to-shift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-icon-shift:hover .icon-to-shift {
+  transform: translateX(6px);
+}
+
+/* 4. Underline Grow (Minimalist Line under Text) */
+.hover-underline-grow {
+  position: relative;
+  display: inline-block;
+}
+.hover-underline-grow::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-brand-blue);
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-underline-grow:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* 5. Border Expand (Magnetic Focus) */
+.hover-border-glow {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid var(--color-brand-soft);
+}
+.hover-border-glow:hover {
+  border-color: var(--color-brand-blue) !important;
+  box-shadow: 0 0 0 4px rgba(39, 70, 144, 0.15) !important;
+}
+
+
+/* --- BUTTON COMPONENTS (21ST DEV GRADIENTS) --- */
+
+.gradient-button {
+  background: linear-gradient(120deg, var(--color-brand-navy) 0%, var(--color-brand-blue) 50%, var(--color-brand-navy) 100%);
+  background-size: 200% auto;
+  box-shadow: 0 4px 14px 0 rgba(27, 38, 79, 0.39), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.gradient-button:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px 0 rgba(27, 38, 79, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+.gradient-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px 0 rgba(27, 38, 79, 0.39);
+}
+
+.gradient-button-variant {
+  background: transparent;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  z-index: 1;
+}
+.gradient-button-variant::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(120deg, var(--color-brand-blue) 0%, var(--color-brand-ice) 50%, var(--color-brand-blue) 100%);
+  background-size: 200% auto;
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gradient-button-variant:hover::before {
+  background-position: right center;
+}
+.gradient-button-variant:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px 0 rgba(39, 70, 144, 0.15);
+  background: rgba(39, 70, 144, 0.02);
+}
+.gradient-button-variant:active {
+  transform: translateY(0);
+}
+
+/* 6. Dynamic Wave Border */
+.hover-wave-border {
+  position: relative;
+  isolation: isolate;
+  border-color: transparent !important;
+}
+.hover-wave-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: linear-gradient(60deg, var(--color-brand-navy), var(--color-brand-blue), var(--color-brand-soft), var(--color-brand-navy));
+  background-size: 300% 300%;
+  animation: waveFlow 6s linear infinite;
+  border-radius: calc(0.75rem + 2px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-wave-border:hover::before {
+  inset: -6px;
+  border-radius: calc(0.75rem + 6px);
+  animation: waveFlow 1.5s linear infinite;
+  box-shadow: 0 0 20px rgba(39, 70, 144, 0.3);
+}
+@keyframes waveFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

@@ -1,0 +1,23 @@
+/* Spotlight Navbar Variables and Animations */
+#spotlight-nav {
+    --spotlight-x: 0px;
+    --ambience-x: 0px;
+    --spotlight-color: rgba(255, 255, 255, 0.15); /* Dark mode lights for this dark theme */
+    --ambience-color: rgba(255, 255, 255, 0.9);
+}
+
+.spotlight-hover-layer {
+    background: radial-gradient(
+        120px circle at var(--spotlight-x) 100%, 
+        var(--spotlight-color) 0%, 
+        transparent 50%
+    );
+}
+
+.spotlight-ambience-layer {
+    background: radial-gradient(
+        60px circle at var(--ambience-x) 0%, 
+        var(--ambience-color) 0%, 
+        transparent 100%
+    );
+}

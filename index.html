@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristian Salge — Diretor Audiovisual & Social Architect</title>
+
+  <!-- SEO & Description -->
+  <meta name="description"
+    content="Design audiovisual de alta retenção e estética cinematográfica. Cristian Salge une narrativa de impacto e estratégia para mídias sociais que transformam visualizações em clientes.">
+  <meta name="author" content="Cristian Salge">
+
+  <!-- Local Fonts & Base Styles -->
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/navbar.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#1B264F',
+              blue: '#274690',
+              ice: '#CEE5F2',
+              soft: '#ACCBE1',
+              muted: '#7C98B3',
+              bg: '#F8FAFC',
+              white: '#FFFFFF',
+              deep: '#0A1128',
+            }
+          },
+          blur: {
+            '4xl': '120px',
+          },
+          fontFamily: {
+            'general-sans': ['General Sans', 'sans-serif'],
+            Supreme: ['Supreme', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body
+  class="bg-brand-bg text-brand-navy font-Supreme antialiased min-h-screen selection:bg-brand-soft selection:text-brand-navy">
+
+  <!-- Spotlight Navbar -->
+  <div id="navbar-wrapper"
+    class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 pointer-events-none transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] transform translate-y-0">
+    <nav id="spotlight-nav"
+      class="pointer-events-auto relative h-11 md:h-12 rounded-full overflow-hidden flex items-center bg-brand-deep/40 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all px-2 md:px-3">
+
+      <!-- Content -->
+      <ul class="relative flex items-center h-full gap-1 z-10 m-0 p-0 list-none">
+        <li class="relative h-full flex items-center justify-center">
+          <a href="#inicio" data-index="0"
+            class="nav-item text-white px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Início</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center">
+          <a href="#specialties-section" data-index="1"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Diferenciais</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center hidden sm:flex">
+          <a href="#portfolio" data-index="2"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Portfólio</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center hidden sm:flex">
+          <a href="#servicos" data-index="3"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Serviços</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center hidden md:flex">
+          <a href="#processo" data-index="4"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Processo</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center hidden md:flex">
+          <a href="#sobre" data-index="5"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Sobre</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center hidden lg:flex">
+          <a href="#faq" data-index="6"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">FAQ</a>
+        </li>
+      </ul>
+
+      <!-- LIGHTING LAYERS -->
+      <div id="spotlight-hover"
+        class="spotlight-hover-layer pointer-events-none absolute bottom-0 left-0 w-full h-full z-[1] opacity-0 transition-opacity duration-300">
+      </div>
+      <div id="spotlight-ambience"
+        class="spotlight-ambience-layer pointer-events-none absolute bottom-0 left-0 w-full h-[2px] z-[2]"></div>
+    </nav>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="w-full">
+
+    <!-- Hero Scroll Container -->
+    <!-- Heights are synchronized with SECTION_HEIGHT (2500px) + IDLE_HEIGHT (800px) + 100vh -->
+    <div class="relative w-full hero-scroll-container" style="height: calc(3300px + 100vh);">
+
+      <!-- Sticky Container for Image and Overlay Text -->
+      <div class="sticky-hero-wrapper">
+        <!-- Wavy Background Canvas -->
+        <canvas id="wavy-canvas"
+          class="absolute inset-0 z-0 w-full h-full blur-[10px] transform rotate-[-25deg] scale-[1.5] translate-x-[10%] -translate-y-[15%] origin-center transition-opacity duration-700"></canvas>
+
+        <!-- Clipped Background Image -->
+        <div class="center-image-clipped bg-cover bg-center bg-no-repeat"
+          style="background-image: url('/public/assets/images/hero-main-image.webp');">
+          <!-- Overlay on Center Image to add drama and contrast -->
+          <div class="absolute inset-0 bg-brand-navy/50 mix-blend-multiply"></div>
+        </div>
+
+        <!-- Interactive Copy Text Overlay (Sits outside clipped div to avoid clipping) -->
+        <div class="hero-overlay-content">
+          <div id="hero-card"
+            class="max-w-4xl mx-auto flex flex-col items-center gap-4 bg-brand-deep/20 backdrop-blur-md shadow-2xl rounded-3xl p-2">
+            <span
+              class="font-Supreme text-xs md:text-sm uppercase tracking-[0.3em] text-brand-muted font-bold animate-slide-down [animation-fill-mode:both] [animation-delay:200ms]">Filmmaker
+              &amp; Social Media</span>
+            <h1
+              class="font-general-sans text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tight text-brand-white leading-none animate-text-stagger drop-shadow-sm [animation-fill-mode:both] [animation-delay:600ms]">
+              Narrativas que <br class="hidden sm:inline">prendem a atenção
+            </h1>
+            <p
+              class="font-Supreme text-sm sm:text-base md:text-lg max-w-xl text-brand-soft/90 leading-relaxed font-medium mt-2 animate-slide-right [animation-fill-mode:both] [animation-delay:1000ms]">
+              Estética cinematográfica aliada à estratégia de retenção de redes sociais. Elevando o posicionamento
+              visual da sua marca de forma inconfundível.
+            </p>
+            <div
+              class="mt-4 flex flex-col sm:flex-row items-center gap-4 animate-slide-up pointer-events-auto [animation-fill-mode:both] [animation-delay:1400ms]">
+              <button onclick="document.getElementById('specialties-section').scrollIntoView({ behavior: 'smooth' });"
+                class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-6 rounded-lg shadow-lg">
+                Chamar no WhatsApp
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 fill-current transform transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto que surge quando a imagem maximiza -->
+        <div id="hero-maximized-text"
+          class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none opacity-0 transition-opacity duration-700">
+          <h2 id="scramble-text"
+            class="font-general-sans text-4xl sm:text-6xl md:text-8xl font-black uppercase text-brand-white tracking-widest drop-shadow-2xl">
+          </h2>
+          <p id="stagger-subtitle"
+            class="animate-text-stagger font-Supreme text-sm sm:text-xl md:text-2xl text-brand-soft uppercase tracking-[0.3em] font-medium mt-4 drop-shadow-lg">
+            Filmmaker &amp; social midia
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Parallax Overlapping Images -->
+      <div class="parallax-container mx-auto max-w-5xl px-6 pt-[200px] flex flex-col gap-32">
+        <!-- Floating Image 1 (Left Aligned) -->
+        <div class="w-full md:w-1/3 flex justify-start">
+          <img src="public/assets/images/hero-image-1.webp" alt="hero image 1"
+            class="parallax-img w-full aspect-[4/3] object-cover" data-start="-200" data-end="200">
+        </div>
+
+        <!-- Floating Image 2 (Centered, Large) -->
+        <div class="w-full md:w-2/3 mx-auto">
+          <img src="public/assets/images/hero-image-2.webp" alt="hero image 2"
+            class="parallax-img w-full aspect-[16/9] object-cover" data-start="200" data-end="-250">
+        </div>
+
+        <!-- Floating Image 3 (Right Aligned) -->
+        <div class="w-full md:w-1/3 ml-auto flex justify-end">
+          <img src="public/assets/images/hero-image-3.webp" alt="hero image 3"
+            class="parallax-img w-full aspect-[4/3] object-cover" data-start="-200" data-end="200">
+        </div>
+
+        <!-- Floating Image 4 (Different Left Position, Large) -->
+        <div class="w-full md:w-1/2 md:ml-16 mr-auto flex justify-start">
+          <img src="public/assets/images/hero-image-4.webp" alt="hero image 4"
+            class="parallax-img w-full aspect-[4/3] object-cover" data-start="100" data-end="-400">
+        </div>
+      </div>
+
+      <!-- Bottom Gradient Mask to transition to next section -->
+      <div class="hero-bottom-fade"></div>
+    </div>
+
+    <!-- Section Specialties (Schedule Replacement) -->
+    <section id="specialties-section" class="especialidades-section w-full py-48 text-white bg-brand-navy">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span
+              class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-2">Especialidades</span>
+            <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+              Focos de Atuação
+            </h2>
+          </div>
+          <p class="font-Supreme text-sm text-brand-muted max-w-sm leading-relaxed">
+            Unindo refinamento estético e as melhores estratégias de engajamento do mercado digital.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <!-- Item 1 -->
+          <article
+            class="especialidade-item fade-up-on-enter flex items-center justify-between border-b border-white/10 py-8 px-3 hover:bg-white/[0.02] rounded-lg transition-all duration-300">
+            <div>
+              <h3 class="mb-2 text-lg sm:text-2xl font-bold text-white tracking-wide">Vídeos Curtos &amp; Reels de Alta
+                Retenção</h3>
+              <p class="text-xs sm:text-sm text-brand-soft font-light">Cortes dinâmicos, ganchos magnéticos nos 3
+                segundos
+                iniciais e storytelling acelerado.</p>
+            </div>
+            <div class="flex items-center gap-2 text-end text-xs sm:text-sm uppercase tracking-wider text-brand-muted">
+              <span
+                class="hidden sm:inline bg-brand-blue/30 border border-brand-blue/60 text-brand-ice px-3 py-1 rounded-full">Social
+                Media</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5 text-brand-soft">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article
+            class="especialidade-item fade-up-on-enter flex items-center justify-between border-b border-white/10 py-8 px-3 hover:bg-white/[0.02] rounded-lg transition-all duration-300">
+            <div>
+              <h3 class="mb-2 text-lg sm:text-2xl font-bold text-white tracking-wide">Filmes Publicitários &amp;
+                Branding
+              </h3>
+              <p class="text-xs sm:text-sm text-brand-soft font-light">Estética cinematográfica para comerciais,
+                posicionando marcas com máxima autoridade visual.</p>
+            </div>
+            <div class="flex items-center gap-2 text-end text-xs sm:text-sm uppercase tracking-wider text-brand-muted">
+              <span
+                class="hidden sm:inline bg-brand-blue/30 border border-brand-blue/60 text-brand-ice px-3 py-1 rounded-full">Cinema
+                &amp; Corporate</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5 text-brand-soft">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article
+            class="especialidade-item fade-up-on-enter flex items-center justify-between border-b border-white/10 py-8 px-3 hover:bg-white/[0.02] rounded-lg transition-all duration-300">
+            <div>
+              <h3 class="mb-2 text-lg sm:text-2xl font-bold text-white tracking-wide">Direção Criativa &amp;
+                Roteirização
+              </h3>
+              <p class="text-xs sm:text-sm text-brand-soft font-light">Pesquisa de conceito, estruturação de roteiro e
+                direção artística antes de ligar a câmera.</p>
+            </div>
+            <div class="flex items-center gap-2 text-end text-xs sm:text-sm uppercase tracking-wider text-brand-muted">
+              <span
+                class="hidden sm:inline bg-brand-blue/30 border border-brand-blue/60 text-brand-ice px-3 py-1 rounded-full">Concepção</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5 text-brand-soft">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article
+            class="especialidade-item fade-up-on-enter flex items-center justify-between border-b border-white/10 py-8 px-3 hover:bg-white/[0.02] rounded-lg transition-all duration-300">
+            <div>
+              <h3 class="mb-2 text-lg sm:text-2xl font-bold text-white tracking-wide">Color Grading &amp; Pós-Produção
+              </h3>
+              <p class="text-xs sm:text-sm text-brand-soft font-light">Tratamento de cores avançado (LUTs
+                personalizadas)
+                e Sound Design que torna o vídeo imersivo.</p>
+            </div>
+            <div class="flex items-center gap-2 text-end text-xs sm:text-sm uppercase tracking-wider text-brand-muted">
+              <span
+                class="hidden sm:inline bg-brand-blue/30 border border-brand-blue/60 text-brand-ice px-3 py-1 rounded-full">Edição
+                Premium</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5 text-brand-soft">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>
+            </div>
+          </article>
+
+          <!-- Item 5 -->
+          <article
+            class="especialidade-item fade-up-on-enter flex items-center justify-between border-b border-white/10 py-8 px-3 hover:bg-white/[0.02] rounded-lg transition-all duration-300">
+            <div>
+              <h3 class="mb-2 text-lg sm:text-2xl font-bold text-white tracking-wide">Estratégia de Posicionamento</h3>
+              <p class="text-xs sm:text-sm text-brand-soft font-light">Definição de identidade, funil de conteúdo
+                audiovisual e calendário estratégico de postagens.</p>
+            </div>
+            <div class="flex items-center gap-2 text-end text-xs sm:text-sm uppercase tracking-wider text-brand-muted">
+              <span
+                class="hidden sm:inline bg-brand-blue/30 border border-brand-blue/60 text-brand-ice px-3 py-1 rounded-full">Consultoria</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5 text-brand-soft">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>
+            </div>
+          </article>
+        </div>
+    </section>
+
+    <!-- Scroll Indicator Pill -->
+    <div id="scroll-indicator"
+      class="fixed bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-brand-deep/40 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] opacity-0 transition-opacity duration-500 pointer-events-none z-[60]">
+      <span class="font-Supreme text-[10px] md:text-xs text-brand-white uppercase tracking-[0.2em] font-medium">Role
+        para explorar</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-soft animate-bounce"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+
+    <!-- Floating CTA Button (WhatsApp) -->
+    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[60] group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-brand-muted/20 backdrop-blur-md border border-brand-soft/30 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-110 hover:bg-brand-muted/40 hover:border-brand-ice/50 hover:shadow-[0_0_20px_rgba(172,203,225,0.4)]">
+      <svg xmlns="http://www.w3.org/2000/svg"
+        class="w-7 h-7 md:w-8 md:h-8 fill-brand-soft group-hover:fill-brand-ice transition-colors duration-300"
+        viewBox="0 0 24 24">
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+      </svg>
+    </a>
+
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="border-t border-white/10 bg-brand-navy py-12 text-center text-xs text-brand-muted font-light relative z-30">
+    <p>&copy; 2026 Cristian Salge &bull; Produtor Audiovisual &amp; Social Media. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Lenis for Smooth Scrolling CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- Simplex Noise for Wavy Background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+  <!-- Scripts -->
+  <script src="js/hero.js"></script>
+  <script src="js/navbar.js"></script>
+</body>
+
+</html>

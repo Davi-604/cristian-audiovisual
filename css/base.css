@@ -1,0 +1,82 @@
+/* design-system / css / base.css */
+
+@import url('fonts.css');
+
+:root {
+  /* Color Palette - Light-mode Minimalist */
+  --color-brand-navy: #1B264F;
+  --color-brand-blue: #274690;
+  --color-brand-ice: #CEE5F2;
+  --color-brand-soft: #ACCBE1;
+  --color-brand-muted: #7C98B3;
+  --color-brand-bg: #F8FAFC;
+  --color-brand-white: #FFFFFF;
+  --color-brand-deep: #0A1128;
+
+  /* Typography */
+  --font-supreme: 'Supreme', sans-serif;
+  --font-general-sans: 'General Sans', sans-serif;
+}
+
+/* Base Body Styles */
+body {
+  font-family: var(--font-supreme);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-navy);
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography Utilities */
+.font-supreme {
+  font-family: var(--font-supreme);
+}
+
+.font-general-sans {
+  font-family: var(--font-general-sans);
+}
+
+/* Custom classes for easier replication outside Tailwind */
+.text-brand-navy {
+  color: var(--color-brand-navy);
+}
+
+.text-brand-deep {
+  color: var(--color-brand-deep);
+}
+
+.text-brand-blue {
+  color: var(--color-brand-blue);
+}
+
+.text-brand-muted {
+  color: var(--color-brand-muted);
+}
+
+.bg-brand-navy {
+  background-color: var(--color-brand-navy);
+}
+
+.bg-brand-deep {
+  background-color: var(--color-brand-deep);
+}
+
+.bg-brand-blue {
+  background-color: var(--color-brand-blue);
+}
+
+.bg-brand-ice {
+  background-color: var(--color-brand-ice);
+}
+
+.bg-brand-soft {
+  background-color: var(--color-brand-soft);
+}
+
+.border-brand-soft {
+  border-color: var(--color-brand-soft);
+}
+
+.border-brand-navy {
+  border-color: var(--color-brand-navy);
+}

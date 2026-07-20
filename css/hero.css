@@ -1,0 +1,156 @@
+/* css/hero.css */
+
+/* Hero Scroll Container */
+.hero-scroll-container {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-brand-deep);
+  /* Deep background to support the modern dark visual */
+}
+
+/* Sticky Hero Wrapper */
+.sticky-hero-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Clipped Background Image */
+.center-image-clipped {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: clip-path, background-size, opacity;
+  z-index: 11;
+}
+
+/* Hero Typography Overlay */
+.hero-overlay-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  pointer-events: none;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* Parallax Images Container */
+.parallax-container {
+  position: relative;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.parallax-img {
+  will-change: transform, opacity;
+  pointer-events: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Smooth transition for style changes to prevent stuttering */
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Gradient fade at the bottom of the hero section to transition to content */
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24rem;
+  /* 96 in Tailwind */
+  background: linear-gradient(to bottom, rgba(27, 38, 79, 0) 0%, var(--color-brand-navy) 100%);
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Navigation mix-blend adjustments */
+.nav-logo-mix {
+  mix-blend-mode: difference;
+}
+
+/* Especialidades / Atuação (Schedule replacement) */
+.especialidades-section {
+  position: relative;
+  z-index: 30;
+  background-color: var(--color-brand-navy);
+}
+
+.especialidade-item {
+  transition: border-color 0.3s ease;
+}
+
+.especialidade-item:hover {
+  border-color: var(--color-brand-soft);
+}
+
+/* Scroll-based elements entry fade-up */
+.fade-up-on-enter {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up-on-enter.entered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glitch Effect on Central Text */
+.glitch-effect {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.glitch-effect::before {
+  left: 3px;
+  text-shadow: -2px 0 #ff00c1;
+  animation: glitch-anim-1 0.2s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+  left: -3px;
+  text-shadow: 2px 0 #00fff9;
+  animation: glitch-anim-2 0.25s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, 2px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 1px); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(-1px, -2px); }
+  80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 2px); }
+  100% { clip-path: inset(5% 0 80% 0); transform: translate(-2px, -1px); }
+}

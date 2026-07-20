@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — Cristian Audiovisual & Social</title>
+  <!-- SEO & Description -->
+  <meta name="description" content="Design System oficial para a landing page do Cristian - Produtor Audiovisual & Social. Um guia de estilo minimalista, moderno e responsivo.">
+  
+  <!-- Local Fontshare Stylesheet -->
+  <link rel="stylesheet" href="css/fonts.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#1B264F',
+              blue: '#274690',
+              ice: '#CEE5F2',
+              soft: '#ACCBE1',
+              muted: '#7C98B3',
+              bg: '#F8FAFC',
+              white: '#FFFFFF',
+            }
+          },
+          fontFamily: {
+            'general-sans': ['General Sans', 'sans-serif'],
+            Supreme: ['Supreme', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Project Styles (Modular) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/design-system.css">
+</head>
+<body class="bg-brand-bg text-brand-navy font-Supreme antialiased min-h-screen">
+
+  <!-- Header -->
+  <header class="ds-header sticky top-0 z-40 px-6 py-4 md:px-12 flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div>
+      <h1 class="font-general-sans text-2xl font-bold tracking-tight text-brand-navy">CRISTIAN</h1>
+      <p class="text-sm text-brand-muted font-light">Design System &bull; Landing Page Minimalista</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="replay-all-animations" class="btn-primary py-2 px-4 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+        </svg>
+        Reiniciar Animações
+      </button>
+      <span class="text-xs bg-brand-ice text-brand-navy px-3 py-1.5 rounded-full font-medium border border-brand-soft">v1.0.0</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="max-w-7xl mx-auto px-6 md:px-12 py-10 flex flex-col lg:flex-row gap-10">
+
+    <!-- Sidebar Navigation -->
+    <aside class="lg:w-1/4 lg:sticky lg:top-24 h-fit hidden lg:flex flex-col gap-6">
+      <div class="border-l border-brand-ice pl-4 flex flex-col gap-4">
+        <p class="text-xs uppercase font-bold text-brand-muted tracking-wider">Diretrizes Básicas</p>
+        <a href="#typography" class="sidebar-link pl-2 py-1 text-sm border-l-2 active">Tipografia</a>
+        <a href="#colors" class="sidebar-link pl-2 py-1 text-sm border-l-2">Paleta de Cores</a>
+        <a href="#buttons" class="sidebar-link pl-2 py-1 text-sm border-l-2">Componentes de Botões</a>
+        <p class="text-xs uppercase font-bold text-brand-muted tracking-wider mt-4">Transições e Efeitos</p>
+        <a href="#hover-effects" class="sidebar-link pl-2 py-1 text-sm border-l-2">Animações de Hover</a>
+        <a href="#entry-animations" class="sidebar-link pl-2 py-1 text-sm border-l-2">Animações de Entrada</a>
+      </div>
+      <div class="bg-brand-ice/20 border border-brand-ice/50 rounded-lg p-4 text-xs text-brand-muted leading-relaxed">
+        <strong class="text-brand-navy block mb-1">Guia de Copiar:</strong>
+        Clique nos badges como <span class="copy-badge py-0.5 px-1.5 text-[10px]">.class-name</span> para copiar a classe correspondente para a sua área de transferência instantaneamente.
+      </div>
+    </aside>
+
+    <!-- Content Sections -->
+    <main class="lg:w-3/4 flex flex-col gap-16">
+
+      <!-- Section: Typography -->
+      <section id="typography" class="section-anchor scroll-mt-24">
+        <div class="mb-6">
+          <h2 class="font-general-sans text-3xl font-bold tracking-tight text-brand-navy">01. Tipografia</h2>
+          <p class="text-brand-muted mt-2">Fontes selecionadas para equilibrar sofisticação visual no audiovisual e legibilidade em dispositivos móveis e desktop.</p>
+        </div>
+
+        <div class="ds-card flex flex-col gap-8">
+          <!-- Font Imports & Rules -->
+          <div class="border-b border-brand-ice pb-6">
+            <h3 class="font-general-sans text-lg font-semibold mb-3">Fontes Utilizadas</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="p-4 bg-brand-bg rounded-lg border border-brand-ice/30">
+                <span class="text-xs text-brand-muted font-mono block mb-1">Heading Font</span>
+                <p class="font-general-sans text-2xl font-bold">General Sans</p>
+                <p class="text-xs text-brand-muted mt-2 font-mono">font-family: 'General Sans', sans-serif;</p>
+                <div class="mt-3 flex gap-2 flex-wrap">
+                  <span class="copy-badge" data-copy="font-general-sans">.font-general-sans</span>
+                  <span class="copy-badge" data-copy="font-family: 'General Sans', sans-serif;">CSS Rule</span>
+                </div>
+              </div>
+              <div class="p-4 bg-brand-bg rounded-lg border border-brand-ice/30">
+                <span class="text-xs text-brand-muted font-mono block mb-1">Body Font</span>
+                <p class="font-Supreme text-2xl font-normal">Supreme</p>
+                <p class="text-xs text-brand-muted mt-2 font-mono">font-family: 'Supreme', sans-serif;</p>
+                <div class="mt-3 flex gap-2 flex-wrap">
+                  <span class="copy-badge" data-copy="font-Supreme">.font-Supreme</span>
+                  <span class="copy-badge" data-copy="font-family: 'Supreme', sans-serif;">CSS Rule</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Type Scale -->
+          <div>
+            <h3 class="font-general-sans text-lg font-semibold mb-4">Hierarquia Textual</h3>
+            <div class="flex flex-col gap-6">
+              <!-- H1 -->
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-brand-bg pb-4">
+                <div class="md:w-2/3">
+                  <span class="text-[10px] text-brand-muted font-mono block mb-1">Hero Title (H1)</span>
+                  <h1 class="font-general-sans text-4xl md:text-5xl font-bold tracking-tight text-brand-navy">Design Audiovisual que Impacta</h1>
+                </div>
+                <div class="flex gap-2 h-fit">
+                  <span class="copy-badge" data-copy="font-general-sans text-4xl md:text-5xl font-bold tracking-tight text-brand-navy">Copiar Classes</span>
+                </div>
+              </div>
+              <!-- H2 -->
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-brand-bg pb-4">
+                <div class="md:w-2/3">
+                  <span class="text-[10px] text-brand-muted font-mono block mb-1">Section Header (H2)</span>
+                  <h2 class="font-general-sans text-2xl md:text-3xl font-bold tracking-tight text-brand-navy">Diferenciais & Abordagem</h2>
+                </div>
+                <div class="flex gap-2 h-fit">
+                  <span class="copy-badge" data-copy="font-general-sans text-2xl md:text-3xl font-bold tracking-tight text-brand-navy">Copiar Classes</span>
+                </div>
+              </div>
+              <!-- H3 -->
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-brand-bg pb-4">
+                <div class="md:w-2/3">
+                  <span class="text-[10px] text-brand-muted font-mono block mb-1">Sub-section Header (H3)</span>
+                  <h3 class="font-general-sans text-xl font-semibold text-brand-navy">Social Media Reels Production</h3>
+                </div>
+                <div class="flex gap-2 h-fit">
+                  <span class="copy-badge" data-copy="font-general-sans text-xl font-semibold text-brand-navy">Copiar Classes</span>
+                </div>
+              </div>
+              <!-- Body -->
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-brand-bg pb-4">
+                <div class="md:w-2/3">
+                  <span class="text-[10px] text-brand-muted font-mono block mb-1">Body Text</span>
+                  <p class="font-Supreme text-base leading-relaxed text-brand-muted">Criamos narrativas dinâmicas que prendem a atenção do espectador nos primeiros 3 segundos, garantindo maior retenção e engajamento nas redes sociais.</p>
+                </div>
+                <div class="flex gap-2 h-fit">
+                  <span class="copy-badge" data-copy="font-Supreme text-base leading-relaxed text-brand-muted">Copiar Classes</span>
+                </div>
+              </div>
+              <!-- Captions & Metadata -->
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <div class="md:w-2/3">
+                  <span class="text-[10px] text-brand-muted font-mono block mb-1">Metadata / Small Text</span>
+                  <p class="font-Supreme text-xs uppercase tracking-wider text-brand-muted font-medium">Duração: 45 segundos &bull; Direção Criativa</p>
+                </div>
+                <div class="flex gap-2 h-fit">
+                  <span class="copy-badge" data-copy="font-Supreme text-xs uppercase tracking-wider text-brand-muted font-medium">Copiar Classes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Colors -->
+      <section id="colors" class="section-anchor scroll-mt-24">
+        <div class="mb-6">
+          <h2 class="font-general-sans text-3xl font-bold tracking-tight text-brand-navy">02. Paleta de Cores</h2>
+          <p class="text-brand-muted mt-2">A paleta segue tons frios de azuis e cinzas discretos, perfeitamente equilibrados para um layout com predominância light e estética limpa.</p>
+        </div>
+
+        <div class="ds-card">
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Navy -->
+            <div class="flex flex-col gap-2">
+              <div class="color-swatch bg-brand-navy"></div>
+              <div>
+                <h4 class="font-general-sans text-sm font-semibold">Deep Navy</h4>
+                <p class="text-xs text-brand-muted font-mono">#1B264F</p>
+                <div class="flex flex-col gap-1 mt-2">
+                  <span class="copy-badge" data-copy="#1B264F">HEX: #1B264F</span>
+                  <span class="copy-badge" data-copy="text-brand-navy">text-brand-navy</span>
+                  <span class="copy-badge" data-copy="bg-brand-navy">bg-brand-navy</span>
+                </div>
+              </div>
+            </div>
+            <!-- Blue -->
+            <div class="flex flex-col gap-2">
+              <div class="color-swatch bg-brand-blue"></div>
+              <div>
+                <h4 class="font-general-sans text-sm font-semibold">Primary Blue</h4>
+                <p class="text-xs text-brand-muted font-mono">#274690</p>
+                <div class="flex flex-col gap-1 mt-2">
+                  <span class="copy-badge" data-copy="#274690">HEX: #274690</span>
+                  <span class="copy-badge" data-copy="text-brand-blue">text-brand-blue</span>
+                  <span class="copy-badge" data-copy="bg-brand-blue">bg-brand-blue</span>
+                </div>
+              </div>
+            </div>
+            <!-- Muted -->
+            <div class="flex flex-col gap-2">
+              <div class="color-swatch bg-brand-muted"></div>
+              <div>
+                <h4 class="font-general-sans text-sm font-semibold">Muted Blue-Gray</h4>
+                <p class="text-xs text-brand-muted font-mono">#7C98B3</p>
+                <div class="flex flex-col gap-1 mt-2">
+                  <span class="copy-badge" data-copy="#7C98B3">HEX: #7C98B3</span>
+                  <span class="copy-badge" data-copy="text-brand-muted">text-brand-muted</span>
+                  <span class="copy-badge" data-copy="bg-brand-muted">bg-brand-muted</span>
+                </div>
+              </div>
+            </div>
+            <!-- Soft -->
+            <div class="flex flex-col gap-2">
+              <div class="color-swatch bg-brand-soft"></div>
+              <div>
+                <h4 class="font-general-sans text-sm font-semibold">Soft Light Blue</h4>
+                <p class="text-xs text-brand-muted font-mono">#ACCBE1</p>
+                <div class="flex flex-col gap-1 mt-2">
+                  <span class="copy-badge" data-copy="#ACCBE1">HEX: #ACCBE1</span>
+                  <span class="copy-badge" data-copy="border-brand-soft">border-brand-soft</span>
+                  <span class="copy-badge" data-copy="bg-brand-soft">bg-brand-soft</span>
+                </div>
+              </div>
+            </div>
+            <!-- Ice -->
+            <div class="flex flex-col gap-2">
+              <div class="color-swatch bg-brand-ice"></div>
+              <div>
+                <h4 class="font-general-sans text-sm font-semibold">Light Ice Blue</h4>
+                <p class="text-xs text-brand-muted font-mono">#CEE5F2</p>
+                <div class="flex flex-col gap-1 mt-2">
+                  <span class="copy-badge" data-copy="#CEE5F2">HEX: #CEE5F2</span>
+                  <span class="copy-badge" data-copy="bg-brand-ice">bg-brand-ice</span>
+                  <span class="copy-badge" data-copy="border-brand-ice">border-brand-ice</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Complementary light backgrounds -->
+          <div class="mt-8 pt-6 border-t border-brand-ice/40 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+            <div>
+              <h4 class="font-general-sans text-sm font-semibold text-brand-navy">Backgrounds Gerais</h4>
+              <p class="text-xs text-brand-muted mt-1">Superfícies limpas e minimalistas para priorizar o conteúdo visual.</p>
+            </div>
+            <div class="flex gap-2">
+              <span class="copy-badge" data-copy="bg-brand-bg">.bg-brand-bg (#F8FAFC)</span>
+              <span class="copy-badge" data-copy="bg-white">.bg-white (#FFFFFF)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Buttons -->
+      <section id="buttons" class="section-anchor scroll-mt-24">
+        <div class="mb-6">
+          <h2 class="font-general-sans text-3xl font-bold tracking-tight text-brand-navy">03. Componentes de Botões</h2>
+          <p class="text-brand-muted mt-2">Variações simplificadas e cleans construídas com classes bem estruturadas para facilitar sua replicação.</p>
+        </div>
+
+        <div class="ds-card flex flex-col gap-8">
+          <!-- Button Showcase -->
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Variação 1: Primário (Solid Navy) -->
+            <div class="flex flex-col justify-between p-6 bg-brand-bg rounded-lg border border-brand-ice/30">
+              <div>
+                <span class="text-xs text-brand-muted font-mono block mb-1">Variação 1 &bull; Primário</span>
+                <h4 class="font-general-sans text-base font-semibold text-brand-navy mb-4">Gradient Button (21st Dev)</h4>
+                <div class="py-6 flex justify-center">
+                  <button class="gradient-button inline-flex items-center justify-center rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-white font-general-sans focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">Entrar em Contato</button>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-brand-ice/40">
+                <span class="text-[10px] text-brand-muted font-mono block mb-2">Classe CSS Dedicada</span>
+                <span class="copy-badge mb-2 block w-fit" data-copy="gradient-button">.gradient-button</span>
+                <span class="text-[10px] text-brand-muted font-mono block mt-3 mb-2">Classes Tailwind Correspondentes</span>
+                <div class="flex flex-wrap gap-1">
+                  <span class="copy-badge" data-copy="gradient-button inline-flex items-center justify-center rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-white font-general-sans focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">Copiar Classes Completas</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Variação 2: Secundário (Outline) -->
+            <div class="flex flex-col justify-between p-6 bg-brand-bg rounded-lg border border-brand-ice/30">
+              <div>
+                <span class="text-xs text-brand-muted font-mono block mb-1">Variação 2 &bull; Secundário</span>
+                <h4 class="font-general-sans text-base font-semibold text-brand-navy mb-4">Gradient Button Variant</h4>
+                <div class="py-6 flex justify-center">
+                  <button class="gradient-button-variant inline-flex items-center justify-center rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-brand-navy font-general-sans focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">Ver Portfólio</button>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-brand-ice/40">
+                <span class="text-[10px] text-brand-muted font-mono block mb-2">Classe CSS Dedicada</span>
+                <span class="copy-badge mb-2 block w-fit" data-copy="gradient-button-variant">.gradient-button-variant</span>
+                <span class="text-[10px] text-brand-muted font-mono block mt-3 mb-2">Classes Tailwind Correspondentes</span>
+                <div class="flex flex-wrap gap-1">
+                  <span class="copy-badge" data-copy="gradient-button-variant inline-flex items-center justify-center rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-brand-navy font-general-sans focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">Copiar Classes Completas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Hover Animations -->
+      <section id="hover-effects" class="section-anchor scroll-mt-24">
+        <div class="mb-6">
+          <h2 class="font-general-sans text-3xl font-bold tracking-tight text-brand-navy">04. Animações de Hover</h2>
+          <p class="text-brand-muted mt-2">Diferentes efeitos e micro-interações minimalistas para botões, links, cards e contornos.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- 1. Scale Up -->
+          <div class="ds-card hover-scale-up cursor-pointer flex flex-col justify-between h-48">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3 class="font-general-sans text-lg font-semibold">01. Scale Up</h3>
+                <span class="copy-badge" data-copy="hover-scale-up">.hover-scale-up</span>
+              </div>
+              <p class="text-sm text-brand-muted mt-2">Aumenta suavemente o tamanho do card ao passar o mouse para dar destaque.</p>
+            </div>
+            <p class="text-xs text-brand-blue font-mono font-medium mt-4">Passe o mouse para testar &rarr;</p>
+          </div>
+
+          <!-- 2. Shadow Float -->
+          <div class="ds-card hover-shadow-float cursor-pointer flex flex-col justify-between h-48">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3 class="font-general-sans text-lg font-semibold">02. Shadow Float</h3>
+                <span class="copy-badge" data-copy="hover-shadow-float">.hover-shadow-float</span>
+              </div>
+              <p class="text-sm text-brand-muted mt-2">Eleva o elemento no eixo Y e projeta uma sombra suave e profunda.</p>
+            </div>
+            <p class="text-xs text-brand-blue font-mono font-medium mt-4">Passe o mouse para testar &rarr;</p>
+          </div>
+
+          <!-- 3. Icon Shift -->
+          <div class="ds-card cursor-pointer flex flex-col justify-between h-48">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3 class="font-general-sans text-lg font-semibold">03. Icon Shift</h3>
+                <span class="copy-badge" data-copy="hover-icon-shift">.hover-icon-shift</span>
+              </div>
+              <p class="text-sm text-brand-muted mt-2">Ideal para links de ação. Ao passar o mouse, o ícone adjacente se desloca para a direita.</p>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <a href="javascript:void(0)" class="hover-icon-shift font-general-sans font-medium text-brand-navy inline-flex items-center gap-2 text-sm">
+                Fazer Orçamento
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 icon-to-shift">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+              <span class="copy-badge text-[10px]" data-copy="icon-to-shift">.icon-to-shift</span>
+            </div>
+          </div>
+
+          <!-- 4. Underline Grow -->
+          <div class="ds-card cursor-pointer flex flex-col justify-between h-48">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3 class="font-general-sans text-lg font-semibold">04. Underline Grow</h3>
+                <span class="copy-badge" data-copy="hover-underline-grow">.hover-underline-grow</span>
+              </div>
+              <p class="text-sm text-brand-muted mt-2">Uma linha sutil surge a partir do canto e se expande por baixo do texto.</p>
+            </div>
+            <div class="mt-4">
+              <a href="javascript:void(0)" class="hover-underline-grow font-general-sans font-medium text-brand-navy text-sm">
+                Nossos Termos de Serviço
+              </a>
+            </div>
+          </div>
+
+          <!-- 5. Border Expand / Glow -->
+          <div class="ds-card hover-border-glow cursor-pointer flex flex-col justify-between h-48 col-span-1 md:col-span-2">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3 class="font-general-sans text-lg font-semibold">05. Border Glow (Foco Magnético)</h3>
+                <span class="copy-badge" data-copy="hover-border-glow">.hover-border-glow</span>
+              </div>
+              <p class="text-sm text-brand-muted mt-2">Muda a cor da borda sutilmente e adiciona uma sombra difusa interna ao redor do elemento, ideal para cartões de serviços e depoimentos.</p>
+            </div>
+            <p class="text-xs text-brand-blue font-mono font-medium mt-4">Passe o mouse para testar &rarr;</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Entry Animations -->
+      <section id="entry-animations" class="section-anchor scroll-mt-24">
+        <div class="mb-6">
+          <h2 class="font-general-sans text-3xl font-bold tracking-tight text-brand-navy">05. Animações de Entrada (Surgimento)</h2>
+          <p class="text-brand-muted mt-2">Transições de carregamento elegantes focadas em opacidade com desfoque (blur in) e deslocamentos harmônicos (slide in).</p>
+        </div>
+
+        <div class="ds-card flex flex-col gap-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Blur In Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Blur In</h3>
+                  <span class="copy-badge" data-copy="animate-blur-in">.animate-blur-in</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Suaviza o surgimento do elemento removendo um desfoque inicial enquanto aumenta a opacidade.</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-blur-in" data-animate-group data-animate-class="animate-blur-in" class="animate-blur-in font-general-sans text-xl font-bold text-brand-navy">
+                  Audiovisual Criativo
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-blur-in" data-replay-class="animate-blur-in" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Text Stagger Blur In Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between col-span-1 md:col-span-2">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Text Stagger (Blur In)</h3>
+                  <span class="copy-badge" data-copy="animate-text-stagger">.animate-text-stagger</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Animação que divide o texto em letras individuais, revelando cada uma progressivamente com um efeito de blur e deslocamento suave.</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-text-stagger" data-animate-group data-animate-class="animate-text-stagger" class="animate-text-stagger font-general-sans text-xl md:text-3xl font-bold text-brand-navy">
+                  Audiovisual Criativo
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-text-stagger" data-replay-class="animate-text-stagger" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Slide Up Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Slide Up In</h3>
+                  <span class="copy-badge" data-copy="animate-slide-up">.animate-slide-up</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Sobe o elemento verticalmente a partir de um recuo de 30px enquanto revela com opacidade.</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-slide-up" data-animate-group data-animate-class="animate-slide-up" class="animate-slide-up font-general-sans text-xl font-bold text-brand-navy">
+                  Deslizar para Cima
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-slide-up" data-replay-class="animate-slide-up" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Slide Right Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Slide Right In</h3>
+                  <span class="copy-badge" data-copy="animate-slide-right">.animate-slide-right</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Desloca o elemento horizontalmente a partir da esquerda em direção à sua posição final.</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-slide-right" data-animate-group data-animate-class="animate-slide-right" class="animate-slide-right font-general-sans text-xl font-bold text-brand-navy">
+                  Revelar da Esquerda &rarr;
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-slide-right" data-replay-class="animate-slide-right" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Slide Left Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Slide Left In</h3>
+                  <span class="copy-badge" data-copy="animate-slide-left">.animate-slide-left</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Desloca o elemento horizontalmente a partir da direita em direção à sua posição final.</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-slide-left" data-animate-group data-animate-class="animate-slide-left" class="animate-slide-left font-general-sans text-xl font-bold text-brand-navy">
+                  &larr; Revelar da Direita
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-slide-left" data-replay-class="animate-slide-left" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Reveal From Left Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Reveal from Left</h3>
+                  <span class="copy-badge" data-copy="animate-reveal-left">.animate-reveal-left</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Revela o elemento suavemente a partir da esquerda mantendo sua posição original (clip-path).</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-reveal-left" data-animate-group data-animate-class="animate-reveal-left" class="animate-reveal-left bg-brand-navy w-32 h-8 rounded"></div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-reveal-left" data-replay-class="animate-reveal-left" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Reveal From Right Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Reveal from Right</h3>
+                  <span class="copy-badge" data-copy="animate-reveal-right">.animate-reveal-right</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Revela o elemento suavemente a partir da direita mantendo sua posição original (clip-path).</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-reveal-right" data-animate-group data-animate-class="animate-reveal-right" class="animate-reveal-right bg-brand-navy w-32 h-8 rounded"></div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-reveal-right" data-replay-class="animate-reveal-right" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Reveal From Top Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Reveal from Top</h3>
+                  <span class="copy-badge" data-copy="animate-reveal-top">.animate-reveal-top</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Revela o elemento suavemente a partir do topo mantendo sua posição original (clip-path).</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-reveal-top" data-animate-group data-animate-class="animate-reveal-top" class="animate-reveal-top bg-brand-navy w-32 h-8 rounded"></div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-reveal-top" data-replay-class="animate-reveal-top" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Reveal From Bottom Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Reveal from Bottom</h3>
+                  <span class="copy-badge" data-copy="animate-reveal-bottom">.animate-reveal-bottom</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Revela o elemento suavemente a partir da base mantendo sua posição original (clip-path).</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[120px]">
+                <div id="demo-reveal-bottom" data-animate-group data-animate-class="animate-reveal-bottom" class="animate-reveal-bottom bg-brand-navy w-32 h-8 rounded"></div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-reveal-bottom" data-replay-class="animate-reveal-bottom" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+            <!-- Grid Stagger Fade Up Showcase -->
+            <div class="border border-brand-ice/40 rounded-lg p-5 bg-brand-bg flex flex-col justify-between col-span-1 md:col-span-2">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="font-general-sans font-semibold text-brand-navy">Grid Item Stagger Fade Up</h3>
+                  <span class="copy-badge" data-copy="animate-stagger-group">.animate-stagger-group</span>
+                </div>
+                <p class="text-xs text-brand-muted mb-4">Aplica uma animação sequencial nos itens filhos (.stagger-item), iniciando com escala reduzida, blur e subindo até a posição original.</p>
+              </div>
+              <div class="py-6 flex items-center justify-center bg-white border border-brand-ice/20 rounded-md relative overflow-hidden min-h-[160px]">
+                <div id="demo-stagger-group" data-animate-group data-animate-class="animate-stagger-group" class="animate-stagger-group grid grid-cols-3 gap-4 w-full max-w-sm px-4">
+                  <div class="stagger-item h-16 bg-brand-soft rounded shadow-sm border border-brand-ice"></div>
+                  <div class="stagger-item h-16 bg-brand-muted rounded shadow-sm border border-brand-ice"></div>
+                  <div class="stagger-item h-16 bg-brand-blue rounded shadow-sm border border-brand-navy"></div>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-brand-ice/30 flex justify-end">
+                <button data-replay-target="demo-stagger-group" data-replay-class="animate-stagger-group" class="text-xs font-semibold text-brand-blue hover:text-brand-navy flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+                  Replay
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-20 border-t border-brand-ice bg-white py-8 text-center text-xs text-brand-muted font-light">
+    <p>&copy; 2026 Cristian Audiovisual & Social. Todos os direitos reservados. Feito com foco em performance e minimalismo.</p>
+  </footer>
+
+  <!-- Lenis for Smooth Scrolling -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- Interactivity Script -->
+  <script src="js/design-system.js"></script>
+</body>
+</html>
+
