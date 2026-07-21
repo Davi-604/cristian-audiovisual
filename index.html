@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/servicos.css">
   <link rel="stylesheet" href="css/processo.css">
   <link rel="stylesheet" href="css/depoimentos.css">
+  <link rel="stylesheet" href="css/sobre.css">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -993,6 +994,325 @@
       </div>
     </section>
 
+    <!-- Section 7: Sobre o Profissional -->
+    <section id="sobre" class="w-full bg-brand-deep py-24 md:py-32 border-t border-white/5 relative z-20 overflow-hidden">
+      <!-- Ambient Lights & Grid Background -->
+      <div class="absolute inset-0 pointer-events-none opacity-30">
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[140px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-soft/10 rounded-full blur-[160px]"></div>
+      </div>
+
+      <div class="max-w-[1640px] mx-auto px-6 md:px-12 relative z-10">
+        
+        <!-- Header da Section -->
+        <div class="mb-12 md:mb-16 max-w-3xl sobre-reveal-item delay-1">
+          <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold card-inner-item inner-delay-1">
+            Sobre o Criador
+          </span>
+          <h2 class="font-general-sans text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white leading-tight card-inner-item inner-delay-2">
+            Alquimia Visual &amp; <span class="bg-gradient-to-r from-brand-ice via-brand-soft to-brand-muted bg-clip-text text-transparent">Estratégia de Retenção</span>
+          </h2>
+        </div>
+
+        <!-- Grid Principal em Duas Colunas (Left: Image Frame | Right: Bento Grid) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Coluna Esquerda: Moldura Audiovisual Reticular (lg:col-span-5) -->
+          <div class="lg:col-span-5 flex items-center justify-center h-full self-center">
+            <div class="group relative w-full max-w-md h-full rounded-3xl profile-card-frame sobre-reveal-left delay-2">
+              <!-- Static Base Border Highlight -->
+              <div class="bento-card-border-base"></div>
+              <!-- Dynamic Spotlight Radial Border Glow -->
+              <div class="bento-card-border-glow"></div>
+              <!-- Gradient Background Layer -->
+              <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-blue/50 via-brand-ice/30 to-brand-navy/60 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+              <!-- Glass Surface Panel -->
+              <div class="camera-viewfinder-frame profile-glow-container relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl transition-colors duration-400">
+                
+                <!-- HUD Reticle Corner Markers -->
+                <div class="hud-corner hud-corner-tl"></div>
+                <div class="hud-corner hud-corner-tr"></div>
+                <div class="hud-corner hud-corner-bl"></div>
+                <div class="hud-corner hud-corner-br"></div>
+
+                <!-- Top Viewfinder Header Info Bar -->
+                <div class="flex items-center justify-between px-3 py-2 mb-3 bg-brand-deep/60 backdrop-blur-md rounded-xl border border-white/5 card-inner-item inner-delay-1">
+                  <div class="flex items-center gap-2">
+                    <span class="rec-pulse-dot"></span>
+                    <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-white font-bold">REC &bull; 4K UHD</span>
+                  </div>
+                  <span class="font-Supreme text-[10px] uppercase tracking-widest text-brand-soft/80 font-semibold">60 FPS &bull; RAW</span>
+                </div>
+
+                <!-- Container da Imagem de Perfil -->
+                <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group card-inner-item inner-delay-2">
+                  <!-- Overlay suave no hover -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
+                  
+                  <img src="public/assets/images/cristian-profile.webp" 
+                    alt="Cristian Salge — Diretor Audiovisual & Social Architect" 
+                    class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105"
+                    loading="lazy">
+
+                  <!-- Badge HUD Flutuante Inferior -->
+                  <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between bg-brand-deep/80 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg card-inner-item inner-delay-3">
+                    <div>
+                      <h3 class="font-general-sans text-sm font-bold text-white uppercase tracking-wide">Cristian Salge</h3>
+                      <p class="font-Supreme text-[10px] text-brand-soft uppercase tracking-wider font-medium">Filmmaker &amp; Social Architect</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H9l2 4H8L6 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Technical Camera Settings Footer Bar -->
+                <div class="flex items-center justify-between px-3 py-2 mt-3 bg-brand-deep/60 backdrop-blur-md rounded-xl border border-white/5 font-Supreme text-[9px] uppercase tracking-wider text-brand-muted font-bold card-inner-item inner-delay-4">
+                  <span>ISO 400</span>
+                  <span>F/1.4</span>
+                  <span>1/200s</span>
+                  <span class="text-brand-soft">5600K</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Bento Grid (lg:col-span-7) -->
+          <div class="lg:col-span-7">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
+              
+              <!-- Card 1 (Maior): Descrição Detalhada & Trajetória (Spans 3 cols on md+) -->
+              <div class="bento-card bento-card-1 group relative h-full rounded-3xl md:col-span-3 sobre-reveal-item delay-2">
+                <!-- Static Base Border Highlight -->
+                <div class="bento-card-border-base"></div>
+                <!-- Dynamic Spotlight Radial Border Glow -->
+                <div class="bento-card-border-glow"></div>
+                <!-- Gradient Background Layer -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                
+                <!-- Glass Surface Panel -->
+                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 shadow-2xl transition-colors duration-400">
+                  <div class="bento-card-glow"></div>
+                  <div class="relative z-10 flex flex-col justify-between h-full">
+                    <div>
+                      <div class="flex items-center gap-2 mb-4 card-inner-item inner-delay-1">
+                        <span class="px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                          Trajetória &amp; Posicionamento
+                        </span>
+                      </div>
+                      <h3 class="font-general-sans text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-white tracking-wide mb-4 leading-snug card-inner-item inner-delay-2">
+                        Unindo a Estética do Cinema ao Algoritmo das Redes
+                      </h3>
+                      <p class="font-Supreme text-sm sm:text-base text-brand-soft/90 leading-relaxed font-medium mb-4 card-inner-item inner-delay-3">
+                        O mercado audiovisual moderno não tolera vídeos lentos ou sem propósito. Cristian Salge constrói narrativas de alta retenção desenhadas sob medida para marcas e personalidades que recusam o genérico.
+                      </p>
+                      <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold card-inner-item inner-delay-4">
+                        Com vasta experiência em direção de cena, montagem ritmada e sound design envolvente, cada produção combina o impacto estético das grandes campanhas publicitárias com a estratégia científica de conversão e engajamento das redes sociais.
+                      </p>
+                    </div>
+                    
+                    <!-- Citação / Manifesto -->
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3 card-inner-item inner-delay-5">
+                      <div class="w-1.5 h-10 bg-gradient-to-b from-brand-ice to-brand-blue rounded-full"></div>
+                      <p class="font-Supreme text-xs sm:text-sm italic text-brand-ice/90 font-medium">
+                        &ldquo;O audiovisual não é apenas sobre gravar imagens bonitas. É sobre dominar a atenção e emocionar em segundos.&rdquo;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Big Number 1 — Visualizações -->
+              <div class="bento-card bento-card-2 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-3">
+                <!-- Static Base Border Highlight -->
+                <div class="bento-card-border-base"></div>
+                <!-- Dynamic Spotlight Radial Border Glow -->
+                <div class="bento-card-border-glow"></div>
+                <!-- Gradient Background Layer -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                <!-- Glass Surface Panel -->
+                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                  <div class="bento-card-glow"></div>
+                  <div class="relative z-10">
+                    <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
+                      <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Impacto</span>
+                      <div class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h4 class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2" 
+                      data-target="150" data-prefix="+" data-suffix="M">
+                      +150M
+                    </h4>
+                    <p class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">Visualizações</p>
+                    <p class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
+                      Geradas em campanhas &amp; vídeos orgânicos
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Big Number 2 — Projetos Concluídos -->
+              <div class="bento-card bento-card-3 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-4">
+                <!-- Static Base Border Highlight -->
+                <div class="bento-card-border-base"></div>
+                <!-- Dynamic Spotlight Radial Border Glow -->
+                <div class="bento-card-border-glow"></div>
+                <!-- Gradient Background Layer -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                <!-- Glass Surface Panel -->
+                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                  <div class="bento-card-glow"></div>
+                  <div class="relative z-10">
+                    <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
+                      <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Portfólio</span>
+                      <div class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M17 4v16M3 8h18M3 16h18" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h4 class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2" 
+                      data-target="200" data-prefix="+" data-suffix="">
+                      +200
+                    </h4>
+                    <p class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">Projetos Entregues</p>
+                    <p class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
+                      Comerciais, Reels e produções de marca
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: Big Number 3 — Taxa de Retenção -->
+              <div class="bento-card bento-card-4 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-5">
+                <!-- Static Base Border Highlight -->
+                <div class="bento-card-border-base"></div>
+                <!-- Dynamic Spotlight Radial Border Glow -->
+                <div class="bento-card-border-glow"></div>
+                <!-- Gradient Background Layer -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue/40 via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                <!-- Glass Surface Panel -->
+                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                  <div class="bento-card-glow"></div>
+                  <div class="relative z-10">
+                    <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
+                      <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Métrica</span>
+                      <div class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h4 class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2" 
+                      data-target="94.8" data-prefix="" data-suffix="%" data-decimals="1">
+                      94.8%
+                    </h4>
+                    <p class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">Taxa de Retenção</p>
+                    <p class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
+                      Manutenção de público nos 5s iniciais
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5: Pilares & Diferenciais (Spans 2 cols on md+) -->
+              <div class="bento-card bento-card-5 group relative h-full rounded-3xl md:col-span-2 sobre-reveal-item delay-5">
+                <!-- Static Base Border Highlight -->
+                <div class="bento-card-border-base"></div>
+                <!-- Dynamic Spotlight Radial Border Glow -->
+                <div class="bento-card-border-glow"></div>
+                <!-- Gradient Background Layer -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/40 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                <!-- Glass Surface Panel -->
+                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                  <div class="bento-card-glow"></div>
+                  <div class="relative z-10">
+                    <span class="px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold inline-block mb-3 card-inner-item inner-delay-1">
+                      Pilares da Produção
+                    </span>
+                    <h3 class="font-general-sans text-lg font-bold text-white uppercase tracking-wide mb-3 card-inner-item inner-delay-2">
+                      Metodologia de Produção Audiovisual
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 card-inner-item inner-delay-3">
+                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-ice"></span>
+                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Direção de Cena &amp; Acting</span>
+                      </div>
+                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Ganchos Visuais de Retenção</span>
+                      </div>
+                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-muted"></span>
+                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Color Grading Cinematográfico</span>
+                      </div>
+                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-soft"></span>
+                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Sound Design Imersivo</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6: Card Status & CTA Direto (Spans 1 col) -->
+              <div class="bento-card bento-card-6 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-6">
+                <!-- Static Base Border Highlight -->
+                <div class="bento-card-border-base"></div>
+                <!-- Dynamic Spotlight Radial Border Glow -->
+                <div class="bento-card-border-glow"></div>
+                <!-- Gradient Background Layer -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-blue/60 via-brand-navy/60 to-emerald-500/30 opacity-90 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                <!-- Glass Surface Panel -->
+                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                  <div class="bento-card-glow"></div>
+                  <div class="relative z-10 flex flex-col justify-between h-full">
+                    <div>
+                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-4 card-inner-item inner-delay-1">
+                        <span class="status-pulse-dot"></span>
+                        <span class="font-Supreme text-[10px] uppercase tracking-wider font-bold">Disponível</span>
+                      </div>
+                      <h3 class="font-general-sans text-base sm:text-lg font-bold text-white uppercase tracking-wide leading-snug mb-2 card-inner-item inner-delay-2">
+                        Quer impulsionar sua marca?
+                      </h3>
+                      <p class="font-Supreme text-xs text-brand-soft/80 font-medium leading-relaxed card-inner-item inner-delay-3">
+                        Agende uma conversa direta com Cristian para planejar sua próxima produção.
+                      </p>
+                    </div>
+
+                    <div class="mt-6 card-inner-item inner-delay-4">
+                      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                        class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-4 rounded-xl shadow-lg w-full">
+                        Solicitar Reunião
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current transform transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24">
+                          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Scroll Indicator Pill -->
     <div id="scroll-indicator"
       class="fixed bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-brand-deep/40 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] opacity-0 transition-opacity duration-500 pointer-events-none z-[60]">
@@ -1034,6 +1354,7 @@
   <script src="js/servicos.js"></script>
   <script src="js/processo.js"></script>
   <script src="js/depoimentos.js"></script>
+  <script src="js/sobre.js"></script>
 </body>
 
 </html>

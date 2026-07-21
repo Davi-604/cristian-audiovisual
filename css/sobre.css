@@ -1,0 +1,337 @@
+/* ==========================================================================
+   Section Sobre — Aesthetic Audiovisual Frame & Bento Grid
+   ========================================================================== */
+
+/* Camera Viewfinder Reticle Corners for Profile Frame */
+.camera-viewfinder-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.camera-viewfinder-frame::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 1.5rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(206, 229, 242, 0.5), rgba(39, 70, 144, 0.3), rgba(255, 255, 255, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 25;
+  transition: all 0.4s ease;
+}
+
+.hud-corner-tl {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid #ACCBE1;
+  border-left: 2px solid #ACCBE1;
+  border-top-left-radius: 4px;
+}
+
+.hud-corner-tr {
+  top: 12px;
+  right: 12px;
+  border-top: 2px solid #ACCBE1;
+  border-right: 2px solid #ACCBE1;
+  border-top-right-radius: 4px;
+}
+
+.hud-corner-bl {
+  bottom: 12px;
+  left: 12px;
+  border-bottom: 2px solid #ACCBE1;
+  border-left: 2px solid #ACCBE1;
+  border-bottom-left-radius: 4px;
+}
+
+.hud-corner-br {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 2px solid #ACCBE1;
+  border-right: 2px solid #ACCBE1;
+  border-bottom-right-radius: 4px;
+}
+
+.camera-viewfinder-frame:hover .hud-corner {
+  border-color: #CEE5F2;
+  filter: drop-shadow(0 0 4px rgba(206, 229, 242, 0.7));
+}
+
+/* Pulsing REC Dot */
+.rec-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ef4444;
+  animation: pulseRec 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseRec {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+}
+
+/* Status Pulsing Dot */
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseStatus 2s infinite ease-in-out;
+}
+
+@keyframes pulseStatus {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+/* Bento Grid Cards Hover Glass Effect */
+.bento-card {
+  position: relative;
+  border-radius: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.4s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(10, 17, 40, 0.8), 0 0 30px rgba(39, 70, 144, 0.35);
+}
+
+/* Base static subtle border for cards to stand out clearly from deep background */
+.bento-card-border-base {
+  position: absolute;
+  inset: -1px;
+  border-radius: 1.5rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(206, 229, 242, 0.2), rgba(39, 70, 144, 0.25), rgba(255, 255, 255, 0.08));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 12;
+}
+
+/* Dynamic Radial Spotlight Border Reveal Layer */
+.bento-card-border-glow {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 1.5rem;
+  padding: 1.5px;
+  background: radial-gradient(
+    320px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--card-border-color-1, rgba(206, 229, 242, 0.95)),
+    var(--card-border-color-2, rgba(39, 70, 144, 0.6)) 45%,
+    transparent 75%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 15;
+}
+
+/* Reveal radial border glow when mouse is active in the container */
+.mouse-active .bento-card-border-glow {
+  opacity: 1;
+}
+
+/* Unique Card Border Accent Variables */
+.bento-card-1 {
+  --card-border-color-1: rgba(206, 229, 242, 0.95);
+  --card-border-color-2: rgba(39, 70, 144, 0.7);
+}
+
+.bento-card-2 {
+  --card-border-color-1: rgba(172, 203, 225, 0.95);
+  --card-border-color-2: rgba(206, 229, 242, 0.7);
+}
+
+.bento-card-3 {
+  --card-border-color-1: rgba(39, 70, 144, 0.95);
+  --card-border-color-2: rgba(206, 229, 242, 0.85);
+}
+
+.bento-card-4 {
+  --card-border-color-1: rgba(124, 152, 179, 0.95);
+  --card-border-color-2: rgba(206, 229, 242, 0.75);
+}
+
+.bento-card-5 {
+  --card-border-color-1: rgba(206, 229, 242, 0.95);
+  --card-border-color-2: rgba(172, 203, 225, 0.65);
+}
+
+.bento-card-6 {
+  --card-border-color-1: rgba(16, 185, 129, 0.95);
+  --card-border-color-2: rgba(206, 229, 242, 0.8);
+}
+
+.profile-card-frame {
+  --card-border-color-1: rgba(206, 229, 242, 0.95);
+  --card-border-color-2: rgba(39, 70, 144, 0.75);
+}
+
+/* Light ambient sweep over Bento Card */
+.bento-card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(206, 229, 242, 0.12), transparent 40%);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 20;
+  transition: opacity 0.3s ease;
+}
+
+.bento-card:hover .bento-card-glow {
+  opacity: 1;
+}
+
+/* Profile frame subtle ambient shadow */
+.profile-glow-container {
+  box-shadow: 0 25px 60px -15px rgba(10, 17, 40, 0.9), 0 0 50px rgba(39, 70, 144, 0.3);
+}
+
+/* --- SECTION SOBRE SCROLL ENTRY & EXIT ANIMATIONS --- */
+
+.sobre-reveal-item {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  filter: blur(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.sobre-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px) scale(0.96);
+  filter: blur(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+/* In-View State (Entry Animations) */
+#sobre.in-view .sobre-reveal-item,
+#sobre.in-view .sobre-reveal-left {
+  opacity: 1;
+  transform: translate(0) scale(1);
+  filter: blur(0);
+}
+
+/* Stagger Delays for Elements */
+#sobre.in-view .delay-1 { transition-delay: 100ms; }
+#sobre.in-view .delay-2 { transition-delay: 200ms; }
+#sobre.in-view .delay-3 { transition-delay: 300ms; }
+#sobre.in-view .delay-4 { transition-delay: 400ms; }
+#sobre.in-view .delay-5 { transition-delay: 500ms; }
+#sobre.in-view .delay-6 { transition-delay: 600ms; }
+
+/* Out-Of-View State (Exit Animations) */
+#sobre.out-view .sobre-reveal-item {
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  filter: blur(8px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#sobre.out-view .sobre-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px) scale(0.96);
+  filter: blur(8px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- INNER CARD CONTENT REVEAL ANIMATIONS --- */
+
+.card-inner-item {
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(6px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+#sobre.in-view .card-inner-item {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Stagger Delays for Inner Items */
+#sobre.in-view .inner-delay-1 { transition-delay: 200ms; }
+#sobre.in-view .inner-delay-2 { transition-delay: 320ms; }
+#sobre.in-view .inner-delay-3 { transition-delay: 440ms; }
+#sobre.in-view .inner-delay-4 { transition-delay: 560ms; }
+#sobre.in-view .inner-delay-5 { transition-delay: 680ms; }
+
+/* Out of view state for inner items */
+#sobre.out-view .card-inner-item {
+  opacity: 0;
+  transform: translateY(15px);
+  filter: blur(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Big Numbers Counter Inner Reveal & Scale Animation */
+.animate-counter {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.85) translateY(10px);
+  filter: blur(8px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+#sobre.in-view .animate-counter {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0);
+}
+
+#sobre.out-view .animate-counter {
+  opacity: 0;
+  transform: scale(0.85) translateY(10px);
+  filter: blur(6px);
+}
+
+
+
