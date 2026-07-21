@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Section Serviços - Estilos, Máscaras e Transições
+   ========================================================================== */
+
+/* Container Principal */
+#servicos {
+  background-color: #0A1128; /* bg-brand-deep */
+  position: relative;
+  width: 100%;
+}
+
+/* Painéis de Serviços */
+.service-panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  will-change: transform, opacity;
+  /* Transições suaves adicionais para evitar qualquer flicker */
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+/* Estilização da Imagem de Fundo */
+.service-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Quando o painel está ativo, dá um zoom sutil na imagem para dar dinamismo */
+.service-panel.panel-active .service-img {
+  transform: scale(1.05);
+}
+
+/* Efeito de Gradiente de Fusão (Suave e Premium) */
+.service-image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Desktop: Transição Horizontal (Funde o lado esquerdo da imagem com o texto) */
+@media (min-width: 768px) {
+  .service-panel {
+    flex-direction: row;
+  }
+  
+  .service-image-container::after {
+    background: linear-gradient(to right,
+      #0A1128 0%,
+      rgba(10, 17, 40, 0.90) 5%,
+      rgba(10, 17, 40, 0.40) 15%,
+      transparent 30%
+    );
+  }
+}
+
+/* Mobile: Transição Vertical (Funde o topo da imagem com o texto superior) */
+@media (max-width: 767px) {
+  .service-panel {
+    flex-direction: column;
+  }
+  
+  .service-image-container::after {
+    background: linear-gradient(to bottom,
+      #0A1128 0%,
+      rgba(10, 17, 40, 0.90) 5%,
+      rgba(10, 17, 40, 0.40) 15%,
+      transparent 30%
+    );
+  }
+}
+
+/* Micro-animações para o conteúdo textual de cada serviço */
+.service-text-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-panel.panel-active .service-text-content > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays para escalonar a entrada dos elementos de texto */
+.service-panel.panel-active .service-text-content > .service-tag {
+  transition-delay: 150ms;
+}
+.service-panel.panel-active .service-text-content > .service-title {
+  transition-delay: 300ms;
+}
+.service-panel.panel-active .service-text-content > .service-desc {
+  transition-delay: 450ms;
+}
+.service-panel.panel-active .service-text-content > .service-cta {
+  transition-delay: 600ms;
+}
