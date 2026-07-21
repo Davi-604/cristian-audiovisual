@@ -4,8 +4,8 @@
 .hero-scroll-container {
   position: relative;
   width: 100%;
-  background-color: var(--color-brand-deep);
-  /* Deep background to support the modern dark visual */
+  background-color: transparent;
+  /* Transparent to let unified wrapper background show through */
 }
 
 /* Sticky Hero Wrapper */

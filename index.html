@@ -256,289 +256,306 @@
   <!-- Main Workspace -->
   <main class="w-full">
 
-    <!-- Hero Scroll Container -->
-    <!-- Heights are synchronized with SECTION_HEIGHT (2500px) + IDLE_HEIGHT (800px) + 100vh -->
-    <div class="relative w-full hero-scroll-container" style="height: calc(3300px + 100vh);">
-
-      <!-- Sticky Container for Image and Overlay Text -->
-      <div class="sticky-hero-wrapper">
-        <!-- Wavy Background Canvas -->
-        <canvas id="wavy-canvas"
-          class="absolute inset-0 z-0 w-full h-full blur-[10px] transform rotate-[-25deg] scale-[1.5] translate-x-[10%] -translate-y-[15%] origin-center transition-opacity duration-700"></canvas>
-
-        <!-- Clipped Background Image -->
-        <div class="center-image-clipped bg-cover bg-center bg-no-repeat"
-          style="background-image: url('/public/assets/images/hero-main-image.webp');">
-          <!-- Overlay on Center Image to add drama and contrast -->
-          <div class="absolute inset-0 bg-brand-navy/50 mix-blend-multiply"></div>
+    <!-- Unified Wrapper for Wavy Background (Hero + Diferenciais) -->
+    <div class="relative w-full bg-brand-deep">
+      <!-- Sticky Wavy Background -->
+      <div class="absolute inset-0 z-0">
+        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
+          <canvas id="wavy-canvas"
+            class="absolute inset-0 z-0 w-full h-full blur-[10px] transform rotate-[-25deg] scale-[1.5] translate-x-[10%] -translate-y-[15%] origin-center transition-opacity duration-700"></canvas>
         </div>
+      </div>
 
-        <!-- Interactive Copy Text Overlay (Sits outside clipped div to avoid clipping) -->
-        <div class="hero-overlay-content">
-          <div id="hero-card"
-            class="max-w-4xl mx-auto flex flex-col items-center gap-4 bg-brand-deep/20 backdrop-blur-md shadow-2xl rounded-3xl p-2">
-            <span
-              class="hero-anim-1 font-Supreme text-xs md:text-sm uppercase tracking-[0.3em] text-brand-muted font-bold">Filmmaker
-              &amp; Social Media</span>
-            <h1
-              class="hero-anim-2 font-general-sans text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tight text-brand-white leading-none animate-text-stagger drop-shadow-sm" style="animation-delay: 0.8s;">
-              Narrativas que <br class="hidden sm:inline">prendem a atenção
-            </h1>
-            <p
-              class="hero-anim-3 font-Supreme text-sm sm:text-base md:text-lg max-w-xl text-brand-soft/90 leading-relaxed font-medium mt-2">
-              Estética cinematográfica aliada à estratégia de retenção de redes sociais. Elevando o posicionamento
-              visual da sua marca de forma inconfundível.
-            </p>
-            <div
-              class="hero-anim-4 mt-4 flex flex-col sm:flex-row items-center gap-4 pointer-events-auto">
-              <button onclick="document.getElementById('specialties-section').scrollIntoView({ behavior: 'smooth' });"
-                class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-6 rounded-lg shadow-lg">
-                Chamar no WhatsApp
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5 fill-current transform transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-                </svg>
-              </button>
+      <!-- Content Layer -->
+      <div class="relative z-10 w-full bg-transparent">
+
+        <!-- Hero Scroll Container -->
+        <!-- Heights are synchronized with SECTION_HEIGHT (2500px) + IDLE_HEIGHT (800px) + 100vh -->
+        <div class="relative w-full hero-scroll-container bg-transparent" style="height: calc(3300px + 100vh);">
+
+          <!-- Sticky Container for Image and Overlay Text -->
+          <div class="sticky-hero-wrapper">
+            <!-- Wavy Background Canvas moved to unified wrapper -->
+
+            <!-- Clipped Background Image -->
+            <div class="center-image-clipped bg-cover bg-center bg-no-repeat"
+              style="background-image: url('/public/assets/images/hero-main-image.webp');">
+              <!-- Overlay on Center Image to add drama and contrast -->
+              <div class="absolute inset-0 bg-brand-navy/50 mix-blend-multiply"></div>
             </div>
-          </div>
-        </div>
 
-        <!-- Texto que surge quando a imagem maximiza -->
-        <div id="hero-maximized-text"
-          class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none opacity-0 transition-opacity duration-700">
-          <h2 id="scramble-text"
-            class="font-general-sans text-4xl sm:text-6xl md:text-8xl font-black uppercase text-brand-white tracking-widest drop-shadow-2xl">
-          </h2>
-          <p id="stagger-subtitle"
-            class="animate-text-stagger font-Supreme text-sm sm:text-xl md:text-2xl text-brand-soft uppercase tracking-[0.3em] font-medium mt-4 drop-shadow-lg">
-            Filmmaker &amp; social midia
-          </p>
-        </div>
+            <!-- Interactive Copy Text Overlay (Sits outside clipped div to avoid clipping) -->
+            <div class="hero-overlay-content">
+              <div id="hero-card"
+                class="max-w-4xl mx-auto flex flex-col items-center gap-4 bg-brand-deep/20 backdrop-blur-md shadow-2xl rounded-3xl p-2">
+                <span
+                  class="hero-anim-1 font-Supreme text-xs md:text-sm uppercase tracking-[0.3em] text-brand-muted font-bold">Filmmaker
+                  &amp; Social Media</span>
+                <h1
+                  class="hero-anim-2 font-general-sans text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tight text-brand-white leading-none animate-text-stagger drop-shadow-sm"
+                  style="animation-delay: 0.8s;">
+                  Narrativas que <br class="hidden sm:inline">prendem a atenção
+                </h1>
+                <p
+                  class="hero-anim-3 font-Supreme text-sm sm:text-base md:text-lg max-w-xl text-brand-soft/90 leading-relaxed font-medium mt-2">
+                  Estética cinematográfica aliada à estratégia de retenção de redes sociais. Elevando o posicionamento
+                  visual da sua marca de forma inconfundível.
+                </p>
+                <div class="hero-anim-4 mt-4 flex flex-col sm:flex-row items-center gap-4 pointer-events-auto">
+                  <button
+                    onclick="document.getElementById('specialties-section').scrollIntoView({ behavior: 'smooth' });"
+                    class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-6 rounded-lg shadow-lg">
+                    Chamar no WhatsApp
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="w-5 h-5 fill-current transform transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
+                      viewBox="0 0 24 24">
+                      <path
+                        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
 
-      </div>
-
-      <!-- Parallax Overlapping Images -->
-      <div class="parallax-container mx-auto max-w-5xl px-6 pt-[200px] flex flex-col gap-32">
-        <!-- Floating Image 1 (Left Aligned) -->
-        <div class="w-full md:w-1/3 flex justify-start">
-          <img src="public/assets/images/hero-image-1.webp" alt="hero image 1"
-            class="parallax-img w-full aspect-[4/3] object-cover" data-start="-200" data-end="200">
-        </div>
-
-        <!-- Floating Image 2 (Centered, Large) -->
-        <div class="w-full md:w-2/3 mx-auto">
-          <img src="public/assets/images/hero-image-2.webp" alt="hero image 2"
-            class="parallax-img w-full aspect-[16/9] object-cover" data-start="200" data-end="-250">
-        </div>
-
-        <!-- Floating Image 3 (Right Aligned) -->
-        <div class="w-full md:w-1/3 ml-auto flex justify-end">
-          <img src="public/assets/images/hero-image-3.webp" alt="hero image 3"
-            class="parallax-img w-full aspect-[4/3] object-cover" data-start="-200" data-end="200">
-        </div>
-
-        <!-- Floating Image 4 (Different Left Position, Large) -->
-        <div class="w-full md:w-1/2 md:ml-16 mr-auto flex justify-start">
-          <img src="public/assets/images/hero-image-4.webp" alt="hero image 4"
-            class="parallax-img w-full aspect-[4/3] object-cover" data-start="100" data-end="-400">
-        </div>
-      </div>
-
-      <!-- Bottom Gradient Mask to transition to next section -->
-      <div class="hero-bottom-fade"></div>
-    </div>
-
-    <!-- Section Diferenciais (Scroll Vertical Pinned) -->
-    <section id="specialties-section" class="w-full text-white bg-brand-deep relative" style="height: 300vh;">
-      <div class="sticky top-0 left-0 w-full h-screen flex flex-col justify-center overflow-hidden z-20">
-        <div class="max-w-[1640px] w-full mx-auto px-6 md:px-12 flex flex-col">
-
-          <!-- Header -->
-          <div id="specialties-header"
-            class="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
-            <div>
-              <span
-                class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-2">Diferenciais</span>
-              <h2
-                class="font-general-sans text-3xl md:text-5xl font-black uppercase animate-blur-in text-white leading-tight">
-                Metodologia de Impacto
+            <!-- Texto que surge quando a imagem maximiza -->
+            <div id="hero-maximized-text"
+              class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none opacity-0 transition-opacity duration-700">
+              <h2 id="scramble-text"
+                class="font-general-sans text-4xl sm:text-6xl md:text-8xl font-black uppercase text-brand-white tracking-widest drop-shadow-2xl">
               </h2>
-            </div>
-            <p class="font-Supreme text-sm text-brand-muted max-w-sm leading-relaxed animate-reveal-bottom">
-              Estratégias autorais desenhadas para redefinir a percepção visual do seu negócio e maximizar resultados
-              digitais.
-            </p>
-          </div>
-
-          <!-- Grid de Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-
-            <!-- Card 1 -->
-            <div class="specialty-card group relative h-full rounded-3xl">
-              <!-- Gradient Background -->
-              <div
-                class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
-              </div>
-
-              <!-- Glass Panel -->
-              <div
-                class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
-                  </div>
-                  <img src="public/assets/images/diferencial-cinema.png" alt="Estética Cinematográfica"
-                    class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                </div>
-
-                <div class="w-full h-[1px] bg-white/10 my-4"></div>
-
-                <div
-                  class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                  <div class="mb-4">
-                    <span
-                      class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                      Equipamento &amp; Arte
-                    </span>
-                  </div>
-                  <h3
-                    class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                    Estética Cinematográfica
-                  </h3>
-                  <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                    Produção com câmeras de cinema, lentes anamórficas, iluminação dramática e tratamento de cor que
-                    elevam instantaneamente a percepção de valor do seu negócio.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="specialty-card group relative h-full rounded-3xl">
-              <!-- Gradient Background -->
-              <div
-                class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
-              </div>
-
-              <!-- Glass Panel -->
-              <div
-                class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
-                  </div>
-                  <img src="public/assets/images/diferencial-retencao.png" alt="Foco em Retenção"
-                    class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                </div>
-
-                <div class="w-full h-[1px] bg-white/10 my-4"></div>
-
-                <div
-                  class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                  <div class="mb-4">
-                    <span
-                      class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                      Storytelling Ativo
-                    </span>
-                  </div>
-                  <h3
-                    class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                    Retenção Magnética
-                  </h3>
-                  <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                    Cortes dinâmicos, ganchos persuasivos nos primeiros 3 segundos e sound design imersivo projetados
-                    especificamente para prender a atenção do espectador até o fim.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="specialty-card group relative h-full rounded-3xl">
-              <!-- Gradient Background -->
-              <div
-                class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
-              </div>
-
-              <!-- Glass Panel -->
-              <div
-                class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
-                  </div>
-                  <img src="public/assets/images/diferencial-estrategia.png" alt="Estratégia de Conteúdo"
-                    class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                </div>
-
-                <div class="w-full h-[1px] bg-white/10 my-4"></div>
-
-                <div
-                  class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                  <div class="mb-4">
-                    <span
-                      class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                      Foco em Conversão
-                    </span>
-                  </div>
-                  <h3
-                    class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                    Estratégia de Posicionamento
-                  </h3>
-                  <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                    Muito além de "postar vídeos". Criamos narrativas estratégicas alinhadas ao seu funil de vendas,
-                    focando em transformar visualizações em clientes pagantes.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="specialty-card group relative h-full rounded-3xl">
-              <!-- Gradient Background -->
-              <div
-                class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
-              </div>
-
-              <!-- Glass Panel -->
-              <div
-                class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
-                  </div>
-                  <img src="public/assets/images/diferencial-direcao.png" alt="Direção Criativa"
-                    class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                </div>
-
-                <div class="w-full h-[1px] bg-white/10 my-4"></div>
-
-                <div
-                  class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                  <div class="mb-4">
-                    <span
-                      class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                      Concepção Premium
-                    </span>
-                  </div>
-                  <h3
-                    class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                    Direção Criativa Completa
-                  </h3>
-                  <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                    Desenvolvimento de conceito, escrita de roteiros e acompanhamento artístico de cada cena antes de
-                    ligar a câmera, assegurando entregas assertivas e elegantes.
-                  </p>
-                </div>
-              </div>
+              <p id="stagger-subtitle"
+                class="animate-text-stagger font-Supreme text-sm sm:text-xl md:text-2xl text-brand-soft uppercase tracking-[0.3em] font-medium mt-4 drop-shadow-lg">
+                Filmmaker &amp; social midia
+              </p>
             </div>
 
           </div>
+
+          <!-- Parallax Overlapping Images -->
+          <div class="parallax-container mx-auto max-w-5xl px-6 pt-[200px] flex flex-col gap-32">
+            <!-- Floating Image 1 (Left Aligned) -->
+            <div class="w-full md:w-1/3 flex justify-start">
+              <img src="public/assets/images/hero-image-1.webp" alt="hero image 1"
+                class="parallax-img w-full aspect-[4/3] object-cover" data-start="-200" data-end="200">
+            </div>
+
+            <!-- Floating Image 2 (Centered, Large) -->
+            <div class="w-full md:w-2/3 mx-auto">
+              <img src="public/assets/images/hero-image-2.webp" alt="hero image 2"
+                class="parallax-img w-full aspect-[16/9] object-cover" data-start="200" data-end="-250">
+            </div>
+
+            <!-- Floating Image 3 (Right Aligned) -->
+            <div class="w-full md:w-1/3 ml-auto flex justify-end">
+              <img src="public/assets/images/hero-image-3.webp" alt="hero image 3"
+                class="parallax-img w-full aspect-[4/3] object-cover" data-start="-200" data-end="200">
+            </div>
+
+            <!-- Floating Image 4 (Different Left Position, Large) -->
+            <div class="w-full md:w-1/2 md:ml-16 mr-auto flex justify-start">
+              <img src="public/assets/images/hero-image-4.webp" alt="hero image 4"
+                class="parallax-img w-full aspect-[4/3] object-cover" data-start="100" data-end="-400">
+            </div>
+          </div>
+
+          <!-- Bottom Gradient Mask to transition to next section -->
+          <div class="hero-bottom-fade hidden"></div>
         </div>
-      </div>
-    </section>
+
+        <!-- Section Diferenciais (Scroll Vertical Pinned) -->
+        <section id="specialties-section" class="w-full text-white bg-transparent relative" style="height: 300vh;">
+          <div class="sticky top-0 left-0 w-full h-screen flex flex-col justify-center overflow-hidden z-20">
+            <div class="max-w-[1640px] w-full mx-auto px-6 md:px-12 flex flex-col">
+
+              <!-- Header -->
+              <div id="specialties-header"
+                class="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
+                <div>
+                  <span
+                    class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-2">Diferenciais</span>
+                  <h2
+                    class="font-general-sans text-3xl md:text-5xl font-black uppercase animate-text-stagger text-white leading-tight">
+                    Metodologia de Impacto
+                  </h2>
+                </div>
+              </div>
+
+              <!-- Grid de Cards -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+
+                <!-- Card 1 -->
+                <div class="specialty-card group relative h-full rounded-3xl">
+                  <!-- Gradient Background -->
+                  <div
+                    class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                  </div>
+
+                  <!-- Glass Panel -->
+                  <div
+                    class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                    <div
+                      class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                      </div>
+                      <img src="public/assets/images/diferencial-cinema.png" alt="Estética Cinematográfica"
+                        class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                    </div>
+
+                    <div class="w-full h-[1px] bg-white/10 my-4"></div>
+
+                    <div
+                      class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                      <div class="mb-4">
+                        <span
+                          class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                          Equipamento &amp; Arte
+                        </span>
+                      </div>
+                      <h3
+                        class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                        Estética Cinematográfica
+                      </h3>
+                      <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        Produção com câmeras de cinema, lentes anamórficas, iluminação dramática e tratamento de cor que
+                        elevam instantaneamente a percepção de valor do seu negócio.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="specialty-card group relative h-full rounded-3xl">
+                  <!-- Gradient Background -->
+                  <div
+                    class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                  </div>
+
+                  <!-- Glass Panel -->
+                  <div
+                    class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                    <div
+                      class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                      </div>
+                      <img src="public/assets/images/diferencial-retencao.png" alt="Foco em Retenção"
+                        class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                    </div>
+
+                    <div class="w-full h-[1px] bg-white/10 my-4"></div>
+
+                    <div
+                      class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                      <div class="mb-4">
+                        <span
+                          class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                          Storytelling Ativo
+                        </span>
+                      </div>
+                      <h3
+                        class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                        Retenção Magnética
+                      </h3>
+                      <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        Cortes dinâmicos, ganchos persuasivos nos primeiros 3 segundos e sound design imersivo
+                        projetados
+                        especificamente para prender a atenção do espectador até o fim.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="specialty-card group relative h-full rounded-3xl">
+                  <!-- Gradient Background -->
+                  <div
+                    class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                  </div>
+
+                  <!-- Glass Panel -->
+                  <div
+                    class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                    <div
+                      class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                      </div>
+                      <img src="public/assets/images/diferencial-estrategia.png" alt="Estratégia de Conteúdo"
+                        class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                    </div>
+
+                    <div class="w-full h-[1px] bg-white/10 my-4"></div>
+
+                    <div
+                      class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                      <div class="mb-4">
+                        <span
+                          class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                          Foco em Conversão
+                        </span>
+                      </div>
+                      <h3
+                        class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                        Estratégia de Posicionamento
+                      </h3>
+                      <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        Muito além de "postar vídeos". Criamos narrativas estratégicas alinhadas ao seu funil de vendas,
+                        focando em transformar visualizações em clientes pagantes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="specialty-card group relative h-full rounded-3xl">
+                  <!-- Gradient Background -->
+                  <div
+                    class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                  </div>
+
+                  <!-- Glass Panel -->
+                  <div
+                    class="relative flex flex-col justify-between h-full bg-brand-deep/20 backdrop-blur-[12px] shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                    <div
+                      class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                      </div>
+                      <img src="public/assets/images/diferencial-direcao.png" alt="Direção Criativa"
+                        class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                    </div>
+
+                    <div class="w-full h-[1px] bg-white/10 my-4"></div>
+
+                    <div
+                      class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                      <div class="mb-4">
+                        <span
+                          class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                          Concepção Premium
+                        </span>
+                      </div>
+                      <h3
+                        class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                        Direção Criativa Completa
+                      </h3>
+                      <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        Desenvolvimento de conceito, escrita de roteiros e acompanhamento artístico de cada cena antes
+                        de
+                        ligar a câmera, assegurando entregas assertivas e elegantes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div> <!-- End Content Layer for Wavy Background -->
+    </div> <!-- End Unified Wrapper for Wavy Background -->
 
     <!-- Section Serviços (Scroll Sticky Layering Card Deck) -->
     <section id="servicos" class="w-full text-white bg-brand-deep relative">

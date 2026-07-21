@@ -130,7 +130,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const render = () => {
       // Oculta/Pausa o processamento do canvas se a imagem principal já cobriu a tela toda
-      if (window.scrollY <= SECTION_HEIGHT + 100 && document.body.classList.contains('hero-sequence-complete')) {
+      const servicosSection = document.getElementById('servicos');
+      const maxScroll = servicosSection ? servicosSection.offsetTop : (SECTION_HEIGHT + 4000);
+      
+      if (window.scrollY <= maxScroll && document.body.classList.contains('hero-sequence-complete')) {
         canvas.style.opacity = '1';
         ctx.fillStyle = "#0A1128"; // brand-deep
         ctx.globalAlpha = 0.5;
