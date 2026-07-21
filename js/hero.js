@@ -129,19 +129,32 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const render = () => {
-      // Oculta/Pausa o processamento do canvas se a imagem principal já cobriu a tela toda
       const servicosSection = document.getElementById('servicos');
       const maxScroll = servicosSection ? servicosSection.offsetTop : (SECTION_HEIGHT + 4000);
+      const heroFadeEnd = SECTION_HEIGHT + IDLE_HEIGHT + 500;
       
-      if (window.scrollY <= maxScroll && document.body.classList.contains('hero-sequence-complete')) {
+      // Mostrar na Hero (antes de maximizar a imagem) e na section Diferenciais (após a Hero sumir)
+      const isHeroStart = window.scrollY < (SECTION_HEIGHT - 200);
+      const isSecondSection = window.scrollY > heroFadeEnd;
+      const shouldShow = (isHeroStart || isSecondSection) && window.scrollY <= maxScroll && document.body.classList.contains('hero-sequence-complete');
+
+      if (shouldShow) {
         canvas.style.opacity = '1';
+      } else {
+        canvas.style.opacity = '0';
+      }
+
+      // Continuar renderizando enquanto estiver próximo para não congelar a animação durante o fade-out
+      const isNearHeroFadeOut = window.scrollY > (SECTION_HEIGHT - 1000) && window.scrollY < (SECTION_HEIGHT + 500);
+      const isNearSecondSectionFadeIn = window.scrollY > (heroFadeEnd - 1000) && window.scrollY <= (maxScroll + 1000);
+      
+      if (shouldShow || isNearHeroFadeOut || isNearSecondSectionFadeIn) {
         ctx.fillStyle = "#0A1128"; // brand-deep
         ctx.globalAlpha = 0.5;
         ctx.fillRect(0, 0, w, h);
         drawWave(5);
-      } else {
-        canvas.style.opacity = '0';
       }
+
       requestAnimationFrame(render);
     };
     
