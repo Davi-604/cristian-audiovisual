@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/processo.css">
   <link rel="stylesheet" href="css/depoimentos.css">
   <link rel="stylesheet" href="css/sobre.css">
+  <link rel="stylesheet" href="css/faq.css">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -558,16 +559,25 @@
       </div>
     </section>
 
-    <!-- Section Processo (Scroll Horizontal Pinned) -->
-    <section id="processo" class="w-full text-white bg-brand-deep relative animate-fade-in" style="height: 400vh;">
-      <div class="sticky-process-wrapper">
-        
-        <!-- Aurora Animated Background -->
-        <div class="aurora-bg-container">
-          <div class="aurora-bg"></div>
+    <!-- Unified Wrapper for Aurora Background -->
+    <div class="relative w-full bg-brand-deep">
+      <!-- Sticky Aurora Background -->
+      <div class="absolute inset-0 z-0">
+        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
+          <div class="aurora-bg-container" style="position: absolute; inset: 0;">
+            <div class="aurora-bg"></div>
+          </div>
         </div>
+      </div>
 
-        <div class="max-w-[1640px] w-full mx-auto px-6 md:px-12 flex flex-col h-full justify-between relative z-10">
+      <!-- Content Layer -->
+      <div class="relative z-10 w-full bg-transparent">
+
+        <!-- Section Processo (Scroll Horizontal Pinned) -->
+        <section id="processo" class="w-full text-white bg-transparent relative animate-fade-in" style="height: 400vh;">
+          <div class="sticky-process-wrapper">
+            
+            <div class="max-w-[1640px] w-full mx-auto px-6 md:px-12 flex flex-col h-full justify-between relative z-10">
 
           <!-- Header (aligned style with specialties) -->
           <div class="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4 md:mb-8">
@@ -854,7 +864,7 @@
     </section>
 
     <!-- Section 6: Prova Social / Depoimentos -->
-    <section id="depoimentos" class="w-full bg-brand-deep py-20 border-t border-white/5 relative z-20">
+    <section id="depoimentos" class="w-full bg-transparent py-20 border-t border-white/5 relative z-20">
       <div class="max-w-[1640px] mx-auto px-6 md:px-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -995,7 +1005,7 @@
     </section>
 
     <!-- Section 7: Sobre o Profissional -->
-    <section id="sobre" class="w-full bg-brand-deep py-24 md:py-32 border-t border-white/5 relative z-20 overflow-hidden">
+    <section id="sobre" class="w-full bg-transparent py-24 md:py-32 border-t border-white/5 relative z-20 overflow-hidden">
       <!-- Ambient Lights & Grid Background -->
       <div class="absolute inset-0 pointer-events-none opacity-30">
         <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[140px]"></div>
@@ -1313,6 +1323,110 @@
       </div>
     </section>
 
+    <!-- Section 8: FAQ -->
+    <section id="faq" class="w-full bg-transparent py-20 border-t border-white/5 relative z-20 overflow-hidden">
+      <!-- Ambient Lights (Optional subtle glow) -->
+      <div class="absolute inset-0 pointer-events-none opacity-20">
+        <div class="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-brand-blue/20 rounded-full blur-[140px] -translate-y-1/2"></div>
+      </div>
+
+      <div class="max-w-[1000px] mx-auto px-6 md:px-12 relative z-10">
+        
+        <!-- Header da Section -->
+        <div class="text-center mb-12 md:mb-16 faq-reveal">
+          <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold">Dúvidas Frequentes</span>
+          <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+            Perguntas &amp; Respostas
+          </h2>
+        </div>
+
+        <!-- FAQ Container -->
+        <div class="bg-brand-deep/40 backdrop-blur-2xl rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
+          <div class="faq-list">
+            
+            <!-- Item 1 -->
+            <div class="faq-item faq-reveal">
+              <button class="faq-question">
+                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Qual o prazo médio de entrega de um vídeo?</span>
+                <span class="faq-icon"></span>
+              </button>
+              <div class="faq-answer-wrapper">
+                <div class="faq-answer-content">
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                    O prazo de entrega varia conforme a complexidade do projeto. Para vídeos institucionais e comerciais padrão, a primeira versão (rough cut) costuma ser enviada entre 7 e 10 dias úteis após a gravação. Prazos para Reels e TikToks menores podem ser mais ágeis.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-item faq-reveal">
+              <button class="faq-question">
+                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quais equipamentos vocês utilizam nas produções?</span>
+                <span class="faq-icon"></span>
+              </button>
+              <div class="faq-answer-wrapper">
+                <div class="faq-answer-content">
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                    Trabalhamos exclusivamente com câmeras de cinema digital, lentes anamórficas e prime de alta nitidez, drones para captações aéreas e iluminação profissional de LED, garantindo a estética cinematográfica de altíssimo padrão.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="faq-item faq-reveal">
+              <button class="faq-question">
+                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Como funciona o processo de alterações?</span>
+                <span class="faq-icon"></span>
+              </button>
+              <div class="faq-answer-wrapper">
+                <div class="faq-answer-content">
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                    Enviamos os vídeos em uma plataforma própria de revisão, onde você pode clicar na tela e deixar comentários no segundo exato. Cada projeto inclui até 2 rodadas completas de alterações (ajustes de corte, trilha, cor), garantindo a máxima segurança e alinhamento.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="faq-item faq-reveal">
+              <button class="faq-question">
+                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quem fica com os direitos autorais do material?</span>
+                <span class="faq-icon"></span>
+              </button>
+              <div class="faq-answer-wrapper">
+                <div class="faq-answer-content">
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                    Você. Todos os vídeos finalizados entregues a você são de sua propriedade para veiculação irrestrita nas plataformas acordadas. Os materiais brutos, no entanto, não são entregues, salvo negociação prévia detalhada no contrato.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="faq-item faq-reveal">
+              <button class="faq-question">
+                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quais as formas de contratação e pagamento?</span>
+                <span class="faq-icon"></span>
+              </button>
+              <div class="faq-answer-wrapper">
+                <div class="faq-answer-content">
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                    Atuamos tanto em modelo de diária (projetos pontuais) quanto pacotes mensais recorrentes para redes sociais (Fee Mensal). O pagamento é feito tipicamente com sinal de 50% para reserva de agenda e 50% na aprovação final do material. Aceitamos PIX e transferências bancárias.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+      </div> <!-- End Content Layer -->
+    </div> <!-- End Unified Wrapper -->
+
     <!-- Scroll Indicator Pill -->
     <div id="scroll-indicator"
       class="fixed bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-brand-deep/40 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] opacity-0 transition-opacity duration-500 pointer-events-none z-[60]">
@@ -1355,6 +1469,7 @@
   <script src="js/processo.js"></script>
   <script src="js/depoimentos.js"></script>
   <script src="js/sobre.js"></script>
+  <script src="js/faq.js"></script>
 </body>
 
 </html>

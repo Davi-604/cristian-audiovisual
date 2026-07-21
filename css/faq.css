@@ -1,0 +1,113 @@
+/* css/faq.css */
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #ACCBE1; /* brand-soft */
+  transition: transform 0.3s ease;
+}
+
+.faq-icon::before {
+  width: 2px;
+  height: 14px;
+}
+
+.faq-icon::after {
+  width: 14px;
+  height: 2px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-item.active .faq-icon::before {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.faq-answer-wrapper {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer-wrapper {
+  opacity: 1;
+}
+
+.faq-answer-content {
+  padding-bottom: 1.5rem;
+  padding-right: 2rem;
+}
+
+/* Hover effect on question */
+.faq-question:hover .faq-question-text {
+  color: #ACCBE1; /* brand-soft */
+}
+
+.faq-question-text {
+  transition: color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 1rem 0;
+  }
+  .faq-answer-content {
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Scroll Reveal Animations */
+.faq-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  filter: blur(8px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}

@@ -3,7 +3,7 @@
    ========================================================================== */
 
 #processo {
-  background-color: #0A1128; /* bg-brand-deep */
+  background-color: transparent; /* Changed from #0A1128 to show wrapper background */
   position: relative;
   width: 100%;
 }
@@ -21,7 +21,7 @@
   justify-content: space-between;
   padding-top: 5.5rem; /* Space for fixed navbar */
   padding-bottom: 3rem;
-  background-color: #0A1128;
+  background-color: transparent; /* Changed to transparent */
 }
 
 /* Timeline progress bar styling */
