@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/diferenciais.css">
   <link rel="stylesheet" href="css/servicos.css">
   <link rel="stylesheet" href="css/processo.css">
+  <link rel="stylesheet" href="css/depoimentos.css">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -851,6 +852,147 @@
       </div>
     </section>
 
+    <!-- Section 6: Prova Social / Depoimentos -->
+    <section id="depoimentos" class="w-full bg-brand-deep py-20 border-t border-white/5 relative z-20">
+      <div class="max-w-[1640px] mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Coluna Esquerda: Texto de Introdução e CTA -->
+          <div class="lg:col-span-4 flex flex-col items-start gap-4">
+            <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block">Depoimentos</span>
+            <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+              Quem Confia no Nosso Trabalho
+            </h2>
+            <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+              Narrativas visuais que geram conexão de verdade e impulsionam marcas de valor. Veja a experiência de quem já esteve no set conosco e transformou sua presença digital.
+            </p>
+            <div class="mt-2">
+              <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
+                Iniciar Meu Projeto
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 fill-current transform transition-transform duration-300 group-hover:translate-x-1"
+                  viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Componente Animated Testimonials -->
+          <div class="lg:col-span-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center bg-brand-deep/30 backdrop-blur-md rounded-3xl border border-white/5 p-6 md:p-8 shadow-2xl">
+              
+              <!-- Stack de Imagens -->
+              <div class="relative w-full flex justify-center pt-16 md:pt-20">
+                <div class="testimonial-image-stack max-w-[280px] md:max-w-xs aspect-square">
+                  <!-- Depoimento 1 -->
+                  <div class="testimonial-image-card">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=600&auto=format&fit=crop"
+                      alt="Sarah Chen" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
+                  </div>
+                  <!-- Depoimento 2 -->
+                  <div class="testimonial-image-card">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop"
+                      alt="Michael Rodriguez" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
+                  </div>
+                  <!-- Depoimento 3 -->
+                  <div class="testimonial-image-card">
+                    <img src="https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=600&auto=format&fit=crop"
+                      alt="Emily Watson" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
+                  </div>
+                  <!-- Depoimento 4 -->
+                  <div class="testimonial-image-card">
+                    <img src="https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=600&auto=format&fit=crop"
+                      alt="James Kim" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
+                  </div>
+                  <!-- Depoimento 5 -->
+                  <div class="testimonial-image-card">
+                    <img src="https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=600&auto=format&fit=crop"
+                      alt="Lisa Thompson" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Detalhes do Depoimento Ativo -->
+              <div class="flex flex-col justify-between min-h-[220px] py-2 relative">
+                
+                <!-- Text Container Stack -->
+                <div class="flex-grow relative w-full overflow-hidden grid">
+                  
+                  <!-- Texto Depoimento 1 -->
+                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                    <h3 class="text-xl font-bold text-white font-general-sans">Sarah Chen</h3>
+                    <p class="text-xs text-brand-muted font-Supreme">Gerente de Produto na TechFlow</p>
+                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                      A atenção aos detalhes e os recursos inovadores transformaram completamente nosso fluxo de trabalho. É exatamente o que estávamos procurando.
+                    </p>
+                  </div>
+
+                  <!-- Texto Depoimento 2 -->
+                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                    <h3 class="text-xl font-bold text-white font-general-sans">Michael Rodriguez</h3>
+                    <p class="text-xs text-brand-muted font-Supreme">Diretor de Tecnologia na InnovateSphere</p>
+                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                      A implementação foi perfeita e os resultados superaram nossas expectativas. A flexibilidade do trabalho é extraordinária.
+                    </p>
+                  </div>
+
+                  <!-- Texto Depoimento 3 -->
+                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                    <h3 class="text-xl font-bold text-white font-general-sans">Emily Watson</h3>
+                    <p class="text-xs text-brand-muted font-Supreme">Diretora de Operações na CloudScale</p>
+                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                      Esta solução melhorou significativamente a produtividade da nossa equipe. O processo de cocriação tornou tarefas complexas muito simples.
+                    </p>
+                  </div>
+
+                  <!-- Texto Depoimento 4 -->
+                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                    <h3 class="text-xl font-bold text-white font-general-sans">James Kim</h3>
+                    <p class="text-xs text-brand-muted font-Supreme">Líder de Engenharia na DataPro</p>
+                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                      Suporte excepcional e entrega de extrema qualidade. É raro encontrar um profissional que entrega exatamente tudo o que promete.
+                    </p>
+                  </div>
+
+                  <!-- Texto Depoimento 5 -->
+                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                    <h3 class="text-xl font-bold text-white font-general-sans">Lisa Thompson</h3>
+                    <p class="text-xs text-brand-muted font-Supreme">VP de Tecnologia na FutureNet</p>
+                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                      A escalabilidade e a performance do conteúdo foram um divisor de águas para a nossa organização. Recomendo fortemente para qualquer marca em crescimento.
+                    </p>
+                  </div>
+
+                </div>
+
+                <!-- Botões de Navegação -->
+                <div class="flex gap-3 pt-6 md:pt-4">
+                  <button id="testimonial-prev" aria-label="Depoimento Anterior"
+                    class="btn-nav-prev h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button id="testimonial-next" aria-label="Próximo Depoimento"
+                    class="btn-nav-next h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Scroll Indicator Pill -->
     <div id="scroll-indicator"
       class="fixed bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-brand-deep/40 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] opacity-0 transition-opacity duration-500 pointer-events-none z-[60]">
@@ -891,6 +1033,7 @@
   <script src="js/diferenciais.js"></script>
   <script src="js/servicos.js"></script>
   <script src="js/processo.js"></script>
+  <script src="js/depoimentos.js"></script>
 </body>
 
 </html>
