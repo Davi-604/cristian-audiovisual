@@ -12,6 +12,7 @@
   --color-brand-bg: #F8FAFC;
   --color-brand-white: #FFFFFF;
   --color-brand-deep: #0A1128;
+  --color-brand-abyss: #030816;
 
   /* Typography */
   --font-supreme: 'Supreme', sans-serif;
@@ -79,4 +80,12 @@ body {
 
 .border-brand-navy {
   border-color: var(--color-brand-navy);
+}
+
+.bg-brand-abyss {
+  background-color: var(--color-brand-abyss);
+}
+
+.text-brand-abyss {
+  color: var(--color-brand-abyss);
 }

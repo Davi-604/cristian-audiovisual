@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="css/depoimentos.css">
   <link rel="stylesheet" href="css/sobre.css">
   <link rel="stylesheet" href="css/faq.css">
-
+  <link rel="stylesheet" href="css/cta-footer.css">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -40,6 +40,7 @@
               bg: '#F8FAFC',
               white: '#FFFFFF',
               deep: '#0A1128',
+              abyss: '#030816',
             }
           },
           blur: {
@@ -576,854 +577,1094 @@
         <!-- Section Processo (Scroll Horizontal Pinned) -->
         <section id="processo" class="w-full text-white bg-transparent relative animate-fade-in" style="height: 400vh;">
           <div class="sticky-process-wrapper">
-            
+
             <div class="max-w-[1640px] w-full mx-auto px-6 md:px-12 flex flex-col h-full justify-between relative z-10">
 
-          <!-- Header (aligned style with specialties) -->
-          <div class="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4 md:mb-8">
-            <div>
-              <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-2">Fluxo de Trabalho</span>
-              <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
-                Como Trabalhamos
-              </h2>
-            </div>
-            <p class="font-Supreme text-sm text-brand-muted max-w-sm leading-relaxed font-semibold">
-              Uma jornada transparente e estruturada do primeiro contato à entrega do seu vídeo de alta retenção.
-            </p>
-          </div>
-
-          <!-- Timeline progress track (above cards) -->
-          <div class="relative w-full max-w-5xl mx-auto px-4 mb-6 md:mb-10">
-            <!-- Background Line -->
-            <div class="absolute top-1/2 left-[18px] md:left-[24px] w-[calc(100%-36px)] md:w-[calc(100%-48px)] h-[2px] bg-white/10 -translate-y-1/2 z-0 rounded-full">
-              <!-- Filled Line -->
-              <div id="processo-progress-bar" class="h-full bg-gradient-to-r from-brand-blue to-brand-soft rounded-full w-0 transition-all duration-100 ease-out"></div>
-            </div>
-
-            <!-- Steps Markers -->
-            <div class="relative flex justify-between items-center z-10 w-full">
-              <!-- Briefing (Step 0) -->
-              <div class="timeline-marker group" data-step="0">
-                <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
+              <!-- Header (aligned style with specialties) -->
+              <div class="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4 md:mb-8">
+                <div>
+                  <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-2">Fluxo de
+                    Trabalho</span>
+                  <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                    Como Trabalhamos
+                  </h2>
                 </div>
-                <span class="marker-label text-[8px] md:text-xs">Briefing</span>
+                <p class="font-Supreme text-sm text-brand-muted max-w-sm leading-relaxed font-semibold">
+                  Uma jornada transparente e estruturada do primeiro contato à entrega do seu vídeo de alta retenção.
+                </p>
               </div>
 
-              <!-- Roteirização (Step 1) -->
-              <div class="timeline-marker group" data-step="1">
-                <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                  </svg>
-                </div>
-                <span class="marker-label text-[8px] md:text-xs">Roteiro</span>
-              </div>
-
-              <!-- Planejamento (Step 2) -->
-              <div class="timeline-marker group" data-step="2">
-                <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                </div>
-                <span class="marker-label text-[8px] md:text-xs">Planejamento</span>
-              </div>
-
-              <!-- Gravação (Step 3) -->
-              <div class="timeline-marker group" data-step="3">
-                <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <span class="marker-label text-[8px] md:text-xs">Gravação</span>
-              </div>
-
-              <!-- Pós produção (Step 4) -->
-              <div class="timeline-marker group" data-step="4">
-                <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <span class="marker-label text-[8px] md:text-xs">Pós-Produção</span>
-              </div>
-
-              <!-- Aprovação (Step 5) -->
-              <div class="timeline-marker group" data-step="5">
-                <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <span class="marker-label text-[8px] md:text-xs">Aprovação</span>
-              </div>
-
-              <!-- Finalização (Step 6) -->
-              <div class="timeline-marker group" data-step="6">
-                <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span class="marker-label text-[8px] md:text-xs">Finalização</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Cards Scroll Area -->
-          <div class="processo-track-container">
-            <div id="processo-track" class="processo-track">
-              <!-- Card 1: Briefing -->
-              <div class="processo-card group relative h-full rounded-3xl">
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                  <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none"></div>
-                    <img src="public/assets/images/processo-briefing.png" alt="Briefing e Alinhamento" class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                  </div>
-                  <div class="w-full h-[1px] bg-white/10 my-4"></div>
-                  <div class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                    <div class="mb-4">
-                      <span class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                        Etapa 01 — Alinhamento
-                      </span>
-                    </div>
-                    <h3 class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                      Briefing &amp; Conceito
-                    </h3>
-                    <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                      Reunião de alinhamento para entender o posicionamento da sua marca, os objetivos do projeto, o público-alvo e definir a essência criativa do vídeo.
-                    </p>
+              <!-- Timeline progress track (above cards) -->
+              <div class="relative w-full max-w-5xl mx-auto px-4 mb-6 md:mb-10">
+                <!-- Background Line -->
+                <div
+                  class="absolute top-1/2 left-[18px] md:left-[24px] w-[calc(100%-36px)] md:w-[calc(100%-48px)] h-[2px] bg-white/10 -translate-y-1/2 z-0 rounded-full">
+                  <!-- Filled Line -->
+                  <div id="processo-progress-bar"
+                    class="h-full bg-gradient-to-r from-brand-blue to-brand-soft rounded-full w-0 transition-all duration-100 ease-out">
                   </div>
                 </div>
-              </div>
 
-              <!-- Card 2: Roteirização -->
-              <div class="processo-card group relative h-full rounded-3xl">
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                  <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none"></div>
-                    <img src="public/assets/images/processo-roteiro.png" alt="Roteiro e Narrativa" class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                  </div>
-                  <div class="w-full h-[1px] bg-white/10 my-4"></div>
-                  <div class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                    <div class="mb-4">
-                      <span class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                        Etapa 02 — Escrita
-                      </span>
-                    </div>
-                    <h3 class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                      Roteiro &amp; Narrativa
-                    </h3>
-                    <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                      Criação de roteiros com diálogos, ações e ganchos de alta conversão estruturados de forma estratégica para prender a atenção de ponta a ponta.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 3: Planejamento -->
-              <div class="processo-card group relative h-full rounded-3xl">
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                  <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none"></div>
-                    <img src="public/assets/images/processo-planejamento.png" alt="Planejamento e Storyboard" class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                  </div>
-                  <div class="w-full h-[1px] bg-white/10 my-4"></div>
-                  <div class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                    <div class="mb-4">
-                      <span class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                        Etapa 03 — Pré-produção
-                      </span>
-                    </div>
-                    <h3 class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                      Direção &amp; Storyboard
-                    </h3>
-                    <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                      Planejamento logístico detalhado, escolha de locações, seleção de elenco, cronograma de gravação e storyboard das cenas principais do seu vídeo.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 4: Gravação -->
-              <div class="processo-card group relative h-full rounded-3xl">
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue/40 via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                  <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none"></div>
-                    <img src="public/assets/images/processo-gravacao.png" alt="Gravação e Captação" class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                  </div>
-                  <div class="w-full h-[1px] bg-white/10 my-4"></div>
-                  <div class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                    <div class="mb-4">
-                      <span class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                        Etapa 04 — Produção
-                      </span>
-                    </div>
-                    <h3 class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                      Captação Premium
-                    </h3>
-                    <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                      O dia do set. Gravação com equipamentos de cinema, iluminação avançada e direção de cena minuciosa para garantir imagens de padrão cinematográfico.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 5: Pós-produção -->
-              <div class="processo-card group relative h-full rounded-3xl">
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                  <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none"></div>
-                    <img src="public/assets/images/processo-pos-producao.png" alt="Edição e Pós Produção" class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                  </div>
-                  <div class="w-full h-[1px] bg-white/10 my-4"></div>
-                  <div class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                    <div class="mb-4">
-                      <span class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                        Etapa 05 — Edição
-                      </span>
-                    </div>
-                    <h3 class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                      Montagem &amp; Sound Design
-                    </h3>
-                    <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                      Edição de ritmo ágil, aplicação de sound design imersivo, trilha sonora licenciada e color grading profissional para dar vida ao material bruto.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 6: Aprovação -->
-              <div class="processo-card group relative h-full rounded-3xl">
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                  <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none"></div>
-                    <img src="public/assets/images/processo-aprovacao.png" alt="Aprovação e Validação" class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                  </div>
-                  <div class="w-full h-[1px] bg-white/10 my-4"></div>
-                  <div class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                    <div class="mb-4">
-                      <span class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                        Etapa 06 — Validação
-                      </span>
-                    </div>
-                    <h3 class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                      Ajustes &amp; Revision
-                    </h3>
-                    <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                      Envio do primeiro corte em plataforma profissional de revisão, permitindo que você comente segundo a segundo e aprove cada detalhe com segurança.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 7: Finalização -->
-              <div class="processo-card group relative h-full rounded-3xl">
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
-                  <div class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none"></div>
-                    <img src="public/assets/images/processo-finalizacao.png" alt="Finalização e Entrega" class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
-                  </div>
-                  <div class="w-full h-[1px] bg-white/10 my-4"></div>
-                  <div class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                    <div class="mb-4">
-                      <span class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                        Etapa 07 — Entrega
-                      </span>
-                    </div>
-                    <h3 class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
-                      Exportação &amp; Entrega
-                    </h3>
-                    <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                      Exportação do vídeo final otimizado em múltiplas resoluções e formatos (16:9, 9:16), pronto para distribuição imediata nas redes sociais.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Swipe instructions on mobile -->
-          <div class="swipe-hint w-full text-center pointer-events-none mt-2">
-            <span class="font-Supreme text-[10px] text-brand-muted uppercase tracking-widest text-brand-muted">Use o scroll para navegar pelas etapas</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 6: Prova Social / Depoimentos -->
-    <section id="depoimentos" class="w-full bg-transparent py-20 border-t border-white/5 relative z-20">
-      <div class="max-w-[1640px] mx-auto px-6 md:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          <!-- Coluna Esquerda: Texto de Introdução e CTA -->
-          <div class="lg:col-span-4 flex flex-col items-start gap-4">
-            <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block">Depoimentos</span>
-            <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
-              Quem Confia no Nosso Trabalho
-            </h2>
-            <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
-              Narrativas visuais que geram conexão de verdade e impulsionam marcas de valor. Veja a experiência de quem já esteve no set conosco e transformou sua presença digital.
-            </p>
-            <div class="mt-2">
-              <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
-                class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
-                Iniciar Meu Projeto
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4 fill-current transform transition-transform duration-300 group-hover:translate-x-1"
-                  viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" fill="none" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Coluna Direita: Componente Animated Testimonials -->
-          <div class="lg:col-span-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center bg-brand-deep/30 backdrop-blur-md rounded-3xl border border-white/5 p-6 md:p-8 shadow-2xl">
-              
-              <!-- Stack de Imagens -->
-              <div class="relative w-full flex justify-center pt-16 md:pt-20">
-                <div class="testimonial-image-stack max-w-[280px] md:max-w-xs aspect-square">
-                  <!-- Depoimento 1 -->
-                  <div class="testimonial-image-card">
-                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=600&auto=format&fit=crop"
-                      alt="Sarah Chen" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
-                  </div>
-                  <!-- Depoimento 2 -->
-                  <div class="testimonial-image-card">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop"
-                      alt="Michael Rodriguez" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
-                  </div>
-                  <!-- Depoimento 3 -->
-                  <div class="testimonial-image-card">
-                    <img src="https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=600&auto=format&fit=crop"
-                      alt="Emily Watson" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
-                  </div>
-                  <!-- Depoimento 4 -->
-                  <div class="testimonial-image-card">
-                    <img src="https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=600&auto=format&fit=crop"
-                      alt="James Kim" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
-                  </div>
-                  <!-- Depoimento 5 -->
-                  <div class="testimonial-image-card">
-                    <img src="https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=600&auto=format&fit=crop"
-                      alt="Lisa Thompson" class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10" loading="lazy">
-                  </div>
-                </div>
-              </div>
-
-              <!-- Detalhes do Depoimento Ativo -->
-              <div class="flex flex-col justify-between min-h-[220px] py-2 relative">
-                
-                <!-- Text Container Stack -->
-                <div class="flex-grow relative w-full overflow-hidden grid">
-                  
-                  <!-- Texto Depoimento 1 -->
-                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
-                    <h3 class="text-xl font-bold text-white font-general-sans">Sarah Chen</h3>
-                    <p class="text-xs text-brand-muted font-Supreme">Gerente de Produto na TechFlow</p>
-                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                      A atenção aos detalhes e os recursos inovadores transformaram completamente nosso fluxo de trabalho. É exatamente o que estávamos procurando.
-                    </p>
-                  </div>
-
-                  <!-- Texto Depoimento 2 -->
-                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
-                    <h3 class="text-xl font-bold text-white font-general-sans">Michael Rodriguez</h3>
-                    <p class="text-xs text-brand-muted font-Supreme">Diretor de Tecnologia na InnovateSphere</p>
-                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                      A implementação foi perfeita e os resultados superaram nossas expectativas. A flexibilidade do trabalho é extraordinária.
-                    </p>
-                  </div>
-
-                  <!-- Texto Depoimento 3 -->
-                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
-                    <h3 class="text-xl font-bold text-white font-general-sans">Emily Watson</h3>
-                    <p class="text-xs text-brand-muted font-Supreme">Diretora de Operações na CloudScale</p>
-                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                      Esta solução melhorou significativamente a produtividade da nossa equipe. O processo de cocriação tornou tarefas complexas muito simples.
-                    </p>
-                  </div>
-
-                  <!-- Texto Depoimento 4 -->
-                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
-                    <h3 class="text-xl font-bold text-white font-general-sans">James Kim</h3>
-                    <p class="text-xs text-brand-muted font-Supreme">Líder de Engenharia na DataPro</p>
-                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                      Suporte excepcional e entrega de extrema qualidade. É raro encontrar um profissional que entrega exatamente tudo o que promete.
-                    </p>
-                  </div>
-
-                  <!-- Texto Depoimento 5 -->
-                  <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
-                    <h3 class="text-xl font-bold text-white font-general-sans">Lisa Thompson</h3>
-                    <p class="text-xs text-brand-muted font-Supreme">VP de Tecnologia na FutureNet</p>
-                    <p class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                      A escalabilidade e a performance do conteúdo foram um divisor de águas para a nossa organização. Recomendo fortemente para qualquer marca em crescimento.
-                    </p>
-                  </div>
-
-                </div>
-
-                <!-- Botões de Navegação -->
-                <div class="flex gap-3 pt-6 md:pt-4">
-                  <button id="testimonial-prev" aria-label="Depoimento Anterior"
-                    class="btn-nav-prev h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button id="testimonial-next" aria-label="Próximo Depoimento"
-                    class="btn-nav-next h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 7: Sobre o Profissional -->
-    <section id="sobre" class="w-full bg-transparent py-24 md:py-32 border-t border-white/5 relative z-20 overflow-hidden">
-      <!-- Ambient Lights & Grid Background -->
-      <div class="absolute inset-0 pointer-events-none opacity-30">
-        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[140px]"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-soft/10 rounded-full blur-[160px]"></div>
-      </div>
-
-      <div class="max-w-[1640px] mx-auto px-6 md:px-12 relative z-10">
-        
-        <!-- Header da Section -->
-        <div class="mb-12 md:mb-16 max-w-3xl sobre-reveal-item delay-1">
-          <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold card-inner-item inner-delay-1">
-            Sobre o Criador
-          </span>
-          <h2 class="font-general-sans text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white leading-tight card-inner-item inner-delay-2">
-            Alquimia Visual &amp; <span class="bg-gradient-to-r from-brand-ice via-brand-soft to-brand-muted bg-clip-text text-transparent">Estratégia de Retenção</span>
-          </h2>
-        </div>
-
-        <!-- Grid Principal em Duas Colunas (Left: Image Frame | Right: Bento Grid) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          <!-- Coluna Esquerda: Moldura Audiovisual Reticular (lg:col-span-5) -->
-          <div class="lg:col-span-5 flex items-center justify-center h-full self-center">
-            <div class="group relative w-full max-w-md h-full rounded-3xl profile-card-frame sobre-reveal-left delay-2">
-              <!-- Static Base Border Highlight -->
-              <div class="bento-card-border-base"></div>
-              <!-- Dynamic Spotlight Radial Border Glow -->
-              <div class="bento-card-border-glow"></div>
-              <!-- Gradient Background Layer -->
-              <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-blue/50 via-brand-ice/30 to-brand-navy/60 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
-              <!-- Glass Surface Panel -->
-              <div class="camera-viewfinder-frame profile-glow-container relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl transition-colors duration-400">
-                
-                <!-- HUD Reticle Corner Markers -->
-                <div class="hud-corner hud-corner-tl"></div>
-                <div class="hud-corner hud-corner-tr"></div>
-                <div class="hud-corner hud-corner-bl"></div>
-                <div class="hud-corner hud-corner-br"></div>
-
-                <!-- Top Viewfinder Header Info Bar -->
-                <div class="flex items-center justify-between px-3 py-2 mb-3 bg-brand-deep/60 backdrop-blur-md rounded-xl border border-white/5 card-inner-item inner-delay-1">
-                  <div class="flex items-center gap-2">
-                    <span class="rec-pulse-dot"></span>
-                    <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-white font-bold">REC &bull; 4K UHD</span>
-                  </div>
-                  <span class="font-Supreme text-[10px] uppercase tracking-widest text-brand-soft/80 font-semibold">60 FPS &bull; RAW</span>
-                </div>
-
-                <!-- Container da Imagem de Perfil -->
-                <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group card-inner-item inner-delay-2">
-                  <!-- Overlay suave no hover -->
-                  <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
-                  
-                  <img src="public/assets/images/cristian-profile.webp" 
-                    alt="Cristian Salge — Diretor Audiovisual & Social Architect" 
-                    class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105"
-                    loading="lazy">
-
-                  <!-- Badge HUD Flutuante Inferior -->
-                  <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between bg-brand-deep/80 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg card-inner-item inner-delay-3">
-                    <div>
-                      <h3 class="font-general-sans text-sm font-bold text-white uppercase tracking-wide">Cristian Salge</h3>
-                      <p class="font-Supreme text-[10px] text-brand-soft uppercase tracking-wider font-medium">Filmmaker &amp; Social Architect</p>
-                    </div>
-                    <div class="w-8 h-8 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                        <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H9l2 4H8L6 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                <!-- Steps Markers -->
+                <div class="relative flex justify-between items-center z-10 w-full">
+                  <!-- Briefing (Step 0) -->
+                  <div class="timeline-marker group" data-step="0">
+                    <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                       </svg>
                     </div>
+                    <span class="marker-label text-[8px] md:text-xs">Briefing</span>
+                  </div>
+
+                  <!-- Roteirização (Step 1) -->
+                  <div class="timeline-marker group" data-step="1">
+                    <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                      </svg>
+                    </div>
+                    <span class="marker-label text-[8px] md:text-xs">Roteiro</span>
+                  </div>
+
+                  <!-- Planejamento (Step 2) -->
+                  <div class="timeline-marker group" data-step="2">
+                    <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                      </svg>
+                    </div>
+                    <span class="marker-label text-[8px] md:text-xs">Planejamento</span>
+                  </div>
+
+                  <!-- Gravação (Step 3) -->
+                  <div class="timeline-marker group" data-step="3">
+                    <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <span class="marker-label text-[8px] md:text-xs">Gravação</span>
+                  </div>
+
+                  <!-- Pós produção (Step 4) -->
+                  <div class="timeline-marker group" data-step="4">
+                    <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M14.121 14.121L19 19m-7-7l7-7m-7 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <span class="marker-label text-[8px] md:text-xs">Pós-Produção</span>
+                  </div>
+
+                  <!-- Aprovação (Step 5) -->
+                  <div class="timeline-marker group" data-step="5">
+                    <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    </div>
+                    <span class="marker-label text-[8px] md:text-xs">Aprovação</span>
+                  </div>
+
+                  <!-- Finalização (Step 6) -->
+                  <div class="timeline-marker group" data-step="6">
+                    <div class="marker-circle w-9 h-9 md:w-12 md:h-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span class="marker-label text-[8px] md:text-xs">Finalização</span>
                   </div>
                 </div>
-
-                <!-- Bottom Technical Camera Settings Footer Bar -->
-                <div class="flex items-center justify-between px-3 py-2 mt-3 bg-brand-deep/60 backdrop-blur-md rounded-xl border border-white/5 font-Supreme text-[9px] uppercase tracking-wider text-brand-muted font-bold card-inner-item inner-delay-4">
-                  <span>ISO 400</span>
-                  <span>F/1.4</span>
-                  <span>1/200s</span>
-                  <span class="text-brand-soft">5600K</span>
-                </div>
-
               </div>
+
+              <!-- Cards Scroll Area -->
+              <div class="processo-track-container">
+                <div id="processo-track" class="processo-track">
+                  <!-- Card 1: Briefing -->
+                  <div class="processo-card group relative h-full rounded-3xl">
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      <div
+                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                        </div>
+                        <img src="public/assets/images/processo-briefing.png" alt="Briefing e Alinhamento"
+                          class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                      </div>
+                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div
+                        class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-4">
+                          <span
+                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            Etapa 01 — Alinhamento
+                          </span>
+                        </div>
+                        <h3
+                          class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          Briefing &amp; Conceito
+                        </h3>
+                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                          Reunião de alinhamento para entender o posicionamento da sua marca, os objetivos do projeto, o
+                          público-alvo e definir a essência criativa do vídeo.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 2: Roteirização -->
+                  <div class="processo-card group relative h-full rounded-3xl">
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      <div
+                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                        </div>
+                        <img src="public/assets/images/processo-roteiro.png" alt="Roteiro e Narrativa"
+                          class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                      </div>
+                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div
+                        class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-4">
+                          <span
+                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            Etapa 02 — Escrita
+                          </span>
+                        </div>
+                        <h3
+                          class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          Roteiro &amp; Narrativa
+                        </h3>
+                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                          Criação de roteiros com diálogos, ações e ganchos de alta conversão estruturados de forma
+                          estratégica para prender a atenção de ponta a ponta.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 3: Planejamento -->
+                  <div class="processo-card group relative h-full rounded-3xl">
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      <div
+                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                        </div>
+                        <img src="public/assets/images/processo-planejamento.png" alt="Planejamento e Storyboard"
+                          class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                      </div>
+                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div
+                        class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-4">
+                          <span
+                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            Etapa 03 — Pré-produção
+                          </span>
+                        </div>
+                        <h3
+                          class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          Direção &amp; Storyboard
+                        </h3>
+                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                          Planejamento logístico detalhado, escolha de locações, seleção de elenco, cronograma de
+                          gravação e storyboard das cenas principais do seu vídeo.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 4: Gravação -->
+                  <div class="processo-card group relative h-full rounded-3xl">
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue/40 via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      <div
+                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                        </div>
+                        <img src="public/assets/images/processo-gravacao.png" alt="Gravação e Captação"
+                          class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                      </div>
+                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div
+                        class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-4">
+                          <span
+                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            Etapa 04 — Produção
+                          </span>
+                        </div>
+                        <h3
+                          class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          Captação Premium
+                        </h3>
+                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                          O dia do set. Gravação com equipamentos de cinema, iluminação avançada e direção de cena
+                          minuciosa para garantir imagens de padrão cinematográfico.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 5: Pós-produção -->
+                  <div class="processo-card group relative h-full rounded-3xl">
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      <div
+                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                        </div>
+                        <img src="public/assets/images/processo-pos-producao.png" alt="Edição e Pós Produção"
+                          class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                      </div>
+                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div
+                        class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-4">
+                          <span
+                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            Etapa 05 — Edição
+                          </span>
+                        </div>
+                        <h3
+                          class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          Montagem &amp; Sound Design
+                        </h3>
+                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                          Edição de ritmo ágil, aplicação de sound design imersivo, trilha sonora licenciada e color
+                          grading profissional para dar vida ao material bruto.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 6: Aprovação -->
+                  <div class="processo-card group relative h-full rounded-3xl">
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      <div
+                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                        </div>
+                        <img src="public/assets/images/processo-aprovacao.png" alt="Aprovação e Validação"
+                          class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                      </div>
+                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div
+                        class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-4">
+                          <span
+                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            Etapa 06 — Validação
+                          </span>
+                        </div>
+                        <h3
+                          class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          Ajustes &amp; Revision
+                        </h3>
+                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                          Envio do primeiro corte em plataforma profissional de revisão, permitindo que você comente
+                          segundo a segundo e aprove cada detalhe com segurança.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 7: Finalização -->
+                  <div class="processo-card group relative h-full rounded-3xl">
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      <div
+                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        <div
+                          class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
+                        </div>
+                        <img src="public/assets/images/processo-finalizacao.png" alt="Finalização e Entrega"
+                          class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
+                      </div>
+                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div
+                        class="p-4 flex flex-col flex-grow bg-brand-deep/40 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-4">
+                          <span
+                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            Etapa 07 — Entrega
+                          </span>
+                        </div>
+                        <h3
+                          class="font-general-sans text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          Exportação &amp; Entrega
+                        </h3>
+                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                          Exportação do vídeo final otimizado em múltiplas resoluções e formatos (16:9, 9:16), pronto
+                          para distribuição imediata nas redes sociais.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Swipe instructions on mobile -->
+              <div class="swipe-hint w-full text-center pointer-events-none mt-2">
+                <span class="font-Supreme text-[10px] text-brand-muted uppercase tracking-widest text-brand-muted">Use o
+                  scroll para navegar pelas etapas</span>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Prova Social / Depoimentos -->
+        <section id="depoimentos" class="w-full bg-transparent py-20 border-t border-white/5 relative z-20">
+          <div class="max-w-[1640px] mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+              <!-- Coluna Esquerda: Texto de Introdução e CTA -->
+              <div class="lg:col-span-4 flex flex-col items-start gap-4">
+                <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block">Depoimentos</span>
+                <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                  Quem Confia no Nosso Trabalho
+                </h2>
+                <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                  Narrativas visuais que geram conexão de verdade e impulsionam marcas de valor. Veja a experiência de
+                  quem já esteve no set conosco e transformou sua presença digital.
+                </p>
+                <div class="mt-2">
+                  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                    class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
+                    Iniciar Meu Projeto
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 fill-current transform transition-transform duration-300 group-hover:translate-x-1"
+                      viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" fill="none" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Coluna Direita: Componente Animated Testimonials -->
+              <div class="lg:col-span-8">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center bg-brand-deep/30 backdrop-blur-md rounded-3xl border border-white/5 p-6 md:p-8 shadow-2xl">
+
+                  <!-- Stack de Imagens -->
+                  <div class="relative w-full flex justify-center pt-16 md:pt-20">
+                    <div class="testimonial-image-stack max-w-[280px] md:max-w-xs aspect-square">
+                      <!-- Depoimento 1 -->
+                      <div class="testimonial-image-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=600&auto=format&fit=crop"
+                          alt="Sarah Chen"
+                          class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
+                          loading="lazy">
+                      </div>
+                      <!-- Depoimento 2 -->
+                      <div class="testimonial-image-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop"
+                          alt="Michael Rodriguez"
+                          class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
+                          loading="lazy">
+                      </div>
+                      <!-- Depoimento 3 -->
+                      <div class="testimonial-image-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=600&auto=format&fit=crop"
+                          alt="Emily Watson"
+                          class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
+                          loading="lazy">
+                      </div>
+                      <!-- Depoimento 4 -->
+                      <div class="testimonial-image-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=600&auto=format&fit=crop"
+                          alt="James Kim"
+                          class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
+                          loading="lazy">
+                      </div>
+                      <!-- Depoimento 5 -->
+                      <div class="testimonial-image-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=600&auto=format&fit=crop"
+                          alt="Lisa Thompson"
+                          class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
+                          loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Detalhes do Depoimento Ativo -->
+                  <div class="flex flex-col justify-between min-h-[220px] py-2 relative">
+
+                    <!-- Text Container Stack -->
+                    <div class="flex-grow relative w-full overflow-hidden grid">
+
+                      <!-- Texto Depoimento 1 -->
+                      <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                        <h3 class="text-xl font-bold text-white font-general-sans">Sarah Chen</h3>
+                        <p class="text-xs text-brand-muted font-Supreme">Gerente de Produto na TechFlow</p>
+                        <p
+                          class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                          A atenção aos detalhes e os recursos inovadores transformaram completamente nosso fluxo de
+                          trabalho. É exatamente o que estávamos procurando.
+                        </p>
+                      </div>
+
+                      <!-- Texto Depoimento 2 -->
+                      <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                        <h3 class="text-xl font-bold text-white font-general-sans">Michael Rodriguez</h3>
+                        <p class="text-xs text-brand-muted font-Supreme">Diretor de Tecnologia na InnovateSphere</p>
+                        <p
+                          class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                          A implementação foi perfeita e os resultados superaram nossas expectativas. A flexibilidade do
+                          trabalho é extraordinária.
+                        </p>
+                      </div>
+
+                      <!-- Texto Depoimento 3 -->
+                      <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                        <h3 class="text-xl font-bold text-white font-general-sans">Emily Watson</h3>
+                        <p class="text-xs text-brand-muted font-Supreme">Diretora de Operações na CloudScale</p>
+                        <p
+                          class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                          Esta solução melhorou significativamente a produtividade da nossa equipe. O processo de
+                          cocriação tornou tarefas complexas muito simples.
+                        </p>
+                      </div>
+
+                      <!-- Texto Depoimento 4 -->
+                      <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                        <h3 class="text-xl font-bold text-white font-general-sans">James Kim</h3>
+                        <p class="text-xs text-brand-muted font-Supreme">Líder de Engenharia na DataPro</p>
+                        <p
+                          class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                          Suporte excepcional e entrega de extrema qualidade. É raro encontrar um profissional que
+                          entrega exatamente tudo o que promete.
+                        </p>
+                      </div>
+
+                      <!-- Texto Depoimento 5 -->
+                      <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                        <h3 class="text-xl font-bold text-white font-general-sans">Lisa Thompson</h3>
+                        <p class="text-xs text-brand-muted font-Supreme">VP de Tecnologia na FutureNet</p>
+                        <p
+                          class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                          A escalabilidade e a performance do conteúdo foram um divisor de águas para a nossa
+                          organização. Recomendo fortemente para qualquer marca em crescimento.
+                        </p>
+                      </div>
+
+                    </div>
+
+                    <!-- Botões de Navegação -->
+                    <div class="flex gap-3 pt-6 md:pt-4">
+                      <button id="testimonial-prev" aria-label="Depoimento Anterior"
+                        class="btn-nav-prev h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 h-4 text-white" fill="none"
+                          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button id="testimonial-next" aria-label="Próximo Depoimento"
+                        class="btn-nav-next h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 h-4 text-white" fill="none"
+                          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Sobre o Profissional -->
+        <section id="sobre"
+          class="w-full bg-transparent py-24 md:py-32 border-t border-white/5 relative z-20 overflow-hidden">
+          <!-- Ambient Lights & Grid Background -->
+          <div class="absolute inset-0 pointer-events-none opacity-30">
+            <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[140px]"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-soft/10 rounded-full blur-[160px]">
             </div>
           </div>
 
-          <!-- Coluna Direita: Bento Grid (lg:col-span-7) -->
-          <div class="lg:col-span-7">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
-              
-              <!-- Card 1 (Maior): Descrição Detalhada & Trajetória (Spans 3 cols on md+) -->
-              <div class="bento-card bento-card-1 group relative h-full rounded-3xl md:col-span-3 sobre-reveal-item delay-2">
-                <!-- Static Base Border Highlight -->
-                <div class="bento-card-border-base"></div>
-                <!-- Dynamic Spotlight Radial Border Glow -->
-                <div class="bento-card-border-glow"></div>
-                <!-- Gradient Background Layer -->
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                
-                <!-- Glass Surface Panel -->
-                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 shadow-2xl transition-colors duration-400">
-                  <div class="bento-card-glow"></div>
-                  <div class="relative z-10 flex flex-col justify-between h-full">
-                    <div>
-                      <div class="flex items-center gap-2 mb-4 card-inner-item inner-delay-1">
-                        <span class="px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
-                          Trajetória &amp; Posicionamento
+          <div class="max-w-[1640px] mx-auto px-6 md:px-12 relative z-10">
+
+            <!-- Header da Section -->
+            <div class="mb-12 md:mb-16 max-w-3xl sobre-reveal-item delay-1">
+              <span
+                class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold card-inner-item inner-delay-1">
+                Sobre o Criador
+              </span>
+              <h2
+                class="font-general-sans text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white leading-tight card-inner-item inner-delay-2">
+                Alquimia Visual &amp; <span
+                  class="bg-gradient-to-r from-brand-ice via-brand-soft to-brand-muted bg-clip-text text-transparent">Estratégia
+                  de Retenção</span>
+              </h2>
+            </div>
+
+            <!-- Grid Principal em Duas Colunas (Left: Image Frame | Right: Bento Grid) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+              <!-- Coluna Esquerda: Moldura Audiovisual Reticular (lg:col-span-5) -->
+              <div class="lg:col-span-5 flex items-center justify-center h-full self-center">
+                <div
+                  class="group relative w-full max-w-md h-full rounded-3xl profile-card-frame sobre-reveal-left delay-2">
+                  <!-- Static Base Border Highlight -->
+                  <div class="bento-card-border-base"></div>
+                  <!-- Dynamic Spotlight Radial Border Glow -->
+                  <div class="bento-card-border-glow"></div>
+                  <!-- Gradient Background Layer -->
+                  <div
+                    class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-blue/50 via-brand-ice/30 to-brand-navy/60 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                  </div>
+
+                  <!-- Glass Surface Panel -->
+                  <div
+                    class="camera-viewfinder-frame profile-glow-container relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl transition-colors duration-400">
+
+                    <!-- HUD Reticle Corner Markers -->
+                    <div class="hud-corner hud-corner-tl"></div>
+                    <div class="hud-corner hud-corner-tr"></div>
+                    <div class="hud-corner hud-corner-bl"></div>
+                    <div class="hud-corner hud-corner-br"></div>
+
+                    <!-- Top Viewfinder Header Info Bar -->
+                    <div
+                      class="flex items-center justify-between px-3 py-2 mb-3 bg-brand-deep/60 backdrop-blur-md rounded-xl border border-white/5 card-inner-item inner-delay-1">
+                      <div class="flex items-center gap-2">
+                        <span class="rec-pulse-dot"></span>
+                        <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-white font-bold">REC
+                          &bull; 4K UHD</span>
+                      </div>
+                      <span
+                        class="font-Supreme text-[10px] uppercase tracking-widest text-brand-soft/80 font-semibold">60
+                        FPS &bull; RAW</span>
+                    </div>
+
+                    <!-- Container da Imagem de Perfil -->
+                    <div
+                      class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group card-inner-item inner-delay-2">
+                      <!-- Overlay suave no hover -->
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none">
+                      </div>
+
+                      <img src="public/assets/images/cristian-profile.webp"
+                        alt="Cristian Salge — Diretor Audiovisual & Social Architect"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105"
+                        loading="lazy">
+
+                      <!-- Badge HUD Flutuante Inferior -->
+                      <div
+                        class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between bg-brand-deep/80 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg card-inner-item inner-delay-3">
+                        <div>
+                          <h3 class="font-general-sans text-sm font-bold text-white uppercase tracking-wide">Cristian
+                            Salge</h3>
+                          <p class="font-Supreme text-[10px] text-brand-soft uppercase tracking-wider font-medium">
+                            Filmmaker &amp; Social Architect</p>
+                        </div>
+                        <div
+                          class="w-8 h-8 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path
+                              d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H9l2 4H8L6 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Technical Camera Settings Footer Bar -->
+                    <div
+                      class="flex items-center justify-between px-3 py-2 mt-3 bg-brand-deep/60 backdrop-blur-md rounded-xl border border-white/5 font-Supreme text-[9px] uppercase tracking-wider text-brand-muted font-bold card-inner-item inner-delay-4">
+                      <span>ISO 400</span>
+                      <span>F/1.4</span>
+                      <span>1/200s</span>
+                      <span class="text-brand-soft">5600K</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Coluna Direita: Bento Grid (lg:col-span-7) -->
+              <div class="lg:col-span-7">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
+
+                  <!-- Card 1 (Maior): Descrição Detalhada & Trajetória (Spans 3 cols on md+) -->
+                  <div
+                    class="bento-card bento-card-1 group relative h-full rounded-3xl md:col-span-3 sobre-reveal-item delay-2">
+                    <!-- Static Base Border Highlight -->
+                    <div class="bento-card-border-base"></div>
+                    <!-- Dynamic Spotlight Radial Border Glow -->
+                    <div class="bento-card-border-glow"></div>
+                    <!-- Gradient Background Layer -->
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                    </div>
+
+                    <!-- Glass Surface Panel -->
+                    <div
+                      class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 shadow-2xl transition-colors duration-400">
+                      <div class="bento-card-glow"></div>
+                      <div class="relative z-10 flex flex-col justify-between h-full">
+                        <div>
+                          <div class="flex items-center gap-2 mb-4 card-inner-item inner-delay-1">
+                            <span
+                              class="px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                              Trajetória &amp; Posicionamento
+                            </span>
+                          </div>
+                          <h3
+                            class="font-general-sans text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-white tracking-wide mb-4 leading-snug card-inner-item inner-delay-2">
+                            Unindo a Estética do Cinema ao Algoritmo das Redes
+                          </h3>
+                          <p
+                            class="font-Supreme text-sm sm:text-base text-brand-soft/90 leading-relaxed font-medium mb-4 card-inner-item inner-delay-3">
+                            O mercado audiovisual moderno não tolera vídeos lentos ou sem propósito. Cristian Salge
+                            constrói narrativas de alta retenção desenhadas sob medida para marcas e personalidades que
+                            recusam o genérico.
+                          </p>
+                          <p
+                            class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold card-inner-item inner-delay-4">
+                            Com vasta experiência em direção de cena, montagem ritmada e sound design envolvente, cada
+                            produção combina o impacto estético das grandes campanhas publicitárias com a estratégia
+                            científica de conversão e engajamento das redes sociais.
+                          </p>
+                        </div>
+
+                        <!-- Citação / Manifesto -->
+                        <div
+                          class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3 card-inner-item inner-delay-5">
+                          <div class="w-1.5 h-10 bg-gradient-to-b from-brand-ice to-brand-blue rounded-full"></div>
+                          <p class="font-Supreme text-xs sm:text-sm italic text-brand-ice/90 font-medium">
+                            &ldquo;O audiovisual não é apenas sobre gravar imagens bonitas. É sobre dominar a atenção e
+                            emocionar em segundos.&rdquo;
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 2: Big Number 1 — Visualizações -->
+                  <div
+                    class="bento-card bento-card-2 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-3">
+                    <!-- Static Base Border Highlight -->
+                    <div class="bento-card-border-base"></div>
+                    <!-- Dynamic Spotlight Radial Border Glow -->
+                    <div class="bento-card-border-glow"></div>
+                    <!-- Gradient Background Layer -->
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                    </div>
+
+                    <!-- Glass Surface Panel -->
+                    <div
+                      class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                      <div class="bento-card-glow"></div>
+                      <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
+                          <span
+                            class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Impacto</span>
+                          <div
+                            class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <h4
+                          class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2"
+                          data-target="150" data-prefix="+" data-suffix="M">
+                          +150M
+                        </h4>
+                        <p
+                          class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">
+                          Visualizações</p>
+                        <p
+                          class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
+                          Geradas em campanhas &amp; vídeos orgânicos
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 3: Big Number 2 — Projetos Concluídos -->
+                  <div
+                    class="bento-card bento-card-3 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-4">
+                    <!-- Static Base Border Highlight -->
+                    <div class="bento-card-border-base"></div>
+                    <!-- Dynamic Spotlight Radial Border Glow -->
+                    <div class="bento-card-border-glow"></div>
+                    <!-- Gradient Background Layer -->
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                    </div>
+
+                    <!-- Glass Surface Panel -->
+                    <div
+                      class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                      <div class="bento-card-glow"></div>
+                      <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
+                          <span
+                            class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Portfólio</span>
+                          <div
+                            class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M17 4v16M3 8h18M3 16h18" />
+                            </svg>
+                          </div>
+                        </div>
+                        <h4
+                          class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2"
+                          data-target="200" data-prefix="+" data-suffix="">
+                          +200
+                        </h4>
+                        <p
+                          class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">
+                          Projetos Entregues</p>
+                        <p
+                          class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
+                          Comerciais, Reels e produções de marca
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 4: Big Number 3 — Taxa de Retenção -->
+                  <div
+                    class="bento-card bento-card-4 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-5">
+                    <!-- Static Base Border Highlight -->
+                    <div class="bento-card-border-base"></div>
+                    <!-- Dynamic Spotlight Radial Border Glow -->
+                    <div class="bento-card-border-glow"></div>
+                    <!-- Gradient Background Layer -->
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue/40 via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                    </div>
+
+                    <!-- Glass Surface Panel -->
+                    <div
+                      class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                      <div class="bento-card-glow"></div>
+                      <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
+                          <span
+                            class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Métrica</span>
+                          <div
+                            class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                          </div>
+                        </div>
+                        <h4
+                          class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2"
+                          data-target="94.8" data-prefix="" data-suffix="%" data-decimals="1">
+                          94.8%
+                        </h4>
+                        <p
+                          class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">
+                          Taxa de Retenção</p>
+                        <p
+                          class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
+                          Manutenção de público nos 5s iniciais
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 5: Pilares & Diferenciais (Spans 2 cols on md+) -->
+                  <div
+                    class="bento-card bento-card-5 group relative h-full rounded-3xl md:col-span-2 sobre-reveal-item delay-5">
+                    <!-- Static Base Border Highlight -->
+                    <div class="bento-card-border-base"></div>
+                    <!-- Dynamic Spotlight Radial Border Glow -->
+                    <div class="bento-card-border-glow"></div>
+                    <!-- Gradient Background Layer -->
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/40 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                    </div>
+
+                    <!-- Glass Surface Panel -->
+                    <div
+                      class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                      <div class="bento-card-glow"></div>
+                      <div class="relative z-10">
+                        <span
+                          class="px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold inline-block mb-3 card-inner-item inner-delay-1">
+                          Pilares da Produção
                         </span>
-                      </div>
-                      <h3 class="font-general-sans text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-white tracking-wide mb-4 leading-snug card-inner-item inner-delay-2">
-                        Unindo a Estética do Cinema ao Algoritmo das Redes
-                      </h3>
-                      <p class="font-Supreme text-sm sm:text-base text-brand-soft/90 leading-relaxed font-medium mb-4 card-inner-item inner-delay-3">
-                        O mercado audiovisual moderno não tolera vídeos lentos ou sem propósito. Cristian Salge constrói narrativas de alta retenção desenhadas sob medida para marcas e personalidades que recusam o genérico.
-                      </p>
-                      <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold card-inner-item inner-delay-4">
-                        Com vasta experiência em direção de cena, montagem ritmada e sound design envolvente, cada produção combina o impacto estético das grandes campanhas publicitárias com a estratégia científica de conversão e engajamento das redes sociais.
-                      </p>
-                    </div>
-                    
-                    <!-- Citação / Manifesto -->
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3 card-inner-item inner-delay-5">
-                      <div class="w-1.5 h-10 bg-gradient-to-b from-brand-ice to-brand-blue rounded-full"></div>
-                      <p class="font-Supreme text-xs sm:text-sm italic text-brand-ice/90 font-medium">
-                        &ldquo;O audiovisual não é apenas sobre gravar imagens bonitas. É sobre dominar a atenção e emocionar em segundos.&rdquo;
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2: Big Number 1 — Visualizações -->
-              <div class="bento-card bento-card-2 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-3">
-                <!-- Static Base Border Highlight -->
-                <div class="bento-card-border-base"></div>
-                <!-- Dynamic Spotlight Radial Border Glow -->
-                <div class="bento-card-border-glow"></div>
-                <!-- Gradient Background Layer -->
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
-                <!-- Glass Surface Panel -->
-                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
-                  <div class="bento-card-glow"></div>
-                  <div class="relative z-10">
-                    <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
-                      <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Impacto</span>
-                      <div class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h4 class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2" 
-                      data-target="150" data-prefix="+" data-suffix="M">
-                      +150M
-                    </h4>
-                    <p class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">Visualizações</p>
-                    <p class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
-                      Geradas em campanhas &amp; vídeos orgânicos
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 3: Big Number 2 — Projetos Concluídos -->
-              <div class="bento-card bento-card-3 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-4">
-                <!-- Static Base Border Highlight -->
-                <div class="bento-card-border-base"></div>
-                <!-- Dynamic Spotlight Radial Border Glow -->
-                <div class="bento-card-border-glow"></div>
-                <!-- Gradient Background Layer -->
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
-                <!-- Glass Surface Panel -->
-                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
-                  <div class="bento-card-glow"></div>
-                  <div class="relative z-10">
-                    <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
-                      <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Portfólio</span>
-                      <div class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M17 4v16M3 8h18M3 16h18" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h4 class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2" 
-                      data-target="200" data-prefix="+" data-suffix="">
-                      +200
-                    </h4>
-                    <p class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">Projetos Entregues</p>
-                    <p class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
-                      Comerciais, Reels e produções de marca
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 4: Big Number 3 — Taxa de Retenção -->
-              <div class="bento-card bento-card-4 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-5">
-                <!-- Static Base Border Highlight -->
-                <div class="bento-card-border-base"></div>
-                <!-- Dynamic Spotlight Radial Border Glow -->
-                <div class="bento-card-border-glow"></div>
-                <!-- Gradient Background Layer -->
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue/40 via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
-                <!-- Glass Surface Panel -->
-                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
-                  <div class="bento-card-glow"></div>
-                  <div class="relative z-10">
-                    <div class="flex items-center justify-between mb-4 card-inner-item inner-delay-1">
-                      <span class="font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold">Métrica</span>
-                      <div class="w-7 h-7 rounded-lg bg-brand-soft/10 border border-brand-soft/20 flex items-center justify-center text-brand-soft">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h4 class="font-general-sans text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2" 
-                      data-target="94.8" data-prefix="" data-suffix="%" data-decimals="1">
-                      94.8%
-                    </h4>
-                    <p class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">Taxa de Retenção</p>
-                    <p class="font-Supreme text-[11px] text-brand-muted font-semibold mt-2 leading-snug card-inner-item inner-delay-4">
-                      Manutenção de público nos 5s iniciais
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 5: Pilares & Diferenciais (Spans 2 cols on md+) -->
-              <div class="bento-card bento-card-5 group relative h-full rounded-3xl md:col-span-2 sobre-reveal-item delay-5">
-                <!-- Static Base Border Highlight -->
-                <div class="bento-card-border-base"></div>
-                <!-- Dynamic Spotlight Radial Border Glow -->
-                <div class="bento-card-border-glow"></div>
-                <!-- Gradient Background Layer -->
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/40 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
-                <!-- Glass Surface Panel -->
-                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
-                  <div class="bento-card-glow"></div>
-                  <div class="relative z-10">
-                    <span class="px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold inline-block mb-3 card-inner-item inner-delay-1">
-                      Pilares da Produção
-                    </span>
-                    <h3 class="font-general-sans text-lg font-bold text-white uppercase tracking-wide mb-3 card-inner-item inner-delay-2">
-                      Metodologia de Produção Audiovisual
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 card-inner-item inner-delay-3">
-                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
-                        <span class="w-2 h-2 rounded-full bg-brand-ice"></span>
-                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Direção de Cena &amp; Acting</span>
-                      </div>
-                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
-                        <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
-                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Ganchos Visuais de Retenção</span>
-                      </div>
-                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
-                        <span class="w-2 h-2 rounded-full bg-brand-muted"></span>
-                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Color Grading Cinematográfico</span>
-                      </div>
-                      <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
-                        <span class="w-2 h-2 rounded-full bg-brand-soft"></span>
-                        <span class="font-Supreme text-xs font-semibold text-brand-soft">Sound Design Imersivo</span>
+                        <h3
+                          class="font-general-sans text-lg font-bold text-white uppercase tracking-wide mb-3 card-inner-item inner-delay-2">
+                          Metodologia de Produção Audiovisual
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 card-inner-item inner-delay-3">
+                          <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-brand-ice"></span>
+                            <span class="font-Supreme text-xs font-semibold text-brand-soft">Direção de Cena &amp;
+                              Acting</span>
+                          </div>
+                          <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                            <span class="font-Supreme text-xs font-semibold text-brand-soft">Ganchos Visuais de
+                              Retenção</span>
+                          </div>
+                          <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-brand-muted"></span>
+                            <span class="font-Supreme text-xs font-semibold text-brand-soft">Color Grading
+                              Cinematográfico</span>
+                          </div>
+                          <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-brand-soft"></span>
+                            <span class="font-Supreme text-xs font-semibold text-brand-soft">Sound Design
+                              Imersivo</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <!-- Card 6: Card Status & CTA Direto (Spans 1 col) -->
-              <div class="bento-card bento-card-6 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-6">
-                <!-- Static Base Border Highlight -->
-                <div class="bento-card-border-base"></div>
-                <!-- Dynamic Spotlight Radial Border Glow -->
-                <div class="bento-card-border-glow"></div>
-                <!-- Gradient Background Layer -->
-                <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-blue/60 via-brand-navy/60 to-emerald-500/30 opacity-90 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
-                <!-- Glass Surface Panel -->
-                <div class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
-                  <div class="bento-card-glow"></div>
-                  <div class="relative z-10 flex flex-col justify-between h-full">
-                    <div>
-                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-4 card-inner-item inner-delay-1">
-                        <span class="status-pulse-dot"></span>
-                        <span class="font-Supreme text-[10px] uppercase tracking-wider font-bold">Disponível</span>
-                      </div>
-                      <h3 class="font-general-sans text-base sm:text-lg font-bold text-white uppercase tracking-wide leading-snug mb-2 card-inner-item inner-delay-2">
-                        Quer impulsionar sua marca?
-                      </h3>
-                      <p class="font-Supreme text-xs text-brand-soft/80 font-medium leading-relaxed card-inner-item inner-delay-3">
-                        Agende uma conversa direta com Cristian para planejar sua próxima produção.
-                      </p>
+                  <!-- Card 6: Card Status & CTA Direto (Spans 1 col) -->
+                  <div
+                    class="bento-card bento-card-6 group relative h-full rounded-3xl md:col-span-1 sobre-reveal-item delay-6">
+                    <!-- Static Base Border Highlight -->
+                    <div class="bento-card-border-base"></div>
+                    <!-- Dynamic Spotlight Radial Border Glow -->
+                    <div class="bento-card-border-glow"></div>
+                    <!-- Gradient Background Layer -->
+                    <div
+                      class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-blue/60 via-brand-navy/60 to-emerald-500/30 opacity-90 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
                     </div>
 
-                    <div class="mt-6 card-inner-item inner-delay-4">
-                      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
-                        class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-4 rounded-xl shadow-lg w-full">
-                        Solicitar Reunião
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current transform transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24">
-                          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                        </svg>
-                      </a>
+                    <!-- Glass Surface Panel -->
+                    <div
+                      class="relative z-10 flex flex-col justify-between h-full bg-brand-deep/30 backdrop-blur-2xl rounded-3xl p-6 shadow-xl transition-colors duration-400">
+                      <div class="bento-card-glow"></div>
+                      <div class="relative z-10 flex flex-col justify-between h-full">
+                        <div>
+                          <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-4 card-inner-item inner-delay-1">
+                            <span class="status-pulse-dot"></span>
+                            <span class="font-Supreme text-[10px] uppercase tracking-wider font-bold">Disponível</span>
+                          </div>
+                          <h3
+                            class="font-general-sans text-base sm:text-lg font-bold text-white uppercase tracking-wide leading-snug mb-2 card-inner-item inner-delay-2">
+                            Quer impulsionar sua marca?
+                          </h3>
+                          <p
+                            class="font-Supreme text-xs text-brand-soft/80 font-medium leading-relaxed card-inner-item inner-delay-3">
+                            Agende uma conversa direta com Cristian para planejar sua próxima produção.
+                          </p>
+                        </div>
+
+                        <div class="mt-6 card-inner-item inner-delay-4">
+                          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                            class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-4 rounded-xl shadow-lg w-full">
+                            Solicitar Reunião
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                              class="w-4 h-4 fill-current transform transition-transform duration-300 group-hover:translate-x-1"
+                              viewBox="0 0 24 24">
+                              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                 </div>
               </div>
 
             </div>
           </div>
+        </section>
 
-        </div>
-      </div>
-    </section>
+        <!-- Section 8: FAQ -->
+        <section id="faq" class="w-full bg-transparent py-20 border-t border-white/5 relative z-20 overflow-hidden">
+          <!-- Ambient Lights (Optional subtle glow) -->
+          <div class="absolute inset-0 pointer-events-none opacity-20">
+            <div
+              class="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-brand-blue/20 rounded-full blur-[140px] -translate-y-1/2">
+            </div>
+          </div>
 
-    <!-- Section 8: FAQ -->
-    <section id="faq" class="w-full bg-transparent py-20 border-t border-white/5 relative z-20 overflow-hidden">
-      <!-- Ambient Lights (Optional subtle glow) -->
-      <div class="absolute inset-0 pointer-events-none opacity-20">
-        <div class="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-brand-blue/20 rounded-full blur-[140px] -translate-y-1/2"></div>
-      </div>
+          <div class="max-w-[1000px] mx-auto px-6 md:px-12 relative z-10">
 
-      <div class="max-w-[1000px] mx-auto px-6 md:px-12 relative z-10">
-        
-        <!-- Header da Section -->
-        <div class="text-center mb-12 md:mb-16 faq-reveal">
-          <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold">Dúvidas Frequentes</span>
-          <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
-            Perguntas &amp; Respostas
-          </h2>
-        </div>
-
-        <!-- FAQ Container -->
-        <div class="bg-brand-deep/40 backdrop-blur-2xl rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
-          <div class="faq-list">
-            
-            <!-- Item 1 -->
-            <div class="faq-item faq-reveal">
-              <button class="faq-question">
-                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Qual o prazo médio de entrega de um vídeo?</span>
-                <span class="faq-icon"></span>
-              </button>
-              <div class="faq-answer-wrapper">
-                <div class="faq-answer-content">
-                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
-                    O prazo de entrega varia conforme a complexidade do projeto. Para vídeos institucionais e comerciais padrão, a primeira versão (rough cut) costuma ser enviada entre 7 e 10 dias úteis após a gravação. Prazos para Reels e TikToks menores podem ser mais ágeis.
-                  </p>
-                </div>
-              </div>
+            <!-- Header da Section -->
+            <div class="text-center mb-12 md:mb-16 faq-reveal">
+              <span
+                class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold">Dúvidas
+                Frequentes</span>
+              <h2 class="font-general-sans text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                Perguntas &amp; Respostas
+              </h2>
             </div>
 
-            <!-- Item 2 -->
-            <div class="faq-item faq-reveal">
-              <button class="faq-question">
-                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quais equipamentos vocês utilizam nas produções?</span>
-                <span class="faq-icon"></span>
-              </button>
-              <div class="faq-answer-wrapper">
-                <div class="faq-answer-content">
-                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
-                    Trabalhamos exclusivamente com câmeras de cinema digital, lentes anamórficas e prime de alta nitidez, drones para captações aéreas e iluminação profissional de LED, garantindo a estética cinematográfica de altíssimo padrão.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <!-- FAQ Container -->
+            <div class="bg-brand-deep/40 backdrop-blur-2xl rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
+              <div class="faq-list">
 
-            <!-- Item 3 -->
-            <div class="faq-item faq-reveal">
-              <button class="faq-question">
-                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Como funciona o processo de alterações?</span>
-                <span class="faq-icon"></span>
-              </button>
-              <div class="faq-answer-wrapper">
-                <div class="faq-answer-content">
-                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
-                    Enviamos os vídeos em uma plataforma própria de revisão, onde você pode clicar na tela e deixar comentários no segundo exato. Cada projeto inclui até 2 rodadas completas de alterações (ajustes de corte, trilha, cor), garantindo a máxima segurança e alinhamento.
-                  </p>
+                <!-- Item 1 -->
+                <div class="faq-item faq-reveal">
+                  <button class="faq-question">
+                    <span
+                      class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Qual
+                      o prazo médio de entrega de um vídeo?</span>
+                    <span class="faq-icon"></span>
+                  </button>
+                  <div class="faq-answer-wrapper">
+                    <div class="faq-answer-content">
+                      <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                        O prazo de entrega varia conforme a complexidade do projeto. Para vídeos institucionais e
+                        comerciais padrão, a primeira versão (rough cut) costuma ser enviada entre 7 e 10 dias úteis
+                        após a gravação. Prazos para Reels e TikToks menores podem ser mais ágeis.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Item 4 -->
-            <div class="faq-item faq-reveal">
-              <button class="faq-question">
-                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quem fica com os direitos autorais do material?</span>
-                <span class="faq-icon"></span>
-              </button>
-              <div class="faq-answer-wrapper">
-                <div class="faq-answer-content">
-                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
-                    Você. Todos os vídeos finalizados entregues a você são de sua propriedade para veiculação irrestrita nas plataformas acordadas. Os materiais brutos, no entanto, não são entregues, salvo negociação prévia detalhada no contrato.
-                  </p>
+                <!-- Item 2 -->
+                <div class="faq-item faq-reveal">
+                  <button class="faq-question">
+                    <span
+                      class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quais
+                      equipamentos vocês utilizam nas produções?</span>
+                    <span class="faq-icon"></span>
+                  </button>
+                  <div class="faq-answer-wrapper">
+                    <div class="faq-answer-content">
+                      <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                        Trabalhamos exclusivamente com câmeras de cinema digital, lentes anamórficas e prime de alta
+                        nitidez, drones para captações aéreas e iluminação profissional de LED, garantindo a estética
+                        cinematográfica de altíssimo padrão.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Item 5 -->
-            <div class="faq-item faq-reveal">
-              <button class="faq-question">
-                <span class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quais as formas de contratação e pagamento?</span>
-                <span class="faq-icon"></span>
-              </button>
-              <div class="faq-answer-wrapper">
-                <div class="faq-answer-content">
-                  <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
-                    Atuamos tanto em modelo de diária (projetos pontuais) quanto pacotes mensais recorrentes para redes sociais (Fee Mensal). O pagamento é feito tipicamente com sinal de 50% para reserva de agenda e 50% na aprovação final do material. Aceitamos PIX e transferências bancárias.
-                  </p>
+                <!-- Item 3 -->
+                <div class="faq-item faq-reveal">
+                  <button class="faq-question">
+                    <span
+                      class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Como
+                      funciona o processo de alterações?</span>
+                    <span class="faq-icon"></span>
+                  </button>
+                  <div class="faq-answer-wrapper">
+                    <div class="faq-answer-content">
+                      <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                        Enviamos os vídeos em uma plataforma própria de revisão, onde você pode clicar na tela e deixar
+                        comentários no segundo exato. Cada projeto inclui até 2 rodadas completas de alterações (ajustes
+                        de corte, trilha, cor), garantindo a máxima segurança e alinhamento.
+                      </p>
+                    </div>
+                  </div>
                 </div>
+
+                <!-- Item 4 -->
+                <div class="faq-item faq-reveal">
+                  <button class="faq-question">
+                    <span
+                      class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quem
+                      fica com os direitos autorais do material?</span>
+                    <span class="faq-icon"></span>
+                  </button>
+                  <div class="faq-answer-wrapper">
+                    <div class="faq-answer-content">
+                      <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                        Você. Todos os vídeos finalizados entregues a você são de sua propriedade para veiculação
+                        irrestrita nas plataformas acordadas. Os materiais brutos, no entanto, não são entregues, salvo
+                        negociação prévia detalhada no contrato.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="faq-item faq-reveal">
+                  <button class="faq-question">
+                    <span
+                      class="font-general-sans text-base md:text-xl font-bold uppercase tracking-wide faq-question-text pr-4">Quais
+                      as formas de contratação e pagamento?</span>
+                    <span class="faq-icon"></span>
+                  </button>
+                  <div class="faq-answer-wrapper">
+                    <div class="faq-answer-content">
+                      <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
+                        Atuamos tanto em modelo de diária (projetos pontuais) quanto pacotes mensais recorrentes para
+                        redes sociais (Fee Mensal). O pagamento é feito tipicamente com sinal de 50% para reserva de
+                        agenda e 50% na aprovação final do material. Aceitamos PIX e transferências bancárias.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
           </div>
-        </div>
-
-      </div>
-    </section>
+        </section>
       </div> <!-- End Content Layer -->
     </div> <!-- End Unified Wrapper -->
 
@@ -1451,10 +1692,70 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer
-    class="border-t border-white/10 bg-brand-navy py-12 text-center text-xs text-brand-muted font-light relative z-30">
-    <p>&copy; 2026 Cristian Salge &bull; Produtor Audiovisual &amp; Social Media. Todos os direitos reservados.</p>
+  <!-- CTA & Footer Animado (ASCII Canvas) -->
+  <footer id="cta-footer" class="cta-footer-section">
+    <!-- Floating Orb for Interaction -->
+    <div id="cta-orb" class="cta-orb"></div>
+
+    <!-- ASCII Canvas Wrapper -->
+    <div class="w-full flex justify-center mb-8 md:mb-16 pointer-events-none z-10">
+      <div id="af-canvas-center" class="af-canvas-wrapper">
+        <canvas id="canvas-center" class="af-canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- CTA Content -->
+    <div class="cta-content-wrapper">
+      <h2 class="cta-heading text-brand-white">
+        <span class="cta-word">
+          <span class="af-char" style="transition-delay: 0.05s">E</span>
+          <span class="af-char" style="transition-delay: 0.10s">L</span>
+          <span class="af-char" style="transition-delay: 0.15s">E</span>
+          <span class="af-char" style="transition-delay: 0.20s">V</span>
+          <span class="af-char" style="transition-delay: 0.25s">E</span>
+        </span>
+        <span class="cta-word">
+          <span class="af-char" style="transition-delay: 0.30s">S</span>
+          <span class="af-char" style="transition-delay: 0.35s">U</span>
+          <span class="af-char" style="transition-delay: 0.40s">A</span>
+        </span>
+        <span class="cta-word">
+          <span class="af-char" style="transition-delay: 0.45s">C</span>
+          <span class="af-char" style="transition-delay: 0.50s">O</span>
+          <span class="af-char" style="transition-delay: 0.55s">M</span>
+          <span class="af-char" style="transition-delay: 0.60s">U</span>
+          <span class="af-char" style="transition-delay: 0.65s">N</span>
+          <span class="af-char" style="transition-delay: 0.70s">I</span>
+          <span class="af-char" style="transition-delay: 0.75s">C</span>
+          <span class="af-char" style="transition-delay: 0.80s">A</span>
+          <span class="af-char" style="transition-delay: 0.85s">Ç</span>
+          <span class="af-char" style="transition-delay: 0.90s">Ã</span>
+          <span class="af-char" style="transition-delay: 0.95s">O</span>
+        </span>
+      </h2>
+      <div class="cta-action-wrapper mt-6">
+        <a href="https://wa.me/5511999999999" target="_blank"
+          class="gradient-button inline-flex items-center justify-center rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-white font-general-sans focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">
+          Iniciar Projeto
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Integrated Footer -->
+    <div class="integrated-footer">
+      <p class="font-Supreme text-brand-soft/70">&copy; 2026 Cristian Salge &bull; Produtor Audiovisual &amp; Social
+        Media. Todos os direitos reservados.</p>
+      <div class="flex gap-4">
+        <a href="#" class="text-brand-soft hover:text-brand-white transition-colors duration-200">Instagram</a>
+        <a href="mailto:contato@cristiansalge.com.br"
+          class="text-brand-soft hover:text-brand-white transition-colors duration-200">E-mail</a>
+      </div>
+    </div>
   </footer>
 
   <!-- Lenis for Smooth Scrolling CDN -->
@@ -1470,6 +1771,7 @@
   <script src="js/depoimentos.js"></script>
   <script src="js/sobre.js"></script>
   <script src="js/faq.js"></script>
+  <script src="js/cta-footer.js"></script>
 </body>
 
 </html>
