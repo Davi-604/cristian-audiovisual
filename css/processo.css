@@ -185,6 +185,8 @@
   overflow: hidden;
   z-index: 0;
   pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%);
 }
 
 .aurora-bg {

@@ -15,6 +15,19 @@
   padding-bottom: 8rem; /* space for integrated footer */
 }
 
+/* Transição de fade vindo da section de FAQ (fundo deep) para a CTA (fundo abyss) */
+.cta-footer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15rem; /* Ajuste a altura do fade conforme necessário */
+  background: linear-gradient(to bottom, var(--color-brand-deep) 0%, rgba(3, 8, 22, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* ASCII Canvas Wrapper */
 .af-canvas-wrapper {
   position: relative;

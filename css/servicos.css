@@ -50,35 +50,55 @@
   z-index: 2;
 }
 
-/* Desktop: Transição Horizontal (Funde o lado esquerdo da imagem com o texto) */
+/* Desktop: Transição Horizontal e Vertical (Funde o lado esquerdo, topo e base da imagem) */
 @media (min-width: 768px) {
   .service-panel {
     flex-direction: row;
   }
   
   .service-image-container::after {
-    background: linear-gradient(to right,
-      #0A1128 0%,
-      rgba(10, 17, 40, 0.90) 5%,
-      rgba(10, 17, 40, 0.40) 15%,
-      transparent 30%
-    );
+    background: 
+      linear-gradient(to right,
+        #0A1128 0%,
+        rgba(10, 17, 40, 0.90) 5%,
+        rgba(10, 17, 40, 0.40) 15%,
+        rgba(10, 17, 40, 0) 30%
+      ),
+      linear-gradient(to bottom,
+        #0A1128 0%,
+        rgba(10, 17, 40, 0.90) 5%,
+        rgba(10, 17, 40, 0.40) 15%,
+        rgba(10, 17, 40, 0) 25%
+      ),
+      linear-gradient(to top,
+        #0A1128 0%,
+        rgba(10, 17, 40, 0.90) 5%,
+        rgba(10, 17, 40, 0.40) 15%,
+        rgba(10, 17, 40, 0) 25%
+      );
   }
 }
 
-/* Mobile: Transição Vertical (Funde o topo da imagem com o texto superior) */
+/* Mobile: Transição Vertical (Funde o topo e a base da imagem) */
 @media (max-width: 767px) {
   .service-panel {
     flex-direction: column;
   }
   
   .service-image-container::after {
-    background: linear-gradient(to bottom,
-      #0A1128 0%,
-      rgba(10, 17, 40, 0.90) 5%,
-      rgba(10, 17, 40, 0.40) 15%,
-      transparent 30%
-    );
+    background: 
+      linear-gradient(to bottom,
+        #0A1128 0%,
+        rgba(10, 17, 40, 0.90) 5%,
+        rgba(10, 17, 40, 0.40) 15%,
+        rgba(10, 17, 40, 0) 30%
+      ),
+      linear-gradient(to top,
+        #0A1128 0%,
+        rgba(10, 17, 40, 0.90) 5%,
+        rgba(10, 17, 40, 0.40) 15%,
+        rgba(10, 17, 40, 0) 30%
+      );
   }
 }
 
