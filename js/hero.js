@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const render = () => {
       // Oculta/Pausa o processamento do canvas se a imagem principal já cobriu a tela toda
-      if (window.scrollY <= SECTION_HEIGHT + 100) {
+      if (window.scrollY <= SECTION_HEIGHT + 100 && document.body.classList.contains('hero-sequence-complete')) {
         canvas.style.opacity = '1';
         ctx.fillStyle = "#0A1128"; // brand-deep
         ctx.globalAlpha = 0.5;
@@ -157,6 +157,21 @@ window.addEventListener('DOMContentLoaded', () => {
     smoothTouch: false,
     touchMultiplier: 2,
     infinite: false,
+  });
+
+  if (!document.body.classList.contains('preloader-done')) {
+    lenis.stop();
+  }
+
+  window.addEventListener('preloaderComplete', () => {
+    document.body.classList.add('hero-sequence-active');
+    setTimeout(() => {
+        document.body.classList.add('hero-sequence-complete');
+    }, 3000);
+
+    lenis.start();
+    lenis.scrollTo(0, { immediate: true });
+    window.dispatchEvent(new Event('scroll'));
   });
 
   function raf(time) {

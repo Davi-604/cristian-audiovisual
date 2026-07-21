@@ -154,3 +154,68 @@
   80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 2px); }
   100% { clip-path: inset(5% 0 80% 0); transform: translate(-2px, -1px); }
 }
+
+/* --- Hero Sequence Orchestration --- */
+body:not(.hero-sequence-active) #hero-card {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+}
+#hero-card {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-sequence-active #hero-card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+body:not(.hero-sequence-active) .hero-anim-1,
+body:not(.hero-sequence-active) .hero-anim-3,
+body:not(.hero-sequence-active) .hero-anim-4 {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.hero-sequence-active .hero-anim-1 {
+  animation: slideDownIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.6s;
+}
+.hero-sequence-active .hero-anim-3 {
+  animation: slideRightIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 1.2s;
+}
+.hero-sequence-active .hero-anim-4 {
+  animation: slideUpIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 1.4s;
+}
+
+body:not(.hero-sequence-active) .hero-anim-2 .char {
+  animation: none !important;
+  opacity: 0 !important;
+}
+body:not(.hero-sequence-active) .hero-anim-2 {
+  opacity: 0;
+}
+.hero-sequence-active .hero-anim-2 {
+  opacity: 1;
+}
+
+/* Navbar Sequence */
+body:not(.hero-sequence-complete):not(.hero-sequence-active) #navbar-wrapper {
+  opacity: 0 !important;
+  transform: scale(0.5) translateY(-20px) !important;
+}
+body.hero-sequence-active:not(.hero-sequence-complete) #navbar-wrapper {
+  opacity: 1 !important;
+  transform: scale(1) translateY(0) !important;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s !important;
+}
+
+/* Scroll Indicator Sequence */
+body:not(.hero-sequence-complete):not(.hero-sequence-active) #scroll-indicator {
+  opacity: 0 !important;
+  transform: translateX(-50%) scale(0.5) !important;
+}
+body.hero-sequence-active:not(.hero-sequence-complete) #scroll-indicator {
+  opacity: 1 !important;
+  transform: translateX(-50%) scale(1) !important;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s !important;
+}
