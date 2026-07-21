@@ -221,7 +221,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Animation Loop
   let rafId = 0;
+  let isAnimating = false;
   const frame = () => {
+    if (!isRevealed) {
+      isAnimating = false;
+      return;
+    }
+
     const now = Date.now();
     for (const hand of hands) renderAscii(hand, now);
 
@@ -258,8 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     rafId = requestAnimationFrame(frame);
   };
-  
-  rafId = requestAnimationFrame(frame);
 
   // Scroll Reveal Observer
   const observer = new IntersectionObserver((entries) => {
@@ -267,12 +271,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         isRevealed = true;
         section.classList.add('is-revealed');
+        if (!isAnimating) {
+          isAnimating = true;
+          rafId = requestAnimationFrame(frame);
+        }
       } else {
         isRevealed = false;
         section.classList.remove('is-revealed');
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0 });
 
   observer.observe(section);
 });

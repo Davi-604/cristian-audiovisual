@@ -151,6 +151,8 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: border-color 0.4s ease;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .processo-card:hover .processo-glass-panel {
@@ -211,9 +213,10 @@
   inset: 0;
   background-image: var(--dark-gradient), var(--aurora);
   background-size: 200% 100%;
-  background-attachment: fixed;
   mix-blend-mode: difference;
   animation: aurora 60s linear infinite;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 @keyframes aurora {

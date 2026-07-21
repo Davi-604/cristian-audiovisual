@@ -1313,8 +1313,8 @@
           class="w-full bg-transparent py-24 md:py-32 border-t border-white/5 relative z-20 overflow-hidden">
           <!-- Ambient Lights & Grid Background -->
           <div class="absolute inset-0 pointer-events-none opacity-30">
-            <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[140px]"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-soft/10 rounded-full blur-[160px]">
+            <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[140px] transform-gpu will-change-transform"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-soft/10 rounded-full blur-[160px] transform-gpu will-change-transform">
             </div>
           </div>
 
@@ -1724,7 +1724,7 @@
           <!-- Ambient Lights (Optional subtle glow) -->
           <div class="absolute inset-0 pointer-events-none opacity-20">
             <div
-              class="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-brand-blue/20 rounded-full blur-[140px] -translate-y-1/2">
+              class="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-brand-blue/20 rounded-full blur-[140px] -translate-y-1/2 transform-gpu will-change-transform">
             </div>
           </div>
 
