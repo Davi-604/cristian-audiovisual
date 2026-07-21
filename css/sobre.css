@@ -138,30 +138,38 @@
   z-index: 12;
 }
 
-/* Dynamic Radial Spotlight Border Reveal Layer */
+/* Persistent Metallic Animated Border */
 .bento-card-border-glow {
   position: absolute;
   inset: -1.5px;
   border-radius: 1.5rem;
   padding: 1.5px;
-  background: radial-gradient(
-    320px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    var(--card-border-color-1, rgba(206, 229, 242, 0.95)),
-    var(--card-border-color-2, rgba(39, 70, 144, 0.6)) 45%,
-    transparent 75%
-  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  opacity: 1;
   z-index: 15;
+  overflow: hidden;
 }
 
-/* Reveal radial border glow when mouse is active in the container */
-.mouse-active .bento-card-border-glow {
-  opacity: 1;
+.bento-card-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 20%,
+    var(--card-border-color-2, rgba(39, 70, 144, 0.6)) 50%,
+    var(--card-border-color-1, rgba(206, 229, 242, 0.95)) 90%,
+    transparent 100%
+  );
+  animation: borderRotate 8s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Unique Card Border Accent Variables */
@@ -244,23 +252,15 @@
 }
 
 /* In-View State (Entry Animations) */
-#sobre.in-view .sobre-reveal-item,
-#sobre.in-view .sobre-reveal-left {
+.sobre-reveal-item.in-view,
+.sobre-reveal-left.in-view {
   opacity: 1;
   transform: translate(0) scale(1);
   filter: blur(0);
 }
 
-/* Stagger Delays for Elements */
-#sobre.in-view .delay-1 { transition-delay: 100ms; }
-#sobre.in-view .delay-2 { transition-delay: 200ms; }
-#sobre.in-view .delay-3 { transition-delay: 300ms; }
-#sobre.in-view .delay-4 { transition-delay: 400ms; }
-#sobre.in-view .delay-5 { transition-delay: 500ms; }
-#sobre.in-view .delay-6 { transition-delay: 600ms; }
-
 /* Out-Of-View State (Exit Animations) */
-#sobre.out-view .sobre-reveal-item {
+.sobre-reveal-item.out-view {
   opacity: 0;
   transform: translateY(30px) scale(0.96);
   filter: blur(8px);
@@ -269,7 +269,7 @@
               filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#sobre.out-view .sobre-reveal-left {
+.sobre-reveal-left.out-view {
   opacity: 0;
   transform: translateX(-30px) scale(0.96);
   filter: blur(8px);
@@ -290,21 +290,14 @@
   will-change: opacity, transform, filter;
 }
 
-#sobre.in-view .card-inner-item {
+.card-inner-item.in-view {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
 }
 
-/* Stagger Delays for Inner Items */
-#sobre.in-view .inner-delay-1 { transition-delay: 200ms; }
-#sobre.in-view .inner-delay-2 { transition-delay: 320ms; }
-#sobre.in-view .inner-delay-3 { transition-delay: 440ms; }
-#sobre.in-view .inner-delay-4 { transition-delay: 560ms; }
-#sobre.in-view .inner-delay-5 { transition-delay: 680ms; }
-
 /* Out of view state for inner items */
-#sobre.out-view .card-inner-item {
+.card-inner-item.out-view {
   opacity: 0;
   transform: translateY(15px);
   filter: blur(4px);
@@ -323,13 +316,13 @@
   will-change: opacity, transform, filter;
 }
 
-#sobre.in-view .animate-counter {
+.animate-counter.in-view {
   opacity: 1;
   transform: scale(1) translateY(0);
   filter: blur(0);
 }
 
-#sobre.out-view .animate-counter {
+.animate-counter.out-view {
   opacity: 0;
   transform: scale(0.85) translateY(10px);
   filter: blur(6px);

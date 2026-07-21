@@ -38,13 +38,14 @@ function initBentoCardGlow() {
 
 /**
  * IntersectionObserver to handle Entry Animations, Exit Animations,
- * and Big Numbers Count-Up / Count-Down transitions.
+ * and Big Numbers Count-Up / Count-Down transitions for individual elements.
  */
 function initSobreScrollObserver() {
   const sectionSobre = document.getElementById('sobre');
   if (!sectionSobre) return;
 
   const counterElements = sectionSobre.querySelectorAll('.animate-counter');
+  const animatedElements = sectionSobre.querySelectorAll('.sobre-reveal-item, .sobre-reveal-left, .card-inner-item, .animate-counter');
 
   // Pre-set counters to 0 on initial page load so they start counting from zero
   counterElements.forEach(el => {
@@ -62,27 +63,33 @@ function initSobreScrollObserver() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      const target = entry.target;
+
       if (entry.isIntersecting) {
         // Entry Animation State
-        sectionSobre.classList.add('in-view');
-        sectionSobre.classList.remove('out-view');
+        target.classList.add('in-view');
+        target.classList.remove('out-view');
 
         // Animate Big Numbers Count UP from 0 to target
-        counterElements.forEach(el => animateCounter(el, 'up'));
+        if (target.classList.contains('animate-counter')) {
+          animateCounter(target, 'up');
+        }
       } else {
         // Exit Animation State
-        if (sectionSobre.classList.contains('in-view')) {
-          sectionSobre.classList.remove('in-view');
-          sectionSobre.classList.add('out-view');
+        if (target.classList.contains('in-view')) {
+          target.classList.remove('in-view');
+          target.classList.add('out-view');
 
           // Animate Big Numbers Count DOWN to 0
-          counterElements.forEach(el => animateCounter(el, 'down'));
+          if (target.classList.contains('animate-counter')) {
+            animateCounter(target, 'down');
+          }
         }
       }
     });
   }, observerOptions);
 
-  observer.observe(sectionSobre);
+  animatedElements.forEach(el => observer.observe(el));
 }
 
 // Track active animation frame ID per element to prevent race conditions
