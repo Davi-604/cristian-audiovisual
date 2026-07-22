@@ -100,6 +100,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        const mobileItems = document.querySelectorAll('.mobile-nav-item');
+        mobileItems.forEach((item, i) => {
+            if (i === index) {
+                item.classList.add("text-white");
+                item.classList.remove("text-brand-soft");
+            } else {
+                item.classList.add("text-brand-soft");
+                item.classList.remove("text-white");
+            }
+        });
+
         targetAmbienceX = getTargetX(activeIndex);
         if (!isHovering) {
             targetSpotlightX = getTargetX(activeIndex);
@@ -138,6 +149,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero-scroll-container');
     if (hero && !hero.id) hero.id = 'inicio';
 
+    // --- Mobile Menu Logic ---
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
+    let isMobileMenuOpen = false;
+
+    function closeMobileMenu() {
+        if (!isMobileMenuOpen || !mobileBtn || !mobileDropdown) return;
+        isMobileMenuOpen = false;
+        mobileDropdown.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]', 'scale-95');
+        mobileDropdown.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
+        
+        const spans = mobileBtn.querySelectorAll('span');
+        if (spans.length >= 3) {
+            spans[0].classList.remove('translate-y-[6px]', 'rotate-45');
+            spans[1].classList.remove('opacity-0');
+            spans[2].classList.remove('translate-y-[-6px]', '-rotate-45');
+        }
+    }
+
+    function toggleMobileMenu() {
+        if (isMobileMenuOpen) {
+            closeMobileMenu();
+        } else {
+            isMobileMenuOpen = true;
+            mobileDropdown.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]', 'scale-95');
+            mobileDropdown.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
+            
+            const spans = mobileBtn.querySelectorAll('span');
+            if (spans.length >= 3) {
+                spans[0].classList.add('translate-y-[6px]', 'rotate-45');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('translate-y-[-6px]', '-rotate-45');
+            }
+        }
+    }
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (isMobileMenuOpen && !mobileDropdown.contains(e.target) && !mobileBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        const mobileItems = document.querySelectorAll('.mobile-nav-item');
+        mobileItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                setActiveIndex(index);
+                closeMobileMenu();
+            });
+        });
+    }
+
     // --- Smart Scroll Hide/Show Logic ---
     const navbarWrapper = document.getElementById('navbar-wrapper');
     if (navbarWrapper) {
@@ -150,17 +218,18 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Show immediately if we are at the very top
             if (currentScrollY <= 100) {
-                navbarWrapper.classList.remove('-translate-y-[150%]');
+                navbarWrapper.classList.remove('-translate-y-32');
                 scrollUpDistance = 0;
             } else if (currentScrollY > lastScrollY) {
                 // Scrolling down - hide immediately
-                navbarWrapper.classList.add('-translate-y-[150%]');
+                navbarWrapper.classList.add('-translate-y-32');
                 scrollUpDistance = 0; // Reset scroll up accumulator
+                if (typeof closeMobileMenu === 'function') closeMobileMenu();
             } else {
                 // Scrolling up - accumulate distance
                 scrollUpDistance += (lastScrollY - currentScrollY);
                 if (scrollUpDistance > SCROLL_UP_THRESHOLD) {
-                    navbarWrapper.classList.remove('-translate-y-[150%]');
+                    navbarWrapper.classList.remove('-translate-y-32');
                 }
             }
             

@@ -70,18 +70,30 @@ window.addEventListener('DOMContentLoaded', () => {
         if (node === nodes[0]) text = text.trimStart();
         if (node === nodes[nodes.length - 1]) text = text.trimEnd();
 
+        let currentWordSpan = null;
         for (let i = 0; i < text.length; i++) {
           const char = text[i];
           if (char === ' ') {
+            if (currentWordSpan) {
+              el.appendChild(currentWordSpan);
+              currentWordSpan = null;
+            }
             el.appendChild(document.createTextNode(' '));
           } else {
+            if (!currentWordSpan) {
+              currentWordSpan = document.createElement('span');
+              currentWordSpan.style.display = 'inline-block';
+            }
             const span = document.createElement('span');
             span.className = 'char';
             span.textContent = char;
             span.style.animationDelay = `${delayOffset}s`;
-            el.appendChild(span);
+            currentWordSpan.appendChild(span);
             delayOffset += 0.08;
           }
+        }
+        if (currentWordSpan) {
+          el.appendChild(currentWordSpan);
         }
       } else {
         el.appendChild(node.cloneNode(true));
@@ -198,6 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Grab elements
   const centerImage = document.querySelector('.center-image-clipped');
+  const centerImageInner = document.querySelector('.center-image-inner');
   const heroOverlayCard = document.querySelector('.hero-overlay-content > div');
   const parallaxImages = document.querySelectorAll('.parallax-img');
   const scrollIndicator = document.getElementById('scroll-indicator');
@@ -325,8 +338,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // backgroundSize goes from 170% to 100% as scroll goes from 0 to 2000
       const tSize = Math.min(Math.max(scrollY / (SECTION_HEIGHT + 500), 0), 1);
-      const bgSize = 170 - (tSize * 70);
-      centerImage.style.backgroundSize = `${bgSize}%`;
+      const scaleValue = 1.7 - (tSize * 0.7);
+      if (centerImageInner) {
+        centerImageInner.style.transform = `scale(${scaleValue})`;
+      }
 
       // opacity goes from 1 to 0 as scroll goes from SECTION_HEIGHT + IDLE_HEIGHT to + 500
       let opacity = 1;
