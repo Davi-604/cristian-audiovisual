@@ -14,17 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
   let offsetTop = 0;
   let sectionHeight = 0;
   let maxTranslate = 0;
+  let focusPosition = 0;
 
   function calculateLayout() {
     offsetTop = section.getBoundingClientRect().top + window.scrollY;
     sectionHeight = section.offsetHeight;
     
-    // We want the maximum horizontal translation to be exactly the distance 
-    // from the first card to the last card. This ensures the last card 
-    // reaches the left-aligned focal point at the very end of the scroll.
-    const firstCardOffset = cards.length ? cards[0].offsetLeft : 0;
-    const lastCardOffset = cards.length ? cards[cards.length - 1].offsetLeft : 0;
-    maxTranslate = lastCardOffset - firstCardOffset;
+    // Focus position é onde queremos que o card fique na tela para estar ativo (centro)
+    focusPosition = window.innerWidth / 2 - (cards.length ? cards[0].offsetWidth / 2 : 0);
+    
+    // A translação máxima termina com o último card perfeitamente centralizado
+    if (cards.length > 0) {
+      maxTranslate = cards[cards.length - 1].offsetLeft - focusPosition;
+    } else {
+      maxTranslate = 0;
+    }
   }
 
   // Initial calculation and listeners
@@ -52,27 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTranslate = progress * maxTranslate;
     track.style.transform = `translateX(${-currentTranslate}px)`;
 
-    // To sync the progress bar visually with the markers:
+    // Calculate synced progress based on cards hitting the focus position
     const numCards = cards.length;
     let syncedProgress = 0;
-    const firstCardOffset = numCards ? cards[0].offsetLeft : 0;
     
-    // Find where currentTranslate falls between cards
-    for (let i = 0; i < numCards - 1; i++) {
-      const cardA = cards[i].offsetLeft - firstCardOffset;
-      const cardB = cards[i + 1].offsetLeft - firstCardOffset;
+    if (numCards > 0) {
+      const firstCardCenter = cards[0].offsetLeft - focusPosition;
+      const lastCardCenter = cards[numCards - 1].offsetLeft - focusPosition;
       
-      if (currentTranslate >= cardA && currentTranslate < cardB) {
-        const segmentProgress = (currentTranslate - cardA) / (cardB - cardA);
-        syncedProgress = (i + segmentProgress) / (numCards - 1);
-        break;
+      // A timeline só começa a andar quando o primeiro card chega no centro
+      if (currentTranslate < firstCardCenter) {
+        syncedProgress = 0;
+      } else if (currentTranslate >= lastCardCenter) {
+        syncedProgress = 1;
+      } else {
+        // Find where currentTranslate falls between cards
+        for (let i = 0; i < numCards - 1; i++) {
+          const cardA = cards[i].offsetLeft - focusPosition;
+          const cardB = cards[i + 1].offsetLeft - focusPosition;
+          
+          if (currentTranslate >= cardA && currentTranslate < cardB) {
+            const segmentProgress = (currentTranslate - cardA) / (cardB - cardA);
+            syncedProgress = (i + segmentProgress) / (numCards - 1);
+            break;
+          }
+        }
       }
-    }
-    
-    if (numCards > 0 && currentTranslate >= cards[numCards - 1].offsetLeft - firstCardOffset) {
-      syncedProgress = 1;
-    } else if (currentTranslate <= 0) {
-      syncedProgress = 0;
     }
     
     // Update horizontal progress bar width using the strictly synced progress
@@ -82,19 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Determine the active step by checking if the card has reached the exact focal point.
     // We activate the marker ONLY when the card reaches the middle (tight 20px threshold).
-    let activeStep = 0;
+    let activeStep = -1; // -1 significa que nenhum marker está ativo ainda
     const activationThreshold = 20; 
     
     cards.forEach((card, index) => {
-      const cardPosition = card.offsetLeft - firstCardOffset;
-      if (currentTranslate >= cardPosition - activationThreshold) {
+      const cardCenterTranslate = card.offsetLeft - focusPosition;
+      if (currentTranslate >= cardCenterTranslate - activationThreshold) {
         activeStep = index;
       }
     });
 
     // Update active marker states
     markers.forEach((marker, index) => {
-      if (index <= activeStep) {
+      if (activeStep !== -1 && index <= activeStep) {
         marker.classList.add('marker-active');
       } else {
         marker.classList.remove('marker-active');
@@ -109,9 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.remove('card-active');
       }
       
-      const cardPosition = card.offsetLeft - firstCardOffset;
-      // Distance from the optimal "focus" position (current translation)
-      const distance = cardPosition - currentTranslate;
+      const cardCenterTranslate = card.offsetLeft - focusPosition;
+      // Distance from the optimal "focus" position
+      const distance = cardCenterTranslate - currentTranslate;
       
       // Screen width dependent fade radius (cards further than this are completely grainy/faded)
       const maxFadeDist = window.innerWidth * 0.6;
@@ -124,7 +133,16 @@ document.addEventListener('DOMContentLoaded', () => {
       // Easing curve for a smoother transition
       focus = Math.pow(focus, 1.2);
       
+      // Blur Factor: the card remains 100% sharp while elevated (focus >= 0.55).
+      // Only starts blurring when it drops below this threshold (returning to track).
+      let blurFactor = 0;
+      if (focus < 0.55) {
+        blurFactor = (0.55 - focus) / 0.55;
+        blurFactor = Math.pow(blurFactor, 1.2); // Smooth easing for the blur
+      }
+      
       card.style.setProperty('--card-focus', focus.toFixed(3));
+      card.style.setProperty('--card-blur', blurFactor.toFixed(3));
     });
   }
 
@@ -138,11 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetCard = cards[index];
       if (!targetCard) return;
 
-      const firstCardOffset = cards.length ? cards[0].offsetLeft : 0;
-      let targetTranslate = targetCard.offsetLeft - firstCardOffset;
-      targetTranslate = Math.min(Math.max(0, targetTranslate), maxTranslate);
+      const targetTranslate = targetCard.offsetLeft - focusPosition;
+      const safeTarget = Math.min(Math.max(0, targetTranslate), maxTranslate);
 
-      let stepProgress = maxTranslate > 0 ? targetTranslate / maxTranslate : 0;
+      let stepProgress = maxTranslate > 0 ? safeTarget / maxTranslate : 0;
       
       const startScroll = offsetTop;
       const endScroll = offsetTop + sectionHeight - window.innerHeight;

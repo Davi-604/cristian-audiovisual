@@ -117,8 +117,9 @@
 .processo-track {
   display: flex;
   gap: 1.5rem;
-  /* Centering a 340px card on mobile: 50vw - half the card width (170px) */
-  padding-left: calc(50vw - 170px);
+  /* Começa na direita para exigir scroll antes de focar o primeiro card */
+  padding-left: 100vw;
+  /* Espaço final para o último card ficar centralizado */
   padding-right: calc(50vw - 170px);
   will-change: transform;
 }
@@ -133,13 +134,14 @@
   
   /* CSS Variables driven by JS scroll */
   --card-focus: 0; /* 1 = active, 0 = far away */
+  --card-blur: 1; /* 1 = fully blurred, 0 = sharp */
   
   /* Dynamic scale and opacity for continuous effect */
   opacity: calc(0.25 + (0.75 * var(--card-focus)));
   transform: scale(calc(0.85 + (0.15 * var(--card-focus))));
   
-  /* Gradual blur and grayscale for distant cards */
-  filter: blur(calc((1 - var(--card-focus)) * 6px)) grayscale(calc((1 - var(--card-focus)) * 60%));
+  /* Gradual blur and grayscale for distant cards - driven by blur threshold */
+  filter: blur(calc(var(--card-blur) * 6px)) grayscale(calc(var(--card-blur) * 60%));
 }
 
 /* Granulado (Noise/Pixelated) Effect */
@@ -152,7 +154,7 @@
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   mix-blend-mode: hard-light;
-  opacity: calc((1 - var(--card-focus)) * 0.4); /* Fades out completely when focused */
+  opacity: calc(var(--card-blur) * 0.4); /* Fades in only when returning to track */
   transition: opacity 0.1s ease;
 }
 
@@ -184,7 +186,7 @@
 @media (min-width: 1024px) {
   .processo-track {
     /* Centering a 440px card on desktop: 50vw - half the card width (220px) */
-    padding-left: calc(50vw - 220px);
+    padding-left: 100vw;
     padding-right: calc(50vw - 220px);
   }
   
