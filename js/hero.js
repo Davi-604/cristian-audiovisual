@@ -262,8 +262,16 @@ window.addEventListener('DOMContentLoaded', () => {
   let idleTimeout;
   let lastScrollYForIdle = -1;
 
+  const isNearCTA = () => {
+    const ctaFooter = document.getElementById('cta-footer');
+    if (!ctaFooter) return false;
+    const ctaRect = ctaFooter.getBoundingClientRect();
+    // A pill some se a seção do CTA já estiver visível na tela
+    return ctaRect.top <= window.innerHeight;
+  };
+
   const showIndicator = () => {
-    if (window.scrollY < (SECTION_HEIGHT + IDLE_HEIGHT) && scrollIndicator) {
+    if (scrollIndicator && !isNearCTA()) {
       scrollIndicator.style.opacity = '1';
     }
   };
@@ -273,9 +281,7 @@ window.addEventListener('DOMContentLoaded', () => {
       scrollIndicator.style.opacity = '0';
     }
     clearTimeout(idleTimeout);
-    if (window.scrollY < (SECTION_HEIGHT + IDLE_HEIGHT)) {
-      idleTimeout = setTimeout(showIndicator, 800);
-    }
+    idleTimeout = setTimeout(showIndicator, 800);
   };
 
   // Cache viewport dimensions
