@@ -247,8 +247,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Aplica o hover do orbe na arte ASCII
     // Passamos as coordenadas relativas ao viewport (clientX/clientY)
-    for (const hand of hands) {
-      hoverAscii(hand, sectionRect.left + orbX, sectionRect.top + orbY);
+    if (window.innerWidth < 768) {
+      for (const hand of hands) {
+        hoverAscii(hand, sectionRect.left + orbX, sectionRect.top + orbY);
+      }
     }
 
     drift.x += (pointer.x - drift.x) * PARALLAX_EASE;
