@@ -21,17 +21,14 @@
 .testimonial-word-span {
   display: inline-block;
   opacity: 0;
-  filter: blur(8px);
   transform: translateY(5px);
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              filter 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, filter, transform;
+  will-change: opacity, transform;
 }
 
 .testimonial-text-wrapper.active .testimonial-word-span {
   opacity: 1;
-  filter: blur(0px);
   transform: translateY(0);
 }
 

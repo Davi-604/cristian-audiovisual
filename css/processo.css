@@ -140,8 +140,8 @@
   opacity: calc(0.25 + (0.75 * var(--card-focus)));
   transform: scale(calc(0.85 + (0.15 * var(--card-focus))));
   
-  /* Gradual blur and grayscale for distant cards - driven by blur threshold */
-  filter: blur(calc(var(--card-blur) * 6px)) grayscale(calc(var(--card-blur) * 60%));
+  /* Gradual grayscale for distant cards - blur removed for performance */
+  filter: grayscale(calc(var(--card-blur) * 60%));
 }
 
 /* Granulado (Noise/Pixelated) Effect */
@@ -153,8 +153,8 @@
   border-radius: 1.5rem;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  mix-blend-mode: hard-light;
-  opacity: calc(var(--card-blur) * 0.4); /* Fades in only when returning to track */
+  /* Removed mix-blend-mode: hard-light for performance reasons */
+  opacity: calc(var(--card-blur) * 0.15); /* Fades in only when returning to track */
   transition: opacity 0.1s ease;
 }
 
