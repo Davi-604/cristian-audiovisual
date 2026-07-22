@@ -63,18 +63,6 @@
         rgba(10, 17, 40, 0.90) 5%,
         rgba(10, 17, 40, 0.40) 15%,
         rgba(10, 17, 40, 0) 30%
-      ),
-      linear-gradient(to bottom,
-        #0A1128 0%,
-        rgba(10, 17, 40, 0.90) 5%,
-        rgba(10, 17, 40, 0.40) 15%,
-        rgba(10, 17, 40, 0) 25%
-      ),
-      linear-gradient(to top,
-        #0A1128 0%,
-        rgba(10, 17, 40, 0.90) 5%,
-        rgba(10, 17, 40, 0.40) 15%,
-        rgba(10, 17, 40, 0) 25%
       );
   }
 }
@@ -88,12 +76,6 @@
   .service-image-container::after {
     background: 
       linear-gradient(to bottom,
-        #0A1128 0%,
-        rgba(10, 17, 40, 0.90) 5%,
-        rgba(10, 17, 40, 0.40) 15%,
-        rgba(10, 17, 40, 0) 30%
-      ),
-      linear-gradient(to top,
         #0A1128 0%,
         rgba(10, 17, 40, 0.90) 5%,
         rgba(10, 17, 40, 0.40) 15%,

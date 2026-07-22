@@ -98,14 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (panelProgress < i - 1) {
         // Painel está abaixo da tela
-        panel.style.transform = 'translateY(100%) scale(0.95)';
+        panel.style.transform = 'translateY(100%)';
         panel.style.opacity = '0';
       } else if (panelProgress >= i - 1 && panelProgress < i) {
         // Painel está entrando (subindo do fundo)
         t = panelProgress - (i - 1); // 0 para 1
         const y = (1 - t) * 100;
-        const scale = 0.95 + t * 0.05;
-        panel.style.transform = `translateY(${y}%) scale(${scale})`;
+        panel.style.transform = `translateY(${y}%)`;
         panel.style.opacity = t;
       } else if (panelProgress >= i && panelProgress < i + 1) {
         // Painel está ativo mas recuando (está sendo coberto pelo próximo)
