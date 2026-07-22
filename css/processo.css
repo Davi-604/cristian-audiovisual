@@ -117,26 +117,48 @@
 .processo-track {
   display: flex;
   gap: 1.5rem;
-  padding-left: 6%;
-  padding-right: 20%;
+  /* Centering a 340px card on mobile: 50vw - half the card width (170px) */
+  padding-left: calc(50vw - 170px);
+  padding-right: calc(50vw - 170px);
   will-change: transform;
 }
 
 /* Card Wrapper matching Diferenciais structure */
 .processo-card {
-  width: 320px;
+  width: 340px;
   flex-shrink: 0;
-  height: 480px;
+  height: 520px;
   position: relative;
   border-radius: 1.5rem;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  opacity: 0.45;
-  transform: scale(0.92);
+  
+  /* CSS Variables driven by JS scroll */
+  --card-focus: 0; /* 1 = active, 0 = far away */
+  
+  /* Dynamic scale and opacity for continuous effect */
+  opacity: calc(0.25 + (0.75 * var(--card-focus)));
+  transform: scale(calc(0.85 + (0.15 * var(--card-focus))));
+  
+  /* Gradual blur and grayscale for distant cards */
+  filter: blur(calc((1 - var(--card-focus)) * 6px)) grayscale(calc((1 - var(--card-focus)) * 60%));
 }
 
+/* Granulado (Noise/Pixelated) Effect */
+.processo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: 1.5rem;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  mix-blend-mode: hard-light;
+  opacity: calc((1 - var(--card-focus)) * 0.4); /* Fades out completely when focused */
+  transition: opacity 0.1s ease;
+}
+
+/* Maintain tracking class for any logical checks */
 .processo-card.card-active {
-  opacity: 1;
-  transform: scale(1);
+  z-index: 30; /* Ensure active card is slightly above others */
 }
 
 /* Styling specific to hover or focus */
@@ -160,9 +182,15 @@
 }
 
 @media (min-width: 1024px) {
+  .processo-track {
+    /* Centering a 440px card on desktop: 50vw - half the card width (220px) */
+    padding-left: calc(50vw - 220px);
+    padding-right: calc(50vw - 220px);
+  }
+  
   .processo-card {
-    width: 380px;
-    height: 520px;
+    width: 440px;
+    height: 600px;
   }
 }
 
