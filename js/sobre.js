@@ -55,41 +55,62 @@ function initSobreScrollObserver() {
     el.textContent = `${prefix}${(0).toFixed(decimals)}${suffix}`;
   });
 
-  const observerOptions = {
+  // Observer para ENTRADA: mais rigoroso para que o usuário veja a animação iniciar na tela
+  const observerInOptions = {
     root: null,
     rootMargin: '-5% 0px -5% 0px',
     threshold: 0.15
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  // Observer para SAÍDA: margem morta grande (150px) para anular o flickering gerado pelos translates do CSS
+  const observerOutOptions = {
+    root: null,
+    rootMargin: '150px 0px 150px 0px',
+    threshold: 0
+  };
+
+  const observerOut = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const target = entry.target;
-
-      if (entry.isIntersecting) {
-        // Entry Animation State
-        target.classList.add('in-view');
-        target.classList.remove('out-view');
-
-        // Animate Big Numbers Count UP from 0 to target
-        if (target.classList.contains('animate-counter')) {
-          animateCounter(target, 'up');
-        }
-      } else {
-        // Exit Animation State
+      // Quando sair completamente da margem grande
+      if (!entry.isIntersecting) {
         if (target.classList.contains('in-view')) {
           target.classList.remove('in-view');
           target.classList.add('out-view');
 
-          // Animate Big Numbers Count DOWN to 0
           if (target.classList.contains('animate-counter')) {
             animateCounter(target, 'down');
           }
+
+          // Para de escutar saída, passa a escutar entrada novamente
+          observerOut.unobserve(target);
+          observerIn.observe(target);
         }
       }
     });
-  }, observerOptions);
+  }, observerOutOptions);
 
-  animatedElements.forEach(el => observer.observe(el));
+  const observerIn = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const target = entry.target;
+      // Quando entrar na zona rigorosa de visualização
+      if (entry.isIntersecting) {
+        target.classList.add('in-view');
+        target.classList.remove('out-view');
+
+        if (target.classList.contains('animate-counter')) {
+          animateCounter(target, 'up');
+        }
+
+        // Para de escutar a entrada para evitar flickering e passa a escutar só a saída
+        observerIn.unobserve(target);
+        observerOut.observe(target);
+      }
+    });
+  }, observerInOptions);
+
+  // Inicializa todos ouvindo a entrada primeiro
+  animatedElements.forEach(el => observerIn.observe(el));
 }
 
 // Track active animation frame ID per element to prevent race conditions
