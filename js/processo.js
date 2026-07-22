@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Determine the active step by checking if the card has reached the exact focal point.
-    // We activate the marker ONLY when the card reaches the middle (tight 20px threshold).
+    // We activate the marker ONLY when the card reaches the middle.
     let activeStep = -1; // -1 significa que nenhum marker está ativo ainda
-    const activationThreshold = 20; 
+    const activationThreshold = 0; 
     
     cards.forEach((card, index) => {
       const cardCenterTranslate = card.offsetLeft - focusPosition;

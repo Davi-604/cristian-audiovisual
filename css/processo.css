@@ -92,15 +92,7 @@
     height: 1.1rem !important;
   }
   .marker-label {
-    font-size: 8px !important;
-    letter-spacing: 0.05em;
-    opacity: 0;
-    transform: translateY(2px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  .timeline-marker.marker-active .marker-label {
-    opacity: 1;
-    transform: translateY(0);
+    display: none !important;
   }
 }
 
