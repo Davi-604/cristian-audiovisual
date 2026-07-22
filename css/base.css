@@ -16,7 +16,7 @@
 
   /* Typography */
   --font-supreme: 'Supreme', sans-serif;
-  --font-general-sans: 'General Sans', sans-serif;
+  --font-corpline: 'Corpline', sans-serif;
 }
 
 /* Base Body Styles */
@@ -33,8 +33,8 @@ body {
   font-family: var(--font-supreme);
 }
 
-.font-general-sans {
-  font-family: var(--font-general-sans);
+.font-corpline {
+  font-family: var(--font-corpline);
 }
 
 /* Custom classes for easier replication outside Tailwind */
@@ -89,3 +89,4 @@ body {
 .text-brand-abyss {
   color: var(--color-brand-abyss);
 }
+
