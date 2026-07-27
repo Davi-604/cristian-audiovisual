@@ -140,7 +140,29 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    let isRunning = false;
+    let animationFrameId = null;
+
+    const startLoop = () => {
+      if (!isRunning) {
+        isRunning = true;
+        render();
+      }
+    };
+
+    const stopLoop = () => {
+      if (isRunning) {
+        isRunning = false;
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      }
+    };
+
     const render = () => {
+      if (!isRunning) return;
+
       const servicosSection = document.getElementById('servicos');
       const portfolioSection = document.getElementById('portfolio');
       const maxScroll = servicosSection ? servicosSection.offsetTop : (SECTION_HEIGHT + 4000);
@@ -164,18 +186,41 @@ window.addEventListener('DOMContentLoaded', () => {
       // Continuar renderizando enquanto estiver próximo para não congelar a animação durante o fade-out
       const isNearHeroFadeOut = window.scrollY > (SECTION_HEIGHT - 1000) && window.scrollY < (SECTION_HEIGHT + 500);
       const isNearSecondSectionFadeIn = window.scrollY > (heroFadeEnd - 1000) && window.scrollY <= (maxScroll + 1000);
+      const activeRenderingNeeded = (shouldShow || isNearHeroFadeOut || isNearSecondSectionFadeIn) && !isPortfolio;
       
-      if ((shouldShow || isNearHeroFadeOut || isNearSecondSectionFadeIn) && !isPortfolio) {
+      if (activeRenderingNeeded) {
         ctx.fillStyle = "#0A1128"; // brand-deep
         ctx.globalAlpha = 0.5;
         ctx.fillRect(0, 0, w, h);
         drawWave(5);
+        animationFrameId = requestAnimationFrame(render);
+      } else {
+        stopLoop();
       }
-
-      requestAnimationFrame(render);
     };
-    
-    render();
+
+    window.addEventListener('scroll', () => {
+      if (!isRunning) {
+        const servicosSection = document.getElementById('servicos');
+        const maxScroll = servicosSection ? servicosSection.offsetTop : (SECTION_HEIGHT + 4000);
+        if (window.scrollY <= maxScroll + 1000) {
+          startLoop();
+        }
+      }
+    }, { passive: true });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startLoop();
+        } else {
+          stopLoop();
+        }
+      });
+    }, { threshold: 0 });
+    observer.observe(canvas);
+
+    startLoop();
   };
   initWavyBackground();
 

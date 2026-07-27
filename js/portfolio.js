@@ -365,8 +365,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       videoElement.addEventListener('waiting', () => {
         loader.style.display = 'flex';
-        // force reflow
         void loader.offsetWidth;
+        loader.style.opacity = '1';
+      });
+      videoElement.addEventListener('error', () => {
+        loader.innerHTML = '<span class="text-white text-xs px-4 py-2 bg-brand-navy/90 border border-brand-soft/30 rounded-lg font-Supreme">Prévia de Vídeo Indisponível</span>';
         loader.style.opacity = '1';
       });
 

@@ -4,7 +4,7 @@ const portfolioVideos = [
     title: 'Aftermovie Corrida',
     category: 'Comercial',
     isLocal: true,
-    videoUrl: 'assets/videos/BE-FIT-RUN-2026.webm',
+    videoUrl: 'assets/videos/carros-corrida.webm',
     thumbnail: 'assets/images/thumbs/thumb-befit.jpg',
     aspectRatio: '9:16',
     badge: 'Destaque',
