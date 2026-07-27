@@ -142,13 +142,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const render = () => {
       const servicosSection = document.getElementById('servicos');
+      const portfolioSection = document.getElementById('portfolio');
       const maxScroll = servicosSection ? servicosSection.offsetTop : (SECTION_HEIGHT + 4000);
       const heroFadeEnd = SECTION_HEIGHT + IDLE_HEIGHT + 500;
+      
+      const isPortfolio = portfolioSection ? 
+        (window.scrollY >= (portfolioSection.offsetTop - window.innerHeight * 0.3) && 
+         window.scrollY < (portfolioSection.offsetTop + portfolioSection.offsetHeight)) : false;
       
       // Mostrar na Hero (antes de maximizar a imagem) e na section Diferenciais (após a Hero sumir)
       const isHeroStart = window.scrollY < (SECTION_HEIGHT - 200);
       const isSecondSection = window.scrollY > heroFadeEnd;
-      const shouldShow = (isHeroStart || isSecondSection) && window.scrollY <= maxScroll && document.body.classList.contains('hero-sequence-complete');
+      const shouldShow = (isHeroStart || isSecondSection) && window.scrollY <= maxScroll && !isPortfolio && document.body.classList.contains('hero-sequence-complete');
 
       if (shouldShow) {
         canvas.style.opacity = '1';
@@ -160,7 +165,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const isNearHeroFadeOut = window.scrollY > (SECTION_HEIGHT - 1000) && window.scrollY < (SECTION_HEIGHT + 500);
       const isNearSecondSectionFadeIn = window.scrollY > (heroFadeEnd - 1000) && window.scrollY <= (maxScroll + 1000);
       
-      if (shouldShow || isNearHeroFadeOut || isNearSecondSectionFadeIn) {
+      if ((shouldShow || isNearHeroFadeOut || isNearSecondSectionFadeIn) && !isPortfolio) {
         ctx.fillStyle = "#0A1128"; // brand-deep
         ctx.globalAlpha = 0.5;
         ctx.fillRect(0, 0, w, h);

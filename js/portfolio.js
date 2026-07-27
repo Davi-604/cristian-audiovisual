@@ -13,6 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeModal = null;
   let activeIframe = null;
 
+  // Intersection Observer para Lazy Loading avançado
+  const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+        }
+        observer.unobserve(img);
+      }
+    });
+  }, {
+    rootMargin: '100px 0px', // Inicia o download 100px antes da imagem aparecer na tela
+    threshold: 0.01
+  });
+
   // 1. Render Video Cards (Audiovisual)
   function renderVideos() {
     videoGrid.innerHTML = '';
@@ -27,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       videoCard.innerHTML = `
         <div class="thumbnail-container absolute inset-0 z-0 bg-[#060D1E] portfolio-skeleton-shimmer overflow-hidden">
-          <img src="${thumbUrl}" data-high-res="${highResUrl}" alt="${video.title}" decoding="async" loading="lazy"
+          <img data-src="${thumbUrl}" data-high-res="${highResUrl}" alt="${video.title}" decoding="async" loading="lazy"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-0 lazy-portfolio-img">
           <!-- Sombra que some no hover -->
           <div class="absolute inset-0 bg-black/20 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -60,11 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Image Load Handler
       const img = videoCard.querySelector('.lazy-portfolio-img');
       if (img) {
+        lazyImageObserver.observe(img);
+
         img.onload = () => {
           img.classList.remove('opacity-0');
           img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
         };
-        if (img.complete) {
+        if (img.complete && img.src && img.src !== window.location.href) {
           img.classList.remove('opacity-0');
           img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
         }
@@ -105,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       photoCard.innerHTML = `
         <div class="thumbnail-container absolute inset-0 z-0 bg-[#060D1E] portfolio-skeleton-shimmer overflow-hidden">
-          <img src="${photo.image}" alt="${photo.title}" decoding="async" loading="lazy"
+          <img data-src="${photo.image}" alt="${photo.title}" decoding="async" loading="lazy"
             class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-0 lazy-portfolio-img">
           <!-- Sombra que some no hover -->
           <div class="absolute inset-0 bg-black/20 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -130,11 +148,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const img = photoCard.querySelector('.lazy-portfolio-img');
       if (img) {
+        lazyImageObserver.observe(img);
+
         img.onload = () => {
           img.classList.remove('opacity-0');
           img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
         };
-        if (img.complete) {
+        if (img.complete && img.src && img.src !== window.location.href) {
           img.classList.remove('opacity-0');
           img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
         }
