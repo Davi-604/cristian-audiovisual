@@ -149,7 +149,7 @@
 /* --- Corpline Font Face --- */
 @font-face {
   font-family: 'Corpline';
-  src: url('../public/assets/fonts/Corpline-DEMO-BF685cb69e20915.otf') format('opentype');
+  src: url('../assets/fonts/Corpline-DEMO-BF685cb69e20915.otf') format('opentype');
   font-weight: normal;
   font-display: swap;
   font-style: normal;
