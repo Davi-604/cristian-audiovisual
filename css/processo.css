@@ -109,8 +109,8 @@
 .processo-track {
   display: flex;
   gap: 1.5rem;
-  /* Começa na direita para exigir scroll antes de focar o primeiro card */
-  padding-left: 100vw;
+  /* Começa um pouco antes para o card já estar visível */
+  padding-left: 65vw;
   /* Espaço final para o último card ficar centralizado */
   padding-right: calc(50vw - 170px);
   will-change: transform;
@@ -178,7 +178,7 @@
 @media (min-width: 1024px) {
   .processo-track {
     /* Centering a 440px card on desktop: 50vw - half the card width (220px) */
-    padding-left: 100vw;
+    padding-left: 60vw;
     padding-right: calc(50vw - 220px);
   }
   
