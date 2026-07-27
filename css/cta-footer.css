@@ -15,7 +15,7 @@
   padding-bottom: 8rem; /* space for integrated footer */
 }
 
-/* Transição de fade vindo da section de FAQ (fundo deep) para a CTA (fundo abyss) */
+/* Transição de fade vindo da section de FAQ para a CTA (ambos fundo abyss) */
 .cta-footer-section::before {
   content: '';
   position: absolute;
@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   height: 15rem; /* Ajuste a altura do fade conforme necessário */
-  background: linear-gradient(to bottom, var(--color-brand-deep) 0%, rgba(3, 8, 22, 0) 100%);
+  background: linear-gradient(to bottom, var(--color-brand-abyss) 0%, rgba(3, 8, 22, 0) 100%);
   z-index: 1;
   pointer-events: none;
 }

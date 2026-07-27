@@ -109,3 +109,18 @@
 .service-panel.panel-active .service-text-content > .service-cta {
   transition-delay: 600ms;
 }
+
+/* Efeito de fade no topo e na base do container sticky */
+.services-mask-fade {
+  /* Mobile: Fade muito suave, apenas 2rem (32px), para não apagar o texto que fica no topo */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 2rem, black calc(100% - 6rem), transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 2rem, black calc(100% - 6rem), transparent);
+}
+
+/* Desktop: Fade mais intenso (15rem) para esconder o corte horizontal da imagem */
+@media (min-width: 768px) {
+  .services-mask-fade {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);
+  }
+}
