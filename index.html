@@ -911,18 +911,13 @@
       </div>
     </section>
 
-    <!-- Unified Wrapper for Aurora Background -->
+    <!-- Unified Wrapper for Gradient Background -->
     <div class="relative w-full bg-brand-deep">
-      <!-- Sticky Aurora Background -->
+      <!-- Sticky Gradient Background (Performance Prioritized) -->
       <div class="absolute inset-0 z-0" style="-webkit-mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent); mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);">
         <div class="sticky top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
-          <!-- Desktop Animated Background -->
-          <div class="aurora-bg-container hidden md:block" style="position: absolute; inset: 0;">
-            <div class="aurora-bg"></div>
-          </div>
-
-          <!-- Mobile Static Gradient -->
-          <div class="block md:hidden absolute inset-0 z-0 w-full h-full bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-brand-abyss via-brand-navy/50 to-brand-deep"></div>
+          <!-- Static Gradient (Desktop & Mobile) -->
+          <div class="absolute inset-0 z-0 w-full h-full bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-brand-abyss via-brand-navy/50 to-brand-deep"></div>
         </div>
       </div>
 
@@ -2040,15 +2035,15 @@
 
   </main>
 
-  <!-- CTA & Footer Animado (ASCII Canvas) -->
+  <!-- CTA & Footer Animado (ASCII Canvas & Aurora Animated Background) -->
   <footer id="cta-footer" class="cta-footer-section">
+    <!-- Animated Aurora Background -->
+    <div class="aurora-bg-container" style="position: absolute; inset: 0;">
+      <div class="aurora-bg"></div>
+    </div>
+
     <!-- Floating Orb for Interaction -->
     <div id="cta-orb" class="cta-orb md:hidden"></div>
-
-    <!-- Sticky Footer Background for Mobile -->
-    <div class="absolute inset-0 z-0 pointer-events-none block md:hidden">
-      <div class="sticky top-0 left-0 w-full h-screen bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-brand-blue/30 via-brand-deep to-brand-abyss"></div>
-    </div>
 
     <!-- ASCII Canvas Wrapper -->
     <div class="w-full flex justify-center mb-8 md:mb-16 pointer-events-none z-10">
