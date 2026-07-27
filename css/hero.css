@@ -28,6 +28,11 @@
   background-repeat: no-repeat;
   will-change: clip-path, background-size, opacity;
   z-index: 11;
+  clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+}
+
+.center-image-inner {
+  transform: scale(1.7);
 }
 
 /* Hero Typography Overlay */

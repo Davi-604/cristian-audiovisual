@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const highResUrl = video.isLocal ? video.thumbnail : `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`;
       const spanClass = video.span || 'col-span-1';
       const videoCard = document.createElement('div');
-      videoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full min-h-[250px] md:min-h-[300px] ${spanClass}`;
+      videoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full ${spanClass}`;
       videoCard.setAttribute('data-video-id', video.videoId || video.id);
       videoCard.setAttribute('data-aspect', video.aspectRatio);
 
@@ -51,21 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="absolute inset-0 bg-gradient-to-t from-[#030816]/90 via-[#030816]/20 to-transparent pointer-events-none"></div>
         </div>
 
-        <div class="absolute inset-0 z-10 p-5 sm:p-6 flex flex-col justify-between pointer-events-none">
+        <div class="absolute inset-0 z-10 p-3 sm:p-4 md:p-6 flex flex-col justify-between pointer-events-none">
           <div class="flex justify-between items-start">
-            <span class="px-3 py-1 rounded-full bg-brand-navy/70 backdrop-blur-md border border-brand-soft/20 text-[10px] font-bold text-brand-ice uppercase tracking-widest">
+            <span class="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-navy/70 backdrop-blur-md border border-brand-soft/20 text-[8px] sm:text-[10px] font-bold text-brand-ice uppercase tracking-widest">
               ${video.badge || video.category}
             </span>
           </div>
 
-          <div class="flex items-end justify-between gap-3">
+          <div class="flex items-end justify-between gap-2 sm:gap-3">
             <div class="max-w-[80%]">
-              <h3 class="font-corpline text-base sm:text-lg md:text-xl font-bold text-white leading-tight drop-shadow-md group-hover:text-brand-ice transition-colors">
+              <h3 class="font-corpline text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white leading-tight drop-shadow-md group-hover:text-brand-ice transition-colors">
                 ${video.title}
               </h3>
             </div>
-            <div class="play-btn-glow w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-ice/20 backdrop-blur-md flex items-center justify-center border border-white/30 shrink-0 text-white shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="translate-x-[1px]">
+            <div class="play-btn-glow w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12 rounded-full bg-brand-ice/20 backdrop-blur-md flex items-center justify-center border border-white/30 shrink-0 text-white shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="translate-x-[1px] w-3 h-3 sm:w-4 sm:h-4 md:w-[18px] md:h-[18px]">
                 <polygon points="6 3 20 12 6 21 6 3"></polygon>
               </svg>
             </div>
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     filtered.forEach((photo) => {
       const spanClass = photo.span || 'col-span-1';
       const photoCard = document.createElement('div');
-      photoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full min-h-[250px] md:min-h-[300px] ${spanClass}`;
+      photoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full ${spanClass}`;
 
       photoCard.innerHTML = `
         <div class="thumbnail-container absolute inset-0 z-0 bg-[#060D1E] portfolio-skeleton-shimmer overflow-hidden">
@@ -131,15 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="absolute inset-0 bg-gradient-to-t from-[#030816]/90 via-[#030816]/20 to-transparent pointer-events-none"></div>
         </div>
 
-        <div class="absolute inset-0 z-10 p-5 flex flex-col justify-between pointer-events-none">
+        <div class="absolute inset-0 z-10 p-3 sm:p-4 md:p-6 flex flex-col justify-between pointer-events-none">
           <div class="flex justify-between items-start">
-            <span class="px-3 py-1 rounded-full bg-brand-navy/70 backdrop-blur-md border border-brand-soft/20 text-[10px] font-bold text-brand-ice uppercase tracking-widest">
+            <span class="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-navy/70 backdrop-blur-md border border-brand-soft/20 text-[8px] sm:text-[10px] font-bold text-brand-ice uppercase tracking-widest">
               ${photo.category}
             </span>
           </div>
 
           <div>
-            <h3 class="font-corpline text-base sm:text-lg font-bold text-white leading-tight drop-shadow-md group-hover:text-brand-ice transition-colors">
+            <h3 class="font-corpline text-xs sm:text-sm md:text-lg font-bold text-white leading-tight drop-shadow-md group-hover:text-brand-ice transition-colors">
               ${photo.title}
             </h3>
           </div>
@@ -168,21 +168,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Photo Filter Buttons Logic
-  const filterButtons = document.querySelectorAll('#portfolio-photo-filters .portfolio-filter-btn');
-  filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => {
-        b.classList.remove('active', 'bg-brand-ice/30', 'text-white', 'border-brand-ice/60');
-        b.classList.add('bg-brand-deep/90', 'border-white/20', 'text-brand-soft');
-      });
-      btn.classList.remove('bg-brand-deep/90', 'border-white/20', 'text-brand-soft');
-      btn.classList.add('active', 'bg-brand-ice/30', 'text-white', 'border-brand-ice/60');
+  // 3. Photo Filter Dropdown Logic
+  const filterToggle = document.getElementById('photo-filter-toggle');
+  const filterMenu = document.getElementById('photo-filter-menu');
+  const filterCurrent = document.getElementById('photo-filter-current');
+  const dropdownItems = document.querySelectorAll('.photo-dropdown-item');
+  const toggleIcon = document.getElementById('photo-filter-arrow');
 
-      const filter = btn.getAttribute('data-filter');
-      renderPhotos(filter);
+  if (filterToggle && filterMenu) {
+    function openDropdown() {
+      filterMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+      filterMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      if (toggleIcon) toggleIcon.classList.add('rotate-180');
+      filterToggle.classList.add('border-brand-ice');
+    }
+
+    function closeDropdown() {
+      filterMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      filterMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+      if (toggleIcon) toggleIcon.classList.remove('rotate-180');
+      filterToggle.classList.remove('border-brand-ice');
+    }
+
+    filterToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = filterMenu.classList.contains('opacity-100');
+      if (isOpen) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
     });
-  });
+
+    document.addEventListener('click', (e) => {
+      if (!filterToggle.contains(e.target) && !filterMenu.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+
+    dropdownItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const filter = item.getAttribute('data-filter');
+        const text = item.textContent;
+
+        filterCurrent.textContent = text;
+
+        dropdownItems.forEach(b => {
+          b.classList.remove('text-brand-ice', 'bg-white/5');
+          b.classList.add('text-brand-soft');
+        });
+        item.classList.remove('text-brand-soft');
+        item.classList.add('text-brand-ice', 'bg-white/5');
+
+        renderPhotos(filter);
+        closeDropdown();
+      });
+    });
+  }
 
   // 4. Modal Lightbox Logic
   function closeActiveModal() {
@@ -435,4 +477,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial Run
   renderVideos();
   renderPhotos('Destaques');
+
+  // Trigger global resize event when portfolio height changes dynamically (e.g. filtering)
+  // to prevent subsequent scroll-linked sections from breaking their offset calculations
+  const portfolioSection = document.getElementById('portfolio');
+  if (portfolioSection) {
+    let resizeTimeout;
+    const resizeObserver = new ResizeObserver(() => {
+      // Debounce the resize event to prevent performance issues
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 50);
+    });
+    resizeObserver.observe(portfolioSection);
+  }
 });

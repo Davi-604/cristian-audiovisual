@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (diff < 0) {
           offsetY = diff * (window.innerHeight * 0.8);
-          scale = 1;
-          opacity = 1;
+          scale = Math.max(0.9, 1 + (diff * 0.1));
+          opacity = Math.max(0, 1 + (diff * 2.8));
         } else {
           offsetY = diff * 160;
           scale = Math.max(0.8, 1 - diff * 0.05);

@@ -175,9 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderAscii(hand, Date.now());
   }
 
-  // Pointer & Drift for Parallax
-  const pointer = { x: 0, y: 0 };
-  const drift = { x: 0, y: 0 };
   let isRevealed = false;
 
   const hoverAscii = (hand, clientX, clientY) => {
@@ -206,12 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const onMouseMove = (event) => {
-    const rect = section.getBoundingClientRect();
-    const w = rect.width || 1;
-    const h = rect.height || 1;
-    pointer.x = ((event.clientX - rect.left) / w - 0.5) * config.parallaxStrength * 2;
-    pointer.y = ((event.clientY - rect.top) / h - 0.5) * config.parallaxStrength * 2;
-    
     for (const hand of hands) {
       hoverAscii(hand, event.clientX, event.clientY);
     }
@@ -238,12 +229,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Orb Animation (Lissajous curve for organic, random-feeling motion)
     const time = now * 0.00015; // speed multiplier reduzido para um movimento mais lento e imersivo
     const sectionRect = section.getBoundingClientRect();
-    const w = sectionRect.width;
-    const h = sectionRect.height;
+    const wrapRect = wrap.getBoundingClientRect();
     
-    // Calcula posição fluida baseada no tamanho da tela
-    orbX = (w / 2) + Math.sin(time * 0.8) * (w * 0.3) + Math.cos(time * 1.3) * (w * 0.15);
-    orbY = (h / 2) + Math.cos(time * 0.9) * (h * 0.25) + Math.sin(time * 1.5) * (h * 0.1);
+    // Centraliza o orbe em relação à arte ASCII (canvas)
+    const wrapCenterX = (wrapRect.left - sectionRect.left) + (wrapRect.width / 2);
+    const wrapCenterY = (wrapRect.top - sectionRect.top) + (wrapRect.height / 2);
+    
+    // Define um raio máximo para a esfera não fugir para os cantos da tela
+    const radiusX = Math.min(wrapRect.width * 0.35, 150);
+    const radiusY = Math.min(wrapRect.height * 0.35, 120);
+
+    // Calcula posição fluida restrita à área do desenho
+    orbX = wrapCenterX + Math.sin(time * 0.8) * radiusX + Math.cos(time * 1.3) * (radiusX * 0.5);
+    orbY = wrapCenterY + Math.cos(time * 0.9) * radiusY + Math.sin(time * 1.5) * (radiusY * 0.5);
 
     if (orb) {
       orb.style.transform = `translate(calc(-50% + ${orbX}px), calc(-50% + ${orbY}px))`;
@@ -256,14 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
         hoverAscii(hand, sectionRect.left + orbX, sectionRect.top + orbY);
       }
     }
-
-    drift.x += (pointer.x - drift.x) * PARALLAX_EASE;
-    drift.y += (pointer.y - drift.y) * PARALLAX_EASE;
-    
-    const x = drift.x || 0;
-    const y = -drift.y || 0;
-    
-    wrap.style.transform = `translate(${x}px, ${y}px)`;
 
     rafId = requestAnimationFrame(frame);
   };

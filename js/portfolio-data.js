@@ -1,4 +1,4 @@
-﻿const portfolioVideos = [
+const portfolioVideos = [
   {
     id: 'vid-1',
     title: 'Aftermovie Corrida',
@@ -19,7 +19,7 @@
     thumbnail: 'assets/images/portfolio/drift-uberlandia.webp',
     aspectRatio: '9:16',
     badge: 'Comercial',
-    span: 'col-span-1 md:row-span-2'
+    span: 'col-span-1 row-span-2'
   },
   {
     id: 'vid-3',
@@ -30,7 +30,7 @@
     thumbnail: 'assets/images/thumbs/thumb-treino-costas-biceps.webp',
     aspectRatio: '16:9',
     badge: 'Esportes',
-    span: 'col-span-1 md:col-span-2'
+    span: 'col-span-2'
   },
   {
     id: 'vid-4',
@@ -52,7 +52,7 @@
     thumbnail: 'assets/images/thumbs/thumb-lucasa-imobiliaria-2.webp',
     aspectRatio: '9:16',
     badge: 'Imóveis',
-    span: 'col-span-1 md:row-span-2'
+    span: 'col-span-1 row-span-2'
   },
   {
     id: 'vid-6',
@@ -107,7 +107,7 @@
     thumbnail: 'assets/images/thumbs/thumb-yc-cardoso.webp',
     aspectRatio: '9:16',
     badge: 'Beleza',
-    span: 'col-span-1 md:row-span-2'
+    span: 'col-span-1 row-span-2'
   },
   {
     id: 'vid-11',
@@ -138,7 +138,7 @@
     videoId: 'FJ_oY7cchgI',
     aspectRatio: '9:16',
     badge: 'Shorts',
-    span: 'col-span-1 md:row-span-2'
+    span: 'col-span-1 row-span-2'
   },
   {
     id: 'vid-14',
@@ -169,7 +169,7 @@ const portfolioPhotos = [
     isDestaque: true,
     image: 'assets/images/portfolio/bombeiro-bigode.webp',
     aspectRatio: '3/4',
-    span: 'col-span-1 md:col-span-2 lg:col-span-1 lg:row-span-2'
+    span: 'col-span-1 row-span-2'
   ,
     gallery: ['assets/images/portfolio/bombeiro-bigode.webp', 'assets/images/portfolio/bombeiro-cachorro.webp', 'assets/images/portfolio/bombeiro-costas.webp', 'assets/images/portfolio/bombeiro-equipamento.webp', 'assets/images/portfolio/equipe-reconhecimento-pmmg.webp']
   },
@@ -180,7 +180,7 @@ const portfolioPhotos = [
     isDestaque: true,
     image: 'assets/images/portfolio/caminhao-bombeiro.webp',
     aspectRatio: '1/1',
-    span: 'col-span-1 md:col-span-2 lg:col-span-1'
+    span: 'col-span-1'
   },
   {
     id: 'photo-6',
@@ -189,7 +189,7 @@ const portfolioPhotos = [
     isDestaque: true,
     image: 'assets/images/portfolio/cantor-cabeludo.webp',
     aspectRatio: '9/16',
-    span: 'col-span-1 md:row-span-2'
+    span: 'col-span-1 row-span-2'
   },
   {
     id: 'photo-13',
@@ -198,7 +198,7 @@ const portfolioPhotos = [
     isDestaque: true,
     image: 'assets/images/portfolio/turma-militar.webp',
     aspectRatio: '16/9',
-    span: 'col-span-1 md:col-span-2'
+    span: 'col-span-2'
   ,
     gallery: ['assets/images/portfolio/turma-militar.webp', 'assets/images/portfolio/policial-trompete.webp']
   },
@@ -271,7 +271,7 @@ const portfolioPhotos = [
     isDestaque: false,
     image: 'assets/images/portfolio/mae-filho.webp',
     aspectRatio: '1/1',
-    span: 'col-span-1 md:col-span-2 lg:col-span-1 lg:row-span-2'
+    span: 'col-span-1 row-span-2'
   ,
     gallery: ['assets/images/portfolio/mae-filho.webp', 'assets/images/portfolio/mae-filho-2.webp']
   },
@@ -291,7 +291,7 @@ const portfolioPhotos = [
     isDestaque: false,
     image: 'assets/images/portfolio/retrato-mulher-maquiadora-1.webp',
     aspectRatio: '1/1',
-    span: 'col-span-1 md:col-span-2 lg:col-span-1 lg:row-span-2'
+    span: 'col-span-1 row-span-2'
   ,
     gallery: ['assets/images/portfolio/retrato-mulher-maquiadora-1.webp', 'assets/images/portfolio/retrato-mulher-maquiadora-2.webp', 'assets/images/portfolio/retrato-mulher-maquiadora-3.webp', 'assets/images/portfolio/retrato-mulher-maquiadora.webp']
   },
