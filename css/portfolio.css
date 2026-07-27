@@ -1,0 +1,58 @@
+/* Portfolio Section Styles */
+.portfolio-skeleton-shimmer {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-size: 200% 100%;
+  animation: portfolioShimmer 1.8s infinite ease-in-out;
+}
+
+@keyframes portfolioShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Hover play glow button */
+.play-btn-glow {
+  box-shadow: 0 0 20px rgba(206, 229, 242, 0.25);
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover .play-btn-glow {
+  transform: scale(1.12);
+  background-color: #274690;
+  box-shadow: 0 0 30px rgba(39, 70, 144, 0.6);
+}
+
+/* Lightbox Modal Overlay */
+.portfolio-lightbox-overlay {
+  background: rgba(3, 8, 22, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Lightbox Animations */
+.lightbox-enter {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-enter-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Filter Tab Active Animation Line */
+.portfolio-filter-btn {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-filter-btn.active {
+  background-color: rgba(206, 229, 242, 0.12);
+  color: #CEE5F2;
+  border-color: rgba(206, 229, 242, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}

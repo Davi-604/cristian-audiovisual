@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/diferenciais.css?v=3">
+  <link rel="stylesheet" href="css/portfolio.css">
   <link rel="stylesheet" href="css/servicos.css?v=3">
   <link rel="stylesheet" href="css/processo.css">
   <link rel="stylesheet" href="css/depoimentos.css">
@@ -218,13 +219,13 @@
           <a href="#inicio" data-index="0"
             class="nav-item text-white px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Início</a>
         </li>
-        <li class="relative h-full flex items-center justify-center">
-          <a href="#specialties-section" data-index="1"
-            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Diferenciais</a>
-        </li>
         <li class="relative h-full flex items-center justify-center hidden sm:flex">
-          <a href="#portfolio" data-index="2"
+          <a href="#portfolio" data-index="1"
             class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Portfólio</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center">
+          <a href="#specialties-section" data-index="2"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Diferenciais</a>
         </li>
         <li class="relative h-full flex items-center justify-center hidden sm:flex">
           <a href="#servicos" data-index="3"
@@ -235,11 +236,15 @@
             class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Processo</a>
         </li>
         <li class="relative h-full flex items-center justify-center hidden md:flex">
-          <a href="#sobre" data-index="5"
+          <a href="#depoimentos" data-index="5"
+            class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Depoimentos</a>
+        </li>
+        <li class="relative h-full flex items-center justify-center hidden md:flex">
+          <a href="#sobre" data-index="6"
             class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">Sobre</a>
         </li>
         <li class="relative h-full flex items-center justify-center hidden lg:flex">
-          <a href="#faq" data-index="6"
+          <a href="#faq" data-index="7"
             class="nav-item text-brand-soft px-3 md:px-5 py-2 text-[10px] md:text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-none hover:text-white">FAQ</a>
         </li>
       </ul>
@@ -267,23 +272,25 @@
       class="pointer-events-auto absolute top-[76px] right-4 md:hidden w-48 bg-brand-deep/70 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-[0_16px_64px_rgba(0,0,0,0.5)] flex flex-col gap-1 z-40 opacity-0 pointer-events-none translate-y-[-10px] scale-95 origin-top-right transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]">
       <a href="#inicio" data-index="0"
         class="mobile-nav-item text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Início</a>
-      <a href="#specialties-section" data-index="1"
-        class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Diferenciais</a>
-      <a href="#portfolio" data-index="2"
+      <a href="#portfolio" data-index="1"
         class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Portfólio</a>
+      <a href="#specialties-section" data-index="2"
+        class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Diferenciais</a>
       <a href="#servicos" data-index="3"
         class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Serviços</a>
       <a href="#processo" data-index="4"
         class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Processo</a>
-      <a href="#sobre" data-index="5"
+      <a href="#depoimentos" data-index="5"
+        class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Depoimentos</a>
+      <a href="#sobre" data-index="6"
         class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">Sobre</a>
-      <a href="#faq" data-index="6"
+      <a href="#faq" data-index="7"
         class="mobile-nav-item text-brand-soft hover:text-white px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-white/10 transition-colors">FAQ</a>
     </div>
   </div>
 
   <!-- Main Workspace -->
-  <main class="w-full">
+  <main id="inicio" class="w-full">
 
     <!-- Unified Wrapper for Wavy Background (Hero + Diferenciais) -->
     <div class="relative w-full bg-brand-deep">
@@ -366,28 +373,28 @@
           <div class="parallax-container mx-auto max-w-5xl px-6 pt-[200px] flex flex-col gap-32">
             <!-- Floating Image 1 (Left Aligned) -->
             <div class="w-1/2 md:w-1/3 flex justify-start">
-              <img src="public/assets/images/hero-image-1.webp" alt="hero image 1"
+              <img src="public/assets/images/portfolio/zeus-evolution.webp" alt="hero image 1"
                 class="parallax-img w-full aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-200" data-end="200">
             </div>
 
             <!-- Floating Image 2 (Centered, Large) -->
             <div class="w-2/3 md:w-2/3 mx-auto">
-              <img src="public/assets/images/hero-image-2.webp" alt="hero image 2"
+              <img src="public/assets/images/portfolio/bombeiro-bigode.webp" alt="hero image 2"
                 class="parallax-img w-full aspect-[16/9] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="200" data-end="-250">
             </div>
 
             <!-- Floating Image 3 (Right Aligned) -->
             <div class="w-1/2 md:w-1/3 ml-auto flex justify-end">
-              <img src="public/assets/images/hero-image-3.webp" alt="hero image 3"
+              <img src="public/assets/images/portfolio/girassol.webp" alt="hero image 3"
                 class="parallax-img w-full aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-200" data-end="200">
             </div>
 
             <!-- Floating Image 4 (Different Left Position, Large) -->
             <div class="w-3/5 md:w-1/2 md:ml-16 mr-auto flex justify-start">
-              <img src="public/assets/images/hero-image-4.webp" alt="hero image 4"
+              <img src="public/assets/images/portfolio/cavalaria-pmmg-6.webp" alt="hero image 4"
                 class="parallax-img w-full aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="100" data-end="-400">
             </div>
@@ -396,6 +403,106 @@
           <!-- Bottom Gradient Mask to transition to next section -->
           <div class="hero-bottom-fade hidden"></div>
         </div>
+
+        <!-- Section Portfólio (Audiovisual & Fotografia) -->
+        <section id="portfolio"
+          class="relative w-full text-white bg-transparent py-24 md:py-36 border-t border-white/5 z-20">
+          <div class="max-w-[1640px] w-full mx-auto px-6 md:px-12 flex flex-col gap-20 md:gap-32">
+
+            <!-- BLOCO 1: AUDIOVISUAL -->
+            <div class="flex flex-col gap-10 md:gap-14">
+              <!-- Header Audiovisual -->
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+                <div class="max-w-2xl">
+                  <span
+                    class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brand-ice animate-pulse"></span> Nossos Trabalhos &bull; Vídeo
+                  </span>
+                  <h2
+                    class="font-corpline text-3xl md:text-5xl lg:text-6xl font-black uppercase text-brand-white leading-tight">
+                    Audiovisual <span class="text-brand-ice opacity-90">&amp; Cinema</span>
+                  </h2>
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted mt-3 font-medium leading-relaxed">
+                    Produções visuais desenvolvidas para capturar a essência de marcas e projetos de alto padrão com
+                    retenção e sofisticação.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Grid Audiovisual -->
+              <div id="portfolio-grid-audiovisual"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[250px] md:auto-rows-[300px] grid-flow-row-dense">
+                <!-- Injetado dinamicamente via js/portfolio.js -->
+              </div>
+            </div>
+
+            <!-- Divisor decorativo -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <!-- BLOCO 2: FOTOGRAFIA -->
+            <div class="flex flex-col gap-10 md:gap-14">
+              <!-- Header Fotografia & Filtros -->
+              <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-white/10 pb-8">
+                <div class="max-w-2xl">
+                  <span
+                    class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brand-ice"></span> Galeria de Fotos
+                  </span>
+                  <h2
+                    class="font-corpline text-3xl md:text-5xl lg:text-6xl font-black uppercase text-brand-white leading-tight">
+                    Fotografia <span class="text-brand-ice opacity-90">Profissional</span>
+                  </h2>
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted mt-3 font-medium leading-relaxed">
+                    Ensaios corporativos, retratos de posicionamento, produtos e arquitetura institucional.
+                  </p>
+                </div>
+
+                <!-- Filtros Fotografia -->
+                <div id="portfolio-photo-filters" class="flex flex-wrap items-center gap-2 sm:gap-3">
+                  <button data-filter="Destaques"
+                    class="portfolio-filter-btn active px-5 py-2.5 rounded-full border border-brand-ice/60 bg-brand-ice/30 text-white backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105">
+                    Destaques
+                  </button>
+                  <button data-filter="Institucional"
+                    class="portfolio-filter-btn px-5 py-2.5 rounded-full border border-white/20 bg-brand-deep/90 text-brand-soft backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105 hover:border-brand-ice/40 hover:text-white">
+                    Institucional
+                  </button>
+                  <button data-filter="Retratos"
+                    class="portfolio-filter-btn px-5 py-2.5 rounded-full border border-white/20 bg-brand-deep/90 text-brand-soft backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105 hover:border-brand-ice/40 hover:text-white">
+                    Retratos
+                  </button>
+                  <button data-filter="Natureza"
+                    class="portfolio-filter-btn px-5 py-2.5 rounded-full border border-white/20 bg-brand-deep/90 text-brand-soft backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105 hover:border-brand-ice/40 hover:text-white">
+                    Natureza
+                  </button>
+                  <button data-filter="Esportes"
+                    class="portfolio-filter-btn px-5 py-2.5 rounded-full border border-white/20 bg-brand-deep/90 text-brand-soft backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105 hover:border-brand-ice/40 hover:text-white">
+                    Esportes
+                  </button>
+                  <button data-filter="Eventos"
+                    class="portfolio-filter-btn px-5 py-2.5 rounded-full border border-white/20 bg-brand-deep/90 text-brand-soft backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105 hover:border-brand-ice/40 hover:text-white">
+                    Eventos
+                  </button>
+                  <button data-filter="Gastronomia"
+                    class="portfolio-filter-btn px-5 py-2.5 rounded-full border border-white/20 bg-brand-deep/90 text-brand-soft backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105 hover:border-brand-ice/40 hover:text-white">
+                    Gastronomia
+                  </button>
+                  <button data-filter="Outros"
+                    class="portfolio-filter-btn px-5 py-2.5 rounded-full border border-white/20 bg-brand-deep/90 text-brand-soft backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:scale-105 hover:border-brand-ice/40 hover:text-white">
+                    Outros
+                  </button>
+                </div>
+              </div>
+
+              <!-- Grid Fotografia -->
+              <div id="portfolio-grid-fotografia"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[250px] md:auto-rows-[300px] grid-flow-row-dense">
+                <!-- Injetado dinamicamente via js/portfolio.js -->
+              </div>
+            </div>
+
+          </div>
+        </section>
 
         <!-- Section Diferenciais (Scroll Vertical Pinned / Mobile Carousel) -->
         <section id="specialties-section" class="w-full text-white bg-transparent relative" style="height: 300vh;">
@@ -955,7 +1062,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="public/assets/images/processo-briefing.png" alt="Briefing e Alinhamento"
+                        <img src="public/assets/images/briefing-como-trabalhos.webp" alt="Briefing e Alinhamento"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-4"></div>
@@ -991,7 +1098,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="public/assets/images/processo-roteiro.png" alt="Roteiro e Narrativa"
+                        <img src="public/assets/images/roteiro-como-trabalhos.webp" alt="Roteiro e Narrativa"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-4"></div>
@@ -1027,7 +1134,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="public/assets/images/processo-planejamento.png" alt="Planejamento e Storyboard"
+                        <img src="public/assets/images/planejamento-como-trabalhos.webp" alt="Planejamento e Storyboard"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-4"></div>
@@ -1063,7 +1170,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="public/assets/images/processo-gravacao.png" alt="Gravação e Captação"
+                        <img src="public/assets/images/hero-main-image.webp" alt="Gravação e Captação"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-4"></div>
@@ -1099,7 +1206,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="public/assets/images/processo-pos-producao.png" alt="Edição e Pós Produção"
+                        <img src="public/assets/images/edicao-como-trabalhos.webp" alt="Edição e Pós Produção"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-4"></div>
@@ -1135,7 +1242,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="public/assets/images/processo-aprovacao.png" alt="Aprovação e Validação"
+                        <img src="public/assets/images/aprovacao-como-trabalhos.webp" alt="Aprovação e Validação"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-4"></div>
@@ -2011,6 +2118,8 @@
   <script src="js/preloader.js"></script>
   <script src="js/hero.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/portfolio.js"></script>
   <script src="js/diferenciais.js?v=4"></script>
   <script src="js/servicos.js?v=4"></script>
   <script src="js/processo.js"></script>

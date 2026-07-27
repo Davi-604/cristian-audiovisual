@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileHeader = document.getElementById('mobile-specialties-header');
 
   // Define os pontos percentuais em que cada card deve aparecer (ex: 4 cards)
-  const revealTriggers = [0.05, 0.25, 0.45, 0.65];
+  // O primeiro card tem trigger negativo para aparecer enquanto a seção entra na tela
+  const revealTriggers = [-0.2, 0.25, 0.50, 0.75];
   const mobileDots = document.querySelectorAll('.mobile-specialty-dot');
 
   let ticking = false;
@@ -48,11 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const endScroll = offsetTop + sectionHeight - window.innerHeight;
 
     let progress = 0;
+    let desktopProgress = 0;
+    
     if (endScroll > startScroll) {
-      if (scrollY >= startScroll && scrollY <= endScroll) {
+      if (scrollY < startScroll) {
+        progress = 0;
+        desktopProgress = (scrollY - startScroll) / window.innerHeight;
+      } else if (scrollY >= startScroll && scrollY <= endScroll) {
         progress = (scrollY - startScroll) / (endScroll - startScroll);
+        desktopProgress = progress;
       } else if (scrollY > endScroll) {
         progress = 1;
+        desktopProgress = 1;
       }
     }
 
@@ -128,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.pointerEvents = '';
         
         const trigger = revealTriggers[index] || (index * 0.2 + 0.1);
-        if (progress >= trigger) {
+        if (desktopProgress >= trigger) {
           card.classList.add('active');
         } else {
           card.classList.remove('active');

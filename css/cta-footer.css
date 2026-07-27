@@ -38,15 +38,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  will-change: transform, opacity;
-  opacity: 0; /* Starts hidden */
-  transform: scale(0.9);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  opacity: 0.5;
 }
 
 .cta-footer-section.is-revealed .af-canvas-wrapper {
-  opacity: 0.5; /* Aumentado para melhor visibilidade da câmera */
-  /* transform é controlado via JS */
+  opacity: 0.5; /* Mantém a opacidade constante para evitar piscas */
 }
 
 /* Base canvas setup */

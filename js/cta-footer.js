@@ -170,11 +170,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // Render inicial para garantir que a câmera já esteja visível antes do scroll chegar nela
+  for (const hand of hands) {
+    renderAscii(hand, Date.now());
+  }
+
   // Pointer & Drift for Parallax
   const pointer = { x: 0, y: 0 };
   const drift = { x: 0, y: 0 };
   let isRevealed = false;
-  let currentScale = 0.9;
 
   const hoverAscii = (hand, clientX, clientY) => {
     const rect = hand.canvas.getBoundingClientRect();
@@ -256,13 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
     drift.x += (pointer.x - drift.x) * PARALLAX_EASE;
     drift.y += (pointer.y - drift.y) * PARALLAX_EASE;
     
-    const targetScale = isRevealed ? 1 : 0.9;
-    currentScale += (targetScale - currentScale) * 0.05;
-
     const x = drift.x || 0;
     const y = -drift.y || 0;
     
-    wrap.style.transform = `translate(${x}px, ${y}px) scale(${currentScale})`;
+    wrap.style.transform = `translate(${x}px, ${y}px)`;
 
     rafId = requestAnimationFrame(frame);
   };

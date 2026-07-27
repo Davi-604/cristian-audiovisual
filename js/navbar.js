@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let activeIndex = 0; // Default active index (Início)
     let isHovering = false;
+    let isAutoScrolling = false;
     
     // Spring physics variables
     let currentSpotlightX = 0;
@@ -81,8 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     items.forEach((item, index) => {
-        item.addEventListener("click", () => {
+        item.addEventListener("click", (e) => {
+            e.preventDefault();
+            isAutoScrolling = true;
+            setTimeout(() => { isAutoScrolling = false; }, 1600);
+            
             setActiveIndex(index);
+            const targetId = item.getAttribute('href');
+            if (window.lenis) {
+                window.lenis.scrollTo(targetId, { duration: 1.5 });
+            } else {
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
@@ -199,9 +211,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const mobileItems = document.querySelectorAll('.mobile-nav-item');
         mobileItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                isAutoScrolling = true;
+                setTimeout(() => { isAutoScrolling = false; }, 1600);
+                
                 setActiveIndex(index);
                 closeMobileMenu();
+                const targetId = item.getAttribute('href');
+                if (window.lenis) {
+                    window.lenis.scrollTo(targetId, { duration: 1.5 });
+                } else {
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     }
@@ -214,6 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const SCROLL_UP_THRESHOLD = 200; // Require 200px of upward scroll to show, preventing accidental triggers
         
         window.addEventListener('scroll', () => {
+            if (isAutoScrolling) {
+                lastScrollY = window.scrollY;
+                navbarWrapper.classList.remove('-translate-y-32');
+                return;
+            }
+            
             const currentScrollY = window.scrollY;
             
             // Show immediately if we are at the very top

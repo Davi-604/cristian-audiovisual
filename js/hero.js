@@ -176,7 +176,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 1. Initialize Lenis for Smooth Scrolling
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.5,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     direction: 'vertical',
     gestureDirection: 'vertical',
@@ -186,6 +186,7 @@ window.addEventListener('DOMContentLoaded', () => {
     touchMultiplier: 2,
     infinite: false,
   });
+  window.lenis = lenis; // Expose globally for navbar and other scripts
 
   if (!document.body.classList.contains('preloader-done')) {
     lenis.stop();
