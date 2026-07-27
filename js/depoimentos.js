@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let activeIndex = 0;
   let autoplayTimer = null;
-  const autoplayDuration = 4000;
+  const autoplayDuration = 20000;
 
   function init() {
     cards.forEach((card, index) => {
