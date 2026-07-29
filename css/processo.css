@@ -14,14 +14,21 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-top: 5.5rem; /* Space for fixed navbar */
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   background-color: transparent; /* Changed to transparent */
+}
+
+@media (min-width: 1024px) {
+  .sticky-process-wrapper {
+    height: 100vh;
+    padding-bottom: 3rem;
+  }
 }
 
 /* Timeline progress bar styling */
@@ -118,9 +125,9 @@
 
 /* Card Wrapper matching Diferenciais structure */
 .processo-card {
-  width: 340px;
+  width: 280px;
   flex-shrink: 0;
-  height: 520px;
+  height: 420px;
   position: relative;
   border-radius: 1.5rem;
   
@@ -173,6 +180,13 @@
 
 .processo-card:hover .processo-glass-panel {
   border-color: rgba(172, 203, 225, 0.25);
+}
+
+@media (min-width: 640px) {
+  .processo-card {
+    width: 320px;
+    height: 480px;
+  }
 }
 
 @media (min-width: 1024px) {
