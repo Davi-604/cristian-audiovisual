@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayIndex = String((i % surferItems.length) + 1).padStart(2, '0');
 
     card.className = 'surfer-card surfer-card-size absolute bg-brand-deep/90 border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-colors duration-500 ease-out group cursor-pointer select-none pointer-events-auto';
+    card.style.willChange = 'transform, opacity';
 
     card.setAttribute('data-index', i);
 
@@ -208,18 +209,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const now = performance.now();
     const dt = Math.max(1, now - lastDragTime);
-    velocity = (-totalDelta * 1.5) / dt; // Reduced for heavier feel
+    const isMobile = window.innerWidth < 768;
+    
+    // Increased velocity sensitivity for mobile
+    const velocityMultiplier = isMobile ? 3.0 : 1.5;
+    velocity = (-totalDelta * velocityMultiplier) / dt;
     lastDragTime = now;
 
-    targetProgress = startProgress - totalDelta * 2; // Reduced drag sensitivity
+    // Increased drag sensitivity for mobile
+    const dragSensitivity = isMobile ? 4 : 2;
+    targetProgress = startProgress - totalDelta * dragSensitivity;
     startLoop();
   };
 
   const onPointerUp = () => {
     if (!isDragging) return;
     isDragging = false;
+    
+    const isMobile = window.innerWidth < 768;
+    const inertiaMultiplier = isMobile ? 35 : 20;
+    
     // Apply inertia velocity
-    targetProgress += velocity * 20; // Reduced inertia momentum
+    targetProgress += velocity * inertiaMultiplier;
     startLoop();
   };
 
@@ -258,7 +269,9 @@ document.addEventListener('DOMContentLoaded', () => {
   viewport.addEventListener('wheel', (e) => {
     e.preventDefault();
     const delta = e.deltaY !== 0 ? e.deltaY : e.deltaX;
-    targetProgress += delta * 0.8; // Reduced scroll sensitivity
+    const isMobile = window.innerWidth < 768;
+    const wheelSensitivity = isMobile ? 1.5 : 0.8;
+    targetProgress += delta * wheelSensitivity;
     startLoop();
   }, { passive: false });
 
@@ -311,7 +324,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Track stays fixed, we move the individual cards instead for a perfect infinite loop
     track.style.transform = `translate3d(0px, 0px, 0px)`;
 
-    // Calculate individual 3D position & magnetic scaling for each card
+    const isDesktop = window.innerWidth >= 768;
+    const doMagnetic = isDesktop && isHovered && mouseX > 0 && mouseY > 0;
+
+    // FIRST PASS: Read Layout (Avoid Layout Thrashing)
+    if (doMagnetic) {
+      cardElements.forEach((item) => {
+        // Only measure if card is near visible area to save processing
+        const approxOffset = (((item.index * scrollPerItem - currentProgress + loopDistance/2) % loopDistance + loopDistance) % loopDistance - loopDistance/2) / scrollPerItem;
+        if (approxOffset >= -2 && approxOffset <= 6) {
+          const rect = item.el.getBoundingClientRect();
+          item.cachedCenterX = rect.left + rect.width / 2;
+          item.cachedCenterY = rect.top + rect.height / 2;
+        } else {
+          item.cachedCenterX = -10000;
+          item.cachedCenterY = -10000;
+        }
+      });
+    }
+
+    // SECOND PASS: Math & Writes
     cardElements.forEach((item) => {
       const i = item.index;
       
@@ -328,11 +360,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const baseZ = offsetIndex * stepZ * leftDampen;
 
       // Magnetic scale logic
-      if (isHovered && mouseX > 0 && mouseY > 0) {
-        const rect = item.el.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
+      if (doMagnetic && item.cachedCenterX > -9000) {
+        const dist = Math.hypot(mouseX - item.cachedCenterX, mouseY - item.cachedCenterY);
 
         if (dist < 340 && offsetIndex >= -1.5 && offsetIndex <= 5.5) {
           item.targetScale = 1 + 0.35 * (1 - dist / 340);
@@ -358,22 +387,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Visibility & Pointer-Events Culling
       // Cards outside the visible track range or transparent MUST NOT block clicks/hovers
-      if (cardOpacity <= 0.02 || offsetIndex < -2.8 || offsetIndex > 6.5) {
-        item.el.style.pointerEvents = 'none';
-        item.el.style.visibility = 'hidden';
-      } else {
-        item.el.style.pointerEvents = 'auto';
-        item.el.style.visibility = 'visible';
+      const isVisible = cardOpacity > 0.02 && offsetIndex >= -2.8 && offsetIndex <= 6.5;
+      
+      const newPointerEvents = isVisible ? 'auto' : 'none';
+      const newVisibility = isVisible ? 'visible' : 'hidden';
+      const newOpacity = cardOpacity.toFixed(3);
+      const newZ = 10000 - Math.round(Math.abs(offsetIndex) * 100);
+      const newTransform = `translate3d(${baseX.toFixed(2)}px, ${baseY.toFixed(2)}px, ${baseZ.toFixed(2)}px) rotateY(-38deg) scale(${item.scale.toFixed(3)})`;
+
+      // Only write to DOM if changed (performance optimization)
+      if (item.lastPointerEvents !== newPointerEvents) {
+        item.el.style.pointerEvents = newPointerEvents;
+        item.lastPointerEvents = newPointerEvents;
       }
-
-      item.el.style.opacity = cardOpacity.toFixed(3);
-
-      // Z-Index calculation:
-      // Front cards (closer to offset 0 / camera) MUST have higher Z-index than cards behind them in 3D depth.
-      // Cards further right (larger offsetIndex) move back into negative 3D space, so their Z-index decreases.
-      const calculatedZ = 10000 - Math.round(Math.abs(offsetIndex) * 100);
-      item.el.style.zIndex = calculatedZ;
-      item.el.style.transform = `translate3d(${baseX.toFixed(2)}px, ${baseY.toFixed(2)}px, ${baseZ.toFixed(2)}px) rotateY(-38deg) scale(${item.scale.toFixed(3)})`;
+      if (item.lastVisibility !== newVisibility) {
+        item.el.style.visibility = newVisibility;
+        item.lastVisibility = newVisibility;
+      }
+      if (item.lastOpacity !== newOpacity) {
+        item.el.style.opacity = newOpacity;
+        item.lastOpacity = newOpacity;
+      }
+      if (item.lastZ !== newZ) {
+        item.el.style.zIndex = newZ;
+        item.lastZ = newZ;
+      }
+      if (item.lastTransform !== newTransform) {
+        item.el.style.transform = newTransform;
+        item.lastTransform = newTransform;
+      }
     });
 
     if (isPortfolioVisible) {
