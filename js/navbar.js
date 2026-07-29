@@ -41,8 +41,19 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.style.setProperty("--spotlight-x", `${currentSpotlightX}px`);
     nav.style.setProperty("--ambience-x", `${currentAmbienceX}px`);
 
-    // Animation loop
+    // Animation loop with sleep optimization
+    let isAnimating = false;
+
+    function startAnimation() {
+        if (!isAnimating) {
+            isAnimating = true;
+            requestAnimationFrame(animate);
+        }
+    }
+
     function animate() {
+        let isMoving = false;
+
         // Only run spring physics if mouse is not hovering (for spotlight)
         if (!isHovering) {
             const spotlightAccel = (targetSpotlightX - currentSpotlightX) * stiffness;
@@ -50,6 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
             spotlightVel *= damping;
             currentSpotlightX += spotlightVel;
             nav.style.setProperty("--spotlight-x", `${currentSpotlightX}px`);
+            if (Math.abs(targetSpotlightX - currentSpotlightX) > 0.05 || Math.abs(spotlightVel) > 0.05) {
+                isMoving = true;
+            }
         } else {
             // Mouse controls spotlight directly
             currentSpotlightX = targetSpotlightX;
@@ -62,23 +76,32 @@ document.addEventListener('DOMContentLoaded', () => {
         ambienceVel *= damping;
         currentAmbienceX += ambienceVel;
         nav.style.setProperty("--ambience-x", `${currentAmbienceX}px`);
+        if (Math.abs(targetAmbienceX - currentAmbienceX) > 0.05 || Math.abs(ambienceVel) > 0.05) {
+            isMoving = true;
+        }
 
-        requestAnimationFrame(animate);
+        if (isMoving || isHovering) {
+            requestAnimationFrame(animate);
+        } else {
+            isAnimating = false;
+        }
     }
     
-    animate();
+    startAnimation();
 
     nav.addEventListener("mousemove", (e) => {
         isHovering = true;
         hoverLayer.style.opacity = "1";
         const rect = nav.getBoundingClientRect();
         targetSpotlightX = e.clientX - rect.left;
+        startAnimation();
     });
 
     nav.addEventListener("mouseleave", () => {
         isHovering = false;
         hoverLayer.style.opacity = "0";
         targetSpotlightX = getTargetX(activeIndex);
+        startAnimation();
     });
 
     items.forEach((item, index) => {
@@ -127,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isHovering) {
             targetSpotlightX = getTargetX(activeIndex);
         }
+        startAnimation();
     }
 
     // Handle intersection observer to auto-update active index on scroll

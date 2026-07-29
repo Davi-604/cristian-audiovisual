@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const nodes = Array.from(el.childNodes);
-    el.innerHTML = '';
+    const fragment = document.createDocumentFragment();
     let delayOffset = baseDelay;
 
     nodes.forEach(node => {
@@ -75,10 +75,10 @@ window.addEventListener('DOMContentLoaded', () => {
           const char = text[i];
           if (char === ' ') {
             if (currentWordSpan) {
-              el.appendChild(currentWordSpan);
+              fragment.appendChild(currentWordSpan);
               currentWordSpan = null;
             }
-            el.appendChild(document.createTextNode(' '));
+            fragment.appendChild(document.createTextNode(' '));
           } else {
             if (!currentWordSpan) {
               currentWordSpan = document.createElement('span');
@@ -93,12 +93,14 @@ window.addEventListener('DOMContentLoaded', () => {
           }
         }
         if (currentWordSpan) {
-          el.appendChild(currentWordSpan);
+          fragment.appendChild(currentWordSpan);
         }
       } else {
-        el.appendChild(node.cloneNode(true));
+        fragment.appendChild(node.cloneNode(true));
       }
     });
+    el.innerHTML = '';
+    el.appendChild(fragment);
   });
   // 0.5 Initialize Wavy Background
   const initWavyBackground = () => {
@@ -131,9 +133,10 @@ window.addEventListener('DOMContentLoaded', () => {
         ctx.beginPath();
         ctx.lineWidth = 50;
         ctx.strokeStyle = waveColors[i % waveColors.length];
-        for (let x = 0; x < w; x += 5) {
+        for (let x = 0; x <= w + 16; x += 16) {
           const y = simplex.noise3D(x / 800, 0.3 * i, nt) * 100;
-          ctx.lineTo(x, y + h * 0.5);
+          if (x === 0) ctx.moveTo(x, y + h * 0.5);
+          else ctx.lineTo(x, y + h * 0.5);
         }
         ctx.stroke();
         ctx.closePath();

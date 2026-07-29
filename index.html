@@ -26,40 +26,12 @@
   <link rel="stylesheet" href="css/faq.css">
   <link rel="stylesheet" href="css/cta-footer.css">
   <link rel="stylesheet" href="css/preloader.css">
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              navy: '#1B264F',
-              blue: '#274690',
-              ice: '#CEE5F2',
-              soft: '#ACCBE1',
-              muted: '#7C98B3',
-              bg: '#F8FAFC',
-              white: '#FFFFFF',
-              deep: '#0A1128',
-              abyss: '#030816',
-            }
-          },
-          blur: {
-            '4xl': '120px',
-          },
-          fontFamily: {
-            'corpline': ['Corpline', 'sans-serif'],
-            Supreme: ['Supreme', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind CSS Compiled Production Build -->
+  <link rel="stylesheet" href="css/tailwind.output.css">
 </head>
 
 <body
-  class="bg-brand-bg text-brand-navy font-Supreme antialiased min-h-screen selection:bg-brand-soft selection:text-brand-navy">
+  class="bg-brand-bg text-brand-navy font-Supreme antialiased min-h-screen selection:bg-brand-soft selection:text-brand-navy overflow-x-hidden">
 
   <!-- Pre-Loader (Dynamic Scanner & Hero Sync) -->
   <div id="preloader"
@@ -424,6 +396,43 @@
           </div>
 
           <div class="relative z-10 max-w-[1640px] w-full mx-auto px-6 md:px-12 flex flex-col gap-20 md:gap-32">
+
+            <!-- BLOCO 0: TRABALHOS EM DESTAQUE (3D Collection Surfer) -->
+            <div class="flex flex-col gap-3 md:gap-4">
+              <!-- Header Trabalhos em Destaque -->
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-5">
+                <div class="max-w-3xl">
+                  <span
+                    class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold">
+                    Curadoria de Impacto &bull; Destaques
+                  </span>
+                  <h2
+                    class="font-corpline text-3xl md:text-5xl lg:text-6xl font-black uppercase text-brand-white leading-tight">
+                    Trabalhos em <span class="text-brand-ice opacity-90">Destaque</span>
+                  </h2>
+                  <p class="font-Supreme text-sm md:text-base text-brand-muted mt-3 font-medium leading-relaxed max-w-2xl">
+                    Confira nossos últimos trabalhos em destaque. Uma seleção com as produções mais recentes e marcantes do nosso portfólio.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Viewport 3D Collection Surfer Container (Seamless Screen-integrated) -->
+              <div id="collection-surfer-viewport"
+                style="width: 100vw; margin-left: calc(-50vw + 50%);"
+                class="surfer-perspective-container relative h-[460px] sm:h-[520px] md:h-[580px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none overflow-hidden">
+                
+                <!-- 3D Scene Viewport -->
+                <div class="absolute inset-0 flex items-start justify-center pt-[150px] sm:pt-[170px] md:pt-[140px] pointer-events-none">
+                  <!-- Animated 3D Track -->
+                  <div id="surfer-track" class="surfer-preserve-3d relative w-0 h-0">
+                    <!-- Cards injection via js/portfolio-surfer.js -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Divisor decorativo -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
             <!-- BLOCO 1: AUDIOVISUAL -->
             <div class="flex flex-col gap-10 md:gap-14">
@@ -2132,6 +2141,7 @@
   <script src="js/preloader.js"></script>
   <script src="js/hero.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/portfolio-surfer.js"></script>
   <script src="js/portfolio-data.js"></script>
   <script src="js/portfolio.js"></script>
   <script src="js/diferenciais.js"></script>

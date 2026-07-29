@@ -477,6 +477,9 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.appendChild(container);
   }
 
+  // Expose openPhotoModal globally for external components (such as portfolio 3D surfer)
+  window.openPortfolioPhotoModal = openPhotoModal;
+
   // Initial Run
   renderVideos();
   renderPhotos('Destaques');

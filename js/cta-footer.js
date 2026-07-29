@@ -180,6 +180,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const hoverAscii = (hand, clientX, clientY) => {
     const rect = hand.canvas.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) return;
+
+    // Quick bounding box check with 60px padding before scanning cell list
+    if (clientX < rect.left - 60 || clientX > rect.right + 60 || clientY < rect.top - 60 || clientY > rect.bottom + 60) {
+      return;
+    }
     
     const mouseCol = ((clientX - rect.left) / rect.width) * hand.columns;
     const mouseRow = ((clientY - rect.top) / rect.height) * hand.rows;
@@ -190,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const cell of hand.cellList) {
       const dx = mouseCol - cell.col;
       const dy = mouseRow - cell.row;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+      const dist = Math.hypot(dx, dy);
       if (dist < closestDist) {
         closestDist = dist;
         closest = cell;
@@ -203,12 +208,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const onMouseMove = (event) => {
+    if (!isRevealed) return;
     for (const hand of hands) {
       hoverAscii(hand, event.clientX, event.clientY);
     }
   };
 
-  window.addEventListener("mousemove", onMouseMove);
+  window.addEventListener("mousemove", onMouseMove, { passive: true });
 
   // Orb State
   let orbX = 0;
