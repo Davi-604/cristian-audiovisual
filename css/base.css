@@ -116,3 +116,17 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--color-brand-muted) var(--color-brand-abyss);
 }
+
+/* Otimização de Performance Desktop (Remoção de Composições Pesadas de GPU) */
+@media (min-width: 1024px) {
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl,
+  .backdrop-blur-3xl,
+  .backdrop-blur {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}

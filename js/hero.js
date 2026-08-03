@@ -432,7 +432,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         if (heroOverlayCard._h1) {
           heroOverlayCard._h1.style.transform = `translateY(${20 * tTextOpacity}px)`;
-          heroOverlayCard._h1.style.filter = `blur(${8 * tTextOpacity}px)`;
+          heroOverlayCard._h1.style.filter = '';
         }
         if (heroOverlayCard._p) {
           heroOverlayCard._p.style.animation = 'none';
@@ -450,7 +450,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         if (heroOverlayCard._h1) {
           heroOverlayCard._h1.style.transform = `translateY(0)`;
-          heroOverlayCard._h1.style.filter = `blur(0)`;
+          heroOverlayCard._h1.style.filter = '';
         }
         if (heroOverlayCard._p) {
           heroOverlayCard._p.style.animation = 'none';

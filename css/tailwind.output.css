@@ -3398,6 +3398,9 @@
     .md\:h-16 {
       height: calc(var(--spacing) * 16);
     }
+    .md\:h-32 {
+      height: calc(var(--spacing) * 32);
+    }
     .md\:h-64 {
       height: calc(var(--spacing) * 64);
     }

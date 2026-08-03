@@ -176,8 +176,8 @@
   .cta-orb {
     width: 250px;
     height: 250px;
-    background: var(--color-brand-muted);
-    filter: blur(60px);
+    background: radial-gradient(circle, var(--color-brand-muted) 0%, rgba(124, 152, 179, 0) 70%);
+    filter: none;
   }
 
   .cta-footer-section.is-revealed .cta-orb {

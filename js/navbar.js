@@ -258,12 +258,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbarWrapper) {
         let lastScrollY = window.scrollY;
         let scrollUpDistance = 0;
-        const SCROLL_UP_THRESHOLD = 200; // Require 200px of upward scroll to show, preventing accidental triggers
+        const SCROLL_UP_THRESHOLD = 15; // Show quickly when scrolling up (was 200)
         
         window.addEventListener('scroll', () => {
             if (isAutoScrolling) {
                 lastScrollY = window.scrollY;
-                navbarWrapper.classList.remove('-translate-y-32');
+                navbarWrapper.classList.remove('navbar-hidden');
                 return;
             }
             
@@ -271,18 +271,18 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Show immediately if we are at the very top
             if (currentScrollY <= 100) {
-                navbarWrapper.classList.remove('-translate-y-32');
+                navbarWrapper.classList.remove('navbar-hidden');
                 scrollUpDistance = 0;
             } else if (currentScrollY > lastScrollY) {
                 // Scrolling down - hide immediately
-                navbarWrapper.classList.add('-translate-y-32');
+                navbarWrapper.classList.add('navbar-hidden');
                 scrollUpDistance = 0; // Reset scroll up accumulator
                 if (typeof closeMobileMenu === 'function') closeMobileMenu();
             } else {
                 // Scrolling up - accumulate distance
                 scrollUpDistance += (lastScrollY - currentScrollY);
                 if (scrollUpDistance > SCROLL_UP_THRESHOLD) {
-                    navbarWrapper.classList.remove('-translate-y-32');
+                    navbarWrapper.classList.remove('navbar-hidden');
                 }
             }
             

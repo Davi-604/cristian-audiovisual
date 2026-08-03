@@ -21,3 +21,9 @@
         transparent 100%
     );
 }
+
+/* Responsive Hide Navbar State */
+.navbar-hidden {
+    transform: translateY(-150%) !important;
+    pointer-events: none !important;
+}

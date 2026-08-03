@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (exitProgress > 0) {
         headerContainer.style.opacity = (1 - exitProgress).toFixed(2);
         headerContainer.style.transform = `translate3d(0, ${(-40 * exitProgress).toFixed(1)}px, 0)`;
-        headerContainer.style.filter = `blur(${(8 * exitProgress).toFixed(1)}px)`;
+        headerContainer.style.filter = '';
       } else {
         headerContainer.style.opacity = '';
         headerContainer.style.transform = '';
