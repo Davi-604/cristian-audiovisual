@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMobile = window.innerWidth < 768;
     return {
       stepX: isMobile ? 140 : 220,   // Ajustado para sobreposição elegante com largura menor
-      stepY: isMobile ? -45 : -70,  // Inclinação diagonal dinamica ascendente
+      stepY: isMobile ? -35 : -55,  // Inclinação V-shape suave e elegante
       stepZ: isMobile ? -140 : -200 // Profundidade 3D suave
     };
   }
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.createElement('div');
     const displayIndex = String((i % surferItems.length) + 1).padStart(2, '0');
 
-    card.className = 'surfer-card surfer-card-size absolute bg-brand-deep/90 border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-colors duration-500 ease-out group cursor-pointer select-none pointer-events-auto';
+    card.className = 'surfer-card surfer-card-size absolute bg-brand-deep/90 border border-white/10 rounded-2xl overflow-hidden transition-colors duration-500 ease-out group cursor-pointer select-none pointer-events-auto';
     card.style.willChange = 'transform, opacity';
 
     card.setAttribute('data-index', i);
@@ -149,17 +149,24 @@ document.addEventListener('DOMContentLoaded', () => {
       openSurferModal(item);
     });
 
-    card.addEventListener('mouseenter', () => hoveredCardCount++);
-    card.addEventListener('mouseleave', () => {
-      hoveredCardCount = Math.max(0, hoveredCardCount - 1);
-    });
-
-    cardElements.push({
+    const cardObj = {
       el: card,
       index: i,
       scale: 1,
-      targetScale: 1
+      targetScale: 1,
+      isHovered: false
+    };
+
+    card.addEventListener('mouseenter', () => {
+      hoveredCardCount++;
+      cardObj.isHovered = true;
     });
+    card.addEventListener('mouseleave', () => {
+      hoveredCardCount = Math.max(0, hoveredCardCount - 1);
+      cardObj.isHovered = false;
+    });
+
+    cardElements.push(cardObj);
   });
 
   // 5. Animation & Interaction State
@@ -173,23 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastDragTime = 0;
   let autoSurfing = true;
 
-  let mouseX = -10000;
-  let mouseY = -10000;
-  let isHovered = false;
-
-  // 6. Event Handlers (Mouse Move, Drag, Touch, Wheel)
-  viewport.addEventListener('mousemove', (e) => {
-    isHovered = true;
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  viewport.addEventListener('mouseleave', () => {
-    isHovered = false;
-    mouseX = -10000;
-    mouseY = -10000;
-  });
-
+  // 6. Event Handlers (Drag, Touch, Wheel)
+  
   // Dragging support
   const onPointerDown = (clientX, clientY) => {
     isDragging = true;
@@ -324,25 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Track stays fixed, we move the individual cards instead for a perfect infinite loop
     track.style.transform = `translate3d(0px, 0px, 0px)`;
 
-    const isDesktop = window.innerWidth >= 768;
-    const doMagnetic = isDesktop && isHovered && mouseX > 0 && mouseY > 0;
-
-    // FIRST PASS: Read Layout (Avoid Layout Thrashing)
-    if (doMagnetic) {
-      cardElements.forEach((item) => {
-        // Only measure if card is near visible area to save processing
-        const approxOffset = (((item.index * scrollPerItem - currentProgress + loopDistance/2) % loopDistance + loopDistance) % loopDistance - loopDistance/2) / scrollPerItem;
-        if (approxOffset >= -2 && approxOffset <= 6) {
-          const rect = item.el.getBoundingClientRect();
-          item.cachedCenterX = rect.left + rect.width / 2;
-          item.cachedCenterY = rect.top + rect.height / 2;
-        } else {
-          item.cachedCenterX = -10000;
-          item.cachedCenterY = -10000;
-        }
-      });
-    }
-
     // SECOND PASS: Math & Writes
     cardElements.forEach((item) => {
       const i = item.index;
@@ -354,46 +327,38 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const baseX = offsetIndex * stepX;
       
-      // Dampen Y and Z for exiting cards (offsetIndex < 0) so they slide left without flying violently into the camera
-      const leftDampen = offsetIndex < 0 ? 0.15 : 1;
-      const baseY = offsetIndex * stepY * leftDampen;
-      const baseZ = offsetIndex * stepZ * leftDampen;
+      // Mirror Y and Z on both sides for the 'V' shape
+      const targetZOffset = item.isHovered ? (Math.abs(offsetIndex) * Math.abs(stepZ) + 180) : 0;
+      item.zOffset = (item.zOffset || 0) + (targetZOffset - (item.zOffset || 0)) * 0.12;
 
-      // Magnetic scale logic
-      if (doMagnetic && item.cachedCenterX > -9000) {
-        const dist = Math.hypot(mouseX - item.cachedCenterX, mouseY - item.cachedCenterY);
+      const baseY = Math.abs(offsetIndex) * stepY;
+      const baseZ = Math.abs(offsetIndex) * stepZ + item.zOffset;
 
-        if (dist < 340 && offsetIndex >= -1.5 && offsetIndex <= 5.5) {
-          item.targetScale = 1 + 0.35 * (1 - dist / 340);
-        } else {
-          item.targetScale = 1.0;
-        }
-      } else {
-        item.targetScale = 1.0;
-      }
+      // Mirror rotation for left and right cards
+      // Cards on the left (negative offsetIndex) face right (positive rotation)
+      // Cards on the right (positive offsetIndex) face left (negative rotation)
+      const targetRotationY = Math.max(-38, Math.min(38, -offsetIndex * 38));
+
+      // Hover scale logic
+      item.targetScale = item.isHovered ? 1.15 : 1.0;
 
       // Smooth card scale interpolation
       item.scale += (item.targetScale - item.scale) * 0.12;
       
-      // Opacity fade for exiting/entering cards
+      // Cards are 100% visible while on screen
       let cardOpacity = 1;
-      if (offsetIndex < -1) {
-        // Fade out smoothly between offset -1 and -3 (exiting left)
-        cardOpacity = Math.max(0, 1 - (Math.abs(offsetIndex) - 1) / 2);
-      } else if (offsetIndex > 4.5) {
-        // Fade out smoothly between offset 4.5 and 6.5 (exiting right background)
-        cardOpacity = Math.max(0, 1 - (offsetIndex - 4.5) / 2);
-      }
 
       // Visibility & Pointer-Events Culling
-      // Cards outside the visible track range or transparent MUST NOT block clicks/hovers
-      const isVisible = cardOpacity > 0.02 && offsetIndex >= -2.8 && offsetIndex <= 6.5;
+      // Expanding the culling range so they disappear only at the edges of the screen
+      // offsetIndex of 10 is far enough offscreen to be safely hidden
+      const isVisible = Math.abs(offsetIndex) <= 10;
       
       const newPointerEvents = isVisible ? 'auto' : 'none';
       const newVisibility = isVisible ? 'visible' : 'hidden';
       const newOpacity = cardOpacity.toFixed(3);
-      const newZ = 10000 - Math.round(Math.abs(offsetIndex) * 100);
-      const newTransform = `translate3d(${baseX.toFixed(2)}px, ${baseY.toFixed(2)}px, ${baseZ.toFixed(2)}px) rotateY(-38deg) scale(${item.scale.toFixed(3)})`;
+      // Give hovered cards a massive z-index boost so they appear on top
+      const newZ = (item.isHovered ? 20000 : 10000) - Math.round(Math.abs(offsetIndex) * 100);
+      const newTransform = `translateX(-50%) translate3d(${baseX.toFixed(2)}px, ${baseY.toFixed(2)}px, ${baseZ.toFixed(2)}px) rotateY(${targetRotationY.toFixed(1)}deg) scale(${item.scale.toFixed(3)})`;
 
       // Only write to DOM if changed (performance optimization)
       if (item.lastPointerEvents !== newPointerEvents) {
