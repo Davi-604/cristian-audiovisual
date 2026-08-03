@@ -28,9 +28,15 @@
 
 /* Lightbox Modal Overlay */
 .portfolio-lightbox-overlay {
-  background: rgba(3, 8, 22, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(3, 8, 22, 0.98);
+}
+
+@media (min-width: 768px) {
+  .portfolio-lightbox-overlay {
+    background: rgba(3, 8, 22, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 }
 
 /* Lightbox Animations */
