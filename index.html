@@ -50,8 +50,7 @@
     </div>
 
     <!-- Central Image Container (Mesmo recorte e tamanho da Hero no scroll 0) -->
-    <div id="preloader-image-wrapper"
-      class="absolute inset-0 w-full h-full bg-[#060D1E] overflow-hidden"
+    <div id="preloader-image-wrapper" class="absolute inset-0 w-full h-full bg-[#060D1E] overflow-hidden"
       style="clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);">
 
       <!-- The Clean Hero Main Image (Mesma escala 170% e posição central da Hero) -->
@@ -267,16 +266,23 @@
     <!-- Unified Wrapper for Wavy Background (Hero + Diferenciais) -->
     <div class="relative w-full bg-brand-abyss">
       <!-- Sticky Dynamic Background -->
-      <div class="absolute inset-0 z-0" style="-webkit-mask-image: linear-gradient(to bottom, black, black calc(100% - 15rem), transparent); mask-image: linear-gradient(to bottom, black, black calc(100% - 15rem), transparent);">
+      <div class="absolute inset-0 z-0"
+        style="-webkit-mask-image: linear-gradient(to bottom, black, black calc(100% - 15rem), transparent); mask-image: linear-gradient(to bottom, black, black calc(100% - 15rem), transparent);">
         <div class="sticky top-0 left-0 w-full h-screen overflow-hidden pointer-events-none bg-brand-abyss">
           <!-- Desktop Animated Canvas -->
           <canvas id="wavy-canvas"
             class="hidden md:block absolute inset-0 z-0 w-full h-full blur-[10px] transform rotate-[-25deg] scale-[1.5] translate-x-[10%] -translate-y-[15%] origin-center transition-opacity duration-700"></canvas>
-          
+
           <!-- Blob Gradients (Mobile & Desktop Integration - Radial Gradient Otimizado no Mobile) -->
-          <div class="absolute top-[-10%] right-[-5%] w-[70vw] md:w-[40vw] h-[70vw] md:h-[40vw] rounded-full bg-[radial-gradient(circle,rgba(39,70,144,0.35)_0%,transparent_70%)] md:bg-brand-blue/30 blur-none md:blur-[140px] mix-blend-screen opacity-80 md:animate-pulse" style="animation-duration: 8s;"></div>
-          <div class="absolute bottom-[-10%] left-[-10%] w-[60vw] md:w-[50vw] h-[60vw] md:h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(10,17,40,0.6)_0%,transparent_70%)] md:bg-brand-navy/40 blur-none md:blur-[120px] mix-blend-screen opacity-60"></div>
-          <div class="absolute top-[40%] left-[20%] w-[40vw] md:w-[30vw] h-[40vw] md:h-[30vw] rounded-full bg-[radial-gradient(circle,rgba(206,229,242,0.15)_0%,transparent_70%)] md:bg-brand-ice/10 blur-none md:blur-[100px] mix-blend-screen opacity-50"></div>
+          <div
+            class="absolute top-[-10%] right-[-5%] w-[70vw] md:w-[40vw] h-[70vw] md:h-[40vw] rounded-full bg-[radial-gradient(circle,rgba(39,70,144,0.35)_0%,transparent_70%)] md:bg-brand-blue/30 blur-none md:blur-[140px] mix-blend-screen opacity-80 md:animate-pulse"
+            style="animation-duration: 8s;"></div>
+          <div
+            class="absolute bottom-[-10%] left-[-10%] w-[60vw] md:w-[50vw] h-[60vw] md:h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(10,17,40,0.6)_0%,transparent_70%)] md:bg-brand-navy/40 blur-none md:blur-[120px] mix-blend-screen opacity-60">
+          </div>
+          <div
+            class="absolute top-[40%] left-[20%] w-[40vw] md:w-[30vw] h-[40vw] md:h-[30vw] rounded-full bg-[radial-gradient(circle,rgba(206,229,242,0.15)_0%,transparent_70%)] md:bg-brand-ice/10 blur-none md:blur-[100px] mix-blend-screen opacity-50">
+          </div>
         </div>
       </div>
 
@@ -383,15 +389,19 @@
         </div>
 
         <!-- Section Portfólio (Audiovisual & Fotografia) -->
-        <section id="portfolio"
-          class="relative w-full text-white py-24 md:py-36 z-20">
-          
+        <section id="portfolio" class="relative w-full text-white py-24 md:py-36 z-20">
+
           <!-- Background Mask Layer (Fixed Blob Gradients) -->
-          <div class="absolute inset-0 z-0 pointer-events-none" style="-webkit-mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent); mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);">
+          <div class="absolute inset-0 z-0 pointer-events-none"
+            style="-webkit-mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent); mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);">
             <div class="sticky top-0 left-0 w-full h-screen overflow-hidden bg-brand-abyss">
               <!-- Glow Orbs (Radial Gradient Otimizado no Mobile) -->
-              <div class="absolute top-[10%] left-[-10%] w-[80vw] md:w-[45vw] h-[80vw] md:h-[45vw] rounded-full bg-[radial-gradient(circle,rgba(39,70,144,0.3)_0%,transparent_70%)] md:bg-brand-blue/20 blur-none md:blur-[130px] opacity-70"></div>
-              <div class="absolute bottom-[-10%] right-[-5%] w-[70vw] md:w-[55vw] h-[70vw] md:h-[55vw] rounded-full bg-[radial-gradient(circle,rgba(10,17,40,0.6)_0%,transparent_70%)] md:bg-brand-navy/50 blur-none md:blur-[140px] opacity-80"></div>
+              <div
+                class="absolute top-[10%] left-[-10%] w-[80vw] md:w-[45vw] h-[80vw] md:h-[45vw] rounded-full bg-[radial-gradient(circle,rgba(39,70,144,0.3)_0%,transparent_70%)] md:bg-brand-blue/20 blur-none md:blur-[130px] opacity-70">
+              </div>
+              <div
+                class="absolute bottom-[-10%] right-[-5%] w-[70vw] md:w-[55vw] h-[70vw] md:h-[55vw] rounded-full bg-[radial-gradient(circle,rgba(10,17,40,0.6)_0%,transparent_70%)] md:bg-brand-navy/50 blur-none md:blur-[140px] opacity-80">
+              </div>
             </div>
           </div>
 
@@ -402,25 +412,25 @@
               <!-- Header Trabalhos em Destaque -->
               <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-5">
                 <div class="max-w-3xl">
-                  <span
-                    class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold">
+                  <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-3 font-bold">
                     Curadoria de Impacto &bull; Destaques
                   </span>
                   <h2
                     class="font-corpline text-3xl md:text-5xl lg:text-6xl font-black uppercase text-brand-white leading-tight">
                     Trabalhos em <span class="text-brand-ice opacity-90">Destaque</span>
                   </h2>
-                  <p class="font-Supreme text-sm md:text-base text-brand-muted mt-3 font-medium leading-relaxed max-w-2xl">
-                    Confira nossos últimos trabalhos em destaque. Uma seleção com as produções mais recentes e marcantes do nosso portfólio.
+                  <p
+                    class="font-Supreme text-sm md:text-base text-brand-muted mt-3 font-medium leading-relaxed max-w-2xl">
+                    Confira nossos últimos trabalhos em destaque. Uma seleção com as produções mais recentes e marcantes
+                    do nosso portfólio.
                   </p>
                 </div>
               </div>
 
               <!-- Viewport 3D Collection Surfer Container (Seamless Screen-integrated) -->
-              <div id="collection-surfer-viewport"
-                style="width: 100vw; margin-left: calc(-50vw + 50%);"
+              <div id="collection-surfer-viewport" style="width: 100vw; margin-left: calc(-50vw + 50%);"
                 class="surfer-perspective-container relative flex items-center justify-center cursor-grab active:cursor-grabbing select-none overflow-hidden">
-                
+
                 <!-- 3D Scene Viewport -->
                 <div class="surfer-scene-viewport absolute inset-0 flex items-start justify-center pointer-events-none">
                   <!-- Animated 3D Track -->
@@ -484,24 +494,43 @@
 
                 <!-- Filtros Fotografia (Dropdown) -->
                 <div class="relative w-full sm:w-64 z-30 font-Supreme" id="photo-filter-dropdown-container">
-                  <button id="photo-filter-toggle" class="w-full flex items-center justify-between px-5 py-3.5 rounded-xl border border-brand-ice/50 bg-[#060D1E]/90 md:bg-brand-deep/80 text-white backdrop-blur-none md:backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:border-brand-ice/80 hover:bg-brand-deep group">
+                  <button id="photo-filter-toggle"
+                    class="w-full flex items-center justify-between px-5 py-3.5 rounded-xl border border-brand-ice/50 bg-[#060D1E]/90 md:bg-brand-deep/80 text-white backdrop-blur-none md:backdrop-blur-md text-xs md:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:border-brand-ice/80 hover:bg-brand-deep group">
                     <div class="flex items-center gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-ice"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-brand-ice">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                      </svg>
                       <span id="photo-filter-current">Destaques</span>
                     </div>
-                    <svg id="photo-filter-arrow" class="w-4 h-4 transition-transform duration-300 text-brand-soft group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg id="photo-filter-arrow"
+                      class="w-4 h-4 transition-transform duration-300 text-brand-soft group-hover:text-white"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                   </button>
-                  
-                  <div id="photo-filter-menu" class="absolute left-0 right-0 top-full mt-2 rounded-xl border border-white/10 bg-[#071122]/98 md:bg-[#071122]/95 backdrop-blur-none md:backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 shadow-2xl max-h-[300px] overflow-y-auto" style="scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent;">
+
+                  <div id="photo-filter-menu"
+                    class="absolute left-0 right-0 top-full mt-2 rounded-xl border border-white/10 bg-[#071122]/98 md:bg-[#071122]/95 backdrop-blur-none md:backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 shadow-2xl max-h-[300px] overflow-y-auto"
+                    style="scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent;">
                     <div class="flex flex-col py-2">
-                      <button data-filter="Destaques" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-ice uppercase tracking-wider bg-white/5 transition-colors hover:bg-white/10">Destaques</button>
-                      <button data-filter="Institucional" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Institucional</button>
-                      <button data-filter="Retratos" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Retratos</button>
-                      <button data-filter="Natureza" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Natureza</button>
-                      <button data-filter="Esportes" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Esportes</button>
-                      <button data-filter="Eventos" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Eventos</button>
-                      <button data-filter="Gastronomia" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Gastronomia</button>
-                      <button data-filter="Outros" class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Outros</button>
+                      <button data-filter="Destaques"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-ice uppercase tracking-wider bg-white/5 transition-colors hover:bg-white/10">Destaques</button>
+                      <button data-filter="Institucional"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Institucional</button>
+                      <button data-filter="Retratos"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Retratos</button>
+                      <button data-filter="Natureza"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Natureza</button>
+                      <button data-filter="Esportes"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Esportes</button>
+                      <button data-filter="Eventos"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Eventos</button>
+                      <button data-filter="Gastronomia"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Gastronomia</button>
+                      <button data-filter="Outros"
+                        class="photo-dropdown-item text-left px-5 py-3 text-xs md:text-sm font-bold text-brand-soft uppercase tracking-wider transition-colors hover:bg-white/10 hover:text-white">Outros</button>
                     </div>
                   </div>
                 </div>
@@ -566,7 +595,8 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-cinema.webp" alt="Estética Cinematográfica" loading="lazy" decoding="async"
+                      <img src="assets/images/diferencial-cinema.webp" alt="Estética Cinematográfica" loading="lazy"
+                        decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
 
@@ -607,7 +637,8 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-retencao.webp" alt="Foco em Retenção" loading="lazy" decoding="async"
+                      <img src="assets/images/diferencial-retencao.webp" alt="Foco em Retenção" loading="lazy"
+                        decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
 
@@ -649,7 +680,8 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-estrategia.webp" alt="Estratégia de Conteúdo" loading="lazy" decoding="async"
+                      <img src="assets/images/diferencial-estrategia.webp" alt="Estratégia de Conteúdo" loading="lazy"
+                        decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
 
@@ -690,7 +722,8 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-direcao.webp" alt="Direção Criativa" loading="lazy" decoding="async"
+                      <img src="assets/images/diferencial-direcao.webp" alt="Direção Criativa" loading="lazy"
+                        decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
 
@@ -747,8 +780,12 @@
       <!-- Background Blob Gradients -->
       <div class="absolute inset-0 z-0 pointer-events-none">
         <div class="sticky top-0 left-0 w-full h-screen overflow-hidden bg-brand-deep">
-          <div class="absolute top-[20%] left-[-10%] w-[60vw] md:w-[40vw] h-[60vw] md:h-[40vw] rounded-full bg-brand-ice/10 blur-[100px] md:blur-[130px] opacity-60"></div>
-          <div class="absolute bottom-[-10%] right-[-10%] w-[70vw] md:w-[50vw] h-[70vw] md:h-[50vw] rounded-full bg-brand-blue/20 blur-[120px] md:blur-[150px] opacity-70"></div>
+          <div
+            class="absolute top-[20%] left-[-10%] w-[60vw] md:w-[40vw] h-[60vw] md:h-[40vw] rounded-full bg-brand-ice/10 blur-[100px] md:blur-[130px] opacity-60">
+          </div>
+          <div
+            class="absolute bottom-[-10%] right-[-10%] w-[70vw] md:w-[50vw] h-[70vw] md:h-[50vw] rounded-full bg-brand-blue/20 blur-[120px] md:blur-[150px] opacity-70">
+          </div>
         </div>
       </div>
 
@@ -770,7 +807,8 @@
 
       <div id="services-scroll-container" class="relative w-full h-[500vh]">
         <!-- Sticky Viewport Wrapper -->
-        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden flex flex-col justify-center services-mask-fade">
+        <div
+          class="sticky top-0 left-0 w-full h-screen overflow-hidden flex flex-col justify-center services-mask-fade">
 
           <!-- Serviço 1: Produção Audiovisual -->
           <div class="service-panel" data-service-index="0">
@@ -807,8 +845,7 @@
             </div>
             <!-- Right: Image with Mask -->
             <div class="w-full md:w-1/2 h-[50vh] md:h-full service-image-container">
-              <img src="assets/images/producao-audiovisual-servico.webp" alt="Produção Audiovisual"
-                class="service-img">
+              <img src="assets/images/producao-audiovisual-servico.webp" alt="Produção Audiovisual" class="service-img">
             </div>
           </div>
 
@@ -933,18 +970,27 @@
       </div>
 
       <!-- Gradient Mask to transition to Processo -->
-      <div class="absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-t from-brand-abyss to-transparent z-30 pointer-events-none"></div>
+      <div
+        class="absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-t from-brand-abyss to-transparent z-30 pointer-events-none">
+      </div>
     </section>
 
     <!-- Unified Wrapper for Gradient Background -->
     <div class="relative w-full bg-brand-abyss">
       <!-- Sticky Gradient Background (Performance Prioritized) -->
-      <div class="absolute inset-0 z-0" style="-webkit-mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent); mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);">
+      <div class="absolute inset-0 z-0"
+        style="-webkit-mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent); mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);">
         <div class="sticky top-0 left-0 w-full h-screen overflow-hidden pointer-events-none bg-brand-abyss">
           <!-- Blob Gradients -->
-          <div class="absolute top-[-5%] right-[20%] w-[50vw] md:w-[35vw] h-[50vw] md:h-[35vw] rounded-full bg-brand-navy/40 blur-[100px] md:blur-[140px] opacity-70"></div>
-          <div class="absolute bottom-[-10%] right-[-5%] w-[60vw] md:w-[45vw] h-[60vw] md:h-[45vw] rounded-full bg-brand-blue/30 blur-[110px] md:blur-[150px] opacity-80"></div>
-          <div class="absolute bottom-[20%] left-[-10%] w-[50vw] md:w-[40vw] h-[50vw] md:h-[40vw] rounded-full bg-brand-ice/15 blur-[90px] md:blur-[120px] opacity-60"></div>
+          <div
+            class="absolute top-[-5%] right-[20%] w-[50vw] md:w-[35vw] h-[50vw] md:h-[35vw] rounded-full bg-brand-navy/40 blur-[100px] md:blur-[140px] opacity-70">
+          </div>
+          <div
+            class="absolute bottom-[-10%] right-[-5%] w-[60vw] md:w-[45vw] h-[60vw] md:h-[45vw] rounded-full bg-brand-blue/30 blur-[110px] md:blur-[150px] opacity-80">
+          </div>
+          <div
+            class="absolute bottom-[20%] left-[-10%] w-[50vw] md:w-[40vw] h-[50vw] md:h-[40vw] rounded-full bg-brand-ice/15 blur-[90px] md:blur-[120px] opacity-60">
+          </div>
         </div>
       </div>
 
@@ -989,8 +1035,8 @@
                   <!-- Briefing (Step 0) -->
                   <div class="timeline-marker group" data-step="0">
                     <div class="marker-circle w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                           d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                       </svg>
@@ -1001,8 +1047,8 @@
                   <!-- Roteirização (Step 1) -->
                   <div class="timeline-marker group" data-step="1">
                     <div class="marker-circle w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                           d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                       </svg>
@@ -1013,8 +1059,8 @@
                   <!-- Planejamento (Step 2) -->
                   <div class="timeline-marker group" data-step="2">
                     <div class="marker-circle w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                           d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                       </svg>
@@ -1025,8 +1071,8 @@
                   <!-- Gravação (Step 3) -->
                   <div class="timeline-marker group" data-step="3">
                     <div class="marker-circle w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                           d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                       </svg>
@@ -1037,8 +1083,8 @@
                   <!-- Pós produção (Step 4) -->
                   <div class="timeline-marker group" data-step="4">
                     <div class="marker-circle w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                           d="M14.121 14.121L19 19m-7-7l7-7m-7 7a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
@@ -1049,8 +1095,8 @@
                   <!-- Aprovação (Step 5) -->
                   <div class="timeline-marker group" data-step="5">
                     <div class="marker-circle w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                           d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                       </svg>
@@ -1061,8 +1107,8 @@
                   <!-- Finalização (Step 6) -->
                   <div class="timeline-marker group" data-step="6">
                     <div class="marker-circle w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
@@ -1302,7 +1348,8 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/processo-finalizacao.webp" alt="Finalização e Entrega" loading="lazy" decoding="async"
+                        <img src="assets/images/processo-finalizacao.webp" alt="Finalização e Entrega" loading="lazy"
+                          decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-4"></div>
@@ -1370,41 +1417,31 @@
                     <div class="testimonial-image-stack max-w-[180px] md:max-w-xs aspect-square">
                       <!-- Depoimento 1 -->
                       <div class="testimonial-image-card">
-                        <img
-                          src="assets/images/social-prove/ana-vitoria.webp"
-                          alt="Ana Vitória"
+                        <img src="assets/images/social-prove/ana-vitoria.webp" alt="Ana Vitória"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 2 -->
                       <div class="testimonial-image-card">
-                        <img
-                          src="assets/images/social-prove/pedru-barber.webp"
-                          alt="PedruBarber"
+                        <img src="assets/images/social-prove/pedru-barber.webp" alt="PedruBarber"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 3 -->
                       <div class="testimonial-image-card">
-                        <img
-                          src="assets/images/social-prove/lucasa.webp"
-                          alt="LuCasa"
+                        <img src="assets/images/social-prove/lucasa.webp" alt="LuCasa"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 4 -->
                       <div class="testimonial-image-card">
-                        <img
-                          src="assets/images/social-prove/yasmim-cardoso.webp"
-                          alt="Yas Cardoso"
+                        <img src="assets/images/social-prove/yasmim-cardoso.webp" alt="Yas Cardoso"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 5 -->
                       <div class="testimonial-image-card">
-                        <img
-                          src="assets/images/social-prove/gm-store.webp"
-                          alt="GM Store"
+                        <img src="assets/images/social-prove/gm-store.webp" alt="GM Store"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
@@ -1422,7 +1459,11 @@
                         <h3 class="text-xl font-bold text-white font-corpline">Ana Vitória</h3>
                         <p
                           class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                          Eu e meu filho nos sentimos muito à vontade durante todo o ensaio. Você conseguiu registrar momentos únicos e especiais que serão eternizados em fotos belíssimas, cheias de carinho, sensibilidade e sentimento.<br><br>Só tenho elogios a fazer! Seu profissionalismo, dedicação e cuidado fizeram toda a diferença. Muito obrigada por transformar esses momentos em lembranças tão lindas.
+                          Eu e meu filho nos sentimos muito à vontade durante todo o ensaio. Você conseguiu registrar
+                          momentos únicos e especiais que serão eternizados em fotos belíssimas, cheias de carinho,
+                          sensibilidade e sentimento.<br><br>Só tenho elogios a fazer! Seu profissionalismo, dedicação e
+                          cuidado fizeram toda a diferença. Muito obrigada por transformar esses momentos em lembranças
+                          tão lindas.
                         </p>
                       </div>
 
@@ -1432,7 +1473,8 @@
                         <p class="text-xs text-brand-muted font-Supreme">Barbearia PedruBarber</p>
                         <p
                           class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                          Irmão, muito bom seu trabalho sempre! Não ficou nada genérico, sempre faz as filmagens da forma que eu quero. Entende o gosto da empresa, muito bom mesmo 🔥 tamo junto ❤️👊🏻
+                          Irmão, muito bom seu trabalho sempre! Não ficou nada genérico, sempre faz as filmagens da
+                          forma que eu quero. Entende o gosto da empresa, muito bom mesmo 🔥 tamo junto ❤️👊🏻
                         </p>
                       </div>
 
@@ -1442,7 +1484,8 @@
                         <p class="text-xs text-brand-muted font-Supreme">Consultoria Imobiliária LuCasa</p>
                         <p
                           class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                          Eu super indico o trabalho do Cristian, ele faz tudo com dedicação e excelência, cuida de cada detalhe, é sempre muito atencioso e comprometido amei trabalhar com ele.
+                          Eu super indico o trabalho do Cristian, ele faz tudo com dedicação e excelência, cuida de cada
+                          detalhe, é sempre muito atencioso e comprometido amei trabalhar com ele.
                         </p>
                       </div>
 
@@ -1452,7 +1495,15 @@
                         <p class="text-xs text-brand-muted font-Supreme">YC beauty</p>
                         <p
                           class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                          Boa noite, Cristian! Olha, vim aqui te dar um feedback bem de coração. Eu adoro as suas filmagens e o carinho que você entrega em cada detalhe. Como profissional, você faz com que todo mundo se sinta super à vontade, sem pressa, até que as coisas saiam do jeitinho certo. E, como dona de salão, isso pra mim é essencial, porque o conforto das modelos faz toda a diferença. É por isso que faço questão de ter você nas filmagens, porque sei que o resultado será sempre incrível. Seu atendimento é humano, respeitoso e super profissional. E as edições? Impecáveis! Do jeitinho que a gente gosta. Tudo personalizado e mantendo nosso padrão. Fica tudo lindo no final. Então, eu amo o seu trabalho e quero manter meu perfil sempre atualizado com você! Obrigada!
+                          Boa noite, Cristian! Olha, vim aqui te dar um feedback bem de coração. Eu adoro as suas
+                          filmagens e o carinho que você entrega em cada detalhe. Como profissional, você faz com que
+                          todo mundo se sinta super à vontade, sem pressa, até que as coisas saiam do jeitinho certo. E,
+                          como dona de salão, isso pra mim é essencial, porque o conforto das modelos faz toda a
+                          diferença. É por isso que faço questão de ter você nas filmagens, porque sei que o resultado
+                          será sempre incrível. Seu atendimento é humano, respeitoso e super profissional. E as edições?
+                          Impecáveis! Do jeitinho que a gente gosta. Tudo personalizado e mantendo nosso padrão. Fica
+                          tudo lindo no final. Então, eu amo o seu trabalho e quero manter meu perfil sempre atualizado
+                          com você! Obrigada!
                         </p>
                       </div>
 
@@ -1462,7 +1513,14 @@
                         <p class="text-xs text-brand-muted font-Supreme">GM Store - moda masculina premium</p>
                         <p
                           class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
-                          Cristian gostei muito do vídeo! A edição ficou excelente, e a qualidade das imagens me surpreendeu. Mas o que mais chamou a minha atenção foi o seu profissionalismo durante toda a gravação. Você deu dicas, fez observações importantes e me ajudou a construir um resultado ainda melhor.<br><br>Eu valorizo muito a excelência no que faço e percebi que você também trabalha dessa forma. Gosto de ouvir sugestões e aprender com quem entende, porque estou sempre buscando evoluir. Inclusive, aprendi bastante com você no dia da gravação.<br><br>Muito obrigado pela dedicação e pelo excelente trabalho. Fiquei muito satisfeito com o resultado! Sucesso, e pode ter certeza de que faremos outros trabalhos juntos.
+                          Cristian gostei muito do vídeo! A edição ficou excelente, e a qualidade das imagens me
+                          surpreendeu. Mas o que mais chamou a minha atenção foi o seu profissionalismo durante toda a
+                          gravação. Você deu dicas, fez observações importantes e me ajudou a construir um resultado
+                          ainda melhor.<br><br>Eu valorizo muito a excelência no que faço e percebi que você também
+                          trabalha dessa forma. Gosto de ouvir sugestões e aprender com quem entende, porque estou
+                          sempre buscando evoluir. Inclusive, aprendi bastante com você no dia da gravação.<br><br>Muito
+                          obrigado pela dedicação e pelo excelente trabalho. Fiquei muito satisfeito com o resultado!
+                          Sucesso, e pode ter certeza de que faremos outros trabalhos juntos.
                         </p>
                       </div>
 
@@ -1700,8 +1758,8 @@
                         </div>
                         <h4
                           class="font-corpline text-3xl sm:text-4xl font-black text-white tracking-tight animate-counter mb-1 inner-delay-2"
-                          data-target="150" data-prefix="+" data-suffix="M">
-                          +150M
+                          data-target="600" data-prefix="+" data-suffix="mil">
+                          +600mil
                         </h4>
                         <p
                           class="font-Supreme text-xs font-bold text-brand-soft uppercase tracking-wider card-inner-item inner-delay-3">
@@ -1931,7 +1989,8 @@
             </div>
 
             <!-- FAQ Container -->
-            <div class="bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
+            <div
+              class="bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
               <div class="faq-list">
 
                 <!-- Item 1 -->
@@ -1946,7 +2005,7 @@
                     <div class="faq-answer-content">
                       <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
                         O prazo de entrega varia conforme a complexidade do projeto. Para vídeos institucionais e
-                        comerciais padrão, a primeira versão (rough cut) costuma ser enviada entre 7 e 10 dias úteis
+                        comerciais padrão, a primeira versão (rough cut) costuma ser enviada é de 7 dias úteis
                         após a gravação. Prazos para Reels e TikToks menores podem ser mais ágeis.
                       </p>
                     </div>
@@ -1964,7 +2023,7 @@
                   <div class="faq-answer-wrapper">
                     <div class="faq-answer-content">
                       <p class="font-Supreme text-sm md:text-base text-brand-muted leading-relaxed font-semibold">
-                        Trabalhamos exclusivamente com câmeras de cinema digital, lentes anamórficas e prime de alta
+                        Trabalhamos exclusivamente com câmeras profissionais, lentes anamórficas e prime de alta
                         nitidez, drones para captações aéreas e iluminação profissional de LED, garantindo a estética
                         cinematográfica de altíssimo padrão.
                       </p>
