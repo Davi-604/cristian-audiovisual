@@ -4,7 +4,7 @@ const portfolioVideos = [
     title: 'Aftermovie Corrida',
     category: 'Comercial',
     isLocal: true,
-    videoUrl: 'assets/videos/carros-corrida.webm',
+    videoUrl: 'assets/videos/aftermovie-corrida.webm',
     thumbnail: 'assets/images/thumbs/thumb-befit.jpg',
     aspectRatio: '9:16',
     badge: 'Destaque',
