@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 8,
-      title: 'FORMATURA MILITAR',
+      title: 'PMMG',
       category: 'Documental & Eventos',
       image: 'assets/images/portfolio/turma-militar.webp'
     }

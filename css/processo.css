@@ -24,6 +24,13 @@
   background-color: transparent; /* Changed to transparent */
 }
 
+@media (max-width: 767px) {
+  .sticky-process-wrapper {
+    padding-top: 4.25rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
 @media (min-width: 1024px) and (max-height: 850px) {
   .sticky-process-wrapper {
     height: 100vh;
@@ -137,19 +144,25 @@
 
 .processo-track {
   display: flex;
-  gap: 1.5rem;
-  /* Começa um pouco antes para o card já estar visível */
-  padding-left: 65vw;
-  /* Espaço final para o último card ficar centralizado */
-  padding-right: calc(50vw - 170px);
+  gap: 1rem;
+  padding-left: calc(50vw - 135px);
+  padding-right: calc(50vw - 135px);
   will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .processo-track {
+    gap: 1.5rem;
+    padding-left: 65vw;
+    padding-right: calc(50vw - 170px);
+  }
 }
 
 /* Card Wrapper matching Diferenciais structure */
 .processo-card {
-  width: 280px;
+  width: 270px;
   flex-shrink: 0;
-  height: 420px;
+  height: 350px;
   position: relative;
   border-radius: 1.5rem;
   
@@ -163,6 +176,13 @@
   
   /* Gradual grayscale for distant cards - blur removed for performance */
   filter: grayscale(calc(var(--card-blur) * 60%));
+}
+
+@media (max-height: 700px) and (max-width: 639px) {
+  .processo-card {
+    width: 250px;
+    height: 325px;
+  }
 }
 
 /* Granulado (Noise/Pixelated) Effect */

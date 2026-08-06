@@ -3,22 +3,22 @@ const portfolioVideos = [
     id: 'vid-1',
     title: 'Aftermovie Corrida',
     category: 'Comercial',
-    isLocal: true,
-    videoUrl: 'assets/videos/aftermovie-corrida.webm',
+    vimeoId: '1215953227',
+    videoUrl: 'https://vimeo.com/1215953227?fl=tl&fe=ec',
     thumbnail: 'assets/images/thumbs/thumb-befit.jpg',
     aspectRatio: '9:16',
-    badge: 'Destaque',
+    badge: 'Aftermovie',
     span: 'col-span-1'
   },
   {
     id: 'vid-2',
     title: 'Drift Uberlândia',
-    category: 'Comercial',
+    category: 'Eventos',
     isLocal: true,
     videoUrl: 'assets/videos/carros-corrida.webm',
     thumbnail: 'assets/images/portfolio/drift-uberlandia.webp',
     aspectRatio: '9:16',
-    badge: 'Comercial',
+    badge: 'Eventos',
     span: 'col-span-1 row-span-2'
   },
   {
@@ -121,14 +121,24 @@ const portfolioVideos = [
     span: 'col-span-1'
   },
   {
+    id: 'vid-16',
+    title: 'YC Beauty Estética Feminina - Reel',
+    category: 'Reel',
+    vimeoId: '1216133261',
+    videoUrl: 'https://vimeo.com/1216133261?fl=tl&fe=ec',
+    aspectRatio: '9:16',
+    badge: 'Beleza',
+    span: 'col-span-1'
+  },
+  {
     id: 'vid-12',
     title: 'Aftermovie Películas Brasil',
     category: 'Eventos',
-    isLocal: true,
-    videoUrl: 'assets/videos/EXPORT-2.webm',
+    vimeoId: '1215953186',
+    videoUrl: 'https://vimeo.com/1215953186?fl=tl&fe=ec',
     thumbnail: 'assets/images/portfolio/peliculas-brasil-1.webp',
     aspectRatio: '9:16',
-    badge: 'Eventos',
+    badge: 'Aftermovie',
     span: 'col-span-1'
   },
   {
@@ -137,7 +147,7 @@ const portfolioVideos = [
     category: 'Reels',
     videoId: 'FJ_oY7cchgI',
     aspectRatio: '9:16',
-    badge: 'Shorts',
+    badge: 'Institucional',
     span: 'col-span-1 row-span-2'
   },
   {
@@ -146,7 +156,7 @@ const portfolioVideos = [
     category: 'Reels',
     videoId: 'GWE79ujogZs',
     aspectRatio: '9:16',
-    badge: 'Shorts',
+    badge: 'Aftermovie',
     span: 'col-span-1'
   },
   {
@@ -155,7 +165,7 @@ const portfolioVideos = [
     category: 'Reels',
     videoId: '-8I79Hh1Wx8',
     aspectRatio: '9:16',
-    badge: 'Shorts',
+    badge: 'Institucional',
     span: 'col-span-1'
   }
 ];
@@ -231,7 +241,7 @@ const portfolioPhotos = [
     aspectRatio: '1/1',
     span: 'col-span-1'
   ,
-    gallery: ['assets/images/portfolio/casamento-mãos.webp', 'assets/images/portfolio/casamento-suvinier.webp', 'assets/images/portfolio/mesa-casamento-frente.webp', 'assets/images/portfolio/mesa-casamento-lado.webp']
+    gallery: ['assets/images/portfolio/casamento-mãos.webp', 'assets/images/portfolio/casamento-braço.webp', 'assets/images/portfolio/casamento-suvinier.webp', 'assets/images/portfolio/mesa-casamento-frente.webp', 'assets/images/portfolio/mesa-casamento-lado.webp']
   },
   {
     id: 'photo-20',
@@ -242,7 +252,7 @@ const portfolioPhotos = [
     aspectRatio: '1/1',
     span: 'col-span-1'
   ,
-    gallery: ['assets/images/portfolio/cavalaria-pmmg-2.webp', 'assets/images/portfolio/cavalaria-pmmg-3.webp', 'assets/images/portfolio/cavalaria-pmmg-4.webp', 'assets/images/portfolio/cavalaria-pmmg-5.webp', 'assets/images/portfolio/cavalaria-pmmg-6.webp', 'assets/images/portfolio/cavalaria-pmmg-7.webp', 'assets/images/portfolio/cavalaria-pmmg-8.webp', 'assets/images/portfolio/cavalaria-pmmg-9.webp', 'assets/images/portfolio/cavalaria-pmmg-10.webp', 'assets/images/portfolio/cavalaria-pmmg.webp']
+    gallery: ['assets/images/portfolio/cavalaria-pmmg-2.webp', 'assets/images/portfolio/cavalaria-pmmg-3.webp', 'assets/images/portfolio/cavalaria-pmmg-4.webp', 'assets/images/portfolio/cavalaria-pmmg-5.webp', 'assets/images/portfolio/cavalaria-pmmg-6.webp', 'assets/images/portfolio/cavalaria-pmmg-7.webp', 'assets/images/portfolio/cavalaria-pmmg-8.webp', 'assets/images/portfolio/cavalaria-pmmg-9.webp', 'assets/images/portfolio/cavalaria-pmmg-10.webp','assets/images/portfolio/cavalaria-pmmg-11.webp', 'assets/images/portfolio/cavalaria-pmmg.webp']
   },
   {
     id: 'photo-29',
@@ -274,6 +284,17 @@ const portfolioPhotos = [
     span: 'col-span-1 row-span-2'
   ,
     gallery: ['assets/images/portfolio/mae-filho.webp', 'assets/images/portfolio/mae-filho-2.webp']
+  },
+  {
+    id: 'photo-44',
+    title: 'Retrato LuCasa',
+    category: 'Retratos',
+    isDestaque: false,
+    image: 'assets/images/portfolio/lucasa.webp',
+    aspectRatio: '1/1',
+    span: 'col-span-1 row-span-2'
+  ,
+    gallery: ['assets/images/portfolio/lucasa.webp',]
   },
   {
     id: 'photo-45',
@@ -324,6 +345,6 @@ const portfolioPhotos = [
     aspectRatio: '1/1',
     span: 'col-span-1'
   ,
-    gallery: ['assets/images/portfolio/zeus-evolution.webp']
+    gallery: ['assets/images/portfolio/zeus-evolution.webp','assets/images/portfolio/zeus-evolution-2.webp', 'assets/images/portfolio/zeus-evolution-3.webp', 'assets/images/portfolio/zeus-evolution-4.webp', 'assets/images/portfolio/zeus-evolution-5.webp','assets/images/portfolio/zeus-evolution-6.webp', 'assets/images/portfolio/zeus-evolution-7.webp', 'assets/images/portfolio/zeus-evolution-8.webp', 'assets/images/portfolio/zeus-evolution-9.webp', 'assets/images/portfolio/zeus-evolution-10.webp', 'assets/images/portfolio/zeus-evolution-11.webp', 'assets/images/portfolio/zeus-evolution-12.webp']
   }
 ];

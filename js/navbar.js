@@ -193,15 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeMobileMenu() {
         if (!isMobileMenuOpen || !mobileBtn || !mobileDropdown) return;
         isMobileMenuOpen = false;
+        mobileBtn.classList.remove('active');
         mobileDropdown.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]', 'scale-95');
         mobileDropdown.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
-        
-        const spans = mobileBtn.querySelectorAll('span');
-        if (spans.length >= 3) {
-            spans[0].classList.remove('translate-y-[6px]', 'rotate-45');
-            spans[1].classList.remove('opacity-0');
-            spans[2].classList.remove('translate-y-[-6px]', '-rotate-45');
-        }
     }
 
     function toggleMobileMenu() {
@@ -209,15 +203,9 @@ document.addEventListener('DOMContentLoaded', () => {
             closeMobileMenu();
         } else {
             isMobileMenuOpen = true;
+            mobileBtn.classList.add('active');
             mobileDropdown.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]', 'scale-95');
             mobileDropdown.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
-            
-            const spans = mobileBtn.querySelectorAll('span');
-            if (spans.length >= 3) {
-                spans[0].classList.add('translate-y-[6px]', 'rotate-45');
-                spans[1].classList.add('opacity-0');
-                spans[2].classList.add('translate-y-[-6px]', '-rotate-45');
-            }
         }
     }
 

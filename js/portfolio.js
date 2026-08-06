@@ -29,16 +29,63 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.01
   });
 
+  function getVimeoDetails(video) {
+    let id = video.vimeoId || null;
+    let hash = video.vimeoHash || null;
+
+    if (video.videoUrl) {
+      try {
+        const urlObj = new URL(video.videoUrl, 'https://vimeo.com');
+        if (urlObj.searchParams.has('h')) {
+          hash = urlObj.searchParams.get('h');
+        }
+        const pathMatch = urlObj.pathname.match(/\/([0-9]+)(?:\/([a-zA-Z0-9]+))?/);
+        if (pathMatch) {
+          if (!id) id = pathMatch[1];
+          if (!hash && pathMatch[2]) hash = pathMatch[2];
+        }
+      } catch (e) {
+        const match = video.videoUrl.match(/vimeo\.com\/(?:video\/)?([0-9]+)/);
+        if (match && !id) id = match[1];
+      }
+    }
+    return { id, hash };
+  }
+
+  function getYouTubeId(video) {
+    if (video.videoId) return video.videoId;
+    if (video.videoUrl) {
+      const match = video.videoUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+      if (match) return match[1];
+    }
+    return null;
+  }
+
   // 1. Render Video Cards (Audiovisual)
   function renderVideos() {
     videoGrid.innerHTML = '';
     portfolioVideos.forEach((video) => {
-      const thumbUrl = video.isLocal ? video.thumbnail : `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
-      const highResUrl = video.isLocal ? video.thumbnail : `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`;
+      const vimeoDetails = getVimeoDetails(video);
+      const vimeoId = vimeoDetails.id;
+      const youtubeId = getYouTubeId(video);
+
+      let thumbUrl = video.thumbnail;
+      let highResUrl = video.thumbnail;
+
+      if (!thumbUrl) {
+        if (vimeoId) {
+          thumbUrl = `https://vumbnail.com/${vimeoId}.jpg`;
+          highResUrl = `https://vumbnail.com/${vimeoId}.jpg`;
+        } else if (youtubeId) {
+          thumbUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+          highResUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+        }
+      }
+
       const spanClass = video.span || 'col-span-1';
       const videoCard = document.createElement('div');
       videoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full ${spanClass}`;
-      videoCard.setAttribute('data-video-id', video.videoId || video.id);
+      videoCard.setAttribute('data-video-id', youtubeId || vimeoId || video.id);
       videoCard.setAttribute('data-aspect', video.aspectRatio);
 
       videoCard.innerHTML = `
@@ -338,7 +385,22 @@ document.addEventListener('DOMContentLoaded', () => {
       container.style.aspectRatio = '16/9';
     }
 
-    if (video.isLocal) {
+    const vimeoDetails = getVimeoDetails(video);
+    const vimeoId = vimeoDetails.id;
+    const vimeoHash = vimeoDetails.hash;
+    const youtubeId = getYouTubeId(video);
+
+    if (vimeoId) {
+      const iframe = document.createElement('iframe');
+      const hashParam = vimeoHash ? `&h=${vimeoHash}` : '';
+      iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&autopause=0&portrait=0&byline=0&title=0${hashParam}`;
+      iframe.className = 'w-full h-full border-0';
+      iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', 'true');
+
+      container.appendChild(iframe);
+      activeIframe = iframe;
+    } else if (video.isLocal) {
       container.innerHTML = `
         <div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none transition-opacity duration-300" id="video-loader">
           <svg class="animate-spin h-12 w-12 text-brand-ice drop-shadow-[0_0_15px_rgba(206,229,242,0.8)]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -346,9 +408,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
         </div>
-        <video class="w-full h-full object-cover" controls preload="none" poster="${video.thumbnail}">
+        <video class="w-full h-full object-cover" controls preload="none" poster="${video.thumbnail || ''}">
           <source src="${video.videoUrl}" type="video/webm">
-          <source src="${video.videoUrl.replace('.webm', '.mp4')}" type="video/mp4">
+          <source src="${video.videoUrl ? video.videoUrl.replace('.webm', '.mp4') : ''}" type="video/mp4">
           Seu navegador não suporta o elemento de vídeo.
         </video>
       `;
@@ -379,7 +441,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (playPromise !== undefined) {
         playPromise.catch(e => {
           console.log('Auto-play prevented', e);
-          // If prevented, we might want to hide the loader since the user needs to press play
           loader.style.opacity = '0';
           setTimeout(() => { loader.style.display = 'none'; }, 300);
         });
@@ -387,7 +448,8 @@ document.addEventListener('DOMContentLoaded', () => {
       activeIframe = videoElement;
     } else {
       const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${video.videoId}?autoplay=1&rel=0&modestbranding=1`;
+      const ytId = youtubeId || video.videoId;
+      iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`;
       iframe.className = 'w-full h-full border-0';
       iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
       iframe.setAttribute('allowfullscreen', 'true');

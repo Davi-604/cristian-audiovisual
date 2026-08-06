@@ -231,11 +231,9 @@
     <!-- Mobile Hamburger Button -->
     <button id="mobile-menu-btn" aria-label="Toggle Menu"
       class="pointer-events-auto absolute right-4 md:hidden top-6 w-11 h-11 rounded-full bg-[#060D1E]/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center gap-[4px] z-50">
-      <span
-        class="w-4 h-[2px] bg-white rounded-full transition-transform duration-300 origin-center transform translate-y-[0px] rotate-0"></span>
-      <span class="w-4 h-[2px] bg-white rounded-full transition-opacity duration-300 opacity-100"></span>
-      <span
-        class="w-4 h-[2px] bg-white rounded-full transition-transform duration-300 origin-center transform translate-y-[0px] rotate-0"></span>
+      <span class="w-4 h-[2px] bg-white rounded-full"></span>
+      <span class="w-4 h-[2px] bg-white rounded-full"></span>
+      <span class="w-4 h-[2px] bg-white rounded-full"></span>
     </button>
 
     <!-- Mobile Dropdown Menu -->
@@ -376,11 +374,18 @@
                 data-start="-200" data-end="200">
             </div>
 
-            <!-- Floating Image 4 (Different Left Position, Large) -->
+            <!-- Floating Image 4 (Different Left Position, Medium/Large) -->
             <div class="w-[80%] md:w-1/2 md:ml-16 mr-auto flex justify-start">
               <img src="assets/images/portfolio/cavalaria-pmmg-6.webp" alt="hero image 4"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="100" data-end="-400">
+            </div>
+
+            <!-- Floating Image 5 (Right Position, Medium) -->
+            <div class="w-[80%] md:w-1/2 md:mr-16 ml-auto flex justify-end">
+              <img src="assets/images/portfolio/cavalaria-pmmg-11.webp" alt="hero image 5"
+                class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
+                data-start="-150" data-end="250">
             </div>
           </div>
 
@@ -615,7 +620,8 @@
                         Estética Cinematográfica
                       </h3>
                       <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                        Produção com câmeras de cinema, lentes anamórficas, iluminação dramática e tratamento de cor que
+                        Produção com câmeras profissionais, lentes anamórficas, iluminação dramática e tratamento de cor
+                        que
                         elevam instantaneamente a percepção de valor do seu negócio.
                       </p>
                     </div>
@@ -825,7 +831,7 @@
                 </h3>
                 <p
                   class="service-desc font-Supreme text-sm sm:text-base text-brand-muted leading-relaxed font-semibold">
-                  Filmagens comerciais e autorais com equipamentos de cinema, iluminação dramática e enquadramentos
+                  Filmagens comerciais e autorais com equipamentos profissionais iluminação dramática e enquadramentos
                   premium. Transformamos ideias em narrativas visuais marcantes que elevam o padrão de posicionamento do
                   seu negócio.
                 </p>
@@ -1006,21 +1012,23 @@
 
               <!-- Header (aligned style with specialties) -->
               <div
-                class="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4 md:mb-8 transform-gpu will-change-transform">
+                class="w-full flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-6 mb-4 md:mb-8 transform-gpu will-change-transform">
                 <div>
-                  <span class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-2">Fluxo de
+                  <span
+                    class="font-Supreme text-xs uppercase tracking-[0.25em] text-brand-soft block mb-2 md:mb-3">Fluxo de
                     Trabalho</span>
-                  <h2 class="font-corpline text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                  <h2
+                    class="font-corpline text-2xl sm:text-3xl md:text-5xl font-black uppercase text-white leading-tight">
                     Como Trabalhamos
                   </h2>
                 </div>
-                <p class="font-Supreme text-sm text-brand-muted max-w-sm leading-relaxed font-semibold">
+                <p class="font-Supreme text-xs md:text-sm text-brand-muted max-w-sm leading-relaxed font-semibold">
                   Uma jornada transparente e estruturada do primeiro contato à entrega do seu vídeo de alta retenção.
                 </p>
               </div>
 
               <!-- Timeline progress track (above cards) -->
-              <div class="relative w-full max-w-5xl mx-auto px-4 mb-6 md:mb-10 transform-gpu will-change-transform">
+              <div class="relative w-full max-w-5xl mx-auto px-4 mb-4 md:mb-10 transform-gpu will-change-transform">
                 <!-- Background Line -->
                 <div
                   class="absolute top-1/2 left-[14px] sm:left-[18px] md:left-[24px] w-[calc(100%-28px)] sm:w-[calc(100%-36px)] md:w-[calc(100%-48px)] h-[2px] bg-white/10 -translate-y-1/2 z-0 rounded-full">
@@ -1126,29 +1134,30 @@
                       class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
                     <div
-                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-2.5 sm:p-3 hover:border-brand-soft/30 transition-colors duration-400">
                       <div
-                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        class="relative w-full h-[120px] sm:h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
                         <img src="assets/images/briefing-como-trabalhos.webp" alt="Briefing e Alinhamento"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
-                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
                       <div
-                        class="p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                        <div class="mb-4">
+                        class="p-2.5 sm:p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-1.5 sm:mb-4">
                           <span
-                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            class="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
                             Etapa 01 — Alinhamento
                           </span>
                         </div>
                         <h3
-                          class="font-corpline text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          class="font-corpline text-sm sm:text-xl font-bold uppercase text-white tracking-wide mb-1 sm:mb-3 leading-snug">
                           Briefing &amp; Conceito
                         </h3>
-                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        <p
+                          class="font-Supreme text-[11px] sm:text-xs md:text-sm text-brand-muted leading-snug sm:leading-relaxed font-semibold">
                           Reunião de alinhamento para entender o posicionamento da sua marca, os objetivos do projeto, o
                           público-alvo e definir a essência criativa do vídeo.
                         </p>
@@ -1162,29 +1171,30 @@
                       class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
                     <div
-                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-2.5 sm:p-3 hover:border-brand-soft/30 transition-colors duration-400">
                       <div
-                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        class="relative w-full h-[120px] sm:h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
                         <img src="assets/images/roteiro-como-trabalhos.webp" alt="Roteiro e Narrativa"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
-                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
                       <div
-                        class="p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                        <div class="mb-4">
+                        class="p-2.5 sm:p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-1.5 sm:mb-4">
                           <span
-                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            class="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
                             Etapa 02 — Escrita
                           </span>
                         </div>
                         <h3
-                          class="font-corpline text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          class="font-corpline text-sm sm:text-xl font-bold uppercase text-white tracking-wide mb-1 sm:mb-3 leading-snug">
                           Roteiro &amp; Narrativa
                         </h3>
-                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        <p
+                          class="font-Supreme text-[11px] sm:text-xs md:text-sm text-brand-muted leading-snug sm:leading-relaxed font-semibold">
                           Criação de roteiros com diálogos, ações e ganchos de alta conversão estruturados de forma
                           estratégica para prender a atenção de ponta a ponta.
                         </p>
@@ -1198,29 +1208,30 @@
                       class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
                     <div
-                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-2.5 sm:p-3 hover:border-brand-soft/30 transition-colors duration-400">
                       <div
-                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        class="relative w-full h-[120px] sm:h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
                         <img src="assets/images/planejamento-como-trabalhos.webp" alt="Planejamento e Storyboard"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
-                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
                       <div
-                        class="p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                        <div class="mb-4">
+                        class="p-2.5 sm:p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-1.5 sm:mb-4">
                           <span
-                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            class="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
                             Etapa 03 — Pré-produção
                           </span>
                         </div>
                         <h3
-                          class="font-corpline text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          class="font-corpline text-sm sm:text-xl font-bold uppercase text-white tracking-wide mb-1 sm:mb-3 leading-snug">
                           Direção &amp; Storyboard
                         </h3>
-                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        <p
+                          class="font-Supreme text-[11px] sm:text-xs md:text-sm text-brand-muted leading-snug sm:leading-relaxed font-semibold">
                           Planejamento logístico detalhado, escolha de locações, seleção de elenco, cronograma de
                           gravação e storyboard das cenas principais do seu vídeo.
                         </p>
@@ -1234,30 +1245,31 @@
                       class="absolute inset-0 rounded-3xl bg-gradient-to-tl from-brand-blue/40 via-brand-ice/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
                     <div
-                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-2.5 sm:p-3 hover:border-brand-soft/30 transition-colors duration-400">
                       <div
-                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        class="relative w-full h-[120px] sm:h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
                         <img src="assets/images/hero-main-image.webp" alt="Gravação e Captação"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
-                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
                       <div
-                        class="p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                        <div class="mb-4">
+                        class="p-2.5 sm:p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-1.5 sm:mb-4">
                           <span
-                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            class="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
                             Etapa 04 — Produção
                           </span>
                         </div>
                         <h3
-                          class="font-corpline text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          class="font-corpline text-sm sm:text-xl font-bold uppercase text-white tracking-wide mb-1 sm:mb-3 leading-snug">
                           Captação Premium
                         </h3>
-                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
-                          O dia do set. Gravação com equipamentos de cinema, iluminação avançada e direção de cena
+                        <p
+                          class="font-Supreme text-[11px] sm:text-xs md:text-sm text-brand-muted leading-snug sm:leading-relaxed font-semibold">
+                          O dia do set. Gravação com equipamentos profissionais, iluminação avançada e direção de cena
                           minuciosa para garantir imagens de padrão cinematográfico.
                         </p>
                       </div>
@@ -1270,29 +1282,30 @@
                       class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-ice/50 via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
                     <div
-                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-2.5 sm:p-3 hover:border-brand-soft/30 transition-colors duration-400">
                       <div
-                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        class="relative w-full h-[120px] sm:h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
                         <img src="assets/images/edicao-como-trabalhos.webp" alt="Edição e Pós Produção"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
-                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
                       <div
-                        class="p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                        <div class="mb-4">
+                        class="p-2.5 sm:p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-1.5 sm:mb-4">
                           <span
-                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            class="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
                             Etapa 05 — Edição
                           </span>
                         </div>
                         <h3
-                          class="font-corpline text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          class="font-corpline text-sm sm:text-xl font-bold uppercase text-white tracking-wide mb-1 sm:mb-3 leading-snug">
                           Montagem &amp; Sound Design
                         </h3>
-                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        <p
+                          class="font-Supreme text-[11px] sm:text-xs md:text-sm text-brand-muted leading-snug sm:leading-relaxed font-semibold">
                           Edição de ritmo ágil, aplicação de sound design imersivo, trilha sonora licenciada e color
                           grading profissional para dar vida ao material bruto.
                         </p>
@@ -1306,29 +1319,30 @@
                       class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-brand-blue/40 to-brand-ice/50 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
                     <div
-                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-2.5 sm:p-3 hover:border-brand-soft/30 transition-colors duration-400">
                       <div
-                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        class="relative w-full h-[120px] sm:h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
                         <img src="assets/images/aprovacao-como-trabalhos.webp" alt="Aprovação e Validação"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
-                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
                       <div
-                        class="p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                        <div class="mb-4">
+                        class="p-2.5 sm:p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-1.5 sm:mb-4">
                           <span
-                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            class="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
                             Etapa 06 — Validação
                           </span>
                         </div>
                         <h3
-                          class="font-corpline text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          class="font-corpline text-sm sm:text-xl font-bold uppercase text-white tracking-wide mb-1 sm:mb-3 leading-snug">
                           Ajustes &amp; Revision
                         </h3>
-                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        <p
+                          class="font-Supreme text-[11px] sm:text-xs md:text-sm text-brand-muted leading-snug sm:leading-relaxed font-semibold">
                           Envio do primeiro corte em plataforma profissional de revisão, permitindo que você comente
                           segundo a segundo e aprove cada detalhe com segurança.
                         </p>
@@ -1342,9 +1356,9 @@
                       class="absolute inset-0 rounded-3xl bg-gradient-to-bl from-brand-blue/50 via-transparent to-brand-muted/40 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
                     <div
-                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-3 hover:border-brand-soft/30 transition-colors duration-400">
+                      class="processo-glass-panel relative flex flex-col justify-between h-full shadow-2xl rounded-3xl border border-white/10 p-2.5 sm:p-3 hover:border-brand-soft/30 transition-colors duration-400">
                       <div
-                        class="relative w-full h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
+                        class="relative w-full h-[120px] sm:h-[180px] lg:h-[200px] rounded-2xl overflow-hidden border border-white/5">
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
@@ -1352,20 +1366,21 @@
                           decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
-                      <div class="w-full h-[1px] bg-white/10 my-4"></div>
+                      <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
                       <div
-                        class="p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
-                        <div class="mb-4">
+                        class="p-2.5 sm:p-4 flex flex-col flex-grow bg-brand-deep/90 md:bg-brand-deep/40 backdrop-blur-none md:backdrop-blur-2xl rounded-2xl border border-white/5 shadow-inner">
+                        <div class="mb-1.5 sm:mb-4">
                           <span
-                            class="inline-block px-3 py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
+                            class="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-soft/20 bg-brand-soft/5 font-Supreme text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-soft font-bold">
                             Etapa 07 — Entrega
                           </span>
                         </div>
                         <h3
-                          class="font-corpline text-lg sm:text-xl font-bold uppercase text-white tracking-wide mb-3 leading-snug">
+                          class="font-corpline text-sm sm:text-xl font-bold uppercase text-white tracking-wide mb-1 sm:mb-3 leading-snug">
                           Exportação &amp; Entrega
                         </h3>
-                        <p class="font-Supreme text-xs sm:text-sm text-brand-muted leading-relaxed font-semibold">
+                        <p
+                          class="font-Supreme text-[11px] sm:text-xs md:text-sm text-brand-muted leading-snug sm:leading-relaxed font-semibold">
                           Exportação do vídeo final otimizado em múltiplas resoluções e formatos (16:9, 9:16), pronto
                           para distribuição imediata nas redes sociais.
                         </p>
@@ -1410,7 +1425,7 @@
               <!-- Coluna Direita: Componente Animated Testimonials -->
               <div class="lg:col-span-8">
                 <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center bg-brand-deep/90 md:bg-brand-deep/30 backdrop-blur-none md:backdrop-blur-md rounded-3xl border border-white/5 p-6 md:p-8 shadow-2xl">
+                  class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center bg-brand-deep/90 md:bg-brand-deep/30 backdrop-blur-none md:backdrop-blur-md rounded-3xl border border-white/5 p-2 md:p-8 shadow-2xl">
 
                   <!-- Stack de Imagens -->
                   <div class="relative w-full flex justify-center pt-10 md:pt-20">
@@ -2132,7 +2147,7 @@
     <div id="cta-orb" class="cta-orb md:hidden"></div>
 
     <!-- ASCII Canvas Wrapper -->
-    <div class="w-full flex justify-center mb-8 md:mb-16 pointer-events-none z-10">
+    <div class="w-full flex justify-center mb-4 md:mb-8 pointer-events-none z-10">
       <div id="af-canvas-center" class="af-canvas-wrapper">
         <canvas id="canvas-center" class="af-canvas"></canvas>
       </div>
@@ -2168,10 +2183,14 @@
         </span>
       </h2>
       <div class="cta-action-wrapper mt-6">
-        <a href="https://wa.me/5511999999999" target="_blank"
-          class="gradient-button inline-flex items-center justify-center rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-white font-corpline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+          class="gradient-button inline-flex items-center justify-center gap-2 rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-white font-corpline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
           Iniciar Projeto
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none"
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -2182,12 +2201,39 @@
 
     <!-- Integrated Footer -->
     <div class="integrated-footer">
-      <p class="font-Supreme text-brand-soft/70">&copy; 2026 Cristian Salge &bull; Produtor Audiovisual &amp; Social
+      <p class="font-Supreme text-brand-soft/70 text-xs md:text-sm">&copy; 2026 Cristian Salge &bull; Produtor
+        Audiovisual &amp; Social
         Media. Todos os direitos reservados.</p>
-      <div class="flex gap-4">
-        <a href="#" class="text-brand-soft hover:text-brand-white transition-colors duration-200">Instagram</a>
-        <a href="mailto:contato@cristiansalge.com.br"
-          class="text-brand-soft hover:text-brand-white transition-colors duration-200">E-mail</a>
+      <div class="footer-social-links">
+        <a href="https://www.instagram.com/cris_salgemov/" target="_blank" rel="noopener noreferrer"
+          class="footer-link group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2">
+            </rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor"
+              stroke-width="2"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"></line>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a href="mailto:salgecristian@gmail.com" class="footer-link group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none"
+              stroke="currentColor" stroke-width="2"></path>
+            <polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"></polyline>
+          </svg>
+          <span>salgecristian@gmail.com</span>
+        </a>
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="footer-link group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            class="w-4 h-4">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+          <span>WhatsApp</span>
+        </a>
       </div>
     </div>
   </footer>
