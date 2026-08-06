@@ -119,13 +119,32 @@ window.addEventListener('DOMContentLoaded', () => {
       "#F8FAFC"  // brand-bg
     ];
 
+    let servicosSection = null;
+    let portfolioSection = null;
+    let cachedServicosTop = SECTION_HEIGHT + 4000;
+    let cachedPortfolioTop = 0;
+    let cachedPortfolioHeight = 0;
+
+    const updateCachedLayout = () => {
+      if (!servicosSection) servicosSection = document.getElementById('servicos');
+      if (!portfolioSection) portfolioSection = document.getElementById('portfolio');
+
+      if (servicosSection) cachedServicosTop = servicosSection.offsetTop;
+      if (portfolioSection) {
+        cachedPortfolioTop = portfolioSection.offsetTop;
+        cachedPortfolioHeight = portfolioSection.offsetHeight;
+      }
+    };
+
     const resize = () => {
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
+      updateCachedLayout();
     };
     
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
     resize();
+    setTimeout(updateCachedLayout, 500);
 
     const drawWave = (n) => {
       nt += 0.002;
@@ -166,14 +185,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const render = () => {
       if (!isRunning) return;
 
-      const servicosSection = document.getElementById('servicos');
-      const portfolioSection = document.getElementById('portfolio');
-      const maxScroll = servicosSection ? servicosSection.offsetTop : (SECTION_HEIGHT + 4000);
+      const maxScroll = cachedServicosTop;
       const heroFadeEnd = SECTION_HEIGHT + IDLE_HEIGHT + 500;
       
-      const isPortfolio = portfolioSection ? 
-        (window.scrollY >= (portfolioSection.offsetTop - window.innerHeight * 0.3) && 
-         window.scrollY < (portfolioSection.offsetTop + portfolioSection.offsetHeight)) : false;
+      const isPortfolio = cachedPortfolioHeight > 0 ? 
+        (window.scrollY >= (cachedPortfolioTop - window.innerHeight * 0.3) && 
+         window.scrollY < (cachedPortfolioTop + cachedPortfolioHeight)) : false;
       
       // Mostrar na Hero (antes de maximizar a imagem) e na section Diferenciais (após a Hero sumir)
       const isHeroStart = window.scrollY < (SECTION_HEIGHT - 200);
@@ -204,8 +221,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
       if (!isRunning) {
-        const servicosSection = document.getElementById('servicos');
-        const maxScroll = servicosSection ? servicosSection.offsetTop : (SECTION_HEIGHT + 4000);
+        const maxScroll = cachedServicosTop;
         if (window.scrollY <= maxScroll + 1000) {
           startLoop();
         }
@@ -329,13 +345,18 @@ window.addEventListener('DOMContentLoaded', () => {
   let idleTimeout;
   let lastScrollYForIdle = -1;
 
-  const isNearCTA = () => {
-    const ctaFooter = document.getElementById('cta-footer');
-    if (!ctaFooter) return false;
-    const ctaRect = ctaFooter.getBoundingClientRect();
-    // A pill some se a seção do CTA já estiver visível na tela
-    return ctaRect.top <= window.innerHeight;
-  };
+  let isCtaVisible = false;
+  const ctaFooterEl = document.getElementById('cta-footer');
+  if (ctaFooterEl) {
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isCtaVisible = entry.isIntersecting;
+      });
+    }, { threshold: 0 });
+    ctaObserver.observe(ctaFooterEl);
+  }
+
+  const isNearCTA = () => isCtaVisible;
 
   const showIndicator = () => {
     if (scrollIndicator && !isNearCTA()) {

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Camera Outline / Vazado -->
+  <!-- Top Handle / Viewfinder -->
+  <rect x="201" y="64" width="110" height="55" rx="18" fill="none" stroke="#274690" stroke-width="36" stroke-linejoin="round" />
+  
+  <!-- Main Camera Body -->
+  <rect x="76" y="114" width="360" height="310" rx="85" fill="none" stroke="#274690" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Big Lens (Bottom Left) -->
+  <circle cx="225" cy="305" r="75" fill="none" stroke="#274690" stroke-width="36" />
+  
+  <!-- Small Lens (Top Right) -->
+  <circle cx="325" cy="210" r="32" fill="none" stroke="#274690" stroke-width="32" />
+</svg>

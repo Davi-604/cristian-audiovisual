@@ -220,6 +220,20 @@ document.addEventListener("DOMContentLoaded", () => {
   let orbX = 0;
   let orbY = 0;
 
+  // Cached Rectangles to avoid layout thrashing inside frame loop
+  let cachedSectionRect = null;
+  let cachedWrapRect = null;
+
+  const updateCachedRects = () => {
+    if (section && wrap) {
+      cachedSectionRect = section.getBoundingClientRect();
+      cachedWrapRect = wrap.getBoundingClientRect();
+    }
+  };
+
+  window.addEventListener('resize', updateCachedRects, { passive: true });
+  window.addEventListener('scroll', updateCachedRects, { passive: true });
+
   // Animation Loop
   let rafId = 0;
   let isAnimating = false;
@@ -233,31 +247,33 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const hand of hands) renderAscii(hand, now);
 
     // Orb Animation (Lissajous curve for organic, random-feeling motion)
-    const time = now * 0.00015; // speed multiplier reduzido para um movimento mais lento e imersivo
-    const sectionRect = section.getBoundingClientRect();
-    const wrapRect = wrap.getBoundingClientRect();
+    const time = now * 0.00015;
+    if (!cachedSectionRect || !cachedWrapRect) updateCachedRects();
+    const sectionRect = cachedSectionRect;
+    const wrapRect = cachedWrapRect;
     
-    // Centraliza o orbe em relação à arte ASCII (canvas)
-    const wrapCenterX = (wrapRect.left - sectionRect.left) + (wrapRect.width / 2);
-    const wrapCenterY = (wrapRect.top - sectionRect.top) + (wrapRect.height / 2);
-    
-    // Define um raio máximo para a esfera não fugir para os cantos da tela
-    const radiusX = Math.min(wrapRect.width * 0.35, 150);
-    const radiusY = Math.min(wrapRect.height * 0.35, 120);
+    if (sectionRect && wrapRect) {
+      // Centraliza o orbe em relação à arte ASCII (canvas)
+      const wrapCenterX = (wrapRect.left - sectionRect.left) + (wrapRect.width / 2);
+      const wrapCenterY = (wrapRect.top - sectionRect.top) + (wrapRect.height / 2);
+      
+      // Define um raio máximo para a esfera não fugir para os cantos da tela
+      const radiusX = Math.min(wrapRect.width * 0.35, 150);
+      const radiusY = Math.min(wrapRect.height * 0.35, 120);
 
-    // Calcula posição fluida restrita à área do desenho
-    orbX = wrapCenterX + Math.sin(time * 0.8) * radiusX + Math.cos(time * 1.3) * (radiusX * 0.5);
-    orbY = wrapCenterY + Math.cos(time * 0.9) * radiusY + Math.sin(time * 1.5) * (radiusY * 0.5);
+      // Calcula posição fluida restrita à área do desenho
+      orbX = wrapCenterX + Math.sin(time * 0.8) * radiusX + Math.cos(time * 1.3) * (radiusX * 0.5);
+      orbY = wrapCenterY + Math.cos(time * 0.9) * radiusY + Math.sin(time * 1.5) * (radiusY * 0.5);
 
-    if (orb) {
-      orb.style.transform = `translate(calc(-50% + ${orbX}px), calc(-50% + ${orbY}px))`;
-    }
+      if (orb) {
+        orb.style.transform = `translate(calc(-50% + ${orbX}px), calc(-50% + ${orbY}px))`;
+      }
 
-    // Aplica o hover do orbe na arte ASCII
-    // Passamos as coordenadas relativas ao viewport (clientX/clientY)
-    if (window.innerWidth < 768) {
-      for (const hand of hands) {
-        hoverAscii(hand, sectionRect.left + orbX, sectionRect.top + orbY);
+      // Aplica o hover do orbe na arte ASCII
+      if (window.innerWidth < 768) {
+        for (const hand of hands) {
+          hoverAscii(hand, sectionRect.left + orbX, sectionRect.top + orbY);
+        }
       }
     }
 
@@ -269,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         isRevealed = true;
+        updateCachedRects();
         section.classList.add('is-revealed');
         if (!isAnimating) {
           isAnimating = true;

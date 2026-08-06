@@ -11,22 +11,21 @@
     content="Design audiovisual de alta retenção e estética cinematográfica. Cristian Salge une narrativa de impacto e estratégia para mídias sociais que transformam visualizações em clientes.">
   <meta name="author" content="Cristian Salge">
 
-  <!-- Local Fonts & Base Styles -->
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/diferenciais.css">
-  <link rel="stylesheet" href="css/portfolio.css">
-  <link rel="stylesheet" href="css/servicos.css">
-  <link rel="stylesheet" href="css/processo.css">
-  <link rel="stylesheet" href="css/depoimentos.css">
-  <link rel="stylesheet" href="css/sobre.css">
-  <link rel="stylesheet" href="css/faq.css">
-  <link rel="stylesheet" href="css/cta-footer.css">
-  <link rel="stylesheet" href="css/preloader.css">
-  <!-- Tailwind CSS Compiled Production Build -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+  <!-- Preload Critical LCP Hero Image -->
+  <link rel="preload" href="/assets/images/hero-main-image.webp" as="image" type="image/webp" fetchpriority="high">
+
+  <!-- Preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Compiled Minified CSS Bundle -->
   <link rel="stylesheet" href="css/tailwind.output.css">
 </head>
 
@@ -322,8 +321,8 @@
                   visual da sua marca de forma inconfundível.
                 </p>
                 <div class="hero-anim-4 mt-4 flex flex-col sm:flex-row items-center gap-4 pointer-events-auto">
-                  <button
-                    onclick="document.getElementById('specialties-section').scrollIntoView({ behavior: 'smooth' });"
+                  <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Vi%20o%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+                    target="_blank" rel="noopener noreferrer"
                     class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-6 rounded-lg shadow-lg">
                     Chamar no WhatsApp
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -332,7 +331,7 @@
                       <path
                         d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                     </svg>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -355,35 +354,37 @@
           <div class="parallax-container mx-auto max-w-5xl px-6 pt-[200px] flex flex-col gap-32">
             <!-- Floating Image 1 (Left Aligned) -->
             <div class="w-[70%] md:w-1/3 flex justify-start">
-              <img src="assets/images/portfolio/zeus-evolution.webp" alt="hero image 1"
+              <img src="assets/images/portfolio/zeus-evolution.webp" alt="hero image 1" loading="lazy" decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-200" data-end="200">
             </div>
 
             <!-- Floating Image 2 (Centered, Large) -->
             <div class="w-[85%] md:w-2/3 mx-auto">
-              <img src="assets/images/portfolio/bombeiro-bigode.webp" alt="hero image 2"
+              <img src="assets/images/portfolio/bombeiro-bigode.webp" alt="hero image 2" loading="lazy" decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[16/9] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="200" data-end="-250">
             </div>
 
             <!-- Floating Image 3 (Right Aligned) -->
             <div class="w-[70%] md:w-1/3 ml-auto flex justify-end">
-              <img src="assets/images/portfolio/girassol.webp" alt="hero image 3"
+              <img src="assets/images/portfolio/girassol.webp" alt="hero image 3" loading="lazy" decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-200" data-end="200">
             </div>
 
             <!-- Floating Image 4 (Different Left Position, Medium/Large) -->
             <div class="w-[80%] md:w-1/2 md:ml-16 mr-auto flex justify-start">
-              <img src="assets/images/portfolio/cavalaria-pmmg-6.webp" alt="hero image 4"
+              <img src="assets/images/portfolio/cavalaria-pmmg-6.webp" alt="hero image 4" loading="lazy"
+                decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="100" data-end="-400">
             </div>
 
             <!-- Floating Image 5 (Right Position, Medium) -->
             <div class="w-[80%] md:w-1/2 md:mr-16 ml-auto flex justify-end">
-              <img src="assets/images/portfolio/cavalaria-pmmg-11.webp" alt="hero image 5"
+              <img src="assets/images/portfolio/cavalaria-pmmg-11.webp" alt="hero image 5" loading="lazy"
+                decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-150" data-end="250">
             </div>
@@ -836,7 +837,8 @@
                   seu negócio.
                 </p>
                 <div class="service-cta mt-2">
-                  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Produ%C3%A7%C3%A3o%20Audiovisual."
+                    target="_blank" rel="noopener noreferrer"
                     class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
                     Chamar no WhatsApp
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -874,7 +876,8 @@
                   catálogo de produtos. Capturas de alta nitidez que contam a história da sua marca em um único frame.
                 </p>
                 <div class="service-cta mt-2">
-                  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Gostaria%20de%20saber%20mais%20sobre%20Fotografia%20Comercial%20e%20Editorial."
+                    target="_blank" rel="noopener noreferrer"
                     class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
                     Chamar no WhatsApp
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -913,7 +916,8 @@
                   cinematográfico de qualidade.
                 </p>
                 <div class="service-cta mt-2">
-                  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Tenho%20um%20projeto%20e%20preciso%20de%20Edi%C3%A7%C3%A3o%20e%20P%C3%B3s-Produ%C3%A7%C3%A3o%20profissional."
+                    target="_blank" rel="noopener noreferrer"
                     class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
                     Chamar no WhatsApp
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -952,7 +956,8 @@
                   padrão.
                 </p>
                 <div class="service-cta mt-2">
-                  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Quero%20elevar%20o%20posicionamento%20da%20minha%20marca%20com%20Social%20Media%20Estrat%C3%A9gico."
+                    target="_blank" rel="noopener noreferrer"
                     class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
                     Chamar no WhatsApp
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -1409,7 +1414,8 @@
                   quem já esteve no set conosco e transformou sua presença digital.
                 </p>
                 <div class="mt-2">
-                  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Vi%20os%20depoimentos%20no%20seu%20site%20e%20quero%20iniciar%20meu%20projeto%20com%20voc%C3%AA."
+                    target="_blank" rel="noopener noreferrer"
                     class="gradient-button group inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3.5 px-7 rounded-lg shadow-lg">
                     Iniciar Meu Projeto
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -1960,7 +1966,8 @@
                         </div>
 
                         <div class="mt-6 card-inner-item inner-delay-4">
-                          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                          <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20para%20planejar%20minha%20pr%C3%B3xima%20produ%C3%A7%C3%A3o."
+                            target="_blank" rel="noopener noreferrer"
                             class="gradient-button group flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white py-3 px-4 rounded-xl shadow-lg w-full">
                             Solicitar Reunião
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -2124,7 +2131,8 @@
     </div>
 
     <!-- Floating CTA Button (WhatsApp) -->
-    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+    <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Vi%20o%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+      target="_blank" rel="noopener noreferrer"
       class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[60] group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-brand-deep/95 md:bg-brand-muted/20 backdrop-blur-none md:backdrop-blur-md border border-brand-soft/30 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-110 hover:bg-brand-muted/40 hover:border-brand-ice/50 hover:shadow-[0_0_20px_rgba(172,203,225,0.4)]">
       <svg xmlns="http://www.w3.org/2000/svg"
         class="w-7 h-7 md:w-8 md:h-8 fill-brand-soft group-hover:fill-brand-ice transition-colors duration-300"
@@ -2183,7 +2191,8 @@
         </span>
       </h2>
       <div class="cta-action-wrapper mt-6">
-        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Quero%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca.%20Vamos%20iniciar%20um%20projeto%3F"
+          target="_blank" rel="noopener noreferrer"
           class="gradient-button inline-flex items-center justify-center gap-2 rounded-[11px] min-w-[132px] px-9 py-4 text-base leading-[19px] font-medium text-white font-corpline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue disabled:pointer-events-none disabled:opacity-50">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path
@@ -2226,7 +2235,8 @@
           </svg>
           <span>salgecristian@gmail.com</span>
         </a>
-        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="footer-link group">
+        <a href="https://wa.me/553491261442?text=Ol%C3%A1%2C%20Cristian!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20falar%20com%20voc%C3%AA."
+          target="_blank" rel="noopener noreferrer" class="footer-link group">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
             class="w-4 h-4">
             <path
@@ -2239,23 +2249,23 @@
   </footer>
 
   <!-- Lenis for Smooth Scrolling CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
   <!-- Simplex Noise for Wavy Background -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js" defer></script>
   <!-- Scripts -->
-  <script src="js/preloader.js"></script>
-  <script src="js/hero.js"></script>
-  <script src="js/navbar.js"></script>
-  <script src="js/portfolio-surfer.js"></script>
-  <script src="js/portfolio-data.js"></script>
-  <script src="js/portfolio.js"></script>
-  <script src="js/diferenciais.js"></script>
-  <script src="js/servicos.js"></script>
-  <script src="js/processo.js"></script>
-  <script src="js/depoimentos.js"></script>
-  <script src="js/sobre.js"></script>
-  <script src="js/faq.js"></script>
-  <script src="js/cta-footer.js"></script>
+  <script src="js/preloader.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/navbar.js" defer></script>
+  <script src="js/portfolio-surfer.js" defer></script>
+  <script src="js/portfolio-data.js" defer></script>
+  <script src="js/portfolio.js" defer></script>
+  <script src="js/diferenciais.js" defer></script>
+  <script src="js/servicos.js" defer></script>
+  <script src="js/processo.js" defer></script>
+  <script src="js/depoimentos.js" defer></script>
+  <script src="js/sobre.js" defer></script>
+  <script src="js/faq.js" defer></script>
+  <script src="js/cta-footer.js" defer></script>
 </body>
 
 </html>

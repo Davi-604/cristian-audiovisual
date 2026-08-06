@@ -1,3 +1,18 @@
+@import "./fonts.css";
+@import "./base.css";
+@import "./animations.css";
+@import "./hero.css";
+@import "./navbar.css";
+@import "./diferenciais.css";
+@import "./portfolio.css";
+@import "./servicos.css";
+@import "./processo.css";
+@import "./depoimentos.css";
+@import "./sobre.css";
+@import "./faq.css";
+@import "./cta-footer.css";
+@import "./preloader.css";
+
 @import "tailwindcss";
 
 @theme {
