@@ -1,5 +1,5 @@
 // SECTION_HEIGHT is the height in pixels of scroll before the image is fully open
-const SECTION_HEIGHT = 2500;
+const SECTION_HEIGHT = 3800;
 const IDLE_HEIGHT = 800; // Extra scroll area for text animation
 
 class TextScramble {
@@ -195,7 +195,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Mostrar na Hero (antes de maximizar a imagem) e na section Diferenciais (após a Hero sumir)
       const isHeroStart = window.scrollY < (SECTION_HEIGHT - 200);
       const isSecondSection = window.scrollY > heroFadeEnd;
-      const shouldShow = (isHeroStart || isSecondSection) && window.scrollY <= maxScroll && !isPortfolio && document.body.classList.contains('hero-sequence-complete');
+      const shouldShow = (isHeroStart || isSecondSection) && window.scrollY <= maxScroll && !isPortfolio && document.body.classList.contains('hero-sequence-active');
 
       if (shouldShow) {
         canvas.style.opacity = '1';
@@ -375,7 +375,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Cache viewport dimensions
   let viewportHeight = window.innerHeight;
 
-  // Recalculate offset tops for parallax elements
+  // Recalculate offset tops and heights for parallax elements
   const recalculateOffsets = () => {
     parallaxImages.forEach(img => {
       let offsetTop = 0;
@@ -386,6 +386,7 @@ window.addEventListener('DOMContentLoaded', () => {
         temp = temp.offsetParent;
       }
       img.dataset.offsetTop = offsetTop;
+      img.dataset.offsetHeight = img.offsetHeight || 300;
     });
   };
 
@@ -536,7 +537,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const end = parseFloat(img.getAttribute('data-end') || '0');
       
       const imgTop = parseFloat(img.dataset.offsetTop || '0');
-      const imgHeight = img.offsetHeight || 300;
+      const imgHeight = parseFloat(img.dataset.offsetHeight || '300');
 
       if (imgTop === 0) return; // Wait for offset calculation
 

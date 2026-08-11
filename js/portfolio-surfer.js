@@ -112,13 +112,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.setAttribute('data-index', i);
 
+    const thumbUrl = item.image.replace('assets/images/portfolio/', 'assets/images/portfolio/thumbs/');
+
     card.innerHTML = `
       <div class="absolute top-3 left-3 z-20 text-brand-ice font-mono text-xs md:text-sm font-bold tracking-wider opacity-60 group-hover:opacity-100 transition-opacity drop-shadow">
         ${displayIndex}
       </div>
 
       <div class="surfer-card-media absolute inset-0 transition-all duration-500">
-        <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none">
+        <img src="${thumbUrl}" alt="${item.title}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none">
       </div>
 
       <div class="absolute inset-0 bg-gradient-to-t from-brand-abyss/90 via-transparent to-black/20 pointer-events-none"></div>
@@ -160,10 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('mouseenter', () => {
       hoveredCardCount++;
       cardObj.isHovered = true;
+      startLoop();
     });
     card.addEventListener('mouseleave', () => {
       hoveredCardCount = Math.max(0, hoveredCardCount - 1);
       cardObj.isHovered = false;
+      startLoop();
     });
 
     cardElements.push(cardObj);
@@ -292,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
       autoSurfing = !autoSurfing;
       autoBtn.classList.toggle('text-brand-ice', autoSurfing);
       autoBtn.classList.toggle('text-brand-muted', !autoSurfing);
+      startLoop();
     });
   }
 
@@ -301,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stepX = vectors.stepX;
     stepY = vectors.stepY;
     stepZ = vectors.stepZ;
+    startLoop();
   });
 
   // 7. Animation Loop (60fps LERP physics)
@@ -335,8 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const baseZ = Math.abs(offsetIndex) * stepZ + item.zOffset;
 
       // Mirror rotation for left and right cards
-      // Cards on the left (negative offsetIndex) face right (positive rotation)
-      // Cards on the right (positive offsetIndex) face left (negative rotation)
       const targetRotationY = Math.max(-38, Math.min(38, -offsetIndex * 38));
 
       // Hover scale logic
@@ -349,14 +353,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let cardOpacity = 1;
 
       // Visibility & Pointer-Events Culling
-      // Expanding the culling range so they disappear only at the edges of the screen
-      // offsetIndex of 10 is far enough offscreen to be safely hidden
       const isVisible = Math.abs(offsetIndex) <= 10;
       
       const newPointerEvents = isVisible ? 'auto' : 'none';
       const newVisibility = isVisible ? 'visible' : 'hidden';
       const newOpacity = cardOpacity.toFixed(3);
-      // Give hovered cards a massive z-index boost so they appear on top
       const newZ = (item.isHovered ? 20000 : 10000) - Math.round(Math.abs(offsetIndex) * 100);
       const newTransform = `translateX(-50%) translate3d(${baseX.toFixed(2)}px, ${baseY.toFixed(2)}px, ${baseZ.toFixed(2)}px) rotateY(${targetRotationY.toFixed(1)}deg) scale(${item.scale.toFixed(3)})`;
 
@@ -383,10 +384,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    if (isPortfolioVisible) {
+    const isMoving = 
+      isDragging || 
+      Math.abs(targetProgress - currentProgress) > 0.05 ||
+      (autoSurfing && hoveredCardCount === 0);
+
+    if (isPortfolioVisible && isMoving) {
       requestAnimationFrame(renderLoop);
     } else {
       isLoopRunning = false;
+      // Se parou de mover mas ainda está visível, garante o alinhamento final preciso
+      if (isPortfolioVisible && Math.abs(targetProgress - currentProgress) <= 0.05) {
+        currentProgress = targetProgress;
+      }
     }
   }
 

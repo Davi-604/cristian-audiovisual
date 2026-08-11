@@ -153,24 +153,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 2. Render Photo Cards (Fotografia)
-  function renderPhotos(filterCategory = 'Destaques') {
+  function renderPhotos() {
     photoGrid.innerHTML = '';
     
-    let filtered = [];
-    if (filterCategory === 'Destaques') {
-      filtered = portfolioPhotos.filter(p => p.isDestaque);
-    } else {
-      filtered = portfolioPhotos.filter(p => p.category.toLowerCase() === filterCategory.toLowerCase());
-    }
-
-    filtered.forEach((photo) => {
+    portfolioPhotos.forEach((photo) => {
       const spanClass = photo.span || 'col-span-1';
       const photoCard = document.createElement('div');
       photoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full ${spanClass}`;
+      photoCard.setAttribute('data-category', photo.category.toLowerCase());
+
+      const thumbUrl = photo.image.replace('assets/images/portfolio/', 'assets/images/portfolio/thumbs/');
 
       photoCard.innerHTML = `
         <div class="thumbnail-container absolute inset-0 z-0 bg-[#060D1E] portfolio-skeleton-shimmer overflow-hidden">
-          <img data-src="${photo.image}" alt="${photo.title}" decoding="async" loading="lazy"
+          <img data-src="${thumbUrl}" alt="${photo.title}" decoding="async" loading="lazy"
             class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-0 lazy-portfolio-img">
           <!-- Sombra que some no hover -->
           <div class="absolute inset-0 bg-black/20 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -213,6 +209,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       photoGrid.appendChild(photoCard);
     });
+  }
+
+  // 2.1 Filter Photo Cards without recreating DOM
+  function filterPhotos(filterCategory = 'Todos') {
+    const cards = photoGrid.querySelectorAll('.portfolio-card');
+    cards.forEach((card) => {
+      const category = card.getAttribute('data-category');
+      if (filterCategory === 'Todos' || category === filterCategory.toLowerCase()) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    // Dispara o evento de resize para recalcular as alturas das seções subsequentes
+    window.dispatchEvent(new Event('resize'));
   }
 
   // 3. Photo Filter Dropdown Logic
@@ -267,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.remove('text-brand-soft');
         item.classList.add('text-brand-ice', 'bg-white/5');
 
-        renderPhotos(filter);
+        filterPhotos(filter);
         closeDropdown();
       });
     });
@@ -544,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial Run
   renderVideos();
-  renderPhotos('Destaques');
+  renderPhotos();
 
   // Trigger global resize event when portfolio height changes dynamically (e.g. filtering)
   // to prevent subsequent scroll-linked sections from breaking their offset calculations

@@ -131,6 +131,16 @@ const portfolioVideos = [
     span: 'col-span-1'
   },
   {
+    id: 'vid-22',
+    title: 'Pedru Barber',
+    category: 'Instituicional',
+    vimeoId: '1217146847',
+    videoUrl: 'https://vimeo.com/1217146847?share=copy&fl=sv&fe=ci',
+    aspectRatio: '9:16',
+    badge: 'Institucional',
+    span: 'col-span-1 row-span-2'
+  },
+  {
     id: 'vid-12',
     title: 'Aftermovie Películas Brasil',
     category: 'Eventos',

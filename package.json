@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Davi-604/cristian-audiovisual#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.3"
   }
 }
