@@ -26,13 +26,17 @@
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  will-change: clip-path, background-size, opacity;
+  will-change: clip-path, opacity;
   z-index: 11;
   clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .center-image-inner {
-  transform: scale(1.7);
+  transform: scale(1.7) translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* Hero Typography Overlay */
@@ -62,8 +66,8 @@
   border-radius: 0.75rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  /* Smooth transition for style changes to prevent stuttering */
-  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Gradient fade at the bottom of the hero section to transition to content */

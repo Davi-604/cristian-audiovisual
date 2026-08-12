@@ -137,8 +137,8 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const resize = () => {
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
+      w = ctx.canvas.width = Math.floor(window.innerWidth * 0.75);
+      h = ctx.canvas.height = Math.floor(window.innerHeight * 0.75);
       updateCachedLayout();
     };
     
@@ -416,7 +416,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const tSize = Math.min(Math.max(scrollY / (SECTION_HEIGHT + 500), 0), 1);
       const scaleValue = 1.7 - (tSize * 0.7);
       if (centerImageInner) {
-        centerImageInner.style.transform = `scale(${scaleValue})`;
+        centerImageInner.style.transform = `scale(${scaleValue}) translateZ(0)`;
       }
 
       // opacity goes from 1 to 0 as scroll goes from SECTION_HEIGHT + IDLE_HEIGHT to + 500
@@ -504,8 +504,9 @@ window.addEventListener('DOMContentLoaded', () => {
           scrambleText.scramble();
           
           staggerSubtitle.classList.remove('animate-text-stagger');
-          void staggerSubtitle.offsetWidth;
-          staggerSubtitle.classList.add('animate-text-stagger');
+          requestAnimationFrame(() => {
+            staggerSubtitle.classList.add('animate-text-stagger');
+          });
 
           startRandomGlitch();
         }
@@ -565,7 +566,7 @@ window.addEventListener('DOMContentLoaded', () => {
           scaleVal = 1 - ((progress - 0.75) / 0.25) * 0.15;
         }
 
-        img.style.transform = `translateY(${yVal}px) scale(${scaleVal})`;
+        img.style.transform = `translate3d(0, ${yVal}px, 0) scale(${scaleVal})`;
         img.style.opacity = opacityVal;
       }
     });
