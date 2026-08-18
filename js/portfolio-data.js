@@ -177,6 +177,16 @@ const portfolioVideos = [
     aspectRatio: '9:16',
     badge: 'Institucional',
     span: 'col-span-1'
+  },
+  {
+    id: 'vid-16',
+    title: 'Homenagem aos comandantes',
+    category: 'Eventos',
+    vimeoId: '1219067663',
+    videoUrl: 'https://vimeo.com/1219067663?share=copy&fl=sv&fe=ci',
+    aspectRatio: '9:16',
+    badge: 'Eventos',
+    span: 'col-span-1'
   }
 ];
 
@@ -252,6 +262,48 @@ const portfolioPhotos = [
     span: 'col-span-1'
   ,
     gallery: ['assets/images/portfolio/casamento-mãos.webp', 'assets/images/portfolio/casamento-braço.webp', 'assets/images/portfolio/casamento-suvinier.webp', 'assets/images/portfolio/mesa-casamento-frente.webp', 'assets/images/portfolio/mesa-casamento-lado.webp']
+  },
+  {
+    id: 'photo-54',
+    title: 'Artistas & Shows',
+    category: 'Eventos',
+    isDestaque: true,
+    image: 'assets/images/portfolio/foto-artista-01.webp',
+    aspectRatio: '3/4',
+    span: 'col-span-1 row-span-2',
+    gallery: [
+      'assets/images/portfolio/foto-artista-01.webp',
+      'assets/images/portfolio/foto-artista-02.webp',
+      'assets/images/portfolio/foto-artista-03.webp',
+      'assets/images/portfolio/foto-artista-04.webp',
+      'assets/images/portfolio/foto-artista-05.webp',
+      'assets/images/portfolio/foto-artista-06.webp',
+      'assets/images/portfolio/foto-artista-07.webp',
+      'assets/images/portfolio/foto-artista-08.webp',
+      'assets/images/portfolio/foto-artista-09.webp',
+      'assets/images/portfolio/foto-artista-10.webp',
+      'assets/images/portfolio/foto-artista-11.webp',
+      'assets/images/portfolio/foto-artista-12.webp',
+      'assets/images/portfolio/foto-artista-13.webp',
+      'assets/images/portfolio/foto-artista-14.webp',
+      'assets/images/portfolio/foto-artista-15.webp',
+      'assets/images/portfolio/foto-artista-16.webp',
+      'assets/images/portfolio/foto-artista-17.webp',
+      'assets/images/portfolio/foto-artista-18.webp',
+      'assets/images/portfolio/foto-artista-19.webp',
+      'assets/images/portfolio/foto-artista-20.webp',
+      'assets/images/portfolio/foto-artista-21.webp',
+      'assets/images/portfolio/foto-artista-22.webp',
+      'assets/images/portfolio/foto-artista-23.webp',
+      'assets/images/portfolio/foto-artista-24.webp',
+      'assets/images/portfolio/foto-artista-25.webp',
+      'assets/images/portfolio/foto-artista-26.webp',
+      'assets/images/portfolio/foto-artista-27.webp',
+      'assets/images/portfolio/foto-artista-28.webp',
+      'assets/images/portfolio/foto-artista-29.webp',
+      'assets/images/portfolio/foto-artista-30.webp',
+      'assets/images/portfolio/foto-artista-31.webp'
+    ]
   },
   {
     id: 'photo-20',
