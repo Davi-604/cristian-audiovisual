@@ -11,6 +11,7 @@
 @import "./sobre.css";
 @import "./faq.css";
 @import "./cta-footer.css";
+@import "./floating-contact.css";
 @import "./preloader.css";
 
 @import "tailwindcss";
