@@ -33,6 +33,16 @@ const portfolioVideos = [
     span: 'col-span-2'
   },
   {
+    id: 'vid-23',
+    title: 'Aftermovie de workshop Pedru Barber',
+    category: 'Aftermovie',
+    vimeoId: '1233858090',
+    videoUrl: 'https://vimeo.com/1233858090?fl=ip&fe=ec',
+    aspectRatio: '9:16',
+    badge: 'Aftermovie',
+    span: 'col-span-1 row-span-2'
+  },
+  {
     id: 'vid-4',
     title: 'Videos Imobiliários - Lucasa',
     category: 'Institucional',
@@ -99,6 +109,16 @@ const portfolioVideos = [
     span: 'col-span-1'
   },
   {
+    id: 'vid-24',
+    title: 'Aftermovie de show privado',
+    category: 'Aftermovie',
+    vimeoId: '1233858388',
+    videoUrl: 'https://vimeo.com/1233858388?fl=ip&fe=ec',
+    aspectRatio: '9:16',
+    badge: 'Aftermovie',
+    span: 'col-span-1'
+  },
+  {
     id: 'vid-10',
     title: 'YC Beauty Estética Feminina',
     category: 'Comercial',
@@ -141,6 +161,16 @@ const portfolioVideos = [
     span: 'col-span-1 row-span-2'
   },
   {
+    id: 'vid-25',
+    title: 'Apresentação Pedru Barber',
+    category: 'Institucional',
+    vimeoId: '1233858124',
+    videoUrl: 'https://vimeo.com/1233858124?fl=ip&fe=ec',
+    aspectRatio: '9:16',
+    badge: 'Institucional',
+    span: 'col-span-1'
+  },
+  {
     id: 'vid-12',
     title: 'Aftermovie Películas Brasil',
     category: 'Eventos',
@@ -177,6 +207,16 @@ const portfolioVideos = [
     aspectRatio: '9:16',
     badge: 'Institucional',
     span: 'col-span-1'
+  },
+  {
+    id: 'vid-26',
+    title: 'Aftermovie show',
+    category: 'Aftermovie',
+    vimeoId: '1233863447',
+    videoUrl: 'https://vimeo.com/1233863447?fl=ip&fe=ec',
+    aspectRatio: '9:16',
+    badge: 'Aftermovie',
+    span: 'col-span-1 row-span-2'
   },
   {
     id: 'vid-16',
