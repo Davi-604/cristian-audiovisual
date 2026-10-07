@@ -105,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderItems.forEach((item, i) => {
     const card = document.createElement('div');
-    const displayIndex = String((i % surferItems.length) + 1).padStart(2, '0');
 
     card.className = 'surfer-card surfer-card-size absolute bg-brand-deep/90 border border-white/10 rounded-2xl overflow-hidden transition-colors duration-500 ease-out group cursor-pointer select-none pointer-events-auto';
     card.style.willChange = 'transform, opacity';
@@ -115,10 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const thumbUrl = item.image.replace('assets/images/portfolio/', 'assets/images/portfolio/thumbs/');
 
     card.innerHTML = `
-      <div class="absolute top-3 left-3 z-20 text-brand-ice font-mono text-xs md:text-sm font-bold tracking-wider opacity-60 group-hover:opacity-100 transition-opacity drop-shadow">
-        ${displayIndex}
-      </div>
-
       <div class="surfer-card-media absolute inset-0 transition-all duration-500">
         <img src="${thumbUrl}" alt="${item.title}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none">
       </div>
