@@ -191,7 +191,30 @@ const portfolioVideos = [
 ];
 
 const portfolioPhotos = [
-  
+  {
+    id: 'photo-56',
+    title: 'Cantora Ana Carolina',
+    category: 'Eventos',
+    isDestaque: true,
+    image: 'assets/images/portfolio/novas/ana-carolina-5.webp',
+    aspectRatio: '3/4',
+    span: 'col-span-1 row-span-2',
+    gallery: [
+      'assets/images/portfolio/novas/ana-carolina-5.webp',
+      'assets/images/portfolio/novas/ana-carolina-1.webp',
+      'assets/images/portfolio/novas/ana-carolina-2.webp',
+      'assets/images/portfolio/novas/ana-carolina-3.webp',
+      'assets/images/portfolio/novas/ana-carolina-4.webp',
+      'assets/images/portfolio/novas/ana-carolina-6.webp',
+      'assets/images/portfolio/novas/ana-carolina-7.webp',
+      'assets/images/portfolio/novas/ana-carolina-8.webp',
+      'assets/images/portfolio/novas/ana-carolina-9.webp',
+      'assets/images/portfolio/novas/ana-carolina-10.webp',
+      'assets/images/portfolio/novas/ana-carolina-11.webp',
+      'assets/images/portfolio/novas/ana-carolina-13.webp',
+      'assets/images/portfolio/novas/ana-carolina-14.webp'
+    ]
+  },
   {
     id: 'photo-1',
     title: 'Corpo de Bombeiros - Retratos',
