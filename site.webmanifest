@@ -1,0 +1,14 @@
+{
+  "name": "Cristian Salge — Filmmaker em Uberaba",
+  "short_name": "Cristian Salge",
+  "description": "Filmmaker e produtor audiovisual em Uberaba-MG.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#030816",
+  "theme_color": "#030816",
+  "icons": [
+    { "src": "/assets/images/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/images/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

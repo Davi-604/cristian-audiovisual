@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isMobileMenuOpen || !mobileBtn || !mobileDropdown) return;
         isMobileMenuOpen = false;
         mobileBtn.classList.remove('active');
+        mobileBtn.setAttribute('aria-expanded', 'false');
         mobileDropdown.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]', 'scale-95');
         mobileDropdown.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
     }
@@ -204,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             isMobileMenuOpen = true;
             mobileBtn.classList.add('active');
+            mobileBtn.setAttribute('aria-expanded', 'true');
             mobileDropdown.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]', 'scale-95');
             mobileDropdown.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
         }

@@ -21,7 +21,7 @@ class TextScramble {
     let step = 0;
     const text = this.originalText;
 
-    this.interval = setInterval(() => {
+    const tick = () => {
       let scrambled = '';
       const progress = step / steps;
 
@@ -46,7 +46,10 @@ class TextScramble {
         this.el.textContent = text;
         this.isAnimating = false;
       }
-    }, this.speed * 1000);
+    };
+
+    tick();
+    this.interval = setInterval(tick, this.speed * 1000);
   }
 }
 

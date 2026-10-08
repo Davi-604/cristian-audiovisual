@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+Disallow: /design-system
+Disallow: /design-system.html
+Disallow: /tests/
+Disallow: /scripts/
+
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /design-system
+Disallow: /design-system.html
+
+Sitemap: https://cristiansalge.com.br/sitemap.xml

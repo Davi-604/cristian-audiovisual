@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       faqItems.forEach(otherItem => {
         if (otherItem !== item && otherItem.classList.contains('active')) {
           otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
           const otherWrapper = otherItem.querySelector('.faq-answer-wrapper');
           otherWrapper.style.maxHeight = null;
         }
@@ -21,9 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Alterna a atual
       if (isActive) {
         item.classList.remove('active');
+        questionBtn.setAttribute('aria-expanded', 'false');
         answerWrapper.style.maxHeight = null;
       } else {
         item.classList.add('active');
+        questionBtn.setAttribute('aria-expanded', 'true');
         answerWrapper.style.maxHeight = answerWrapper.scrollHeight + "px";
       }
     });
