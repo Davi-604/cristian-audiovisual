@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (!cards.length || !texts.length) return;
   
-  let activeIndex = 0;
+  const pmmgIndex = Array.from(cards).findIndex(card => card.querySelector('img')?.alt === 'PMMG');
+  let activeIndex = pmmgIndex < 0 ? 0 : pmmgIndex;
   let autoplayTimer = null;
   const autoplayDuration = 20000;
 
@@ -56,8 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         textWrapper.style.pointerEvents = 'none';
       }
     });
-
-    startAutoplay();
   }
 
   function updateActive(newIndex) {
@@ -159,4 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   init();
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    startAutoplay();
+    observer.disconnect();
+  });
+  observer.observe(document.getElementById('depoimentos'));
 });

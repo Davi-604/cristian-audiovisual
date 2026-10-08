@@ -103,19 +103,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const cardSizes = '(min-width: 768px) 400px, (min-width: 640px) 320px, 280px';
+
   renderItems.forEach((item, i) => {
     const card = document.createElement('div');
+    const isDuplicate = i >= surferItems.length;
 
     card.className = 'surfer-card surfer-card-size absolute bg-brand-deep/90 border border-white/10 rounded-2xl overflow-hidden transition-colors duration-500 ease-out group cursor-pointer select-none pointer-events-auto';
-    card.style.willChange = 'transform, opacity';
 
     card.setAttribute('data-index', i);
+    if (isDuplicate) card.setAttribute('aria-hidden', 'true');
 
-    const thumbUrl = item.image.replace('assets/images/portfolio/', 'assets/images/portfolio/thumbs/');
+    const thumbUrl = portfolioThumb(item.image);
 
     card.innerHTML = `
-      <div class="surfer-card-media absolute inset-0 transition-all duration-500">
-        <img src="${thumbUrl}" alt="${item.title}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none">
+      <div class="surfer-card-media absolute inset-0">
+        <img src="${thumbUrl}" srcset="${portfolioSrcset(thumbUrl)}" sizes="${cardSizes}" alt="${isDuplicate ? '' : item.title}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none">
+        <div class="absolute inset-0 hidden md:block bg-black/15 transition-opacity duration-350 group-hover:opacity-0 pointer-events-none"></div>
       </div>
 
       <div class="absolute inset-0 bg-gradient-to-t from-brand-abyss/90 via-transparent to-black/20 pointer-events-none"></div>
@@ -124,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-brand-soft/80 group-hover:text-brand-ice transition-colors">
           ${item.category}
         </span>
-        <h4 class="font-corpline text-xs sm:text-sm md:text-base font-bold text-white leading-snug drop-shadow-md group-hover:text-brand-white">
+        <h3 class="font-corpline text-xs sm:text-sm md:text-base font-bold text-white leading-snug drop-shadow-md group-hover:text-brand-white">
           ${item.title}
-        </h4>
+        </h3>
       </div>
     `;
 
@@ -177,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let startY = 0;
   let startProgress = 0;
   let lastDragTime = 0;
-  let autoSurfing = true;
+  let autoSurfing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // 6. Event Handlers (Drag, Touch, Wheel)
   
@@ -295,12 +299,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  let viewportHalfWidth = viewport.clientWidth / 2;
+  let perspective = parseFloat(getComputedStyle(viewport).perspective) || 1800;
+  let cardHalfWidth = (cardElements[0]?.el.offsetWidth || 400) / 2;
+
   // Responsive resize handler
   window.addEventListener('resize', () => {
     const vectors = getStepVectors();
     stepX = vectors.stepX;
     stepY = vectors.stepY;
     stepZ = vectors.stepZ;
+    viewportHalfWidth = viewport.clientWidth / 2;
+    perspective = parseFloat(getComputedStyle(viewport).perspective) || 1800;
+    cardHalfWidth = (cardElements[0]?.el.offsetWidth || 400) / 2;
     startLoop();
   });
 
@@ -314,10 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth LERP interpolation for track progress
     currentProgress += (targetProgress - currentProgress) * 0.05; // Heavier/slower ease out
 
-    // Track stays fixed, we move the individual cards instead for a perfect infinite loop
-    track.style.transform = `translate3d(0px, 0px, 0px)`;
+    let isSettling = false;
 
-    // SECOND PASS: Math & Writes
     cardElements.forEach((item) => {
       const i = item.index;
       
@@ -343,16 +352,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Smooth card scale interpolation
       item.scale += (item.targetScale - item.scale) * 0.12;
-      
-      // Cards are 100% visible while on screen
-      let cardOpacity = 1;
 
-      // Visibility & Pointer-Events Culling
-      const isVisible = Math.abs(offsetIndex) <= 10;
-      
+      if (Math.abs(item.targetScale - item.scale) > 0.001 || Math.abs(targetZOffset - item.zOffset) > 0.5) {
+        isSettling = true;
+      }
+
+      // Off-screen culling based on the projected (perspective) position
+      const depth = Math.max(1, perspective - baseZ);
+      const projection = perspective / depth;
+      const projectedEdge = Math.abs(baseX) * projection - cardHalfWidth * item.scale * projection;
+      const isVisible = projectedEdge < viewportHalfWidth + 40;
+
       const newPointerEvents = isVisible ? 'auto' : 'none';
       const newVisibility = isVisible ? 'visible' : 'hidden';
-      const newOpacity = cardOpacity.toFixed(3);
       const newZ = (item.isHovered ? 20000 : 10000) - Math.round(Math.abs(offsetIndex) * 100);
       const newTransform = `translateX(-50%) translate3d(${baseX.toFixed(2)}px, ${baseY.toFixed(2)}px, ${baseZ.toFixed(2)}px) rotateY(${targetRotationY.toFixed(1)}deg) scale(${item.scale.toFixed(3)})`;
 
@@ -365,10 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.el.style.visibility = newVisibility;
         item.lastVisibility = newVisibility;
       }
-      if (item.lastOpacity !== newOpacity) {
-        item.el.style.opacity = newOpacity;
-        item.lastOpacity = newOpacity;
-      }
+      if (!isVisible) return;
       if (item.lastZ !== newZ) {
         item.el.style.zIndex = newZ;
         item.lastZ = newZ;
@@ -379,8 +388,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const isMoving = 
-      isDragging || 
+    const isMoving =
+      isDragging ||
+      isSettling ||
       Math.abs(targetProgress - currentProgress) > 0.05 ||
       (autoSurfing && hoveredCardCount === 0);
 
@@ -395,36 +405,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  let isPortfolioVisible = true;
+  let isPortfolioVisible = typeof IntersectionObserver === 'undefined';
   let isLoopRunning = false;
 
   function startLoop() {
-    if (!isLoopRunning) {
+    if (!isLoopRunning && isPortfolioVisible) {
       isLoopRunning = true;
       requestAnimationFrame(renderLoop);
     }
   }
 
-  function stopLoop() {
-    isLoopRunning = false;
-  }
-
-  // Auto-start loop initially
   startLoop();
 
   // Trigger startLoop on user interaction
   viewport.addEventListener('mouseenter', startLoop);
   viewport.addEventListener('pointerdown', startLoop);
 
-  if (typeof IntersectionObserver !== 'undefined' && viewport) {
+  if (!isPortfolioVisible) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         isPortfolioVisible = entry.isIntersecting;
-        if (isPortfolioVisible) {
-          startLoop();
-        } else {
-          stopLoop();
-        }
+        startLoop();
       });
     }, { rootMargin: '300px 0px' });
 

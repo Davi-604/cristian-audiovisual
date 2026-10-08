@@ -40,6 +40,7 @@
   <link rel="preload" href="/assets/images/hero-main-image.webp" as="image" type="image/webp" fetchpriority="high">
 
   <!-- Preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
@@ -408,28 +409,28 @@
           <div class="parallax-container mx-auto max-w-5xl px-6 pt-[200px] flex flex-col gap-32">
             <!-- Floating Image 1 (Left Aligned) -->
             <div class="w-[70%] md:w-1/3 flex justify-start">
-              <img src="assets/images/portfolio/thumbs/zeus-evolution.webp" alt="hero image 1" loading="lazy" decoding="async"
+              <img src="assets/images/portfolio/thumbs/zeus-evolution.webp" srcset="assets/images/portfolio/thumbs/zeus-evolution-520w.webp 520w, assets/images/portfolio/thumbs/zeus-evolution.webp 800w" sizes="(min-width: 1024px) 325px, (min-width: 768px) calc(33vw - 16px), calc(70vw - 34px)" alt="hero image 1" loading="lazy" decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-200" data-end="200">
             </div>
 
             <!-- Floating Image 2 (Centered, Large) -->
             <div class="w-[85%] md:w-2/3 mx-auto">
-              <img src="assets/images/portfolio/thumbs/bombeiro-bigode.webp" alt="hero image 2" loading="lazy" decoding="async"
+              <img src="assets/images/portfolio/thumbs/bombeiro-bigode.webp" srcset="assets/images/portfolio/thumbs/bombeiro-bigode-520w.webp 520w, assets/images/portfolio/thumbs/bombeiro-bigode.webp 800w" sizes="(min-width: 1024px) 650px, (min-width: 768px) calc(67vw - 32px), calc(85vw - 41px)" alt="hero image 2" loading="lazy" decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[16/9] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="200" data-end="-250">
             </div>
 
             <!-- Floating Image 3 (Right Aligned) -->
             <div class="w-[70%] md:w-1/3 ml-auto flex justify-end">
-              <img src="assets/images/portfolio/thumbs/girassol.webp" alt="hero image 3" loading="lazy" decoding="async"
+              <img src="assets/images/portfolio/thumbs/girassol.webp" srcset="assets/images/portfolio/thumbs/girassol-520w.webp 520w, assets/images/portfolio/thumbs/girassol.webp 800w" sizes="(min-width: 1024px) 325px, (min-width: 768px) calc(33vw - 16px), calc(70vw - 34px)" alt="hero image 3" loading="lazy" decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-200" data-end="200">
             </div>
 
             <!-- Floating Image 4 (Different Left Position, Medium/Large) -->
             <div class="w-[80%] md:w-1/2 md:ml-16 mr-auto flex justify-start">
-              <img src="assets/images/portfolio/thumbs/cavalaria-pmmg-6.webp" alt="hero image 4" loading="lazy"
+              <img src="assets/images/portfolio/thumbs/cavalaria-pmmg-6.webp" srcset="assets/images/portfolio/thumbs/cavalaria-pmmg-6-520w.webp 520w, assets/images/portfolio/thumbs/cavalaria-pmmg-6.webp 800w" sizes="(min-width: 1024px) 488px, (min-width: 768px) calc(50vw - 24px), calc(80vw - 38px)" alt="hero image 4" loading="lazy"
                 decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="100" data-end="-400">
@@ -437,7 +438,7 @@
 
             <!-- Floating Image 5 (Right Position, Medium) -->
             <div class="w-[80%] md:w-1/2 md:mr-16 ml-auto flex justify-end">
-              <img src="assets/images/portfolio/thumbs/cavalaria-pmmg-11.webp" alt="hero image 5" loading="lazy"
+              <img src="assets/images/portfolio/thumbs/cavalaria-pmmg-11.webp" srcset="assets/images/portfolio/thumbs/cavalaria-pmmg-11-520w.webp 520w, assets/images/portfolio/thumbs/cavalaria-pmmg-11.webp 800w" sizes="(min-width: 1024px) 488px, (min-width: 768px) calc(50vw - 24px), calc(80vw - 38px)" alt="hero image 5" loading="lazy"
                 decoding="async"
                 class="parallax-img w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 data-start="-150" data-end="250">
@@ -571,7 +572,7 @@
                     </svg>
                   </button>
 
-                  <div id="photo-filter-menu"
+                  <div id="photo-filter-menu" data-lenis-prevent
                     class="absolute left-0 right-0 top-full mt-2 rounded-xl border border-white/10 bg-[#071122]/98 md:bg-[#071122]/95 backdrop-blur-none md:backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 shadow-2xl max-h-[300px] overflow-y-auto"
                     style="scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent;">
                     <div class="flex flex-col py-2">
@@ -655,7 +656,7 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-cinema.webp" alt="Estética Cinematográfica" loading="lazy"
+                      <img src="assets/images/diferencial-cinema-1024w.webp" srcset="assets/images/diferencial-cinema-768w.webp 768w, assets/images/diferencial-cinema-1024w.webp 1024w, assets/images/diferencial-cinema.webp 1536w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" alt="Estética Cinematográfica" loading="lazy"
                         decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
@@ -698,7 +699,7 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-retencao.webp" alt="Foco em Retenção" loading="lazy"
+                      <img src="assets/images/diferencial-retencao-1024w.webp" srcset="assets/images/diferencial-retencao-768w.webp 768w, assets/images/diferencial-retencao-1024w.webp 1024w, assets/images/diferencial-retencao.webp 1536w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" alt="Foco em Retenção" loading="lazy"
                         decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
@@ -741,7 +742,7 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-estrategia.webp" alt="Estratégia de Conteúdo" loading="lazy"
+                      <img src="assets/images/diferencial-estrategia-1024w.webp" srcset="assets/images/diferencial-estrategia-768w.webp 768w, assets/images/diferencial-estrategia-1024w.webp 1024w, assets/images/diferencial-estrategia.webp 1536w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" alt="Estratégia de Conteúdo" loading="lazy"
                         decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
@@ -783,7 +784,7 @@
                       <div
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                       </div>
-                      <img src="assets/images/diferencial-direcao.webp" alt="Direção Criativa" loading="lazy"
+                      <img src="assets/images/diferencial-direcao-1024w.webp" srcset="assets/images/diferencial-direcao-768w.webp 768w, assets/images/diferencial-direcao-1024w.webp 1024w, assets/images/diferencial-direcao.webp 1536w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" alt="Direção Criativa" loading="lazy"
                         decoding="async"
                         class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                     </div>
@@ -907,7 +908,7 @@
             </div>
             <!-- Right: Image with Mask -->
             <div class="w-full md:w-1/2 h-[50vh] md:h-full service-image-container">
-              <img src="assets/images/producao-audiovisual-servico.webp" alt="Produção Audiovisual" class="service-img">
+              <img src="assets/images/producao-audiovisual-servico.webp" alt="Produção Audiovisual" loading="lazy" decoding="async" class="service-img">
             </div>
           </div>
 
@@ -946,7 +947,7 @@
             </div>
             <!-- Right: Image with Mask -->
             <div class="w-full md:w-1/2 h-[50vh] md:h-full service-image-container">
-              <img src="assets/images/fotografia-servico.webp" alt="Fotografias" class="service-img">
+              <img src="assets/images/fotografia-servico-1080w.webp" srcset="assets/images/fotografia-servico-1080w.webp 1080w, assets/images/fotografia-servico-1920w.webp 1920w" sizes="(min-width: 768px) 50vw, 100vw" alt="Fotografias" loading="lazy" decoding="async" class="service-img">
             </div>
           </div>
 
@@ -986,7 +987,7 @@
             </div>
             <!-- Right: Image with Mask -->
             <div class="w-full md:w-1/2 h-[50vh] md:h-full service-image-container">
-              <img src="assets/images/edicao-servico.webp" alt="Edição e Pós Produção" class="service-img">
+              <img src="assets/images/edicao-servico.webp" alt="Edição e Pós Produção" loading="lazy" decoding="async" class="service-img">
             </div>
           </div>
 
@@ -1026,8 +1027,8 @@
             </div>
             <!-- Right: Image with Mask -->
             <div class="w-full md:w-1/2 h-[50vh] md:h-full service-image-container">
-              <img src="assets/images/gestao-redes-sociais-servico.webp" alt="Gestão de Redes Sociais"
-                class="service-img">
+              <img src="assets/images/gestao-redes-sociais-servico-1080w.webp" srcset="assets/images/gestao-redes-sociais-servico-1080w.webp 1080w, assets/images/gestao-redes-sociais-servico-1350w.webp 1350w" sizes="(min-width: 768px) 50vw, 100vw" alt="Gestão de Redes Sociais"
+                loading="lazy" decoding="async" class="service-img">
             </div>
           </div>
 
@@ -1199,7 +1200,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/briefing-como-trabalhos.webp" alt="Briefing e Alinhamento"
+                        <img src="assets/images/briefing-como-trabalhos-768w.webp" srcset="assets/images/briefing-como-trabalhos-512w.webp 512w, assets/images/briefing-como-trabalhos-768w.webp 768w" sizes="250px" alt="Briefing e Alinhamento" loading="lazy" decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
@@ -1236,7 +1237,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/roteiro-como-trabalhos.webp" alt="Roteiro e Narrativa"
+                        <img src="assets/images/roteiro-como-trabalhos-768w.webp" srcset="assets/images/roteiro-como-trabalhos-512w.webp 512w, assets/images/roteiro-como-trabalhos-768w.webp 768w" sizes="250px" alt="Roteiro e Narrativa" loading="lazy" decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
@@ -1273,7 +1274,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/planejamento-como-trabalhos.webp" alt="Planejamento e Storyboard"
+                        <img src="assets/images/planejamento-como-trabalhos-768w.webp" srcset="assets/images/planejamento-como-trabalhos-512w.webp 512w, assets/images/planejamento-como-trabalhos-768w.webp 768w" sizes="250px" alt="Planejamento e Storyboard" loading="lazy" decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
@@ -1310,7 +1311,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/hero-main-image.webp" alt="Gravação e Captação"
+                        <img src="assets/images/hero-main-image-768w.webp" srcset="assets/images/hero-main-image-512w.webp 512w, assets/images/hero-main-image-768w.webp 768w" sizes="250px" alt="Gravação e Captação" loading="lazy" decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
@@ -1347,7 +1348,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/edicao-como-trabalhos.webp" alt="Edição e Pós Produção"
+                        <img src="assets/images/edicao-como-trabalhos-768w.webp" srcset="assets/images/edicao-como-trabalhos-512w.webp 512w, assets/images/edicao-como-trabalhos-768w.webp 768w" sizes="250px" alt="Edição e Pós Produção" loading="lazy" decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
@@ -1384,7 +1385,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/aprovacao-como-trabalhos.webp" alt="Aprovação e Validação"
+                        <img src="assets/images/aprovacao-como-trabalhos-768w.webp" srcset="assets/images/aprovacao-como-trabalhos-512w.webp 512w, assets/images/aprovacao-como-trabalhos-768w.webp 768w" sizes="250px" alt="Aprovação e Validação" loading="lazy" decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
                       <div class="w-full h-[1px] bg-white/10 my-2 sm:my-4"></div>
@@ -1421,7 +1422,7 @@
                         <div
                           class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent z-10 pointer-events-none">
                         </div>
-                        <img src="assets/images/processo-finalizacao.webp" alt="Finalização e Entrega" loading="lazy"
+                        <img src="assets/images/processo-finalizacao-768w.webp" srcset="assets/images/processo-finalizacao-512w.webp 512w, assets/images/processo-finalizacao-768w.webp 768w" sizes="250px" alt="Finalização e Entrega" loading="lazy"
                           decoding="async"
                           class="w-full h-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105">
                       </div>
@@ -1492,31 +1493,41 @@
                     <div class="testimonial-image-stack max-w-[180px] md:max-w-xs aspect-square">
                       <!-- Depoimento 1 -->
                       <div class="testimonial-image-card">
-                        <img src="assets/images/social-prove/ana-vitoria.webp" alt="Ana Vitória"
+                        <img src="assets/images/social-prove/ana-vitoria-640w.webp" decoding="async" alt="Ana Vitória"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 2 -->
                       <div class="testimonial-image-card">
-                        <img src="assets/images/social-prove/pedru-barber.webp" alt="PedruBarber"
+                        <img src="assets/images/social-prove/pedru-barber-640w.webp" decoding="async" alt="PedruBarber"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 3 -->
                       <div class="testimonial-image-card">
-                        <img src="assets/images/social-prove/lucasa.webp" alt="LuCasa"
+                        <img src="assets/images/social-prove/lucasa-640w.webp" decoding="async" alt="LuCasa"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 4 -->
                       <div class="testimonial-image-card">
-                        <img src="assets/images/social-prove/yasmim-cardoso.webp" alt="Yas Cardoso"
+                        <img src="assets/images/social-prove/yasmim-cardoso-640w.webp" decoding="async" alt="Yas Cardoso"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
                       <!-- Depoimento 5 -->
                       <div class="testimonial-image-card">
-                        <img src="assets/images/social-prove/gm-store.webp" alt="GM Store"
+                        <img src="assets/images/social-prove/gm-store-640w.webp" decoding="async" alt="GM Store"
+                          class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
+                          loading="lazy">
+                      </div>
+                      <div class="testimonial-image-card">
+                        <img src="assets/images/pmmg.webp" alt="PMMG"
+                          class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
+                          loading="lazy">
+                      </div>
+                      <div class="testimonial-image-card">
+                        <img src="assets/images/portfolio/novas/ana-carolina-10.webp" alt="Ana Carolina"
                           class="w-full h-full rounded-3xl object-cover pointer-events-none select-none border border-white/10"
                           loading="lazy">
                       </div>
@@ -1596,6 +1607,24 @@
                           sempre buscando evoluir. Inclusive, aprendi bastante com você no dia da gravação.<br><br>Muito
                           obrigado pela dedicação e pelo excelente trabalho. Fiquei muito satisfeito com o resultado!
                           Sucesso, e pode ter certeza de que faremos outros trabalhos juntos.
+                        </p>
+                      </div>
+                      <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                        <h3 class="text-xl font-bold text-white font-corpline">PMMG</h3>
+                        <p
+                          class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                          O trabalho destaca-se pela precisão técnica e qualidade na captação visual. Tanto na fotografia
+                          quanto no vídeo, demonstra domínio em enquadramento, iluminação e pós-produção, entregando
+                          materiais com excelente acabamento, dinamismo e rigor estético. Profissional altamente
+                          capacitado e recomendado.
+                        </p>
+                      </div>
+                      <div class="testimonial-text-wrapper w-full col-start-1 row-start-1">
+                        <h3 class="text-xl font-bold text-white font-corpline">Ana Carolina</h3>
+                        <p
+                          class="testimonial-quote text-sm md:text-base text-brand-soft font-Supreme font-medium mt-6 leading-relaxed">
+                          Oii, Cristian você é um excelente profissional, parabéns pelo seu trabalho você é fera!
+                          Atendimento humanizado, conectivo, é compreensível. Nota 10000/10
                         </p>
                       </div>
 
@@ -1704,7 +1733,7 @@
                         class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none">
                       </div>
 
-                      <img src="assets/images/cristian-profile.webp"
+                      <img src="assets/images/cristian-profile.webp" decoding="async"
                         alt="Cristian Salge — Diretor Audiovisual & Social Architect"
                         class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105"
                         loading="lazy">
@@ -2329,6 +2358,7 @@
   <script src="js/preloader.js" defer></script>
   <script src="js/hero.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/portfolio-images.js" defer></script>
   <script src="js/portfolio-surfer.js" defer></script>
   <script src="js/portfolio-data.js" defer></script>
   <script src="js/portfolio.js" defer></script>

@@ -221,10 +221,10 @@ body.hero-sequence-active:not(.hero-sequence-complete) #navbar-wrapper {
 /* Scroll Indicator Sequence */
 body:not(.hero-sequence-complete):not(.hero-sequence-active) #scroll-indicator {
   opacity: 0 !important;
-  transform: translateX(-50%) scale(0.5) !important;
+  transform: scale(0.5) !important;
 }
 body.hero-sequence-active:not(.hero-sequence-complete) #scroll-indicator {
   opacity: 1 !important;
-  transform: translateX(-50%) scale(1) !important;
+  transform: scale(1) !important;
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s !important;
 }

@@ -5,7 +5,7 @@ const portfolioVideos = [
     category: 'Comercial',
     vimeoId: '1215953227',
     videoUrl: 'https://vimeo.com/1215953227?fl=tl&fe=ec',
-    thumbnail: 'assets/images/thumbs/thumb-befit.jpg',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/befit.webp',
     aspectRatio: '9:16',
     badge: 'Aftermovie',
     span: 'col-span-1'
@@ -16,7 +16,7 @@ const portfolioVideos = [
     category: 'Eventos',
     isLocal: true,
     videoUrl: 'assets/videos/carros-corrida.webm',
-    thumbnail: 'assets/images/portfolio/drift-uberlandia.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/drift-uberlandia.webp',
     aspectRatio: '9:16',
     badge: 'Eventos',
     span: 'col-span-1 row-span-2'
@@ -27,7 +27,7 @@ const portfolioVideos = [
     category: 'Esportes',
     isLocal: true,
     videoUrl: 'assets/videos/costas-biceps.webm',
-    thumbnail: 'assets/images/thumbs/thumb-treino-costas-biceps.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/treino-costas-biceps.webp',
     aspectRatio: '16:9',
     badge: 'Esportes',
     span: 'col-span-2'
@@ -38,6 +38,7 @@ const portfolioVideos = [
     category: 'Aftermovie',
     vimeoId: '1233858090',
     videoUrl: 'https://vimeo.com/1233858090?fl=ip&fe=ec',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1233858090.webp',
     aspectRatio: '9:16',
     badge: 'Aftermovie',
     span: 'col-span-1 row-span-2'
@@ -48,21 +49,10 @@ const portfolioVideos = [
     category: 'Institucional',
     isLocal: true,
     videoUrl: 'assets/videos/lucasa-imobiliaria.webm',
-    thumbnail: 'assets/images/thumbs/thumb-lucasa-imobiliaria-1.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/lucasa-imobiliaria-1.webp',
     aspectRatio: '9:16',
     badge: 'Imóveis',
     span: 'col-span-1'
-  },
-  {
-    id: 'vid-5',
-    title: 'Videos Imobiliários - Lucasa',
-    category: 'Institucional',
-    isLocal: true,
-    videoUrl: 'assets/videos/lucasa-imobiliaria-2.webm',
-    thumbnail: 'assets/images/thumbs/thumb-lucasa-imobiliaria-2.webp',
-    aspectRatio: '9:16',
-    badge: 'Imóveis',
-    span: 'col-span-1 row-span-2'
   },
   {
     id: 'vid-6',
@@ -70,7 +60,7 @@ const portfolioVideos = [
     category: 'Comercial',
     isLocal: true,
     videoUrl: 'assets/videos/peliculas-brasil.webm',
-    thumbnail: 'assets/images/portfolio/peliculas-brasil-2.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/peliculas-brasil-2.webp',
     aspectRatio: '9:16',
     badge: 'Automotivo',
     span: 'col-span-1'
@@ -81,7 +71,7 @@ const portfolioVideos = [
     category: 'Comercial',
     isLocal: true,
     videoUrl: 'assets/videos/peliculas-brasil-ram.webm',
-    thumbnail: 'assets/images/thumbs/thumb-peliculas-brasil-ram.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/peliculas-brasil-ram.webp',
     aspectRatio: '9:16',
     badge: 'Automotivo',
     span: 'col-span-1'
@@ -92,7 +82,7 @@ const portfolioVideos = [
     category: 'Comercial',
     isLocal: true,
     videoUrl: 'assets/videos/sojeff-hamburgueria.webm',
-    thumbnail: 'assets/images/portfolio/torre-hamburguer.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/torre-hamburguer.webp',
     aspectRatio: '9:16',
     badge: 'Gastronomia',
     span: 'col-span-1'
@@ -103,7 +93,7 @@ const portfolioVideos = [
     category: 'Institucional',
     isLocal: true,
     videoUrl: 'assets/videos/solos-agroambiental.webm',
-    thumbnail: 'assets/images/thumbs/thumb-solos-agroambiental.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/solos-agroambiental.webp',
     aspectRatio: '9:16',
     badge: 'Agro',
     span: 'col-span-1'
@@ -114,6 +104,7 @@ const portfolioVideos = [
     category: 'Aftermovie',
     vimeoId: '1233858388',
     videoUrl: 'https://vimeo.com/1233858388?fl=ip&fe=ec',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1233858388.webp',
     aspectRatio: '9:16',
     badge: 'Aftermovie',
     span: 'col-span-1'
@@ -124,7 +115,7 @@ const portfolioVideos = [
     category: 'Comercial',
     isLocal: true,
     videoUrl: 'assets/videos/yascardoso-cilios.webm',
-    thumbnail: 'assets/images/thumbs/thumb-yc-cardoso.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/yc-cardoso.webp',
     aspectRatio: '9:16',
     badge: 'Beleza',
     span: 'col-span-1 row-span-2'
@@ -135,7 +126,7 @@ const portfolioVideos = [
     category: 'Comercial',
     isLocal: true,
     videoUrl: 'assets/videos/yascardoso-cilios-2.webm',
-    thumbnail: 'assets/images/portfolio/yc-cardoso-resultados.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/yc-cardoso-resultados.webp',
     aspectRatio: '9:16',
     badge: 'Beleza',
     span: 'col-span-1'
@@ -146,6 +137,7 @@ const portfolioVideos = [
     category: 'Reel',
     vimeoId: '1216133261',
     videoUrl: 'https://vimeo.com/1216133261?fl=tl&fe=ec',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1216133261.webp',
     aspectRatio: '9:16',
     badge: 'Beleza',
     span: 'col-span-1'
@@ -156,6 +148,7 @@ const portfolioVideos = [
     category: 'Instituicional',
     vimeoId: '1217146847',
     videoUrl: 'https://vimeo.com/1217146847?share=copy&fl=sv&fe=ci',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1217146847.webp',
     aspectRatio: '9:16',
     badge: 'Institucional',
     span: 'col-span-1 row-span-2'
@@ -166,6 +159,7 @@ const portfolioVideos = [
     category: 'Institucional',
     vimeoId: '1233858124',
     videoUrl: 'https://vimeo.com/1233858124?fl=ip&fe=ec',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1233858124.webp',
     aspectRatio: '9:16',
     badge: 'Institucional',
     span: 'col-span-1'
@@ -176,7 +170,7 @@ const portfolioVideos = [
     category: 'Eventos',
     vimeoId: '1215953186',
     videoUrl: 'https://vimeo.com/1215953186?fl=tl&fe=ec',
-    thumbnail: 'assets/images/portfolio/peliculas-brasil-1.webp',
+    thumbnail: 'assets/images/portfolio/thumbs/peliculas-brasil-1.webp',
     aspectRatio: '9:16',
     badge: 'Aftermovie',
     span: 'col-span-1'
@@ -186,6 +180,7 @@ const portfolioVideos = [
     title: 'Atendimento odontológico',
     category: 'Reels',
     videoId: 'FJ_oY7cchgI',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/youtube-FJ_oY7cchgI.webp',
     aspectRatio: '9:16',
     badge: 'Institucional',
     span: 'col-span-1 row-span-2'
@@ -195,6 +190,7 @@ const portfolioVideos = [
     title: 'Aftermovie PMMG',
     category: 'Reels',
     videoId: 'GWE79ujogZs',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/youtube-GWE79ujogZs.webp',
     aspectRatio: '9:16',
     badge: 'Aftermovie',
     span: 'col-span-1'
@@ -204,6 +200,7 @@ const portfolioVideos = [
     title: 'Apresentação Barqueiro',
     category: 'Reels',
     videoId: '-8I79Hh1Wx8',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/youtube--8I79Hh1Wx8.webp',
     aspectRatio: '9:16',
     badge: 'Institucional',
     span: 'col-span-1'
@@ -214,6 +211,7 @@ const portfolioVideos = [
     category: 'Aftermovie',
     vimeoId: '1233863447',
     videoUrl: 'https://vimeo.com/1233863447?fl=ip&fe=ec',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1233863447.webp',
     aspectRatio: '9:16',
     badge: 'Aftermovie',
     span: 'col-span-1 row-span-2'
@@ -224,6 +222,7 @@ const portfolioVideos = [
     category: 'Eventos',
     vimeoId: '1219067663',
     videoUrl: 'https://vimeo.com/1219067663?share=copy&fl=sv&fe=ci',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1219067663.webp',
     aspectRatio: '9:16',
     badge: 'Eventos',
     span: 'col-span-1'

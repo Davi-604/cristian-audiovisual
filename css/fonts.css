@@ -17,39 +17,6 @@
   font-style: italic;
 }
 
-/* Static Fallbacks (WOFF2 only for high performance) */
-@font-face {
-  font-family: 'Supreme';
-  src: url('https://cdn.fontshare.com/wf/V3KAW2H4UCIIIUBD6S2PIWF3IF5MUSOJ/G3J6DZB2HINA35VD6CICETHD4ZJTLLPR/SPD5TGNFK2XOFPWN7JB26FTXSLXBKEAV.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Supreme';
-  src: url('https://cdn.fontshare.com/wf/UDGUA26XVGIV6IQWMQNGGAL7FQZFY227/E6HQU6YVWTGYX3KW3DF66KAAJ224ZDU6/5ZZU4JM62PS7KOJ7BOKLPL3AEO2G76TS.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Supreme';
-  src: url('https://cdn.fontshare.com/wf/OTYYUXNCZZI6EV6RSCAQFTGEGQ7JTD6B/45FLQUBI6DWIP6NYFVBTMKS6YPU3VYPT/GHZ524YD2KXKRX4PZ2S7DE3HKNPE2EKH.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Supreme';
-  src: url('https://cdn.fontshare.com/wf/5T6APCD6XXAHAFTHDATQKT4RFVWRY3KR/VM6PC4PLGZYYJIHGMT63IIGYLTQKGSH6/TN7F4YNDQ3FJ6JRJV2XDS3CGMFKQRLXV.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-
 /* --- Corpline Font Face --- */
 @font-face {
   font-family: 'Corpline';

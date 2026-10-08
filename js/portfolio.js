@@ -13,21 +13,66 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeModal = null;
   let activeIframe = null;
 
-  // Intersection Observer para Lazy Loading avançado
-  const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+  const GRID_SLOTS = [
+    ['(min-width: 1640px)', '368px'],
+    ['(min-width: 1280px)', '(25vw - 42px)'],
+    ['(min-width: 1024px)', '(33vw - 48px)'],
+    ['(min-width: 640px)', '(33vw - 40px)'],
+    ['', '(50vw - 30px)']
+  ];
+
+  function gridSizes(span) {
+    const factor = span.includes('col-span-2') ? 2 : span.includes('row-span-2') ? 1.3 : 1;
+    return GRID_SLOTS.map(([media, width]) => `${media} calc(${width} * ${factor})`.trim()).join(', ');
+  }
+
+  const lazyCardObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
+      if (!entry.isIntersecting) return;
+      const img = entry.target.querySelector('.lazy-portfolio-img');
+      if (img) {
+        if (img.dataset.srcset) {
+          img.sizes = img.dataset.sizes;
+          img.srcset = img.dataset.srcset;
         }
-        observer.unobserve(img);
+        img.src = img.dataset.src;
       }
+      observer.unobserve(entry.target);
     });
   }, {
-    rootMargin: '100px 0px', // Inicia o download 100px antes da imagem aparecer na tela
-    threshold: 0.01
+    rootMargin: '600px 0px'
   });
+
+  function setupCardImage(card, src, span) {
+    const img = card.querySelector('.lazy-portfolio-img');
+    if (!img) return;
+
+    img.dataset.src = src;
+    img.dataset.srcset = portfolioSrcset(src);
+    img.dataset.sizes = gridSizes(span);
+
+    img.onload = () => {
+      img.classList.remove('opacity-0');
+      img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
+    };
+
+    lazyCardObserver.observe(card);
+  }
+
+  function makeActivatable(card, onActivate) {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('click', onActivate);
+    card.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      onActivate();
+    });
+  }
+
+  const CARD_CLASSES = 'portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 focus-visible:outline-2 focus-visible:outline-brand-ice transition-colors duration-500 shadow-xl h-full [content-visibility:auto]';
+  const CARD_IMAGE_CLASSES = 'lazy-portfolio-img w-full h-full object-cover transition-[opacity,transform,scale] duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105 opacity-0';
+  const BADGE_CLASSES = 'px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-navy/85 md:bg-brand-navy/70 backdrop-blur-none md:backdrop-blur-md border border-brand-soft/20 text-[8px] sm:text-[10px] font-bold text-brand-ice uppercase tracking-widest';
 
   function getVimeoDetails(video) {
     let id = video.vimeoId || null;
@@ -70,37 +115,31 @@ document.addEventListener('DOMContentLoaded', () => {
       const youtubeId = getYouTubeId(video);
 
       let thumbUrl = video.thumbnail;
-      let highResUrl = video.thumbnail;
 
       if (!thumbUrl) {
         if (vimeoId) {
           thumbUrl = `https://vumbnail.com/${vimeoId}.jpg`;
-          highResUrl = `https://vumbnail.com/${vimeoId}.jpg`;
         } else if (youtubeId) {
           thumbUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
-          highResUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
         }
       }
 
       const spanClass = video.span || 'col-span-1';
       const videoCard = document.createElement('div');
-      videoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full ${spanClass}`;
+      videoCard.className = `${CARD_CLASSES} ${spanClass}`;
       videoCard.setAttribute('data-video-id', youtubeId || vimeoId || video.id);
       videoCard.setAttribute('data-aspect', video.aspectRatio);
 
       videoCard.innerHTML = `
         <div class="thumbnail-container absolute inset-0 z-0 bg-[#060D1E] portfolio-skeleton-shimmer overflow-hidden">
-          <img data-src="${thumbUrl}" data-high-res="${highResUrl}" alt="${video.title}" decoding="async" loading="lazy"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-0 lazy-portfolio-img">
-          <!-- Sombra que some no hover -->
+          <img alt="${video.title}" decoding="async" class="${CARD_IMAGE_CLASSES}">
           <div class="absolute inset-0 bg-black/20 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
-          <!-- Gradiente sutil para manter o texto legível -->
           <div class="absolute inset-0 bg-gradient-to-t from-[#030816]/90 via-[#030816]/20 to-transparent pointer-events-none"></div>
         </div>
 
         <div class="absolute inset-0 z-10 p-3 sm:p-4 md:p-6 flex flex-col justify-between pointer-events-none">
           <div class="flex justify-between items-start">
-            <span class="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-navy/70 backdrop-blur-md border border-brand-soft/20 text-[8px] sm:text-[10px] font-bold text-brand-ice uppercase tracking-widest">
+            <span class="${BADGE_CLASSES}">
               ${video.badge || video.category}
             </span>
           </div>
@@ -111,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${video.title}
               </h3>
             </div>
-            <div class="play-btn-glow w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12 rounded-full bg-brand-ice/20 backdrop-blur-md flex items-center justify-center border border-white/30 shrink-0 text-white shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="translate-x-[1px] w-3 h-3 sm:w-4 sm:h-4 md:w-[18px] md:h-[18px]">
+            <div class="play-btn-glow w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12 rounded-full bg-brand-ice/30 md:bg-brand-ice/20 backdrop-blur-none md:backdrop-blur-md flex items-center justify-center border border-white/30 shrink-0 text-white shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="translate-x-[1px] w-3 h-3 sm:w-4 sm:h-4 md:w-[18px] md:h-[18px]">
                 <polygon points="6 3 20 12 6 21 6 3"></polygon>
               </svg>
             </div>
@@ -120,33 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
 
-      // Image Load Handler
-      const img = videoCard.querySelector('.lazy-portfolio-img');
-      if (img) {
-        lazyImageObserver.observe(img);
-
-        img.onload = () => {
-          img.classList.remove('opacity-0');
-          img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
-        };
-        if (img.complete && img.src && img.src !== window.location.href) {
-          img.classList.remove('opacity-0');
-          img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
-        }
-      }
-
-      // Restore High Quality on Hover
-      videoCard.addEventListener('mouseenter', () => {
-        if (img && img.src !== img.dataset.highRes) {
-          img.src = img.dataset.highRes;
-        }
-      });
-
-      // Handle Click Event
-      // Click to open video lightbox
-      videoCard.addEventListener('click', () => {
-        openVideoModal(video);
-      });
+      setupCardImage(videoCard, thumbUrl, spanClass);
+      makeActivatable(videoCard, () => openVideoModal(video));
 
       videoGrid.appendChild(videoCard);
     });
@@ -159,24 +173,19 @@ document.addEventListener('DOMContentLoaded', () => {
     portfolioPhotos.forEach((photo) => {
       const spanClass = photo.span || 'col-span-1';
       const photoCard = document.createElement('div');
-      photoCard.className = `portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 transition-all duration-500 shadow-xl h-full ${spanClass}`;
+      photoCard.className = `${CARD_CLASSES} ${spanClass}`;
       photoCard.setAttribute('data-category', photo.category.toLowerCase());
-
-      const thumbUrl = photo.image.replace('assets/images/portfolio/', 'assets/images/portfolio/thumbs/');
 
       photoCard.innerHTML = `
         <div class="thumbnail-container absolute inset-0 z-0 bg-[#060D1E] portfolio-skeleton-shimmer overflow-hidden">
-          <img data-src="${thumbUrl}" alt="${photo.title}" decoding="async" loading="lazy"
-            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-0 lazy-portfolio-img">
-          <!-- Sombra que some no hover -->
+          <img alt="${photo.title}" decoding="async" class="${CARD_IMAGE_CLASSES}">
           <div class="absolute inset-0 bg-black/20 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
-          <!-- Gradiente sutil para manter o texto legível -->
           <div class="absolute inset-0 bg-gradient-to-t from-[#030816]/90 via-[#030816]/20 to-transparent pointer-events-none"></div>
         </div>
 
         <div class="absolute inset-0 z-10 p-3 sm:p-4 md:p-6 flex flex-col justify-between pointer-events-none">
           <div class="flex justify-between items-start">
-            <span class="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-navy/70 backdrop-blur-md border border-brand-soft/20 text-[8px] sm:text-[10px] font-bold text-brand-ice uppercase tracking-widest">
+            <span class="${BADGE_CLASSES}">
               ${photo.category}
             </span>
           </div>
@@ -189,23 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
 
-      const img = photoCard.querySelector('.lazy-portfolio-img');
-      if (img) {
-        lazyImageObserver.observe(img);
-
-        img.onload = () => {
-          img.classList.remove('opacity-0');
-          img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
-        };
-        if (img.complete && img.src && img.src !== window.location.href) {
-          img.classList.remove('opacity-0');
-          img.closest('.thumbnail-container')?.classList.remove('portfolio-skeleton-shimmer');
-        }
-      }
-
-      photoCard.addEventListener('click', () => {
-        openPhotoModal(photo);
-      });
+      setupCardImage(photoCard, portfolioThumb(photo.image), spanClass);
+      makeActivatable(photoCard, () => openPhotoModal(photo));
 
       photoGrid.appendChild(photoCard);
     });
@@ -487,10 +481,31 @@ document.addEventListener('DOMContentLoaded', () => {
     imgContainer.className = 'relative flex items-center justify-center w-full';
 
     const img = document.createElement('img');
-    img.src = currentGallery[currentIndex];
     img.alt = photoObj.title;
+    img.decoding = 'async';
     img.className = 'max-w-[90vw] max-h-[80vh] object-contain rounded-2xl border border-white/15 shadow-2xl transition-opacity duration-300';
 
+    const showImage = (index) => {
+      const fullSrc = currentGallery[index];
+      img.dataset.full = fullSrc;
+      img.src = portfolioThumb(fullSrc);
+
+      const full = new Image();
+      full.src = fullSrc;
+      full.decode()
+        .then(() => {
+          if (img.dataset.full === fullSrc) img.src = fullSrc;
+        })
+        .catch(() => {
+          if (img.dataset.full === fullSrc) img.src = fullSrc;
+        });
+
+      if (currentGallery.length > 1) {
+        new Image().src = currentGallery[(index + 1) % currentGallery.length];
+      }
+    };
+
+    showImage(currentIndex);
     imgContainer.appendChild(img);
 
     // Navigation arrows
@@ -506,8 +521,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const updateImage = (index) => {
         img.style.opacity = '0';
         setTimeout(() => {
-          img.src = currentGallery[index];
           img.onload = () => { img.style.opacity = '1'; };
+          showImage(index);
           const indicator = container.querySelector('.gallery-indicator');
           if (indicator) {
             indicator.textContent = `${index + 1} / ${currentGallery.length}`;

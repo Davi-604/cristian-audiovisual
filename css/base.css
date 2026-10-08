@@ -1,7 +1,5 @@
 /* design-system / css / base.css */
 
-@import url('fonts.css');
-
 :root {
   /* Color Palette - Light-mode Minimalist */
   --color-brand-navy: #1B264F;

@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.output.css --minify",
+    "watch:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.output.css --watch",
+    "images": "node scripts/optimize-images.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

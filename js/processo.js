@@ -15,17 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
   let sectionHeight = 0;
   let maxTranslate = 0;
   let focusPosition = 0;
+  let cardOffsets = [];
+  let lastProgress = null;
 
   function calculateLayout() {
     offsetTop = section.getBoundingClientRect().top + window.scrollY;
     sectionHeight = section.offsetHeight;
-    
+    cardOffsets = Array.from(cards, card => card.offsetLeft);
+    lastProgress = null;
+
     // Focus position é onde queremos que o card fique na tela para estar ativo (centro)
     focusPosition = window.innerWidth / 2 - (cards.length ? cards[0].offsetWidth / 2 : 0);
-    
+
     // A translação máxima termina com o último card perfeitamente centralizado
     if (cards.length > 0) {
-      maxTranslate = cards[cards.length - 1].offsetLeft - focusPosition;
+      maxTranslate = cardOffsets[cardOffsets.length - 1] - focusPosition;
     } else {
       maxTranslate = 0;
     }
@@ -52,6 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
       progress = 1;
     }
 
+    if (progress === lastProgress) return;
+    lastProgress = progress;
+
     // Translate horizontal card track
     const currentTranslate = progress * maxTranslate;
     track.style.transform = `translateX(${-currentTranslate}px)`;
@@ -61,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let syncedProgress = 0;
     
     if (numCards > 0) {
-      const firstCardCenter = cards[0].offsetLeft - focusPosition;
-      const lastCardCenter = cards[numCards - 1].offsetLeft - focusPosition;
+      const firstCardCenter = cardOffsets[0] - focusPosition;
+      const lastCardCenter = cardOffsets[numCards - 1] - focusPosition;
       
       // A timeline só começa a andar quando o primeiro card chega no centro
       if (currentTranslate < firstCardCenter) {
@@ -72,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         // Find where currentTranslate falls between cards
         for (let i = 0; i < numCards - 1; i++) {
-          const cardA = cards[i].offsetLeft - focusPosition;
-          const cardB = cards[i + 1].offsetLeft - focusPosition;
+          const cardA = cardOffsets[i] - focusPosition;
+          const cardB = cardOffsets[i + 1] - focusPosition;
           
           if (currentTranslate >= cardA && currentTranslate < cardB) {
             const segmentProgress = (currentTranslate - cardA) / (cardB - cardA);
@@ -95,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const activationThreshold = 0; 
     
     cards.forEach((card, index) => {
-      const cardCenterTranslate = card.offsetLeft - focusPosition;
+      const cardCenterTranslate = cardOffsets[index] - focusPosition;
       if (currentTranslate >= cardCenterTranslate - activationThreshold) {
         activeStep = index;
       }
@@ -118,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.remove('card-active');
       }
       
-      const cardCenterTranslate = card.offsetLeft - focusPosition;
+      const cardCenterTranslate = cardOffsets[index] - focusPosition;
       // Distance from the optimal "focus" position
       const distance = cardCenterTranslate - currentTranslate;
       

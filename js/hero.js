@@ -53,12 +53,9 @@ class TextScramble {
 window.addEventListener('DOMContentLoaded', () => {
   // 0. Initialize Text Stagger Animations
   const staggerTexts = document.querySelectorAll('.animate-text-stagger');
-  staggerTexts.forEach(el => {
-    let baseDelay = 0;
-    const computedDelay = window.getComputedStyle(el).animationDelay;
-    if (computedDelay && computedDelay !== '0s') {
-      baseDelay = parseFloat(computedDelay) || 0;
-    }
+  const staggerDelays = Array.from(staggerTexts, el => parseFloat(window.getComputedStyle(el).animationDelay) || 0);
+  staggerTexts.forEach((el, index) => {
+    const baseDelay = staggerDelays[index];
 
     const nodes = Array.from(el.childNodes);
     const fragment = document.createDocumentFragment();
@@ -136,15 +133,20 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    const canvasVisibleQuery = window.matchMedia('(min-width: 768px)');
+
     const resize = () => {
+      if (!canvasVisibleQuery.matches) return;
       w = ctx.canvas.width = Math.floor(window.innerWidth * 0.75);
       h = ctx.canvas.height = Math.floor(window.innerHeight * 0.75);
       updateCachedLayout();
     };
-    
+
     window.addEventListener('resize', resize, { passive: true });
     resize();
-    setTimeout(updateCachedLayout, 500);
+    setTimeout(() => {
+      if (canvasVisibleQuery.matches) updateCachedLayout();
+    }, 500);
 
     const drawWave = (n) => {
       nt += 0.002;
@@ -166,7 +168,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let animationFrameId = null;
 
     const startLoop = () => {
-      if (!isRunning) {
+      if (!isRunning && canvasVisibleQuery.matches) {
         isRunning = true;
         render();
       }
@@ -238,6 +240,15 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0 });
     observer.observe(canvas);
+
+    canvasVisibleQuery.addEventListener('change', () => {
+      if (canvasVisibleQuery.matches) {
+        resize();
+        startLoop();
+      } else {
+        stopLoop();
+      }
+    });
 
     startLoop();
   };

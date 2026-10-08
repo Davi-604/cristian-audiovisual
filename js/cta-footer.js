@@ -232,7 +232,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   window.addEventListener('resize', updateCachedRects, { passive: true });
-  window.addEventListener('scroll', updateCachedRects, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (isRevealed) updateCachedRects();
+  }, { passive: true });
 
   // Animation Loop
   let rafId = 0;

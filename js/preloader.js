@@ -27,12 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
   let isLoaded = false;
   let isFinished = false;
 
-  window.addEventListener('load', () => {
+  const markLoaded = () => {
     isLoaded = true;
+  };
+
+  const heroImageReady = new Promise((resolve) => {
+    const heroImage = new Image();
+    heroImage.onload = resolve;
+    heroImage.onerror = resolve;
+    heroImage.src = '/assets/images/hero-main-image.webp';
   });
 
+  const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+
+  Promise.all([heroImageReady, fontsReady]).then(markLoaded);
+  window.addEventListener('load', markLoaded);
+  setTimeout(markLoaded, 4000);
+
   if (document.readyState === 'complete') {
-    isLoaded = true;
+    markLoaded();
   }
 
   const updateProgress = () => {

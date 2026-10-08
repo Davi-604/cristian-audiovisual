@@ -1,16 +1,27 @@
 /* Portfolio Section Styles */
 .portfolio-skeleton-shimmer {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-size: 200% 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.portfolio-skeleton-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  transform: translateX(-100%);
   animation: portfolioShimmer 1.8s infinite ease-in-out;
+  pointer-events: none;
 }
 
 @keyframes portfolioShimmer {
-  0% {
-    background-position: -200% 0;
+  to {
+    transform: translateX(100%);
   }
-  100% {
-    background-position: 200% 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-skeleton-shimmer::after {
+    animation: none;
   }
 }
 
@@ -102,13 +113,11 @@
 @media (min-width: 768px) {
   .surfer-card .surfer-card-media {
     opacity: 0.85;
-    filter: brightness(0.85);
-    transition: opacity 0.35s ease, filter 0.35s ease;
+    transition: opacity 0.35s ease;
   }
 
   .surfer-card:hover .surfer-card-media {
     opacity: 1 !important;
-    filter: brightness(1) !important;
   }
 
   .surfer-card:hover {
