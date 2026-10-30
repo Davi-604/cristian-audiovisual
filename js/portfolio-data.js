@@ -33,6 +33,17 @@ const portfolioVideos = [
     span: 'col-span-2'
   },
   {
+    id: 'vid-27',
+    title: 'Halloween',
+    category: 'Eventos',
+    vimeoId: '1239673733',
+    videoUrl: 'https://vimeo.com/1239673733?share=copy&fl=sv&fe=ci',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1239673733.webp',
+    aspectRatio: '16:9',
+    badge: 'Eventos',
+    span: 'col-span-2'
+  },
+  {
     id: 'vid-23',
     title: 'Aftermovie de workshop Pedru Barber',
     category: 'Aftermovie',

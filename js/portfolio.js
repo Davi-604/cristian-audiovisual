@@ -279,55 +279,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 4. Modal Lightbox Logic
+  function releaseMedia(media) {
+    if (!media) return;
+    if (media.tagName === 'VIDEO') {
+      media.pause();
+      media.querySelectorAll('source').forEach((source) => source.remove());
+      media.removeAttribute('src');
+      media.load();
+    }
+    media.remove();
+  }
+
   function closeActiveModal() {
     if (!activeModal) return;
 
-    activeModal.classList.remove('lightbox-enter-active');
-    if (activeIframe) {
-      if (activeIframe.tagName === 'VIDEO') {
-        activeIframe.pause();
-        activeIframe.removeAttribute('src');
-        activeIframe.load();
-      } else {
-        activeIframe.src = '';
-      }
-    }
-
     const modalToRemove = activeModal;
-    setTimeout(() => {
-      if (document.body.contains(modalToRemove)) {
-        document.body.removeChild(modalToRemove);
-      }
-      document.body.style.overflow = '';
-    }, 300);
+    modalToRemove.classList.remove('lightbox-enter-active');
+    releaseMedia(activeIframe);
+    document.body.style.overflow = '';
 
     activeModal = null;
     activeIframe = null;
+
+    setTimeout(() => modalToRemove.remove(), 300);
   }
 
-  // Listen for browser back button hash
-  window.addEventListener('hashchange', () => {
-    if (window.location.hash !== '#lightbox' && activeModal) {
+  function requestCloseModal() {
+    if (!window.history.state?.lightbox) {
       closeActiveModal();
+      return;
     }
+    window.history.back();
+    setTimeout(closeActiveModal, 250);
+  }
+
+  if (window.history.state?.lightbox || window.location.hash === '#lightbox') {
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  window.addEventListener('popstate', () => {
+    if (activeModal && !window.history.state?.lightbox) closeActiveModal();
   });
 
-  // Handle ESC key
+  window.addEventListener('pagehide', closeActiveModal);
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) closeActiveModal();
+  });
+
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && activeModal) {
-      if (window.location.hash === '#lightbox') {
-        window.history.back();
-      } else {
-        closeActiveModal();
-      }
-    }
+    if (e.key === 'Escape' && activeModal) requestCloseModal();
   });
 
   function createModalBase() {
     if (activeModal) closeActiveModal();
 
-    if (window.location.hash !== '#lightbox') {
-      window.history.pushState(null, '', window.location.pathname + window.location.search + '#lightbox');
+    if (!window.history.state?.lightbox) {
+      window.history.pushState({ lightbox: true }, '');
     }
 
     const modal = document.createElement('div');
@@ -345,22 +352,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (window.location.hash === '#lightbox') {
-        window.history.back();
-      } else {
-        closeActiveModal();
-      }
+      requestCloseModal();
     });
 
     modal.appendChild(closeBtn);
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        if (window.location.hash === '#lightbox') {
-          window.history.back();
-        } else {
-          closeActiveModal();
-        }
-      }
+      if (e.target === modal) requestCloseModal();
     });
 
     document.body.appendChild(modal);
@@ -398,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (vimeoId) {
       const iframe = document.createElement('iframe');
       const hashParam = vimeoHash ? `&h=${vimeoHash}` : '';
-      iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&autopause=0&portrait=0&byline=0&title=0${hashParam}`;
+      iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&autopause=0&playsinline=1&portrait=0&byline=0&title=0${hashParam}`;
       iframe.className = 'w-full h-full border-0';
       iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
       iframe.setAttribute('allowfullscreen', 'true');
@@ -413,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
         </div>
-        <video class="w-full h-full object-cover" controls preload="none" poster="${video.thumbnail || ''}">
+        <video class="w-full h-full object-cover" controls playsinline webkit-playsinline preload="none" poster="${video.thumbnail || ''}">
           <source src="${video.videoUrl}" type="video/webm">
           <source src="${video.videoUrl ? video.videoUrl.replace('.webm', '.mp4') : ''}" type="video/mp4">
           Seu navegador não suporta o elemento de vídeo.
@@ -454,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const iframe = document.createElement('iframe');
       const ytId = youtubeId || video.videoId;
-      iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`;
       iframe.className = 'w-full h-full border-0';
       iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
       iframe.setAttribute('allowfullscreen', 'true');
