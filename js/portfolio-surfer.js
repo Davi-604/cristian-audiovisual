@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
       Math.abs(targetProgress - currentProgress) > 0.05 ||
       (autoSurfing && hoveredCardCount === 0);
 
-    if (isPortfolioVisible && isMoving) {
+    if (isPortfolioVisible && isMoving && !isLightboxOpen) {
       requestAnimationFrame(renderLoop);
     } else {
       isLoopRunning = false;
@@ -407,13 +407,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let isPortfolioVisible = typeof IntersectionObserver === 'undefined';
   let isLoopRunning = false;
+  let isLightboxOpen = false;
 
   function startLoop() {
-    if (!isLoopRunning && isPortfolioVisible) {
+    if (!isLoopRunning && isPortfolioVisible && !isLightboxOpen) {
       isLoopRunning = true;
       requestAnimationFrame(renderLoop);
     }
   }
+
+  document.addEventListener('portfolio:lightbox', (e) => {
+    isLightboxOpen = e.detail.open;
+    startLoop();
+  });
 
   startLoop();
 

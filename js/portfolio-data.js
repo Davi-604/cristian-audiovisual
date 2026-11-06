@@ -33,6 +33,17 @@ const portfolioVideos = [
     span: 'col-span-2'
   },
   {
+    id: 'vid-28',
+    title: 'Lançamento de Marca',
+    category: 'Comercial',
+    vimeoId: '1242862007',
+    videoUrl: 'https://vimeo.com/1242862007?fl=tl&fe=ec',
+    thumbnail: 'assets/images/portfolio/thumbs/videos/vimeo-1242862007.webp',
+    aspectRatio: '16:9',
+    badge: 'Comercial',
+    span: 'col-span-2'
+  },
+  {
     id: 'vid-27',
     title: 'Halloween',
     category: 'Eventos',
@@ -241,6 +252,41 @@ const portfolioVideos = [
 ];
 
 const portfolioPhotos = [
+  {
+    id: 'photo-57',
+    title: 'Halloween',
+    category: 'Retratos',
+    isDestaque: true,
+    image: 'assets/images/portfolio/halloween-01.webp',
+    aspectRatio: '3/4',
+    span: 'col-span-1 row-span-2',
+    gallery: [
+      'assets/images/portfolio/halloween-01.webp',
+      'assets/images/portfolio/halloween-02.webp',
+      'assets/images/portfolio/halloween-03.webp',
+      'assets/images/portfolio/halloween-04.webp',
+      'assets/images/portfolio/halloween-05.webp',
+      'assets/images/portfolio/halloween-06.webp',
+      'assets/images/portfolio/halloween-07.webp',
+      'assets/images/portfolio/halloween-08.webp',
+      'assets/images/portfolio/halloween-09.webp',
+      'assets/images/portfolio/halloween-10.webp',
+      'assets/images/portfolio/halloween-11.webp',
+      'assets/images/portfolio/halloween-12.webp',
+      'assets/images/portfolio/halloween-13.webp',
+      'assets/images/portfolio/halloween-14.webp',
+      'assets/images/portfolio/halloween-15.webp',
+      'assets/images/portfolio/halloween-16.webp',
+      'assets/images/portfolio/halloween-17.webp',
+      'assets/images/portfolio/halloween-18.webp',
+      'assets/images/portfolio/halloween-19.webp',
+      'assets/images/portfolio/halloween-20.webp',
+      'assets/images/portfolio/halloween-21.webp',
+      'assets/images/portfolio/halloween-22.webp',
+      'assets/images/portfolio/halloween-23.webp',
+      'assets/images/portfolio/halloween-24.webp'
+    ]
+  },
   {
     id: 'photo-56',
     title: 'Cantora Ana Carolina',

@@ -59,6 +59,52 @@ document.addEventListener('DOMContentLoaded', () => {
     lazyCardObserver.observe(card);
   }
 
+  const readyFullImages = new Set();
+  const requestedFullImages = new Set();
+
+  function prefetchFull(imagePath) {
+    const url = portfolioFull(imagePath);
+    if (requestedFullImages.has(url)) return;
+    requestedFullImages.add(url);
+
+    const preload = new Image();
+    preload.decoding = 'async';
+    preload.onload = () => readyFullImages.add(url);
+    preload.src = url;
+  }
+
+  function addPrefetchIntent(card, imagePath) {
+    let hoverTimer;
+    card.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      hoverTimer = setTimeout(() => prefetchFull(imagePath), 120);
+    });
+    card.addEventListener('pointerleave', () => clearTimeout(hoverTimer));
+    card.addEventListener('pointerdown', () => prefetchFull(imagePath));
+  }
+
+  let videoConnectionsWarmed = false;
+
+  function warmVideoConnections() {
+    if (videoConnectionsWarmed) return;
+    videoConnectionsWarmed = true;
+    ['https://player.vimeo.com', 'https://i.vimeocdn.com', 'https://f.vimeocdn.com', 'https://www.youtube.com'].forEach((href) => {
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = href;
+      document.head.appendChild(link);
+    });
+  }
+
+  videoGrid.addEventListener('pointerover', warmVideoConnections, { once: true });
+  videoGrid.addEventListener('focusin', warmVideoConnections, { once: true });
+
+  function setLightboxState(open) {
+    if (open) window.lenis?.stop();
+    else window.lenis?.start();
+    document.dispatchEvent(new CustomEvent('portfolio:lightbox', { detail: { open } }));
+  }
+
   function makeActivatable(card, onActivate) {
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
@@ -72,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const CARD_CLASSES = 'portfolio-card relative group rounded-2xl overflow-hidden cursor-pointer bg-brand-deep/80 border border-white/10 hover:border-brand-soft/40 focus-visible:outline-2 focus-visible:outline-brand-ice transition-colors duration-500 shadow-xl h-full [content-visibility:auto]';
   const CARD_IMAGE_CLASSES = 'lazy-portfolio-img w-full h-full object-cover transition-[opacity,transform,scale] duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105 opacity-0';
-  const BADGE_CLASSES = 'px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-navy/85 md:bg-brand-navy/70 backdrop-blur-none md:backdrop-blur-md border border-brand-soft/20 text-[8px] sm:text-[10px] font-bold text-brand-ice uppercase tracking-widest';
+  const BADGE_CLASSES = 'px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-navy/85 border border-brand-soft/20 text-[8px] sm:text-[10px] font-bold text-brand-ice uppercase tracking-widest';
 
   function getVimeoDetails(video) {
     let id = video.vimeoId || null;
@@ -150,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${video.title}
               </h3>
             </div>
-            <div class="play-btn-glow w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12 rounded-full bg-brand-ice/30 md:bg-brand-ice/20 backdrop-blur-none md:backdrop-blur-md flex items-center justify-center border border-white/30 shrink-0 text-white shadow-lg">
+            <div class="play-btn-glow w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12 rounded-full bg-brand-ice/30 flex items-center justify-center border border-white/30 shrink-0 text-white shadow-lg">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="translate-x-[1px] w-3 h-3 sm:w-4 sm:h-4 md:w-[18px] md:h-[18px]">
                 <polygon points="6 3 20 12 6 21 6 3"></polygon>
               </svg>
@@ -199,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       setupCardImage(photoCard, portfolioThumb(photo.image), spanClass);
+      addPrefetchIntent(photoCard, photo.image);
       makeActivatable(photoCard, () => openPhotoModal(photo));
 
       photoGrid.appendChild(photoCard);
@@ -297,6 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modalToRemove.classList.remove('lightbox-enter-active');
     releaseMedia(activeIframe);
     document.body.style.overflow = '';
+    setLightboxState(false);
 
     activeModal = null;
     activeIframe = null;
@@ -362,6 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
+    setLightboxState(true);
 
     requestAnimationFrame(() => {
       modal.classList.add('lightbox-enter-active');
@@ -482,24 +531,44 @@ document.addEventListener('DOMContentLoaded', () => {
     img.decoding = 'async';
     img.className = 'max-w-[90vw] max-h-[80vh] object-contain rounded-2xl border border-white/15 shadow-2xl transition-opacity duration-300';
 
+    const prefetchNeighbors = (index) => {
+      const total = currentGallery.length;
+      if (total < 2) return;
+      prefetchFull(currentGallery[(index + 1) % total]);
+      if (total > 2) prefetchFull(currentGallery[(index - 1 + total) % total]);
+    };
+
     const showImage = (index) => {
-      const fullSrc = currentGallery[index];
+      const original = currentGallery[index];
+      const fullSrc = portfolioFull(original);
       img.dataset.full = fullSrc;
-      img.src = portfolioThumb(fullSrc);
+
+      if (readyFullImages.has(fullSrc)) {
+        img.src = fullSrc;
+        prefetchNeighbors(index);
+        return;
+      }
+
+      img.src = portfolioThumb(original);
+      requestedFullImages.add(fullSrc);
 
       const full = new Image();
+      full.decoding = 'async';
+      full.fetchPriority = 'high';
       full.src = fullSrc;
-      full.decode()
-        .then(() => {
-          if (img.dataset.full === fullSrc) img.src = fullSrc;
-        })
-        .catch(() => {
-          if (img.dataset.full === fullSrc) img.src = fullSrc;
-        });
 
-      if (currentGallery.length > 1) {
-        new Image().src = currentGallery[(index + 1) % currentGallery.length];
-      }
+      const swapTo = (src) => {
+        if (img.dataset.full === fullSrc) img.src = src;
+        prefetchNeighbors(index);
+      };
+
+      full.decode().then(
+        () => {
+          readyFullImages.add(fullSrc);
+          swapTo(fullSrc);
+        },
+        () => swapTo(original)
+      );
     };
 
     showImage(currentIndex);

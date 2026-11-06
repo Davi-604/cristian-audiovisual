@@ -5,6 +5,10 @@ const sharp = require('sharp');
 const ROOT = path.resolve(__dirname, '..');
 const PORTFOLIO_DIR = 'assets/images/portfolio';
 const THUMBS_DIR = `${PORTFOLIO_DIR}/thumbs`;
+const LIGHTBOX_DIR = `${PORTFOLIO_DIR}/lightbox`;
+const LIGHTBOX_EDGES = [1600, 2560];
+const LIGHTBOX_QUALITIES = [88, 82];
+const LIGHTBOX_WEBP_OPTIONS = { effort: 6, smartSubsample: true };
 const THUMB_WIDTH = 800;
 const CARD_WIDTH = 520;
 const WEBP_OPTIONS = { quality: 80, effort: 6 };
@@ -64,9 +68,43 @@ async function resize(source, output, width) {
   console.log(`  ${toPosix(output)} (${kb} KB)`);
 }
 
+async function lightboxVariant(source, output, edge) {
+  fs.mkdirSync(path.dirname(abs(output)), { recursive: true });
+  const { width, height } = await sharp(abs(source)).metadata();
+
+  if (Math.max(width, height) <= edge * 1.15) {
+    fs.copyFileSync(abs(source), abs(output));
+  } else {
+    const sourceSize = fs.statSync(abs(source)).size;
+    for (const quality of LIGHTBOX_QUALITIES) {
+      await sharp(abs(source))
+        .rotate()
+        .resize({ width: edge, height: edge, fit: 'inside', withoutEnlargement: true })
+        .webp({ ...LIGHTBOX_WEBP_OPTIONS, quality })
+        .toFile(abs(output));
+      if (fs.statSync(abs(output)).size < sourceSize) break;
+    }
+  }
+
+  const kb = (fs.statSync(abs(output)).size / 1024).toFixed(0);
+  console.log(`  ${toPosix(output)} (${kb} KB)`);
+}
+
 async function run() {
+  const originals = listWebp(PORTFOLIO_DIR, [THUMBS_DIR, LIGHTBOX_DIR]);
+
+  console.log('Versões do lightbox');
+  for (const original of originals) {
+    for (const edge of LIGHTBOX_EDGES) {
+      const output = original
+        .replace(`${PORTFOLIO_DIR}/`, `${LIGHTBOX_DIR}/`)
+        .replace(/\.webp$/i, `-${edge}.webp`);
+      if (isStale(original, output)) await lightboxVariant(original, output, edge);
+    }
+  }
+
   console.log('Miniaturas do portfólio');
-  for (const original of listWebp(PORTFOLIO_DIR, [THUMBS_DIR])) {
+  for (const original of originals) {
     const thumb = original.replace(`${PORTFOLIO_DIR}/`, `${THUMBS_DIR}/`);
     if (!fs.existsSync(abs(thumb))) await resize(original, thumb, THUMB_WIDTH);
   }
